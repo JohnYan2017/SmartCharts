@@ -12,7 +12,7 @@
 ![](http://smartchart.cn/media/editor/WX20201128-075135@2x_20201128075202927382.png)
 
 #### 安装使用说明:
-```shell script
+```python
 
 pip install django-smartchart
 
