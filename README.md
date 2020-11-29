@@ -5,7 +5,9 @@
 #### 为你完全打通前后端, 图形数据联动, 筛选开发毫无压力
 #### 支持集木式的开发模式
 #### 我们让简单和通用化不再是个矛盾体
-#### [社区版开源免费使用](http://smartchart.cn/blog/article/2020/11/27/54.html "社区版开源免费使用")!!
+
+#### [社区版开源免费使用](http://smartchart.cn/blog/article/2020/11/27/54.html "社区版开源免费使用")
+
 ![](http://smartchart.cn/media/editor/WX20201128-075135@2x_20201128075202927382.png)
 
 #### 安装使用说明:
@@ -43,7 +45,7 @@ from django.views.generic import RedirectView
 
 ```
 ### 更多使用说明:
-font size=5 color=red><b>SmartChart</b> designed for you</font>
+<font size=5 color=red><b>SmartChart</b> designed for you</font>
 
 #### SmartChart是为你而生的一个产品, 你只需要使用通用开发技术就可以使用,无需学习特定的技能, 因为她的通用性, 所以让你的知识不会因为改变而淘汰
 #### 因为她的灵活性, 你可以充分发挥你的智慧让她变得非常的Smart
@@ -51,15 +53,14 @@ font size=5 color=red><b>SmartChart</b> designed for you</font>
 
 她是一个数据集装箱, 让你非常方便的把数据组装起来后, 可使用统一的接口对外服务,支持系统间嵌入,实时,快速定制化开发. 你也可以理解为数据中台, 用可视化提供统一数据服务. 这是一个面向开发人员的平台, 实现数据的最后一公里
 
-![](/media/editor/logo8_20200611075317556690.png)
 
 - 开始使用smart chart, 您不需要任何专业知识, 无需coding, 选择模块组装即可!
 - 但如果要使用好smart chart, 建意了解下javascript, H5, Echart这些前端知识, 可以让你的应用更加得心应手,创作更炫的效果
 - 如果你需要更进一步订制你的数据, 你需要了解下SQL的使用,本项目高级应用语言都是通用的技能, 象js, h5,sql 学习成本低
 
 #### 入门视屏说明
-<iframe src="//player.bilibili.com/player.html?aid=669885047&bvid=BV1Ma4y1L7Hv&cid=244559724&page=1" scrolling="no" width="100%"  height="400px" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-
+- [视屏教程一](https://www.ixigua.com/6887009904889070094/ "视屏教程一")
+- [视屏教程二](https://www.ixigua.com/6882218819964797447/ "视屏教程二")
 
 #### Smart Chart 基础
 主要分为 数据连接池, 数据集, 图形格式, 页面模板, 主题, 组装盒(Dashboard)
@@ -115,14 +116,8 @@ PowerBI/Tableau嵌入的也虚拟成了图形格式, 具体方式见另一文章
 ###Dashboard
 选择你需要拼装的数据集,对应的图形,你也可以修改div, 让他更适合当前页面的需求, 选择你喜欢的主题, 会自动应用到页面
 
-![](/media/editor/westeros_20190601130951364261.png)
 
-具体高级用法在后续的使用说明中会进行细化,
-与我联系请关注公众号给我留言,获取开发者权限：
-
-![](/media/editor/qrcode_for_gh_95bb6f18ade8_258_20201004120759761572.jpg)
-
-#####估计以让说明你有点不知如何下手, 下面你可以STEP by STEP 的去尝试
+#####估计以让说明你有点不知如何下手, 下面你可以STEP by STEP 的去尝试, 建议先看最下方的视屏
 - [SmartChart入门](https://www.smartchart.cn/blog/article/2019/12/14/33.html "SmartChart入门")
 - [组装Dashboard](https://www.smartchart.cn/blog/article/2019/6/7/7.html "组装Dashboard")
 - [你的第一个模板](https://www.smartchart.cn/blog/article/2019/6/8/8.html "你的第一SMART CHART 模板")
