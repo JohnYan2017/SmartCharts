@@ -1,7 +1,8 @@
 
 #### SmartChart是一个基于Echarts的微代码开发平台
 #### Django-smartchart是基于smartchart进行了简化,可轻松应用于django,让你项目页面图形定制非常方便
-<h3 style="color: red">简单, 敏捷, 高效, 通用化, 高度可定制化</h3>
+### 简单, 敏捷, 高效, 通用化, 高度可定制化
+
 #### 为你完全打通前后端, 图形数据联动, 筛选开发毫无压力
 #### 支持集木式的开发模式
 #### 我们让简单和通用化不再是个矛盾体
@@ -44,6 +45,7 @@ from django.views.generic import RedirectView
 你就可以愉快的使用smartchart了
 
 ```
+
 ### 更多使用说明:
 <font size=5 color=red><b>SmartChart</b> designed for you</font>
 
@@ -75,8 +77,7 @@ from django.views.generic import RedirectView
 
 数据分析师&业务 确定好需求, 进行页面草图设计, 提出数据需求给建模工程师, 完成数据接口后, 数据分析师&业务挑选图形格式(含powerbi, tableau等BI产品), 模板进行组装, 特殊展示需求对相应的code进行修改(js, html)
 
-
-###数据集
+### 数据集
 数据集可以理解为一个个的cube, 通过sql生成, 支持定时, 点频, 实时刷新的机制, 我们建意你用专业的工具开发sql 查询, 如navicate,datagrip,hue 
 数据集的高级用法, 参考如下链接 [数据集图形对应关系](https://www.smartchart.cn/blog/article/2019/7/9/10.html "数据集图形对应关系")
 **对于一般用户来说, 无需了解如何生成数据集, 但建意了解以下数据集的常识**
@@ -91,7 +92,7 @@ dataset = [
 
 ```
 
-###图形设定
+### 图形设定
 smartchart内置了非常多的图形, 可以直接拿来使用, 但是要定制自已的样式, 建意稍作修改, 比如加上图形, 更改tips, 标题等等, 具体修改方式, 请参考[smartchart平台样列](https://www.smartchart.cn/echart/editor_min/?chartid=69 "smartchart平台样列")
 
 如果你想进一步了解, 你可以参考 [自定义图形指南](https://www.smartchart.cn/blog/article/2019/8/21/14.html "自定义图形指南")
@@ -101,7 +102,7 @@ PowerBI/Tableau嵌入的也虚拟成了图形格式, 具体方式见另一文章
 那接下来我们需要给图形一个舞台, 那就是模板,
 
 
-###模版
+### 模版
 模版就是一个html页面, 理论上来说, 你可以随意发挥, 为了让不太懂html的同学定制自已的模板, 我们提供了可视化开发模板,设计好的code复制过去覆盖这一块代码即可, 如有其它需求可自行修改(前提你得稍微会点h5:tw-1f453: :tw-1f43e:)
 每一个div对应一个DIV格式, 可以比喻成给图形包一件衣服,我们会把图形绑定到这个容器中,你可以用它来设定容器的样式,如长宽高,边距,边框等等:
 ```html
@@ -113,11 +114,11 @@ PowerBI/Tableau嵌入的也虚拟成了图形格式, 具体方式见另一文章
 接下来只需要在dashborad中进行组装就可以了
 
 
-###Dashboard
+### Dashboard
 选择你需要拼装的数据集,对应的图形,你也可以修改div, 让他更适合当前页面的需求, 选择你喜欢的主题, 会自动应用到页面
 
 
-#####估计以让说明你有点不知如何下手, 下面你可以STEP by STEP 的去尝试, 建议先看最下方的视屏
+##### 估计以让说明你有点不知如何下手, 下面你可以STEP by STEP 的去尝试, 建议先看最下方的视屏
 - [SmartChart入门](https://www.smartchart.cn/blog/article/2019/12/14/33.html "SmartChart入门")
 - [组装Dashboard](https://www.smartchart.cn/blog/article/2019/6/7/7.html "组装Dashboard")
 - [你的第一个模板](https://www.smartchart.cn/blog/article/2019/6/8/8.html "你的第一SMART CHART 模板")
