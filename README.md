@@ -1,6 +1,6 @@
 
 #### SmartChart是一个基于Echarts的微代码开发平台
-#### Django-smartchart是基于smartchart进行了简化,可轻松应用于django,让你项目页面图形定制非常方便
+#### Echarts-django, Django-smartchart是基于smartchart进行了简化,可轻松应用于django,让你项目页面图形定制非常方便
 ### 简单, 敏捷, 高效, 通用化, 高度可定制化
 
 #### 为你完全打通前后端, 图形数据联动, 筛选开发毫无压力
@@ -8,7 +8,10 @@
 #### 我们让简单和通用化不再是个矛盾体
 
 #### [社区版开源免费使用](http://smartchart.cn/blog/article/2020/11/27/54.html "社区版开源免费使用")
-
+![智慧物流](https://images.gitee.com/uploads/images/2019/0614/130751_e439728b_2327318.png "智慧物流.png")
+![舆情分析](https://images.gitee.com/uploads/images/2019/0614/130021_887dc34c_2327318.png "舆情分析.png")
+![智慧社区](https://images.gitee.com/uploads/images/2019/0614/130053_5cfd9a55_2327318.png "智慧社区.png")
+![智慧医疗](https://images.gitee.com/uploads/images/2019/0614/135158_55f95840_2327318.png "智慧医疗.png")
 ![](http://smartchart.cn/media/editor/WX20201128-075135@2x_20201128075202927382.png)
 
 #### 安装使用说明:
@@ -63,8 +66,8 @@ from django.views.generic import RedirectView
 - 如果你需要更进一步订制你的数据, 你需要了解下SQL的使用,本项目高级应用语言都是通用的技能, 象js, h5,sql 学习成本低
 
 #### 入门视屏说明
-- [视屏教程一](https://www.ixigua.com/6887009904889070094/ "视屏教程一")
-- [视屏教程二](https://www.ixigua.com/6882218819964797447/ "视屏教程二")
+- [视屏教程一](https://www.ixigua.com/6882218819964797447/ "视屏教程一")
+- [视屏教程二](https://www.ixigua.com/6887009904889070094/ "视屏教程二")
 
 #### Smart Chart 基础
 主要分为 数据连接池, 数据集, 图形格式, 页面模板, 主题, 组装盒(Dashboard)
