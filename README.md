@@ -14,7 +14,8 @@
 #### 安装使用说明:
 ```python
 
-pip install django-smartchart
+pip install django-smartchart  #只支持最新版Python3.9.x
+pip install django-smartchart==3.6  #支持python3.6.x
 
 安装完成后, 你可以直接在命令行输入smartchart,即可启动
 访问url: http://127.0.0.1:8000, 帐号密码都是admin
@@ -35,6 +36,7 @@ from django.views.generic import RedirectView
     path('echart/', include('smart_chart.echart.urls')),
     path('', RedirectView.as_view(url='echart/index/')),  #smartchart报表管理页, 自行更改路由
 6. 初始化DB, 命令行输入: 
+    python manage.py makemigrations
     python manage.py migrate
 7. 建立管理员帐号, 如果已有可忽略
    python manage.py createsuperuser
