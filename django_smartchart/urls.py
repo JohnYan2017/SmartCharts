@@ -21,5 +21,5 @@ from django.views.generic import RedirectView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('echart/', include('smart_chart.echart.urls')),
-    path('', RedirectView.as_view(url='echart/index/')),
+    path('', RedirectView.as_view(url='echart/index/')),  # 基于你的项目定义报表首页路由
 ]

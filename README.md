@@ -1,7 +1,7 @@
 
 #### SmartChart是一个基于Echarts的微代码开发平台
-#### Echarts-django, Django-smartchart是基于smartchart进行了简化,可轻松应用于django,让你项目页面图形定制非常方便
-### 简单, 敏捷, 高效, 通用化, 高度可定制化
+#### Echarts-django, Django-smartchart是基于smartchart进行了简化,可轻松应用于你的django项目
+### 简单, 敏捷, 高效, 通用化, 高度可定制化, 让你的项目瞬间档次提升
 
 #### 为你完全打通前后端, 图形数据联动, 筛选开发毫无压力
 #### 支持集木式的开发模式
@@ -50,6 +50,12 @@ from django.views.generic import RedirectView
 你就可以愉快的使用smartchart了
 
 ```
+##### 图形样列参考 
+- [SmartChart图形样列](https://www.smartchart.cn/echart/show/ "图形样列")
+- [SmartChart仪表盘样列](https://www.smartchart.cn/index/ "项目样列")
+
+####安装及使用问题,微信群有时效性,加以下微信号拉你入群
+![](https://www.smartchart.cn/media/editor/QQ20201201-140615@2x_20201201140657981573.png)
 
 ### 更多使用说明:
 <font size=5 color=red><b>SmartChart</b> designed for you</font>
@@ -65,7 +71,7 @@ from django.views.generic import RedirectView
 - 但如果要使用好smart chart, 建意了解下javascript, H5, Echart这些前端知识, 可以让你的应用更加得心应手,创作更炫的效果
 - 如果你需要更进一步订制你的数据, 你需要了解下SQL的使用,本项目高级应用语言都是通用的技能, 象js, h5,sql 学习成本低
 
-#### 入门视屏说明
+#### 入门视屏说明(以下文字说明是之前版本,现已迭代多次,建意看视屏了解)
 - [视屏教程一](https://www.ixigua.com/6882218819964797447/ "视屏教程一")
 - [视屏教程二](https://www.ixigua.com/6887009904889070094/ "视屏教程二")
 
