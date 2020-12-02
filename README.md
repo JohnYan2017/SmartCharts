@@ -1,6 +1,6 @@
 
-#### SmartChart是一个基于Echarts的微代码开发平台
-#### Echarts-django, Django-smartchart是基于smartchart进行了简化,可轻松应用于你的django项目
+#### SmartChart是一个基于Echarts的微代码开发平台, 适用于任何WEB项目
+#### Echarts-django, Django-smartchart是基于smartchart进行了简化,可轻松应用于你的项目
 ### 简单, 敏捷, 高效, 通用化, 高度可定制化, 让你的项目瞬间档次提升
 
 #### 为你完全打通前后端, 图形数据联动, 筛选开发毫无压力
@@ -15,32 +15,39 @@
 ![](http://smartchart.cn/media/editor/WX20201128-075135@2x_20201128075202927382.png)
 
 #### 安装使用说明:
-```python
-
-pip install django-smartchart  #只支持最新版Python3.9.x
-pip install django-smartchart==3.6  #支持python3.6.x
-
-安装完成后, 你可以直接在命令行输入smartchart,即可启动
-```
-访问url: <a href='http://127.0.0.1:8000'>http://127.0.0.1:8000 </a>, 帐号密码都是admin
-##### 如果你是非Python开发者
+##### 如果你是非Python语言的开发者
 ```shell
 你可以把smartchart当作服务来嵌入你的页面使用
-1. 安装Python环境,请安装最新版3.9
-2. 命令行安装: pip install django-smartchart
-3. 本地命令行启动: smartchart
-4. 如果你需要远程访问
+1. 安装Python环境,请安装最新版3.9!!
+2. 命令行安装: pip install smartchart
+3. 初始化DB, 命令行输入(仅适用于MAC or Linux): 
+    smartchart makemigrations
+    smartchart migrate
+4. 建立管理员帐号, 如果已有可忽略
+   smartchart createsuperuser
+5. 本地命令行启动: smartchart
+   如果你需要远程访问
    启动方式: smartchart runserver 0.0.0.0:8000 --insecure
-5. 你可以采用单点登录的方式与smartchart进行对接
+6. 访问http://127.0.0.1:8000/echart/init_db/ 进行数据初始化
+7. 如果需要你可以采用单点登录的方式与smartchart进行对接
     /echart/smart_login?id=xxx&stamp=xxx&token=xxx&url=/
     id: 用户名
     stamp: 时间戳(1970年1月1日到生成时间的毫秒数)
     token: 采用sha1加密, token=SHA1(链接秘钥+stamp+id)
     链接秘钥默认是smartchart,你可以在你的环境变量中设定SMART_KEY进行替换
     url: 登录成功后跳转链接
+
+Note: 如果你是windows用户, 无法直接使用smartchart命令, 你需要找到你的python安装地址,
+   如C:\Users\xxx\AppData\Local\Programs\Python\Python39
+   将命令替换成 python C:\Users\xxx\AppData\Local\Programs\Python\Python39\Scripts\smartchart  xxxxx
 ```
+
+访问首页url: <a href='http://127.0.0.1:8000'>http://127.0.0.1:8000 </a>
+
 ##### 如果你是python开发者,可以在你的django项目中当作apps使用
 ```python
+pip install smartchart  #只支持最新版Python3.9.x
+pip install smartchart==3.6.2  #只支持python3.6.x
 简单配置一下, 你可以参考此demo
 1. 在你的setting.py的INSTALL_APPS中加入'smart_chart.echart'
 2. MIDDLEWARE 中注释掉XFrameOptionsMiddleware
