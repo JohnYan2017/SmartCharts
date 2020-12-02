@@ -21,9 +21,27 @@ pip install django-smartchart  #只支持最新版Python3.9.x
 pip install django-smartchart==3.6  #支持python3.6.x
 
 安装完成后, 你可以直接在命令行输入smartchart,即可启动
-访问url: http://127.0.0.1:8000, 帐号密码都是admin
-
-你也可以在你的django项目中当作apps使用, 简单配置一下, 你可以参考此demo
+```
+访问url: <a href='http://127.0.0.1:8000'>http://127.0.0.1:8000 </a>, 帐号密码都是admin
+##### 如果你是非Python开发者
+```shell
+你可以把smartchart当作服务来嵌入你的页面使用
+1. 安装Python环境,请安装最新版3.9
+2. 命令行安装: pip install django-smartchart
+3. 本地命令行启动: smartchart
+4. 如果你需要远程访问
+   启动方式: smartchart runserver 0.0.0.0:8000 --insecure
+5. 你可以采用单点登录的方式与smartchart进行对接
+    /echart/smart_login?id=xxx&stamp=xxx&token=xxx&url=/
+    id: 用户名
+    stamp: 时间戳(1970年1月1日到生成时间的毫秒数)
+    token: 采用sha1加密, token=SHA1(链接秘钥+stamp+id)
+    链接秘钥默认是smartchart,你可以在你的环境变量中设定SMART_KEY进行替换
+    url: 登录成功后跳转链接
+```
+##### 如果你是python开发者,可以在你的django项目中当作apps使用
+```python
+简单配置一下, 你可以参考此demo
 1. 在你的setting.py的INSTALL_APPS中加入'smart_chart.echart'
 2. MIDDLEWARE 中注释掉XFrameOptionsMiddleware
 3. 将你的设定为中国时区, 支持中文基础平台建设!
@@ -33,8 +51,8 @@ pip install django-smartchart==3.6  #支持python3.6.x
     USE_L10N = True
     USE_TZ = False
 4. 在你的url.py中加入引用
-from django.conf.urls import include
-from django.views.generic import RedirectView
+    from django.conf.urls import include
+    from django.views.generic import RedirectView
 5. urlpatterns中加入路由
     path('echart/', include('smart_chart.echart.urls')),
     path('', RedirectView.as_view(url='echart/index/')),  #smartchart报表管理页, 自行更改路由
@@ -54,7 +72,7 @@ from django.views.generic import RedirectView
 - [SmartChart图形样列](https://www.smartchart.cn/echart/show/ "图形样列")
 - [SmartChart仪表盘样列](https://www.smartchart.cn/index/ "项目样列")
 
-####安装及使用问题,微信群有时效性,加以下微信号拉你入群
+#### 安装及使用问题,微信群有时效性,加以下微信号拉你入群
 ![](https://www.smartchart.cn/media/editor/QQ20201201-140615@2x_20201201140657981573.png)
 
 ### 更多使用说明:
