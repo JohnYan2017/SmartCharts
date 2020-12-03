@@ -15,34 +15,59 @@
 ![](http://smartchart.cn/media/editor/WX20201128-075135@2x_20201128075202927382.png)
 
 #### 安装使用说明:
+- [Window平台安装视屏介绍](https://www.ixigua.com/6901867671193649668/ "Window平台安装视屏介绍")
+
 ##### 如果你是非Python语言的开发者
-```shell
+```python
 你可以把smartchart当作服务来嵌入你的页面使用
 1. 安装Python环境,请安装最新版3.9!!
-2. 命令行安装: pip install smartchart
-3. 初始化DB, 命令行输入(仅适用于MAC or Linux): 
+2. 命令行安装: pip3 install smartchart
+
+# Mac or Linux 初始化方法
+3. 初始化DB, 命令行输入
     smartchart makemigrations
     smartchart migrate
 4. 建立管理员帐号, 如果已有可忽略
-   smartchart createsuperuser
-5. 本地命令行启动: smartchart
-   如果你需要远程访问
-   启动方式: smartchart runserver 0.0.0.0:8000 --insecure
-6. 访问http://127.0.0.1:8000/echart/init_db/ 进行数据初始化
-7. 如果需要你可以采用单点登录的方式与smartchart进行对接
-    /echart/smart_login?id=xxx&stamp=xxx&token=xxx&url=/
-    id: 用户名
-    stamp: 时间戳(1970年1月1日到生成时间的毫秒数)
-    token: 采用sha1加密, token=SHA1(链接秘钥+stamp+id)
-    链接秘钥默认是smartchart,你可以在你的环境变量中设定SMART_KEY进行替换
-    url: 登录成功后跳转链接
-
-Note: 如果你是windows用户, 无法直接使用smartchart命令, 你需要找到你的python安装地址,
+   smartchart createsuperuser 
+5. 本地命令行启动: 
+   smartchart
+   如果你需要远程访问，启动方式: 
+   smartchart runserver 0.0.0.0:8000 --insecure
+   
+# Window 初始化方法
+3. 初始化DB, 你需要找到你的python安装地址,不记得了参考下图方法
    如C:\Users\xxx\AppData\Local\Programs\Python\Python39
-   将命令替换成 python C:\Users\xxx\AppData\Local\Programs\Python\Python39\Scripts\smartchart  xxxxx
+   命令行输入
+   cd  C:\Users\....\Python39\Scripts\
+   python smartchart makemigrations
+   python smartchart migrate
+4. 建立管理员帐号, 如果已有可忽略
+   python smartchart createsuperuser  
+5. 本地命令行启动: 
+   python smartchart
+   如果你需要远程访问
+   启动方式: 
+   python smartchart runserver 0.0.0.0:8000 --insecure
+   
 ```
+**访问http://127.0.0.1:8000/echart/init_db/ 进行数据初始化
+**
+**访问首页http://127.0.0.1:8000**
 
-访问首页url: <a href='http://127.0.0.1:8000'>http://127.0.0.1:8000 </a>
+```python
+如果需要，你可以采用单点登录的方式与smartchart进行对接
+/echart/smart_login?id=xxx&stamp=xxx&token=xxx&url=/
+参数说明：
+id: 用户名（在smartchart平台中管理）
+stamp: 时间戳(1970年1月1日到生成时间的毫秒数)
+token: 采用sha1加密, token=SHA1(链接秘钥+stamp+id)
+	   链接秘钥默认smartchart,
+	   请在环境变量设定SMART_KEY替换（重要）
+url: 登录成功后跳转链接
+```
+**提示：为了数据安全,对外生产环境使用,务必设定你的环境变量SMART_KEY
+**
+
 
 ##### 如果你是python开发者,可以在你的django项目中当作apps使用
 ```python
@@ -51,7 +76,7 @@ pip install smartchart==3.6.2  #只支持python3.6.x
 简单配置一下, 你可以参考此demo
 1. 在你的setting.py的INSTALL_APPS中加入'smart_chart.echart'
 2. MIDDLEWARE 中注释掉XFrameOptionsMiddleware
-3. 将你的设定为中国时区, 支持中文基础平台建设!
+3. setting.py中设定为中国时区, 支持中文基础平台建设!
     LANGUAGE_CODE = 'zh-hans'
     TIME_ZONE = 'Asia/Shanghai'
     USE_I18N = True
@@ -60,9 +85,9 @@ pip install smartchart==3.6.2  #只支持python3.6.x
 4. 在你的url.py中加入引用
     from django.conf.urls import include
     from django.views.generic import RedirectView
-5. urlpatterns中加入路由
+5. url.py的urlpatterns中加入路由
     path('echart/', include('smart_chart.echart.urls')),
-    path('', RedirectView.as_view(url='echart/index/')),  #smartchart报表管理页, 自行更改路由
+    path('', RedirectView.as_view(url='echart/index/')),  #首页,可自定义路由
 6. 初始化DB, 命令行输入: 
     python manage.py makemigrations
     python manage.py migrate
@@ -70,11 +95,9 @@ pip install smartchart==3.6.2  #只支持python3.6.x
    python manage.py createsuperuser
 8. 启动服务
    python manage.py runserver
-9. 访问http://127.0.0.1:8000/echart/init_db/ 进行数据初始化
-
-你就可以愉快的使用smartchart了
-
 ```
+访问http://127.0.0.1:8000/echart/init_db/ 进行数据初始化
+
 ##### 图形样列参考 
 - [SmartChart图形样列](https://www.smartchart.cn/echart/show/ "图形样列")
 - [SmartChart仪表盘样列](https://www.smartchart.cn/index/ "项目样列")
