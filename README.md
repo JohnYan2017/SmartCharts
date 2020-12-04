@@ -48,11 +48,15 @@
    如果你需要远程访问
    启动方式: 
    python smartchart runserver 0.0.0.0:8000 --insecure
-   
+
+6. 访问http://127.0.0.1:8000/echart/init_db/ 进行数据初始化
 ```
-**访问http://127.0.0.1:8000/echart/init_db/ 进行数据初始化
-**
+
 **访问首页http://127.0.0.1:8000**
+
+**开发前建意新建一个非超级管理员帐号,避免改到内置的数据集和图形,并观看视屏说明**
+- [视屏教程一](https://www.ixigua.com/6882218819964797447/ "视屏教程一")
+
 
 ```python
 如果需要，你可以采用单点登录的方式与smartchart进行对接
@@ -72,7 +76,7 @@ url: 登录成功后跳转链接
 ##### 如果你是python开发者,可以在你的django项目中当作apps使用
 ```python
 pip install smartchart  #只支持最新版Python3.9.x
-pip install smartchart==3.6.2  #只支持python3.6.x
+pip install smartchart36  #只支持python3.6.x
 简单配置一下, 你可以参考此demo
 1. 在你的setting.py的INSTALL_APPS中加入'smart_chart.echart'
 2. MIDDLEWARE 中注释掉XFrameOptionsMiddleware
