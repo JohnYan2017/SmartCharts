@@ -1,13 +1,16 @@
+[Wiki](https://gitee.com/smartchart/django_smartchart/wikis/pages) \|
+[Community](https://www.smartchart.cn/) \|
+[Sponsors](https://www.smartchart.cn/) \|
+[GitHub](https://github.com/JohnYan2017/Echarts-Django) \|
+[Gitee](https://gitee.com/smartchart/django_smartchart)
 
-#### SmartChart是一个基于Echarts的微代码开发平台, 适用于任何WEB项目
-#### Echarts-django, Django-smartchart是基于smartchart进行了简化,可轻松应用于你的项目
-### 简单, 敏捷, 高效, 通用化, 高度可定制化, 让你的项目瞬间档次提升
+#### SmartChart是基于Echarts的微代码开发平台,适用于任何WEB项目,比拖拽开发更方便
+### 简单, 敏捷, 高效,通用化, 高度可定制化, 让你的项目瞬间档次提升
 
-#### 为你完全打通前后端, 图形数据联动, 筛选开发毫无压力
-#### 支持集木式的开发模式
-#### 我们让简单和通用化不再是个矛盾体
+#### 完全真正打通前后端, 图形数据联动, 筛选开发毫无压力
+#### 集木式的开发模式, 开箱即用, 安装简单, 依赖少, 适应各种平台
+#### 我们让简单和通用化不再是个矛盾体, 加入我们共建生态
 
-#### [社区版开源免费使用](http://smartchart.cn/blog/article/2020/11/27/54.html "社区版开源免费使用")
 ![智慧物流](https://images.gitee.com/uploads/images/2019/0614/130751_e439728b_2327318.png "智慧物流.png")
 ![舆情分析](https://images.gitee.com/uploads/images/2019/0614/130021_887dc34c_2327318.png "舆情分析.png")
 ![智慧社区](https://images.gitee.com/uploads/images/2019/0614/130053_5cfd9a55_2327318.png "智慧社区.png")
@@ -18,7 +21,12 @@
 - [Window平台安装视屏介绍](https://www.ixigua.com/6901867671193649668/ "Window平台安装视屏介绍")
 
 ##### 如果你是非Python语言的开发者
-```python
+###### 下载并安装Python
+官方[最新Python下载链接](https://www.python.org/downloads/release/python-390/ "最新Python下载链接")
+如果下载太慢, 可以到[淘宝镜象下载](https://npm.taobao.org/mirrors/python/3.9.0/ "淘宝镜象下载")
+也可以直接下载[WINDOWS64位安装版](https://npm.taobao.org/mirrors/python/3.9.0/python-3.9.0-amd64.exe "WINDOWS64位安装版")
+[MAC电脑安装版](http://npm.taobao.org/mirrors/python/3.9.0/python-3.9.0rc2-macosx10.9.pkg "MAC电脑安装版")
+```shell script
 你可以把smartchart当作服务来嵌入你的页面使用
 1. 安装Python环境,请安装最新版3.9!!
 2. 命令行安装: pip3 install smartchart
@@ -31,7 +39,7 @@
    smartchart createsuperuser 
 5. 本地命令行启动: 
    smartchart
-   如果你需要远程访问，启动方式: 
+   如果你需要远程访问,启动方式: 
    smartchart runserver 0.0.0.0:8000 --insecure
    
 # Window 初始化方法
@@ -54,14 +62,15 @@
 
 **访问首页http://127.0.0.1:8000**
 
-**开发前建意新建一个非超级管理员帐号(重要),避免改到内置的数据集和图形,并观看视屏说明!!**
+**开发前建意新建一个非超级管理员帐号(重要),避免改到内置的数据集和图形,并观看视屏说明!!!**
 - [SQL与图形联动视屏教程](https://www.ixigua.com/6902584882958959116/ "SQL与图形联动视屏教程")
 - [基础操作视屏教程](https://www.ixigua.com/6882218819964797447/ "基础操作视屏教程")
 
-
 ```python
-如果需要，你可以采用单点登录的方式与smartchart进行对接
-/echart/smart_login?id=xxx&stamp=xxx&token=xxx&url=/
+# 如果需要，你可以采用单点登录的方式与smartchart进行对接
+# 各种语言的对接源码可以在对应的xxxInterface中找到,欢迎PULL
+'/echart/smart_login?id=xxx&stamp=xxx&token=xxx&url=/'
+'''
 参数说明：
 id: 用户名（在smartchart平台中管理）
 stamp: 时间戳(1970年1月1日到生成时间的毫秒数)
@@ -69,13 +78,15 @@ token: 采用sha1加密, token=SHA1(链接秘钥+stamp+id)
 	   链接秘钥默认smartchart,
 	   请在环境变量设定SMART_KEY替换（重要）
 url: 登录成功后跳转链接
+'''
+
 ```
-**提示：为了数据安全,对外生产环境使用,务必设定你的环境变量SMART_KEY
-**
+
+**提示：为了数据安全,对外生产环境使用,务必设定你的环境变量SMART_KEY**
 
 
 ##### 如果你是python开发者,可以在你的django项目中当作apps使用
-```python
+```shell script
 pip install smartchart  #只支持最新版Python3.9.x
 pip install smartchart==3.7.3  #只支持python3.7.x
 pip install smartchart==3.6.3  #只支持python3.6.x
