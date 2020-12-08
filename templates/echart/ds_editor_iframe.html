@@ -1,0 +1,134 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>数据集设计</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+    <link rel="icon" type="image.png" href="https://www.smartchart.cn/static/images/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.smartchart.cn/static/editor/editor.css">
+</head>
+
+<body>
+<div class="container_fluid">
+    <div class="row_fluid">
+        <div class="col-xs-6 col-md-6" style="padding:0.5% 0.5%;">
+            <div class="NightTheme">
+                <div id="main_container">
+                    <div id="core" class="core core_margin1">
+                        <div class="editorSet clearfix">
+                            <div>
+                                <div class="editor">
+                                    <span class="label" id="title"></span><span class="glyphicon glyphicon-compressed"
+                                                                                style="color: rgb(255, 140, 60);"
+                                                                                id="conn"></span>
+                                    <a class="glyphicon glyphicon-th" style="color: rgb(255, 140, 60);"
+                                       href="/admin/echart/echartdataset/">返回</a>
+                                    <a title="帮助" class="glyphicon glyphicon-question-sign"
+                                       style="color: rgb(155, 205, 60);float:right" href="#" onclick="load_help('help_ds')"></a>
+                                    <a class="submit-btn glyphicon glyphicon-refresh" id="submit">保存并刷新</a>
+                                    <select id="ace-theme">
+                                        <option value="clouds">clouds</option>
+                                        <option value="monokai">monokai</option>
+                                        <option value="chrome">chrome</option>
+                                        <option value="github">github</option>
+                                        <option value="eclipse">eclipse</option>
+                                        <option value="tomorrow">tomorrow</option>
+                                        <option value="dawn">dawn</option>
+                                        <option value="sqlserver">sqlserver</option>
+                                        <option value="twilight">twilight</option>
+                                    </select><span id="printlog" style="color:red"></span>
+                                    <pre id="editor1" class="edit-area"></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-6" style="padding:0.5% 0.5%;">
+            <iframe id="iframepage" class="iframechart" src="/echart/?type=z.chart&dev=1&dataset={{dsid}}"
+                    frameborder="0" scrolling="auto" width="100%"></iframe>
+            <span class="glyphicon glyphicon-tags" style="font-size: 8px;"></span>常规为三个字段(维度,维度,度量) 或
+            (维度,度量,度量...),参数可使用/* and xx = $PARAM */,不传参数据自动忽略
+            你也可以直接使用dataset=[[]] 或{}来赋值. 建意用SQL工具调试好后再贴入, 更多dataset使用方法,参考 <a
+                href="https://www.smartchart.cn/blog/article/2019/7/9/10.html" target="_blank">数据集说明</a>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+</div>
+<!-- 修改名称  -->
+<div class="modal fade" id="modal_name" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_name"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true">×
+                </button>
+                <h4 class="modal-title" id="myModalLabel_name">
+                    修改数据集名称
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="input-group">
+                    <span class="input-group-addon" id="dsid_input">#</span>
+                    <input type="text" class="form-control" value="" placeholder="数据集名称" id="dsname_input">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default"
+                        data-dismiss="modal">关闭
+                </button>
+                <button type="button" class="btn btn-primary" onclick="save_title()">
+                    提交更改
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+<!-- 修改连接 -->
+<div class="modal fade" id="modal_conn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_conn"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true">×
+                </button>
+                <h4 class="modal-title" id="myModalLabel_conn">
+                    修改连接
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>选择数据源</label>
+                    <select class="form-control" id="connselect">
+                    </select></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default"
+                        data-dismiss="modal">关闭
+                </button>
+                <button type="button" class="btn btn-primary" onclick="save_conn()">
+                    提交更改
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+<script src="https://www.smartchart.cn/static/js/jquery-2.2.3.min.js"></script>
+<script type="text/javascript" src="https://www.smartchart.cn/static/ace/ace.js"></script>
+<script type="text/javascript" src="https://www.smartchart.cn/static/ace/ext-language_tools.js"></script>
+<script type="text/javascript" src="https://www.smartchart.cn/static/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://www.smartchart.cn/static/editor/common.js"></script>
+<script type="text/javascript" src="https://www.smartchart.cn/static/editor/ds_editor_frame.js"></script>
+</body>
+</html>

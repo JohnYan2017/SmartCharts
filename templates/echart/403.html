@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,user-scalable=no,minimal-ui">
+<title>你需要激活</title>
+<meta name="keywords" content="你需要激活" />
+</head>
+<body>
+<h4>为方便大家交流使用问题, 所以强制要求加微信获取激活码, 请放心不需要费用</h4>
+<div><img src="https://www.smartchart.cn/static/images/auth.png" height="200px"></div>
+<div><input id="authkey" placeholder="请输入你的KEY"><button onclick="get_auth()">激活</button></div>
+<p><small><a href="https://www.smartchart.cn">@smartchart.cn</a> </small></p>
+<div><span id="authcontent"></span></div>
+<script src="https://www.smartchart.cn/static/js/jquery-2.2.3.min.js"></script>
+<script>
+function get_auth() {
+    let key = $('#authkey').val();
+    $.ajax({type: "POST",url: '/echart/auth_right/', data:{key: key} ,success: function (data)
+    { $('#authcontent').html(data['msg']);
+} });
+}
+</script>
+
+
+</body>
+</html>

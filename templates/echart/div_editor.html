@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>DIV设计</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+    <link rel="icon" type="image.png" href="https://www.smartchart.cn/static/images/favicon.ico">
+{#    <link rel="stylesheet" href="https://www.smartchart.cn/static/bootstrap/css/bootstrap.min.css">#}
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.smartchart.cn/static/editor/editor.css">
+</head>
+
+<body>
+<div class="container_fluid">
+    <div class="row_fluid">
+        <div class="col-xs-12 col-md-7" style="padding:0.5% 0.5%;">
+            <div class="NightTheme">
+                <div id="main_container">
+                    <div id="core" class="core core_margin1">
+                        <div class="editorSet clearfix">
+                            <div>
+                                <div class="editor">
+                                    <span class="label">{{name|safe}}</span><a class="submit-btn" id="submit">保存DIV</a>
+                                    <select id="ace-theme">
+                                        <option value="clouds">clouds</option>
+                                        <option value="monokai">monokai</option>
+                                        <option value="chrome">chrome</option>
+                                        <option value="github">github</option>
+                                        <option value="eclipse">eclipse</option>
+                                        <option value="tomorrow">tomorrow</option>
+                                        <option value="dawn">dawn</option>
+                                        <option value="sqlserver">sqlserver</option>
+                                        <option value="twilight">twilight</option>
+                                    </select><span id="printlog" style="color:red"></span>
+                                    <a class="glyphicon glyphicon-question-sign" title="帮助"
+                                       style="color: rgb(155, 205, 60);float:right" onclick="load_help('help_div')"></a>
+                                    <a class="glyphicon glyphicon-magnet" title="复制数据集"
+                                       style="color: rgb(255, 140, 60);float:right" onclick="copy_ds()"></a>
+
+
+                                    <pre id="editor1" class="edit-area"></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-5" style="padding:0.1% 0.1%;" id="preview"></div>
+    </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+</div>
+
+<script src="https://www.smartchart.cn/static/js/jquery-2.2.3.min.js"></script>
+<script type="text/javascript" src="https://www.smartchart.cn/static/ace/ace.js"></script>
+<script type="text/javascript" src="https://www.smartchart.cn/static/ace/ext-language_tools.js"></script>
+<script type="text/javascript" src="https://www.smartchart.cn/static/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://www.smartchart.cn/static/editor/common.js"></script>
+<script type="text/javascript">
+    editor1 = init_editor('html');
+    editor1.setValue(`{{div_str|safe}}`);
+    $('#submit').click(function () {
+        let e = editor1.getValue();
+        console.log(e);
+        $.ajax({
+            type: "POST",
+            url: "/echart/save_div/",
+            data: {divid: GetQueryString('divid'), div: e},
+            success: function (data) {
+                console.log(data);
+                $('#printlog').html(data['msg']);
+                if (GetQueryString('r')) {
+                    try {
+                        window.opener.location.reload();
+                        // window.opener=null;window.close();
+                    } catch (e) {
+                        console.log('no opener');
+                    }
+                }
+            }
+        });
+    });
+    editor1.getSession().on('change', function (e) {
+        $("#preview").html(editor1.getValue());
+        $("#printlog").html('');
+    });
+    function copy_ds() {
+        $.ajax({type:"GET",url:"/echart/copy_ds?divid="+GetQueryString('divid'),
+        success: function(data){
+          $('#printlog').html(data['msg']);
+          if(data['status']==='success'){try {window.opener.location.reload();} catch (e) {console.log('no opener');}
+          }
+        }
+        })
+    }
+</script>
+</body>
+</html>

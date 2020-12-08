@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Option设计</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+ <link rel="icon" type="image.png" href="https://www.smartchart.cn/static/images/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.smartchart.cn/static/editor/editor.css">
+</head>
+
+<body>
+<div class="container_fluid">
+    <div class="row_fluid">
+        <div class="col-xs-12 col-md-7" style="padding:0.5% 0.5%;">
+            <div class="NightTheme">
+                <div id="main_container">
+                    <div id="core" class="core core_margin1">
+                        <div class="editorSet clearfix">
+                            <div>
+                                <div class="editor">
+                                    <span class="label">{{name|safe}}</span><a class="submit-btn"
+                                                                               id="submit">保存option</a>
+                                    <select id="ace-theme">
+                                        <option value="clouds">clouds</option>
+                                        <option value="monokai">monokai</option>
+                                        <option value="chrome">chrome</option>
+                                        <option value="github">github</option>
+                                        <option value="eclipse">eclipse</option>
+                                        <option value="tomorrow">tomorrow</option>
+                                        <option value="dawn">dawn</option>
+                                        <option value="sqlserver">sqlserver</option>
+                                        <option value="twilight">twilight</option>
+                                    </select><a class="glyphicon glyphicon-import" href="#" id="load_sample"
+                                                style="color: rgb(255, 140, 60);">加载样列</a>
+                                    <span id="printlog" style="color:red"></span>
+                                    <pre id="editor1" class="edit-area"></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-5" style="padding:0.1% 0.1%;" id="preview">
+        <pre>
+{
+     //初始参数
+    "paraminit":{"paramname":"paramvalue"},
+	 //图形点击钻取联动
+      "drill":{
+        "1":{"paramname":"参数名","child":[2,3],"type":"seriesName"},
+        "2":{"paramname":"参数名","child":[1],"type":"data[0]"}
+       },
+	 //筛选器
+    "filter":{
+        "0":{"paramname":"参数名","child":[1,2,3]},
+        "1":{"paramname":"参数名","child":[2,3]}
+    },
+	//公共数据集
+    "commonds":{
+        "4":"data0",
+        "5":"ds_leftjoin(data0,data1)", //ds_fulljoin, ds_crossjoin
+        "6":"ds_union(data0,data1)",
+        "7":"ds_union(data0,data1,withhead=false)"
+    },
+	//动态播放
+    "animate":{"2":{"dataLen":5,"interval":1000,"showtip":1}},
+	//分布任务
+	"client":"http://xxxxx",
+	//图形背景色,深色:#0B1837 #101E44 #0f375f 淡色:#f2f2f2
+	"chartcolor":"white"
+}</pre>
+            更多<a href="https://www.smartchart.cn/blog/article/2019/11/6/28.html" target="_blank">设定说明</a>
+        </div>
+    </div>
+</div>
+
+<script src="https://www.smartchart.cn/static/js/jquery-2.2.3.min.js"></script>
+<script type="text/javascript" src="https://www.smartchart.cn/static/ace/ace.js"></script>
+<script type="text/javascript" src="https://www.smartchart.cn/static/ace/ext-language_tools.js"></script>
+<script type="text/javascript" src="https://www.smartchart.cn/static/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://www.smartchart.cn/static/editor/common.js"></script>
+<script type="text/javascript">
+    var theme = localStorage.getItem('acetheme') || 'monokai';
+    $('#ace-theme').val(theme);
+    editor1=init_editor('json');
+    editor1.setValue(`{{option|safe}}`);
+    $('#submit').click(function () {
+        let e = editor1.getValue();
+        console.log(e);
+        $.ajax({
+            type: "POST",
+            url: "/echart/save_option/",
+            data: {dashid: GetQueryString('dashid'), option: e},
+            success: function (data) {
+                console.log(data);
+                $('#printlog').html(data['msg']);
+                if (GetQueryString('r')) {
+                    try {
+                        window.opener.location.reload();
+                        // window.opener=null;window.close();
+                    } catch (e) {
+                        console.log('no opener');
+                    }
+                }
+            }
+        });
+    });
+    editor1.getSession().on('change', function (e) {
+        $("#printlog").html('');
+    });
+    $("#load_sample").click(function () {
+        $.ajax({
+            type: "get", url: 'https://www.smartchart.cn/smartdata/api/?i=advancesetup',
+            success: function (data) {
+                editor1.setValue(data);
+            }
+        })
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+#mask {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.5;
+    filter: alpha(opacity=50);  /*定义低版本IE游览器的透明属性*/
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    height:100%;
+}
+body{
+    /*background:url(http://img.mukewang.com/538d971400016dbd16191694.jpg) center top;*/
+    height:100%;
+}
+#mask{
+    height:100%;
+    width:100%;
+    background:#000;
+    opacity:0.5;
+    filter:alpha(opacity=50);  /*定义低版本IE游览器的透明属性*/
+    position:absolute;
+    left:0;
+    top:0;
+    display:none;
+}
+#searchTip{
+    width:980px;
+    height:800px;
+    position: absolute;
+    left:50%;
+    margin-left: -490px; /*让searchTip处于居中位置*/
+    display:none;
+}
+#searchTip div{
+    position:absolute;
+    display:none;
+}
+#searchTip div a{
+    position:absolute;
+    width:96px;
+    height:32px;
+    cursor:pointer;
+    text-indent:-999px; /*隐藏a标签中的文字*/
+    overflow:hidden;
+}
+#searchTip div span{
+    cursor:pointer;
+    position:absolute;
+    width:30px;
+    height:30px;
+    text-indent:-999px;
+    overflow:hidden;
+}
+.stepA{
+    background:url(http://img.mukewang.com/538d974000011bda07450329.jpg);
+    height:329px;
+    width:745px;
+    top:130px;
+    left:-9px;
+    display:block;
+}
+.stepA a{
+    top:230px;
+    left:490px;
+}
+.stepA span{
+    top:143px;
+    right:32px;
+}
+.stepB{
+    background:url(http://img.mukewang.com/538d975f00017e8d06470405.jpg);
+    width:647px;
+    height:405px;
+    top:2px;
+    left:324px;
+}
+.stepB a{
+    top:308px;
+    left:146px;
+}
+.stepB span{
+    top:196px;
+    right:285px;
+}
+.stepC{
+    background:url(http://img.mukewang.com/538d977c0001ef5f06540257.jpg);
+    width:654px;
+    height:257px;
+    top:294px;
+    left:318px;
+}
+.stepC a{
+    top:155px;
+    left:400px;
+}
+.stepC span{
+    top:44px;
+    right:35px;
+}
+.stepD{
+    background:url(http://img.mukewang.com/538d97990001692305580348.jpg);
+    width:558px;
+    height:348px;
+    top:78px;
+    left:155px;
+}
+.stepD a{
+    top:246px;
+    left:304px;
+}
+.stepD span{
+    top:135px;
+    right:35px;
+}
+.stepE{
+   background:url(http://img.mukewang.com/538d97b70001f47d03970342.jpg);
+    width:397px;
+    height:342px;
+    top:79px;
+    left:250px;
+}
+.stepE a {
+    top: 245px;
+    left: 153px;
+}

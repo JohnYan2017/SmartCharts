@@ -28,7 +28,7 @@
 [MAC电脑安装版](http://npm.taobao.org/mirrors/python/3.9.0/python-3.9.0rc2-macosx10.9.pkg "MAC电脑安装版")
 ```shell script
 你可以把smartchart当作服务来嵌入你的页面使用
-1. 安装Python环境,请安装最新版3.9!!
+1. 安装Python环境
 2. 命令行安装: pip3 install smartchart
 
 # Mac or Linux 初始化方法
@@ -87,9 +87,7 @@ url: 登录成功后跳转链接
 
 ##### 如果你是python开发者,可以在你的django项目中当作apps使用
 ```shell script
-pip install smartchart  #只支持最新版Python3.9.x
-pip install smartchart==3.7.3  #只支持python3.7.x
-pip install smartchart==3.6.3  #只支持python3.6.x
+pip install smartchart
 简单配置一下, 你可以参考此demo
 1. 在你的setting.py的INSTALL_APPS中加入'smart_chart.echart'
 2. MIDDLEWARE 中注释掉XFrameOptionsMiddleware

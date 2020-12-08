@@ -1,0 +1,100 @@
+/*ds_editor*/
+::-webkit-scrollbar {
+  width: 0.25rem;
+  height: 0.25rem;
+  background-image: linear-gradient(135deg, #1DE9B6 0%, rgba(8, 196, 219, 0.5) 72%, rgba(0, 182, 234, 0.3) 100%);
+}
+::-webkit-scrollbar-track {
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(135deg, #1DE9B6 0%, #08c4db 72%, #057494 100%);
+  transition: all .2s;
+  border-radius: 0.25rem;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(95, 95, 95, 0.7);
+}
+@media screen and (min-width: 960px) {
+    .editorSet {
+        width: 100%;
+    }
+    .editorSet .editor {
+        height: 800px;
+        width: 100%;
+        overflow-y: hidden;
+        background-color: rgb(44, 52, 55);
+        float: left;
+    }
+    .iframechart {
+        height: 550px;
+    }
+}
+
+@media screen and (max-width: 959px) {
+    .editorSet {
+        width: 100%;
+    }
+    .editorSet .editor {
+        height: 400px;
+        width: 100%;
+        overflow-y: hidden;
+        background-color: rgb(44, 52, 55);
+    }
+    .iframechart {
+            height: 400px;
+        }
+}
+
+.NightTheme .editorSet .editor {
+    -webkit-box-shadow: inset 0 1px 3px rgb(22, 26, 27);
+    -moz-box-shadow: inset 0 1px 3px rgb(22, 26, 27);
+    box-shadow: inset 0 1px 3px rgb(22, 26, 27);
+}
+
+.label {
+    background: rgba(230, 230, 230, 0.5);
+    height: 20px;
+    padding: 0 6px;
+    line-height: 20px;
+    z-index: 999;
+    text-align: center;
+    font-size: 12px;
+    color: #BBB;
+    border-radius: 3px;
+}
+
+.editor iframe {
+    border: 0 !important;
+    min-height: 100px;
+    min-width: 100px;
+    height: 100%;
+    width: 100%;
+}
+
+.submit-btn {
+    color: #fff;
+    background-color: #67c23a;
+    display: inline-block;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    border: 1px solid #67c23a;
+    -webkit-appearance: none;
+    text-align: center;
+    box-sizing: border-box;
+    outline: none;
+    margin: 0;
+    transition: .1s;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    /*padding: 12px 20px;*/
+    font-size: 10px;
+    border-radius: 4px;
+    margin-bottom: 2px;
+}
+
+.edit-area {
+    height: 92%;
+}
