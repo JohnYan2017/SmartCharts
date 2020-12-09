@@ -16,16 +16,19 @@ SMART_CHART_URL = 'http://127.0.0.1:8000'
 LOGIN_URL = SMART_CHART_URL + '/echart/smart_login?id={id}&stamp={stamp}&token={token}&url={url}'
 SMART_KEY = os.environ.get('SMART_KEY', 'smartchart')
 
-stamp = int(time.time() * 1000)
-id = 'username'
-res = SMART_KEY + str(stamp) + id
-token = hashlib.sha1(res.encode('utf-8')).hexdigest()
-LOGIN_DICT = {
-    "id": id,
-    "stamp": stamp,
-    "token": token,
-    "url": "/"
-}
 
-# 拼接好的url,直接访问
-visit_url = LOGIN_URL.format(**LOGIN_DICT)
+def get_smarturl(username, url='/'):
+    stamp = int(time.time() * 1000)
+    id = username
+    res = SMART_KEY + str(stamp) + id
+    token = hashlib.sha1(res.encode('utf-8')).hexdigest()
+    LOGIN_DICT = {
+        "id": id,
+        "stamp": stamp,
+        "token": token,
+        "url": url
+    }
+
+    # 拼接好的url,直接访问
+    visit_url = LOGIN_URL.format(**LOGIN_DICT)
+    return visit_url

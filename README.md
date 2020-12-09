@@ -4,12 +4,44 @@
 [GitHub](https://github.com/JohnYan2017/Echarts-Django) \|
 [Gitee](https://gitee.com/smartchart/django_smartchart)
 
-#### SmartChart是基于Echarts的微代码开发平台,适用于任何WEB项目,比拖拽开发更方便
-### 简单, 敏捷, 高效,通用化, 高度可定制化, 让你的项目瞬间档次提升
+<p align="center">
+	<a href="https://www.smartchart.cn"><img src="https://www.smartchart.cn/static/index/logo8.png" width="45%"></a>
+</p>
+<p align="center">
+	<strong>A platform that Connect Data to Echarts.</strong>
+</p>
+<p align="center">
+	<a href="https://www.smartchart.cn">https://www.smartchart.cn</a>
+</p>
 
-#### 完全真正打通前后端, 图形数据联动, 筛选开发毫无压力
-#### 集木式的开发模式, 开箱即用, 安装简单, 依赖少, 适应各种平台
-#### 我们让简单和通用化不再是个矛盾体, 加入我们共建生态
+<p align="center">
+	<a target="_blank" href="https://www.python.org/downloads/release/python-390/">
+		<img src="https://img.shields.io/badge/Python-3.6+-green.svg" />
+	</a>
+	<a href='https://gitee.com/smartchart/django_smartchart/members'><img src='https://gitee.com/smartchart/django_smartchart/badge/fork.svg?theme=dark' alt='fork'></a>
+	<a href='https://gitee.com/smartchart/django_smartchart/stargazers'><img src='https://gitee.com/smartchart/django_smartchart/badge/star.svg?theme=dark' alt='star'></a>
+	<a target="_blank" href='https://github.com/JohnYan2017/Echarts-Django'>
+		<img src="https://img.shields.io/github/stars/JohnYan2017/Echarts-Django.svg?style=social" alt="github star"/>
+	</a>
+
+</p>
+
+-------------------------------------------------------------------------------
+
+[**English Documentation**](README-EN.md)
+
+-------------------------------------------------------------------------------
+
+## 简介
+**SmartChart是基于Echarts的微代码开发平台,适用于任何WEB项目,比拖拽开发更方便**
+
+**简单, 敏捷, 高效,通用化, 高度可定制化, 让你的项目瞬间档次提升**
+
+**完全真正打通前后端, 图形数据联动, 筛选开发毫无压力**
+
+**积木式的开发模式, 开箱即用, 安装简单, 依赖少, 适应各种平台**
+
+**我们让简单和通用化不再是个矛盾体, 请加入我们共建生态, Like it Star it**
 
 ![智慧物流](https://images.gitee.com/uploads/images/2019/0614/130751_e439728b_2327318.png "智慧物流.png")
 ![舆情分析](https://images.gitee.com/uploads/images/2019/0614/130021_887dc34c_2327318.png "舆情分析.png")
@@ -17,19 +49,21 @@
 ![智慧医疗](https://images.gitee.com/uploads/images/2019/0614/135158_55f95840_2327318.png "智慧医疗.png")
 ![](http://smartchart.cn/media/editor/WX20201128-075135@2x_20201128075202927382.png)
 
-#### 安装使用说明:
-- [Window平台安装视屏介绍](https://www.ixigua.com/6901867671193649668/ "Window平台安装视屏介绍")
-
-##### 如果你是非Python语言的开发者
-###### 下载并安装Python
-官方[最新Python下载链接](https://www.python.org/downloads/release/python-390/ "最新Python下载链接")
+### 安装使用说明:
+- 环境准备: 官方[最新Python下载链接](https://www.python.org/downloads/release/python-390/ "最新Python下载链接")
 如果下载太慢, 可以到[淘宝镜象下载](https://npm.taobao.org/mirrors/python/3.9.0/ "淘宝镜象下载")
 也可以直接下载[WINDOWS64位安装版](https://npm.taobao.org/mirrors/python/3.9.0/python-3.9.0-amd64.exe "WINDOWS64位安装版")
 [MAC电脑安装版](http://npm.taobao.org/mirrors/python/3.9.0/python-3.9.0rc2-macosx10.9.pkg "MAC电脑安装版")
+- [Window平台安装视屏介绍](https://www.ixigua.com/6901867671193649668/ "Window平台安装视屏介绍")
+
+#### 如果你是非Python语言的开发者
+
 ```shell script
 你可以把smartchart当作服务来嵌入你的页面使用
-1. 安装Python环境
-2. 命令行安装: pip3 install smartchart
+1. 安装Python环境(参考上面的环境准备)
+2. 命令行安装: 
+   pip3 install smartchart
+   pip3 install smartchart -U (升级)
 
 # Mac or Linux 初始化方法
 3. 初始化DB, 命令行输入
@@ -62,12 +96,14 @@
 
 **访问首页http://127.0.0.1:8000**
 
-**开发前建意新建一个非超级管理员帐号(重要),避免改到内置的数据集和图形,并观看视屏说明!!!**
+**开发前建意新建一个非超级管理员帐号(重要),避免改到内置的数据集和图形**
+
+**并观看视屏说明!!!**
 - [SQL与图形联动视屏教程](https://www.ixigua.com/6902584882958959116/ "SQL与图形联动视屏教程")
 - [基础操作视屏教程](https://www.ixigua.com/6882218819964797447/ "基础操作视屏教程")
 
 ```python
-# 如果需要，你可以采用单点登录的方式与smartchart进行对接
+# 如果需要，你可以采用单点登录的方式与smartchart进行对接嵌入
 # 各种语言的对接源码可以在对应的xxxInterface中找到,欢迎PULL
 '/echart/smart_login?id=xxx&stamp=xxx&token=xxx&url=/'
 '''
@@ -85,7 +121,7 @@ url: 登录成功后跳转链接
 **提示：为了数据安全,对外生产环境使用,务必设定你的环境变量SMART_KEY**
 
 
-##### 如果你是python开发者,可以在你的django项目中当作apps使用
+#### 如果你是python开发者,可以在django项目中当作apps使用
 ```shell script
 pip install smartchart
 简单配置一下, 你可以参考此demo
@@ -118,7 +154,7 @@ pip install smartchart
 - [SmartChart仪表盘样列](https://www.smartchart.cn/index/ "项目样列")
 
 #### 安装及使用问题,微信群有时效性,加以下微信号拉你入群
-![](https://www.smartchart.cn/media/editor/QQ20201201-140615@2x_20201201140657981573.png)
+<img src="https://www.smartchart.cn/media/editor/QQ20201201-140615@2x_20201201140657981573.png" alt="smartchart" height="150" />
 
 ### 更多使用说明:
 <font size=5 color=red><b>SmartChart</b> designed for you</font>
@@ -131,7 +167,7 @@ pip install smartchart
 
 
 - 开始使用smart chart, 您不需要任何专业知识, 无需coding, 选择模块组装即可!
-- 但如果要使用好smart chart, 建意了解下javascript, H5, Echart这些前端知识, 可以让你的应用更加得心应手,创作更炫的效果
+- 但如果要使用好smart chart, 建意了解下javascript, H5, Echarts这些前端知识, 可以让你的应用更加得心应手,创作更炫的效果
 - 如果你需要更进一步订制你的数据, 你需要了解下SQL的使用,本项目高级应用语言都是通用的技能, 象js, h5,sql 学习成本低
 
 #### 入门视屏说明(以下文字说明是之前版本,现已迭代多次,建意看视屏了解)
@@ -143,15 +179,7 @@ pip install smartchart
 - (数据集+图形格式) => 图形(report)
 - (图形report+report+...) + 页面模板 + 主题 => Dashboard
 
-**一般企业应用**
-- 数据连接池 + 数据集 => 统一数据接口  由 IT(数据建模工程师完成)
-- 图形格式 + 页面模板 + 组装 => 统一可视化接口  由数据分析师或业务完成
-
-**开发流程**
-
-数据分析师&业务 确定好需求, 进行页面草图设计, 提出数据需求给建模工程师, 完成数据接口后, 数据分析师&业务挑选图形格式(含powerbi, tableau等BI产品), 模板进行组装, 特殊展示需求对相应的code进行修改(js, html)
-
-### 数据集
+#### 数据集
 数据集可以理解为一个个的cube, 通过sql生成, 支持定时, 点频, 实时刷新的机制, 我们建意你用专业的工具开发sql 查询, 如navicate,datagrip,hue 
 数据集的高级用法, 参考如下链接 [数据集图形对应关系](https://www.smartchart.cn/blog/article/2019/7/9/10.html "数据集图形对应关系")
 **对于一般用户来说, 无需了解如何生成数据集, 但建意了解以下数据集的常识**
@@ -166,33 +194,36 @@ dataset = [
 
 ```
 
-### 图形设定
+#### 图形设定
 smartchart内置了非常多的图形, 可以直接拿来使用, 但是要定制自已的样式, 建意稍作修改, 比如加上图形, 更改tips, 标题等等, 具体修改方式, 请参考[smartchart平台样列](https://www.smartchart.cn/echart/editor_min/?chartid=69 "smartchart平台样列")
-
 如果你想进一步了解, 你可以参考 [自定义图形指南](https://www.smartchart.cn/blog/article/2019/8/21/14.html "自定义图形指南")
 
-PowerBI/Tableau嵌入的也虚拟成了图形格式, 具体方式见另一文章
-
-那接下来我们需要给图形一个舞台, 那就是模板,
-
-
-### 模版
-模版就是一个html页面, 理论上来说, 你可以随意发挥, 为了让不太懂html的同学定制自已的模板, 我们提供了可视化开发模板,设计好的code复制过去覆盖这一块代码即可, 如有其它需求可自行修改(前提你得稍微会点h5:tw-1f453: :tw-1f43e:)
+#### 模版
 每一个div对应一个DIV格式, 可以比喻成给图形包一件衣服,我们会把图形绑定到这个容器中,你可以用它来设定容器的样式,如长宽高,边距,边框等等:
 ```html
 <div id="container_{name}" style="height:100%;"></div>
 ```
-更多模板使用说明, 请参考: [模板指南](https://www.smartchart.cn/blog/article/2019/11/24/30.html "模板指南")
 
-你也可以使用 [可视化设计工具](https://www.smartchart.cn/echart/layout "可视化设计工具") 进行模板的开发 
-接下来只需要在dashborad中进行组装就可以了
+-------------------------------------------------------------------------------
 
+### 二次开发指引:
+#### 推荐熟悉前端的同学开发
+##### 对应的项目目录说明:
+```shell script
+templates/echart  -- 编辑器界面
+templates/index   -- 首页Portal
+static/echart     -- 扩展前端数据处理函数(图形编辑中可用)
+static/editor     -- 编辑器界面js
+static/index      -- Portal对应js, css
 
-### Dashboard
-选择你需要拼装的数据集,对应的图形,你也可以修改div, 让他更适合当前页面的需求, 选择你喜欢的主题, 会自动应用到页面
+CharResource      -- 存放echarts转化后的smartchart
 
+欢迎提交后我统一打包到pip供大家使用
+```
 
-##### 估计以让说明你有点不知如何下手, 下面你可以STEP by STEP 的去尝试, 建议先看最下方的视屏
+-------------------------------------------------------------------------------
+
+##### 估计以让说明你有点不知如何下手, 建议先看最下方的视屏
 - [SmartChart入门](https://www.smartchart.cn/blog/article/2019/12/14/33.html "SmartChart入门")
 - [组装Dashboard](https://www.smartchart.cn/blog/article/2019/6/7/7.html "组装Dashboard")
 - [你的第一个模板](https://www.smartchart.cn/blog/article/2019/6/8/8.html "你的第一SMART CHART 模板")
