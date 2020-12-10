@@ -47,7 +47,6 @@
     </style>
 
     <script src="https://www.smartchart.cn/static/js/jquery-2.2.3.min.js"></script>
-    <script src="https://www.smartchart.cn/static/index/colorpicker.js"></script>
     <script src="https://www.smartchart.cn/static/index/dialog.js"></script>
     <script src="https://www.smartchart.cn/static/index/index_d.js"></script>
 </head>
@@ -55,17 +54,15 @@
 <body lang="zh-CN" class="reader-black-font" style="overflow-y: scroll;">
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="smart_head">
         <div >
-            <a class="logo" href="https://www.smartchart.cn"><img src="https://www.smartchart.cn/static/index/logo9.png" alt="smartchart logo"></a>
+            <a class="logo" href="https://www.smartchart.cn"><img src="https://www.smartchart.cn/static/index/logo8.png" alt="smartchart logo"></a>
             <div class="nav_end">
                 <span class="head_icon" id="devchange" onclick="reset_dev()"><small><i class="fas fa-user"></i>{{user}}</small></span>
-                <a id="color-picker" class="picker head_icon" title="首页样式"><small><i class="fas fa-palette"></i></small></a>|
                 <a class="head_icon" id="iframe-heart" onclick="make_love()" title="收藏" ><small><i class="fas fa-heart"></i></small></a>
                 <a class="head_icon" id="iframe-full" onclick="requestFullScreen()" title="全屏" ><small><i class="fas fa-expand"></i></small></a>
                 <a class="head_icon" id="iframe-refresh" onclick="refreshFrame()" title="刷新"><small><i class="fas fa-sync-alt"></i></small></a>
                 <a class="head_icon" id="iframe-message" onclick="report_msg()" title="留言"><small><i class="fab fa-rocketchat"></i></small></a>
                 <a class="head_icon" id="iframe-edit" title="编辑" onclick="reset_dev()"><small><i class="fas fa-edit"></i></small></a>|
-                <a class="head_icon" title="帮助" onclick="help()"><small><i class="fas fa-question-circle"></i></small></a>
-                <a  href="https://gitee.com/smartchart/django_smartchart" title="手机版"><small><i class="fas fa-mobile-alt"></i></small></a>
+                <a class="head_icon" title="帮助" href="https://gitee.com/smartchart/django_smartchart"><small><i class="fas fa-question-circle"></i></small></a>
                 <a  href="/echart/logout" title="退出"><small><i class="fas fa-sign-out-alt"></i></small></a>
                 <a  href="javascript:changelayout();" title="切换可视区"><img src="https://www.smartchart.cn/static/images/change.png" style="height: 25px;"></a>
             </div>
@@ -109,7 +106,3 @@
 <!--<p>&copy;powered by smartchart.cn,Designed by JohnYan mailto:84345999@qq.com, https://gitee.com/smartchart/django_smartchart</p>-->
 </body>
 </html>
-<script>var p_background = localStorage.getItem('p_background') || "#ffffff";let p_background_h = localStorage.getItem('p_background_h') || "#ffffff";$('#smart_head').css('background',p_background_h);$('#leftside').css('height',$(document.body).height())
-    Colorpicker.create({el: "color-picker", color: p_background, change: function(elem, hex) {if ($('#show_list').hasClass('mcd-menu1')){$('#smart_head').css('background',hex);localStorage.setItem('p_background_h',hex);
-    }else{$('#leftside').css('background',hex);localStorage.setItem('p_background',hex);p_background=hex;}}});
-</script>

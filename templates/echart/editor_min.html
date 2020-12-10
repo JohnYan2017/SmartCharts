@@ -15,8 +15,6 @@
 <link href="https://unpkg.com/bootstrap-table@1.15.5/dist/extensions/fixed-columns/bootstrap-table-fixed-columns.css"  rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="https://www.smartchart.cn/static/echart/pivot/color-brewer.min.css">
-    <link href="https://www.smartchart.cn/static/echart/pivot/css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="https://www.smartchart.cn/static/echart/pivot/pivot.css">
 
     <title>SmartChart Editor</title>
     <script type="text/javascript">
@@ -1202,11 +1200,6 @@
         <div id="code-container" style="width: 40%;">
             <div id="control-panel">
                 <div id="code-info"><span class="code-info-time">07:54:08</span><span class="code-info-type-info">图表已生成, 54ms</span></div>
-
-                <div class="color-container">
-        <div class="color-picker" style="display: none;"></div>
-        <div class="current-palette"><span class="bgTopColor" style="background-color: rgb(237, 237, 237);" original-title="BG Gradient Color1"></span></div>
-    </div>
                 <div class="control-btn-panel">{{editormenu|safe}}
                     <a href="javascript:;" onclick="disposeAndRun()" class="btn btn-default btn-sm">运行</a></div>
             </div>
@@ -1274,62 +1267,7 @@
     <script type="text/javascript" src="https://www.smartchart.cn/static/echart/echartedit/world.js"></script>
     <script type="text/javascript" src="https://www.smartchart.cn/static/echart/echartedit/ext-language_tools.js"></script>
     <script type="text/javascript" src="https://www.smartchart.cn/static/echart/echartedit/editor_min.js"></script>
-    <script type="text/javascript" src="https://www.smartchart.cn/static/echart/echartedit/bmap.js"></script>
-
-    <script src="https://www.smartchart.cn/static/layoutit/buttoncreator/js/jquery-1.7.2.min.js"></script>
-
-    <script type="text/javascript" src="https://www.smartchart.cn/static/layoutit/buttoncreator/js/colorpicker.js"></script>
-<script src="https://www.smartchart.cn/static/layoutit/buttoncreator/js/button_simple.js" type="text/javascript"></script>
-    <script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script>
-<script src="https://unpkg.com/bootstrap-table@1.15.5/dist/extensions/fixed-columns/bootstrap-table-fixed-columns.js"></script>
-
-    <script type="text/javascript" src="https://www.smartchart.cn/static/echart/pivot/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="https://www.smartchart.cn/static/echart/pivot/pivot.js"></script>
-    <script type="text/javascript" src="https://www.smartchart.cn/static/echart/pivot/plotly-basic-latest.min.js"></script>
-    <script type="text/javascript" src="https://www.smartchart.cn/static/echart/pivot/plotly_renderers.js"></script>
-    <script type="text/javascript" src="https://www.smartchart.cn/static/echart/pivot/export_renderers.js"></script>
 <script>{{chartinit|safe}}</script>
-
-
-    <!-- Javascript End -->
-    <div class="colorpicker" id="collorpicker_811">
-        <div class="colorpicker_color" style="background-color: rgb(255, 0, 255);">
-            <div>
-                <div style="left: 0px; top: 5px;"></div>
-            </div>
-        </div>
-        <div class="colorpicker_hue">
-            <div style="top: 25px;"></div>
-        </div>
-        <div class="colorpicker_new_color" style="background-color: rgb(245, 245, 245);"></div>
-        <div class="colorpicker_current_color" style="background-color: rgb(245, 245, 245);"></div>
-        <div class="colorpicker_hex">
-            <input type="text" maxlength="6" size="6">
-        </div>
-        <div class="colorpicker_rgb_r colorpicker_field">
-            <input type="text" maxlength="3" size="3"><span></span>
-        </div>
-        <div class="colorpicker_rgb_g colorpicker_field">
-            <input type="text" maxlength="3" size="3"><span></span>
-        </div>
-        <div class="colorpicker_rgb_b colorpicker_field">
-            <input type="text" maxlength="3" size="3"><span></span>
-        </div>
-        <div class="colorpicker_hsb_h colorpicker_field">
-            <input type="text" maxlength="3" size="3"><span></span>
-        </div>
-        <div class="colorpicker_hsb_s colorpicker_field">
-            <input type="text" maxlength="3" size="3"><span></span>
-        </div>
-        <div class="colorpicker_hsb_b colorpicker_field">
-            <input type="text" maxlength="3" size="3"><span></span>
-        </div>
-        <div class="colorpicker_submit"></div>
-    </div>
-
-
-<div class="colorpicker" id="collorpicker_843"><div class="colorpicker_color" style="background-color: rgb(255, 0, 255);"><div><div style="left: 0px; top: 5px;"></div></div></div><div class="colorpicker_hue"><div style="top: 25px;"></div></div><div class="colorpicker_new_color" style="background-color: rgb(245, 245, 245);"></div><div class="colorpicker_current_color" style="background-color: rgb(245, 245, 245);"></div><div class="colorpicker_hex"><input type="text" maxlength="6" size="6"></div><div class="colorpicker_rgb_r colorpicker_field"><input type="text" maxlength="3" size="3"><span></span></div><div class="colorpicker_rgb_g colorpicker_field"><input type="text" maxlength="3" size="3"><span></span></div><div class="colorpicker_rgb_b colorpicker_field"><input type="text" maxlength="3" size="3"><span></span></div><div class="colorpicker_hsb_h colorpicker_field"><input type="text" maxlength="3" size="3"><span></span></div><div class="colorpicker_hsb_s colorpicker_field"><input type="text" maxlength="3" size="3"><span></span></div><div class="colorpicker_hsb_b colorpicker_field"><input type="text" maxlength="3" size="3"><span></span></div><div class="colorpicker_submit"></div></div>
-
 </body>
 
 </html>

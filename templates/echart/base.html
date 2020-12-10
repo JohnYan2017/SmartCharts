@@ -1,0 +1,64 @@
+<html><head><title>大数据:{{title}}</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="X-UA-Compatible" content="IE=edge">{% block head %}{% endblock %}{{contentrefresh|safe}}<style type="text/css">
+.table th, .table td {
+text-align: center;
+}
+.table {
+font-size:10px;
+}
+::-webkit-scrollbar {
+  width: 0.25rem;
+  height: 0.25rem;
+  background-image: linear-gradient(135deg, #1DE9B6 0%, rgba(8, 196, 219, 0.5) 72%, rgba(0, 182, 234, 0.3) 100%);
+}
+::-webkit-scrollbar-track {
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(135deg, #1DE9B6 0%, #08c4db 72%, #057494 100%);
+  transition: all .2s;
+  border-radius: 0.25rem;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(95, 95, 95, 0.7);
+}
+{% block style %}
+{% endblock %}</style></head>
+<link rel="icon" type="image.png" href="https://www.smartchart.cn/static/images/favicon.ico"><link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css">
+{% block stylesheet %}{% endblock %}{{devhead|safe}}
+{% block body %}{% endblock %} {{footer|safe}}
+</html><script src="https://www.smartchart.cn/static/js/jquery-2.2.3.min.js"></script><script type="text/javascript" src="https://www.smartchart.cn/static/echart/dist/echarts.min.js"></script><script type="text/javascript" src="https://www.smartchart.cn/static/echart/dist/extension/echarts-wordcloud.min.js"></script><script src="https://www.smartchart.cn/static/js/fun.js"></script><script src="https://www.smartchart.cn/static/echart/theme/{{theme}}"></script><script type="text/javascript" src="https://www.smartchart.cn/static/bootstrap/js/bootstrap.min.js"></script>
+{% block javascript %}{% endblock %}
+<script>var app = {};var charts = [];{{echart_main|safe}}window.onresize = function(){for(var i = 0; i < charts.length; i++){charts[i].resize();}};
+$(function(){
+    $("#fullScreen").on("click",function(){
+      var isFull=!!(document.webkitIsFullScreen || document.mozFullScreen ||
+        document.msFullscreenElement || document.fullscreenElement
+    );
+    if (isFull==false) {fullScreen();
+    }else{exitFullscreen();}
+    })
+})
+function fullScreen() {
+    var element = document.documentElement;
+    if (element.requestFullscreen) {
+        element.requestFullscreen();
+    } else if (element.msRequestFullscreen) {
+        element.msRequestFullscreen();
+    } else if (element.mozRequestFullScreen) {
+        element.mozRequestFullScreen();
+    } else if (element.webkitRequestFullscreen) {
+        element.webkitRequestFullscreen();
+    }
+}
+function exitFullscreen() {
+    if (document.exitFullscreen) {
+        document.exitFullscreen();
+    } else if (document.msExitFullscreen) {
+        document.msExitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+    }
+}
+</script>
