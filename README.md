@@ -151,13 +151,34 @@ pip install smartchart
 9. 访问http://127.0.0.1:8000/echart/init_db/ 进行数据初始化
 ```
 
-
 ##### 图形样列参考 
 - [SmartChart图形样列](https://www.smartchart.cn/echart/show/ "图形样列")
 - [SmartChart仪表盘样列](https://www.smartchart.cn/index/ "项目样列")
 
 #### 安装及使用问题,微信群有时效性,加以下微信号拉你入群
 <img src="https://www.smartchart.cn/media/editor/QQ20201201-140615@2x_20201201140657981573.png" alt="smartchart" height="150" />
+
+-------------------------------------------------------------------------------
+
+### 二次开发指引:
+#### 推荐熟悉前端的同学开发
+##### 对应的项目目录说明:
+```shell script
+templates/echart  -- 编辑器界面
+templates/index   -- 首页Portal
+static/echart     -- 扩展前端数据处理函数(图形编辑中可用)
+static/editor     -- 编辑器界面js
+static/index      -- Portal对应js, css
+
+CharResource      -- 存放echarts转化后的smartchart
+
+git clone 项目
+pip install smartchart
+启动方式 python manage.py runserver
+
+```
+
+-------------------------------------------------------------------------------
 
 ### 更多使用说明:
 <font size=5 color=red><b>SmartChart</b> designed for you</font>
@@ -207,24 +228,6 @@ smartchart内置了非常多的图形, 可以直接拿来使用, 但是要定制
 <div id="container_{name}" style="height:100%;"></div>
 ```
 
--------------------------------------------------------------------------------
-
-### 二次开发指引:
-#### 推荐熟悉前端的同学开发
-##### 对应的项目目录说明:
-```shell script
-templates/echart  -- 编辑器界面
-templates/index   -- 首页Portal
-static/echart     -- 扩展前端数据处理函数(图形编辑中可用)
-static/editor     -- 编辑器界面js
-static/index      -- Portal对应js, css
-
-CharResource      -- 存放echarts转化后的smartchart
-
-欢迎提交后我统一打包到pip供大家使用
-```
-
--------------------------------------------------------------------------------
 
 ##### 估计以让说明你有点不知如何下手, 建议先看最下方的视屏
 - [SmartChart入门](https://www.smartchart.cn/blog/article/2019/12/14/33.html "SmartChart入门")
