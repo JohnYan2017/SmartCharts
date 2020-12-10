@@ -75,6 +75,7 @@
    smartchart
    如果你需要远程访问,启动方式: 
    smartchart runserver 0.0.0.0:8000 --insecure
+6. 访问http://127.0.0.1:8000/echart/init_db/ 进行数据初始化
    
 # Window 初始化方法
 3. 初始化DB, 你需要找到你的python安装地址,不记得了参考下图方法
@@ -146,8 +147,10 @@ pip install smartchart
    python manage.py createsuperuser
 8. 启动服务
    python manage.py runserver
+
+9. 访问http://127.0.0.1:8000/echart/init_db/ 进行数据初始化
 ```
-访问http://127.0.0.1:8000/echart/init_db/ 进行数据初始化
+
 
 ##### 图形样列参考 
 - [SmartChart图形样列](https://www.smartchart.cn/echart/show/ "图形样列")
@@ -171,7 +174,7 @@ pip install smartchart
 - 如果你需要更进一步订制你的数据, 你需要了解下SQL的使用,本项目高级应用语言都是通用的技能, 象js, h5,sql 学习成本低
 
 #### 入门视屏说明(以下文字说明是之前版本,现已迭代多次,建意看视屏了解)
-- [视屏教程一](https://www.ixigua.com/6882218819964797447/ "视屏教程一")
+- [视屏教程一](https://www.ixigua.com/6902584882958959116/ "视屏教程一")
 - [视屏教程二](https://www.ixigua.com/6887009904889070094/ "视屏教程二")
 
 #### Smart Chart 基础
