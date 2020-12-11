@@ -1,1 +1,380 @@
-eval(function(p,a,c,k,e,r){e=function(c){return(c<62?'':e(parseInt(c/62)))+((c=c%62)>35?String.fromCharCode(c+29):c.toString(36))};if('0'.replace(0,e)==0){while(c--)r[e(c)]=k[c];k=[function(e){return r[e]||e}];e=function(){return'([bcf-hj-moqrt-zA-Z]|[1-3]\\w)'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('m V="";m H=[];m w=[];m 19=[];m 1a=[];m D="";m I=\'\';m W=\'\';m x=0;m 1o=10;1B();f reset_dev(){c(I){I=\'\';$(\'#2F\').y(\'C\',\'#1Z\');1B()}q{I=\'&I=1\';$(\'#2F\').y(\'C\',\'20\');1B()}c(W){1b(W)}}f 2G(){19=[];$(V).X(f(z,b){19.P(b[0]+b[2])})}f 1B(){g j=\'/t/21/?\'+I;g k=$.trim($("#Y").1p());c(k!==""){c(19.J(k)){c(k.1q(0,1)===\'1\'){j=\'/t/22?o=\'+k.1q(1)}q{j=\'/t?o=\'+k.1q(1)}1b(j);A}j=j+\'&s=\'+k}$.1c({o:"1r",j:j,23:\'25\',Z:f(l){c(l.hasOwnProperty(\'1C\')){1b(l.1C);A}V=l.11;H=[];w=l.w;1a=l.1a;g 1s=[];g Q=[];D=2H Map();D.26(\'我的关注\',Q);$(V).X(f(z,b){c(D.2I(b[1])){1s=D.1r(b[1]);1s.P([b[4],b[2],b[2],b[0],b[9],b[3]])}q{1s=[[b[4],b[2],b[2],b[0],b[9],b[3]]]}D.26(b[1],1s);c(w.J(b[3])){H.P(b);Q.P([\'K L-1d\',b[2],b[2],b[0],\'你的关注\',b[3]])}});c(Q.B===0){Q=[[\'K L-1d\',\'2J\',\'仅2K支持\',0,\'仅2K支持\',-1]]}c(I){Q.P([\'K L-1d\',\'/2L/t/echartdashboardsetup_v2/add/?\',\'新增Dashboard\',2,\'新增图形集装箱\',-1]);Q.P([\'K L-1d\',\'/2L/t/echartdataset/?\',\'浏览数据集\',2,\'浏览数据集\',-1])}D.26(\'我的关注\',Q);$("#11").E("");D.2M(2N);27();c(k===\'\'){2G()}}})}f 2O(){$("#1D").E(`<a h="load-more"F="R:1b(\\\'/t?o=2J\\\');"><p>SmartChart社区版</p><p><r h="1E fa-2P">定制左方区域颜色</r><1F 28="/29/2a/change.2b">+<r h="1E fa-2P">可定制上方区域颜色</r></p><r h="1E fa-expand">全屏</r><r h="1E fa-sync-alt">刷新</r><r h="K L-1G-2c"k="加入收藏">关注</r><r h="fab fa-rocketchat">留言</r><hr><p>窗口显示报表:点击左方菜单中项目名,显示报表列表后点击列表中链接</p><p>右方显示报表:左方菜单中滑动选择报表后点击或上方搜索选择随机报表后点击查询</p></a>`)}f 27(){c(H.B>0){$("#1D").E("");$(H).X(f(z,b){2d(b)})}q{2O()}}f 2e(G){W=\'\';x=0;g 1H=\'<M h="2f-xs-24 2f-sm-16 2f-sm-offset-1 main"> <ul h="note-1G" u="1D"> </ul> </M>\';$("#1I").E(1H);$("#11 a").1t("h","");$(\'#\'+G).1t("h","active");c(G===\'我的关注\'){27();A}$(V).X(f(z,b){c(G===b[1]){2d(b)}});$(\'E,1u\').2R({2S:\'2T\'},500)}f 2g(1f,2U){g N=\'\';g 2h=[];1J(g i=0;i<1a.B;i++){g 1K=1a[i];g 13=1K[0];g 2V=1K[2];c(2U===1K[1]&&D.2I(13)){2h=D.1r(13);N=N+\'<S><a F="R:2e(\\\'\'+13+\'\\\')" h=" " u = "\'+13+\'"><i h="\'+2V+\'"></i>\'+13+\' >> </a><ul>\'+2g(2h,13)+\'</ul></S>\'}}$(1f).X(f(z,b){c(b[3]<4){N=N+\'<S><a F="R:2W(\\\'\'+b[1]+\'\\\',\'+b[3]+\',\'+b[5]+\')" 2X="2Y-size:12px;"><i h="fa fa-globe"></i>\'+b[2]+\'</a></S>\'}});A N}f 2Z(1L,b){1J(g i=0;i<b.B;i++){c(1L===b[i][0]){A 2i}}A 30}f 2N(1M,1L,map){g G=1L;g 1f=1M;g 31=1f[0][0];g 1N=1f[0][4];g N=\'\';c(2Z(G,1a)){A}N=2g(1f,G);g 32=\'<S ><a F="R:2e(\\\'\'+G+\'\\\')" h=" " u = "\'+G+\'"><i h="\'+31+\'"></i> <33>\'+G+\'</33><34>\'+1N+\'</34> </a> <ul>\'+N+\'</ul> </S>\';$("#11").2j(32)}f 2d(b){g T=b[0];g first_menu=b[1];g 35=b[2];g v=b[3];g project_icon=b[4];g flag_pc=b[5];g 14=b[6];g 1N=b[7];g 1v=b[8];c(T===1){14=\'/t/22?o=\'+14}q{14=\'/t?o=\'+14+I}c(1v==36){c(T===1){1v=\'/29/2a/tableau_shot.2b\'}q{1v=\'/29/2a/echart_shot.2b\'}}g 2k=\'<r u="1O\'+v+\'_\'+T+\'"><a h="K L-1G-2c" k="加入收藏" F="R:1P(\\\'\'+v+\'\\\',\\\'1O\'+v+\'_\'+T+\'\\\')" ></a> </r>\';c(w.J(v)){2k=\'<r u="1O\'+v+\'_\'+T+\'"><a h="K L-1d" k="取消收藏" F="R:1Q(\\\'\'+v+\'\\\',\\\'1O\'+v+\'_\'+T+\'\\\')" ></a> </r>\'}g 37=\'<S h="have-1F"> <a F="\'+14+\'" 2l="38" h="wrap-1F"><1F 28="\'+1v+\'"></a> <M h="content"> <a F="\'+14+\'" 2l="38" h="k">\'+35+\'</a> <p h="abstract">\'+1N+\'</p> <M h="meta">\'+2k+\'</M> </M> </S>\';$("#1D").2j(37)}f 1P(v,1g){$.1c({o:"1r",j:\'/t/21/?a=\'+v,23:\'25\',Z:f(l){w=l.w;H=[];$(V).X(f(z,b){c(w.J(b[3])){H.P(b)}});$(\'#\'+1g).E(\'<a h="K L-1d" k="取消收藏" F="R:1Q(\\\'\'+v+\'\\\',\\\'\'+1g+\'\\\')"></a>\')}})}f 1Q(v,1g){$.1c({o:"1r",j:\'/t/21/?d=\'+v,23:\'25\',Z:f(l){w=l.w;H=[];$(V).X(f(z,b){c(w.J(b[3])){H.P(b)}});$(\'#\'+1g).E(\'<a h="K L-1G-2c" k="加入收藏" F="R:1P(\\\'\'+v+\'\\\',\\\'\'+1g+\'\\\')"></a>\')}})}f 2W(1R,1h,u=0){g j=\'\';c(1h===1){j=\'/t/22?o=\'+1R}q c(1h===2){j=1R}q{j=\'/t/?o=\'+1R}1b(j,1h,u);$(\'E,1u\').2R({2S:\'2T\'},300)}f 39(){g 2m=1S.2n("1w");c(2m!=36){2m.1T=$(3a).1T()*0.9}}f 1b(j,1h=10,u=0){W=j;1o=1h;x=u;j=encodeURI(j+I);g 1H=\'<15 u="1w" h="1w" name="chartframe" 28="\'+j+\'" frameborder="0" scrolling="1i" 3b="3c%" 1T="3c%"></15>\';$("#1I").E(1H);39();c(w.J(x)){$("#15-1U").y(\'C\',\'20\')}q{$("#15-1U").y(\'C\',\'#1Z\')}$("#1V-1W").3d();$.1c({o:\'2o\',j:\'/t/get_comment_qty/\',l:{2p:x,2q:1o},Z:f(l){c(l[\'3e\']>0){$("#15-1V").2j(`<r h="1W"u="1V-1W">${l[\'3e\']}</r>`)}}})}f changelayout(){c($(\'#11\').hasClass(\'2r-2s\')){$(\'#11\').2t(\'2r-2s\');$(\'#1X\').2t(\'3f\');$(\'#1I\').2t(\'3g\');$(\'#1X\').y(\'1x-C\',p_background)}q{$(\'#11\').2u(\'2r-2s\');$(\'#1X\').2u(\'3f\');$(\'#1I\').2u(\'3g\');$(\'#1X\').y(\'1x-C\',\'2v\')}}m 1j="";m 17=-1;f 2w(1i,18,1k){g k=$("#"+18).1p();c(k===\'\'){1k=3h(1k,10)}c(k!=1j||1j==""){m U=$("#"+1i);m 1l=2H 3i();m n=0;1j=k;1J(i=0;i<1k.B;i++){c(1k[i].3j(1j)!==-1){1l[n++]=1k[i]}}c(1l.B==0){U.2x();A}U.empty();1J(i=0;i<1l.B;i++){m 3k=1l[i];m 1m=$("<M>").1t("u",i);1m.1t("2X","2Y:14px/3l arial;1T:3l;padding:0 8px;cursor: pointer;");1m.E(3k).appendTo(U);1m.mouseover(f(){c(17!=-1){U.3m("M").eq(17).y("1x-C","2v")}17=$(1y).1t("u");$(1y).y("1x-C","#ebebeb")});1m.mouseout(f(){$(1y).y("1x-C","2v")});1m.click(f(){m 3o=U.2x().3m("M").eq(17).text();17=-1;$("#"+18).1p(3o)});c(1l.B>0){U.show()}q{U.2x();17=-1}}}1S.onclick=f(e){m e=e?e:3a.event;m 3p=e.srcElement||e.2l;c(3p.u!=18){c($("#"+1i).is(":visible")){$("#"+1i).y("display","2y")}}}}$(f(){1j=$("#Y").1p();$("#Y").focus(f(){c($("#Y").1p()==""){2w("3q","Y",19)}});$("#Y").keyup(f(){2w("3q","Y",19)})});f 3h(1z,2z){c(1z.B<=2z){A 1z}g 1n=1z.1q(0),i=1z.B,2A=i-2z,2B,z;while(i-->2A){z=3r.floor((i+1)*3r.random());2B=1n[z];1n[z]=1n[i];1n[i]=2B}A 1n.1q(2A)}(f(3s){3s.2M(f(o){c(!o.3t.J){o.3t.J=f(18,1A){c(typeof 1A!==\'T\'){1A=0}c(1A+18.B>1y.B){A 30}q{A 1y.3j(18,1A)!==-1}}}})})([String,3i]);f requestFullScreen(){c(W){g O=1S.2n("1w");c(O.3u){O.3u()}q c(O.3v){O.3v()}q c(O.3w){O.3w()}q c(O.3x){O.3x()}}q{$(\'1u\').2C({o:\'3y\',3z:\'2y\',3A:[\'确定\'],k:\'全屏\',2D:\'你需要在报表打开时才可全屏\'})}}f refreshFrame(){1S.2n(\'1w\').contentWindow.location.reload(2i)}f report_msg(){g 2E=\'danger\';c(x>0){2E=\'Z\'}$.1c({o:\'2o\',j:\'/t/get_comment/\',l:{2p:x,2q:1o},Z:f(l){$(\'1u\').2C({o:2E,k:\'comments\',inputPlaceholder:l[\'placeholder\'],isInput:2i,2D:l[\'1C\'],3b:\'1i\'},f(1Y){c(1Y.z===0&&1Y.3B.1M){$.1c({o:"2o",j:"/t/save_comment/",l:{report_link:W,2p:x,2q:1o,remark:1Y.3B.1M},Z:f(l){console.log(l[\'1C\'])}})}});$("#1V-1W").3d()}})}f make_love(){c(x>0){c(w.J(x)){1Q(x,0);$("#15-1U").y(\'C\',\'#1Z\')}q{1P(x,0);$("#15-1U").y(\'C\',\'20\')}}q{$(\'1u\').2C({o:\'3y\',3z:\'2y\',3A:[\'确定\'],k:\'关注报表\',2D:\'你需要在报表打开时才可关注\'})}}',[],224,'|||||||||||array|if|||function|let|class||url|title|data|var||type||else|span||echart|id|chart_id|disreport|nowreportid|css|index|return|length|color|first_menu_sets|html|href|first_menu_name|favor_show_list|dev|includes|iconfont|ic|div|tmpstr|element|push|favorlist|javascript|li|number|autoNode|table_show_list|nowreport|each|id_title|success||show_list||subproject|chart_name_url|iframe||highlightindex|search|report_list|disproject|embedurl|ajax|paid1||param_list|h_id|flag|auto|old_value|mylist|carlist|newDivNode|shuffled|nowreportflag|val|slice|get|tmplist|attr|body|chart_image|iframepage|background|this|arr|start|refresh_index|msg|tbshow_list|fas|img|list|mainframe_html|mainframe|for|item|key|value|comment|favor_|add_favor|del_favor|reportname|document|height|heart|message|badge|leftside|ret|606266|red|index_api|tableau|dataType||json|set|generate_favor|src|static|images|png|like|generate_second_menu|first_menu_call|col|get_sub_menu_html|next_param_list|true|append|like_html|target|ifm|getElementById|POST|report_id|report_flag|mcd|menu1|removeClass|addClass|white|AutoComplete|hide|none|count|min|temp|dailog|discription|d_type|devchange|gen_report_list|new|has|no_favorite|Pro|admin|forEach|generate_first_menu|help|palette||animate|scrollTop|0px|projectname|icon|showreport|style|font|list_contain|false|img_src|first_menu_li|strong|small|chart_name|null|second_menu_li|_blank|iFrameHeight|window|width|100|remove|qty|leftsmall|rightexpand|getRandomArrayElements|Array|indexOf|wordNode|25px|children||comText|tar|auto_div|Math|types|prototype|requestFullscreen|msRequestFullscreen|mozRequestFullScreen|webkitRequestFullscreen|warning|animateStyle|bottons|input'.split('|'),0,{}))
+//[0,item.project_name.name,item.name,item.id,item.project_name.icon,item.desktop,
+//                 parse.quote(item.name),item.remark,item.image_url(),item.project_name.remark,item.project_name.seq]
+var table_show_list = "";
+var favor_show_list = [];
+var disreport =[];
+var report_list =[];
+var disproject =[];
+var first_menu_sets = "";
+var dev = '';
+var nowreport = '';
+var nowreportid = 0;
+var nowreportflag = 10;
+refresh_index();
+
+function reset_dev() {
+if(dev){
+    dev = ''; $('#devchange').css('color','#606266');refresh_index();
+}else{dev='&dev=1';$('#devchange').css('color','red');refresh_index();}
+if(nowreport){embedurl(nowreport);}
+}
+
+function gen_report_list() {
+    report_list =[];
+$(table_show_list).each(function(index, array) {report_list.push(array[0]+array[2]);});
+}
+
+
+function refresh_index(){
+    let url = '/echart/index_api/?'+dev;
+    let title = $.trim($("#id_title").val());
+    if (title !== "") {
+        if(report_list.includes(title)){
+            if(title.slice(0,1)==='1'){
+                url = '/echart/tableau?type=' + title.slice(1);
+            }else{url = '/echart?type=' + title.slice(1); }
+            embedurl(url); return;}
+        url = url + '&s='+title;
+    }
+    $.ajax({type: "get",url: url,dataType:'json',success: function (data) {
+        if (data.hasOwnProperty('msg')){embedurl(data.msg); return}
+        table_show_list = data.show_list;
+        favor_show_list = [];
+        disreport = data.disreport;
+        disproject = data.disproject;
+        let tmplist = [];
+        let favorlist =[];
+        first_menu_sets = new Map();
+        first_menu_sets.set('我的关注',favorlist);
+        //[projecticon,reportname,reportname,reporttype,projectremark,reportid]
+        $(table_show_list).each(function(index, array) {
+            if (first_menu_sets.has(array[1])){
+                tmplist = first_menu_sets.get(array[1]);
+                tmplist.push([array[4],array[2],array[2],array[0],array[9],array[3]]);
+            } else {
+                tmplist = [[array[4],array[2],array[2],array[0],array[9],array[3]]];
+            }
+            first_menu_sets.set(array[1], tmplist);
+            if(disreport.includes(array[3])){
+                favor_show_list.push(array);
+                favorlist.push(['iconfont ic-paid1',array[2],array[2],array[0],'smartchart.cn',array[3]]);
+            }
+        });
+            if(favorlist.length===0){favorlist=[['iconfont ic-paid1','no_favorite','no_favorite',0,'smartchart.cn',-1]];}
+            if(dev){
+                favorlist.push(['iconfont ic-paid1','/admin/echart/echartdashboardsetup_v2/add/?','新增Dashboard',2,'新增图形集装箱',-1]);
+                favorlist.push(['iconfont ic-paid1','/admin/echart/echartdataset/?','浏览数据集',2,'浏览数据集',-1]);
+            }
+            first_menu_sets.set('我的关注',favorlist);
+        $("#show_list").html("");
+        first_menu_sets.forEach(generate_first_menu);
+        generate_favor();
+        if (title ===''){gen_report_list();}
+}})}
+
+function help() {
+$("#tbshow_list").html(
+`<a class="load-more" href="javascript:embedurl(\'/echart?type=no_favorite\');">
+<p>SmartChart</p>
+<span class="fas fa-expand">全屏</span><span class="fas fa-sync-alt">刷新</span><span class="iconfont ic-list-like" title="加入收藏">关注</span><span class="fab fa-rocketchat">留言</span>
+<hr><p>窗口显示报表: 点击左方菜单中项目名,显示报表列表后点击列表中链接</p><p>右方显示报表: 左方菜单中滑动选择报表后点击 或 上方搜索选择随机报表后点击查询</p></a>`)
+}
+
+function generate_favor() {
+}
+
+
+function first_menu_call(first_menu_name) {
+    nowreport ='';
+    nowreportid = 0;
+    let mainframe_html = '<div class="col-xs-24 col-sm-16 col-sm-offset-1 main"> <ul class="note-list" id="tbshow_list"> </ul> </div>';
+    $("#mainframe").html(mainframe_html);
+    $("#show_list a").attr("class", "");
+    $('#'+first_menu_name).attr("class", "active");
+    if(first_menu_name === '我的关注'){generate_favor();return}
+    $(table_show_list).each(function(index, array) {
+        if (first_menu_name === array[1]) {
+            generate_second_menu(array)
+        }
+    });
+    $('html,body').animate({scrollTop: '0px'}, 500);
+}
+
+function get_sub_menu_html(param_list,projectname) {
+    let tmpstr = '';
+    let next_param_list = [];
+    for(let i=0; i<disproject.length;i++) {
+        let item = disproject[i];
+        let subproject = item[0];
+        let icon = item[2];
+        if (projectname === item[1] && first_menu_sets.has(subproject)) {
+            next_param_list = first_menu_sets.get(subproject);
+            tmpstr = tmpstr + '<li><a href="javascript:first_menu_call(\'' + subproject + '\')" class=" " id = "' + subproject + '"><i class="' + icon + '"></i>' + subproject + ' >> </a><ul>' + get_sub_menu_html(next_param_list, subproject) + '</ul></li>';
+        }
+    }
+    $(param_list).each(function (index,array) {
+        if(array[3]<4){
+        tmpstr = tmpstr + '<li><a href="javascript:showreport(\'' + array[1] + '\',' + array[3] + ',' + array[5] + ')" style="font-size:12px;"><i class="fa fa-globe"></i>' + array[2] + '</a></li>';
+    }
+    });
+    return tmpstr;
+}
+
+function list_contain(key,array){
+    for(let i= 0;i<array.length;i++){
+        if(key === array[i][0]){
+            return true;
+        }
+    }
+    return false;
+}
+
+function generate_first_menu(value, key, map) {
+    let first_menu_name = key;
+    let param_list = value;
+    let img_src = param_list[0][0];
+    let comment = param_list[0][4];
+    let tmpstr = '';
+    if(list_contain(first_menu_name,disproject)){return}
+    tmpstr = get_sub_menu_html(param_list,first_menu_name);
+    let first_menu_li = '<li ><a href="javascript:first_menu_call(\''+ first_menu_name+'\')" class=" " id = "'+first_menu_name+'"><i class="'+img_src+'"></i> <strong>'+first_menu_name+'</strong><small>'+comment+'</small> </a> <ul>'+tmpstr+'</ul> </li>';
+    $("#show_list").append(first_menu_li);
+}
+
+function generate_second_menu(array) {
+    let number = array[0];
+    let first_menu = array[1];
+    let chart_name = array[2];
+    let chart_id = array[3];
+    let project_icon = array[4];
+    let flag_pc = array[5];
+    let chart_name_url = array[6];
+    let comment = array[7];
+    let chart_image = array[8];
+    if(number === 1){
+        chart_name_url = '/echart/tableau?type=' + chart_name_url;
+    } else {chart_name_url = '/echart?type=' + chart_name_url +dev}
+    if (chart_image==null) {
+        if(number === 1){
+        chart_image = 'https://www.smartchart.cn/static/images/tableau_shot.png';
+        }else{chart_image = 'https://www.smartchart.cn/static/images/echart_shot.png';}
+    }
+    let like_html = '<span id="favor_'+chart_id+'_'+number+'"><a class="iconfont ic-list-like" title="加入收藏" href="javascript:add_favor(\''+chart_id+'\',\'favor_'+chart_id+'_'+number+'\')" ></a> </span>';
+    if (disreport.includes(chart_id)){
+        like_html = '<span id="favor_'+chart_id+'_'+number+'"><a class="iconfont ic-paid1" title="取消收藏" href="javascript:del_favor(\''+chart_id+'\',\'favor_'+chart_id+'_'+number+'\')" ></a> </span>';
+    }
+
+    let second_menu_li = '<li class="have-img"> <a href="'+chart_name_url+'" target="_blank" class="wrap-img"><img src="'+chart_image+'"></a> <div class="content"> <a href="'+chart_name_url+'" target="_blank" class="title">'+chart_name+'</a> <p class="abstract">'+comment+'</p> <div class="meta">'+like_html+'</div> </div> </li>';
+    $("#tbshow_list").append(second_menu_li);
+}
+
+function add_favor(chart_id,h_id) {}
+
+function del_favor(chart_id,h_id) {}
+
+function showreport(reportname,flag, id=0) {
+    let url ='';
+    if(flag === 1) {
+        url = '/echart/tableau?type=' + reportname;
+    }else if(flag ===2){url = reportname}
+    else{url = '/echart/?type=' + reportname;}
+    embedurl(url,flag, id);
+    $('html,body').animate({scrollTop: '0px'}, 300);
+}
+
+function iFrameHeight() {
+  let ifm = document.getElementById("iframepage");
+  if (ifm != null) {
+   ifm.height =  $(window).height()*0.9;
+  }
+ }
+
+function embedurl(url, flag =10, id=0) {
+    nowreport = url;
+    nowreportflag = flag;
+    nowreportid = id;
+    url = encodeURI(url+dev);
+    let mainframe_html = '<iframe id="iframepage" class="iframepage" name="chartframe" src="'+url+'" frameborder="0" scrolling="auto" width="100%" height="100%"></iframe>';
+    $("#mainframe").html(mainframe_html);
+    iFrameHeight();
+    if(disreport.includes(nowreportid)){
+        $("#iframe-heart").css('color','red')
+    }else{$("#iframe-heart").css('color','#606266')}
+    $("#message-badge").remove();
+    $.ajax({type:'POST', url:'/echart/get_comment_qty/',data: {report_id: nowreportid, report_flag: nowreportflag},
+    success: function (data) {
+        if(data['qty']>0){$("#iframe-message").append(`<span class="badge" id="message-badge">${data['qty']}</span>`)}
+    }});
+ }
+
+function changelayout() {
+    if ($('#show_list').hasClass('mcd-menu1')){
+        $('#show_list').removeClass('mcd-menu1');
+        $('#leftside').removeClass('leftsmall');
+        $('#mainframe').removeClass('rightexpand');
+        $('#leftside').css('background-color',p_background);
+    }else{
+        $('#show_list').addClass('mcd-menu1');
+        $('#leftside').addClass('leftsmall');
+        $('#mainframe').addClass('rightexpand');
+        $('#leftside').css('background-color','white');
+
+    }
+}
+
+
+
+var old_value = "";
+var highlightindex = -1;
+function AutoComplete(auto, search, mylist) {
+    let title = $("#" + search).val();
+    if(title ===''){mylist = getRandomArrayElements(mylist,10)}
+    if (title != old_value || old_value == "") {
+        var autoNode = $("#" + auto);
+        var carlist = new Array();
+        var n = 0;
+        old_value = title;
+        for (i=0; i<mylist.length;i++) {
+            if (mylist[i].indexOf(old_value)!== -1) {
+                carlist[n++] = mylist[i];
+            }
+        }
+        if (carlist.length == 0) {
+            autoNode.hide();
+            return;
+        }
+        autoNode.empty();
+        for (i=0;i<carlist.length;i++) {
+            var wordNode = carlist[i];
+            var newDivNode = $("<div>").attr("id", i);
+            newDivNode.attr("style", "font:14px/25px arial;height:25px;padding:0 8px;cursor: pointer;");
+            newDivNode.html(wordNode).appendTo(autoNode);
+            newDivNode.mouseover(function () {
+                if (highlightindex != -1) {
+                    autoNode.children("div").eq(highlightindex).css("background-color", "white");
+                }
+                highlightindex = $(this).attr("id");
+                $(this).css("background-color", "#ebebeb");
+            });
+            newDivNode.mouseout(function () {
+                $(this).css("background-color", "white");
+            });
+            newDivNode.click(function () {
+                var comText = autoNode.hide().children("div").eq(highlightindex).text();
+                highlightindex = -1;
+                $("#" + search).val(comText);
+            });
+            if (carlist.length > 0) {
+                autoNode.show();
+            } else {
+                autoNode.hide();
+                highlightindex = -1;
+            }
+        }
+    }
+    //点击页面隐藏自动补全提示框
+    document.onclick = function (e) {
+        var e = e ? e : window.event;
+        var tar = e.srcElement || e.target;
+        if (tar.id != search) {
+            if ($("#" + auto).is(":visible")) {
+                $("#" + auto).css("display", "none")
+            }
+        }
+    }
+}
+$(function () {
+    old_value = $("#id_title").val();
+    $("#id_title").focus(function () {
+        if ($("#id_title").val() == "") {
+            AutoComplete("auto_div", "id_title", report_list);
+        }
+    });
+    $("#id_title").keyup(function () {
+        AutoComplete("auto_div", "id_title", report_list);
+    });
+});
+
+function getRandomArrayElements(arr, count) {
+    if(arr.length<=count){return arr;}
+    let shuffled = arr.slice(0), i = arr.length, min = i - count, temp, index;
+    while (i-- > min) {
+        index = Math.floor((i + 1) * Math.random());
+        temp = shuffled[index];
+        shuffled[index] = shuffled[i];
+        shuffled[i] = temp;
+    }
+    return shuffled.slice(min);
+}
+
+// 兼容es7 includes string Array
+(function(types) {
+    types.forEach(function(type) {
+        if (!type.prototype.includes) {
+            type.prototype.includes = function(search, start) {
+                if (typeof start !== 'number') {
+                    start = 0;
+                }
+                if (start + search.length > this.length) {
+                    return false;
+                } else {
+                    return this.indexOf(search, start) !== -1;
+                }
+            };
+        }
+    });
+})([String, Array]);
+
+function requestFullScreen() {
+    if(nowreport) {
+        let element = document.getElementById("iframepage");
+        if (element.requestFullscreen) {
+            element.requestFullscreen();
+        } else if (element.msRequestFullscreen) {
+            element.msRequestFullscreen();
+        } else if (element.mozRequestFullScreen) {
+            element.mozRequestFullScreen();
+        } else if (element.webkitRequestFullscreen) {
+            element.webkitRequestFullscreen();
+        }
+    }else{$('body').dailog({type:'warning',animateStyle:'none',bottons:['确定'],title:'全屏', discription:'你需要在报表打开时才可全屏'});
+}
+
+}
+function refreshFrame(){
+    document.getElementById('iframepage').contentWindow.location.reload(true);
+}
+
+//获取评论
+function report_msg() {
+    let d_type = 'danger';
+    if(nowreportid>0){d_type='success'}
+    $.ajax({type:'POST', url:'/echart/get_comment/',data: {report_id: nowreportid, report_flag: nowreportflag},
+    success: function (data) {
+    $('body').dailog(
+        {
+            type:d_type,
+            title:'comments',
+            inputPlaceholder: data['placeholder'],
+            isInput:true,
+            discription: data['msg'],
+            width: 'auto'
+        },
+        function(ret) {
+            if(ret.index===0 && ret.input.value){
+                $.ajax({
+                type: "POST",
+                url: "/echart/save_comment/",
+                data: { report_link: nowreport, report_id: nowreportid, report_flag: nowreportflag, remark: ret.input.value},
+                success: function(data) { console.log(data['msg']);
+                } });
+            }
+        }
+        );
+    $("#message-badge").remove();
+        }});
+}
+
+function make_love() {
+    $('body').dailog({type:'warning',animateStyle:'none',bottons:['确定'],title:'关注报表', discription:'通用性原因,此功能暂无法开放-smartchart.cn'});
+}
