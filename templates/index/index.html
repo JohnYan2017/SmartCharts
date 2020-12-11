@@ -54,7 +54,7 @@
 <body lang="zh-CN" class="reader-black-font" style="overflow-y: scroll;">
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="smart_head">
         <div >
-            <a class="logo" href="https://www.smartchart.cn"><img src="https://www.smartchart.cn/static/index/logo8.png" alt="smartchart logo"></a>
+            <a class="logo" href="https://gitee.com/smartchart/django_smartchart"><img src="https://www.smartchart.cn/static/index/logo8.png" alt="smartchart logo"></a>
             <div class="nav_end">
                 <span class="head_icon" id="devchange" onclick="reset_dev()"><small><i class="fas fa-user"></i>{{user}}</small></span>
                 <a class="head_icon" id="iframe-heart" onclick="make_love()" title="收藏" ><small><i class="fas fa-heart"></i></small></a>
@@ -62,7 +62,7 @@
                 <a class="head_icon" id="iframe-refresh" onclick="refreshFrame()" title="刷新"><small><i class="fas fa-sync-alt"></i></small></a>
                 <a class="head_icon" id="iframe-message" onclick="report_msg()" title="留言"><small><i class="fab fa-rocketchat"></i></small></a>
                 <a class="head_icon" id="iframe-edit" title="编辑" onclick="reset_dev()"><small><i class="fas fa-edit"></i></small></a>|
-                <a class="head_icon" title="帮助" href="https://gitee.com/smartchart/django_smartchart"><small><i class="fas fa-question-circle"></i></small></a>
+                <a class="head_icon" title="帮助" onclick="help()"><small><i class="fas fa-question-circle"></i></small></a>
                 <a  href="/echart/logout" title="退出"><small><i class="fas fa-sign-out-alt"></i></small></a>
                 <a  href="javascript:changelayout();" title="切换可视区"><img src="https://www.smartchart.cn/static/images/change.png" style="height: 25px;"></a>
             </div>
@@ -97,7 +97,7 @@
             <div class="col-xs-22 col-sm-23 col-md-20" id="mainframe">
                 <div class="col-xs-24 col-sm-16 col-sm-offset-1 main">
                     <ul class="note-list" id="tbshow_list">
-                        <h5 >报表加载中.....</h5>
+                        <a class="load-more" href="#"><p>SmartChart</p><span class="fas fa-expand">全屏</span><span class="fas fa-sync-alt">刷新</span><span class="iconfont ic-list-like" title="加入收藏">关注</span><span class="fab fa-rocketchat">留言</span><hr><p>窗口显示报表: 点击左方菜单中项目名,显示报表列表后点击列表中链接</p><p>右方显示报表: 左方菜单中滑动选择报表后点击 或 上方搜索选择随机报表后点击查询</p></a>
                     </ul>
                 </div>
             </div>
