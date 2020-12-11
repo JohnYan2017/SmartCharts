@@ -133,7 +133,7 @@ pip install smartchart
     TIME_ZONE = 'Asia/Shanghai'
     USE_I18N = True
     USE_L10N = True
-    USE_TZ = False
+    USE_TZ = False  # 此处必须为False
 4. 在你的url.py中加入引用
     from django.conf.urls import include
     from django.views.generic import RedirectView

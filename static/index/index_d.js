@@ -60,7 +60,7 @@ function refresh_index(){
                 favorlist.push(['iconfont ic-paid1',array[2],array[2],array[0],'smartchart.cn',array[3]]);
             }
         });
-            if(favorlist.length===0){favorlist=[['iconfont ic-paid1','no_favorite','no_favorite',0,'smartchart.cn',-1]];}
+            if(favorlist.length===0){favorlist=[['iconfont ic-paid1','no_favorite','Contact',0,'smartchart.cn',-1]];}
             if(dev){
                 favorlist.push(['iconfont ic-paid1','/admin/echart/echartdashboardsetup_v2/add/?','新增Dashboard',2,'新增图形集装箱',-1]);
                 favorlist.push(['iconfont ic-paid1','/admin/echart/echartdataset/?','浏览数据集',2,'浏览数据集',-1]);
@@ -154,11 +154,7 @@ function generate_second_menu(array) {
     if(number === 1){
         chart_name_url = '/echart/tableau?type=' + chart_name_url;
     } else {chart_name_url = '/echart?type=' + chart_name_url +dev}
-    if (chart_image==null) {
-        if(number === 1){
-        chart_image = 'https://www.smartchart.cn/static/images/tableau_shot.png';
-        }else{chart_image = 'https://www.smartchart.cn/static/images/echart_shot.png';}
-    }
+    chart_image = 'https://www.smartchart.cn/static/images/echart_shot.png';
     let like_html = '<span id="favor_'+chart_id+'_'+number+'"><a class="iconfont ic-list-like" title="加入收藏" href="javascript:add_favor(\''+chart_id+'\',\'favor_'+chart_id+'_'+number+'\')" ></a> </span>';
     if (disreport.includes(chart_id)){
         like_html = '<span id="favor_'+chart_id+'_'+number+'"><a class="iconfont ic-paid1" title="取消收藏" href="javascript:del_favor(\''+chart_id+'\',\'favor_'+chart_id+'_'+number+'\')" ></a> </span>';
