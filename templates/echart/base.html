@@ -25,9 +25,9 @@ font-size:10px;
 {% endblock %}</style></head>
 <link rel="icon" type="image.png" href="https://www.smartchart.cn/static/images/favicon.ico"><link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css">
 {% block stylesheet %}{% endblock %}{{devhead|safe}}
-{% block body %}{% endblock %} {{footer|safe}}
-</html><script src="https://www.smartchart.cn/static/js/jquery-2.2.3.min.js"></script><script type="text/javascript" src="https://www.smartchart.cn/static/echart/dist/echarts.min.js"></script><script type="text/javascript" src="https://www.smartchart.cn/static/echart/dist/extension/echarts-wordcloud.min.js"></script><script src="https://www.smartchart.cn/static/js/fun.js"></script><script src="https://www.smartchart.cn/static/echart/theme/{{theme}}"></script><script type="text/javascript" src="https://www.smartchart.cn/static/bootstrap/js/bootstrap.min.js"></script>
-{% block javascript %}{% endblock %}
+{% block body %}{% endblock %}
+</html><script src="https://www.smartchart.cn/static/js/jquery-2.2.3.min.js"></script><script type="text/javascript" src="https://www.smartchart.cn/static/echart/dist/echarts.min.js"></script><script type="text/javascript" src="https://www.smartchart.cn/static/echart/dist/extension/echarts-wordcloud.min.js"></script><script src="https://www.smartchart.cn/static/echart/dist/china.js"></script><script src="https://www.smartchart.cn/static/js/fun.js"></script><script src="https://www.smartchart.cn/static/echart/theme/{{theme}}"></script><script type="text/javascript" src="https://www.smartchart.cn/static/bootstrap/js/bootstrap.min.js"></script>
+{{footer|safe}}{% block javascript %}{% endblock %}
 <script>var app = {};var charts = [];{{echart_main|safe}}window.onresize = function(){for(var i = 0; i < charts.length; i++){charts[i].resize();}};
 $(function(){
     $("#fullScreen").on("click",function(){

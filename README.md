@@ -175,6 +175,7 @@ CharResource      -- 存放echarts转化后的smartchart
 git clone 项目
 pip install smartchart
 启动方式 python manage.py runserver
+帐号: admin/amdin
 
 ```
 
