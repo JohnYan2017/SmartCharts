@@ -154,7 +154,7 @@ pip install smartchart
 -------------------------------------------------------------------------------
 
 ### 开发指引:
-**此项目为前端开源可商用(需保留作者信息),后端代码也可以轻松获取查看,但禁止修改后端商用**
+**此项目为前端代码开源可商用(需保留作者信息)**
 ```shell script
 对应的项目目录说明:
 
@@ -163,7 +163,7 @@ templates/index   -- 首页Portal
 static/echart     -- 扩展前端数据处理函数(图形编辑中可用)
 static/editor     -- 编辑器界面js
 static/index      -- Portal对应js, css
-static/common     -- 你可以在此新建人个文件夹存放自定义css, js, image ..
+static/custom     -- 你可以在此新建人个文件夹存放自定义css, js, image ..
 
 CharResource      -- 存放echarts转化后的smartchart
 
@@ -173,6 +173,10 @@ pip install smartchart
 帐号: admin/amdin
 
 ```
+
+#### 声明
+本项目使用的后端属于专有软件及代码，未获得授权的情况下，禁止进行反编译、分发等行为，否则将承担相应的法律后果
+
 
 #### Change Log
 ```shell script
