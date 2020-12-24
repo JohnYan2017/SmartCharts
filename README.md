@@ -33,21 +33,15 @@
 -------------------------------------------------------------------------------
 
 ## 简介
-**SmartChart是基于Echarts的微代码开发平台,适用于任何WEB项目,比拖拽开发更方便**
+- SmartChart是基于Echarts的微代码开发平台,适用于任何WEB项目,比拖拽开发更方便
+- 简单, 敏捷, 高效,通用化, 高度可定制化, 让你的项目瞬间档次提升
+- 完全真正打通前后端, 图形数据联动, 筛选开发毫无压力
+- 积木式的开发模式, 开箱即用, 安装简单, 依赖少, 适应各种平台
+- 我们让简单和通用化不再是个矛盾体, 请加入我们共建生态, Like it Star it
 
-**简单, 敏捷, 高效,通用化, 高度可定制化, 让你的项目瞬间档次提升**
-
-**完全真正打通前后端, 图形数据联动, 筛选开发毫无压力**
-
-**积木式的开发模式, 开箱即用, 安装简单, 依赖少, 适应各种平台**
-
-**我们让简单和通用化不再是个矛盾体, 请加入我们共建生态, Like it Star it**
-
-![智慧物流](https://images.gitee.com/uploads/images/2019/0614/130751_e439728b_2327318.png "智慧物流.png")
 ![舆情分析](https://images.gitee.com/uploads/images/2019/0614/130021_887dc34c_2327318.png "舆情分析.png")
-![智慧社区](https://images.gitee.com/uploads/images/2019/0614/130053_5cfd9a55_2327318.png "智慧社区.png")
-![智慧医疗](https://images.gitee.com/uploads/images/2019/0614/135158_55f95840_2327318.png "智慧医疗.png")
-![](http://smartchart.cn/media/editor/WX20201128-075135@2x_20201128075202927382.png)
+![smartchart](http://smartchart.cn/media/editor/WX20201128-075135@2x_20201128075202927382.png)
+![smartchartvoice](http://smartchart.cn/media/editor/smartvoice_20201224085323156045.png)
 
 ### 安装使用说明:
 - 环境准备: 官方[最新Python下载链接](https://www.python.org/downloads/release/python-390/ "最新Python下载链接")
@@ -91,7 +85,6 @@
    如果你需要远程访问
    启动方式: 
    python smartchart runserver 0.0.0.0:8000 --insecure
-
 6. 访问http://127.0.0.1:8000/echart/init_db/ 进行数据初始化
 ```
 
@@ -160,15 +153,17 @@ pip install smartchart
 
 -------------------------------------------------------------------------------
 
-### 二次开发指引:
-#### 推荐熟悉前端的同学开发
-##### 对应的项目目录说明:
+### 开发指引:
+**此项目为前端开源可商用(需保留作者信息),后端代码也可以轻松获取查看,但禁止修改后端商用**
 ```shell script
+对应的项目目录说明:
+
 templates/echart  -- 编辑器界面
 templates/index   -- 首页Portal
 static/echart     -- 扩展前端数据处理函数(图形编辑中可用)
 static/editor     -- 编辑器界面js
 static/index      -- Portal对应js, css
+static/common     -- 你可以在此新建人个文件夹存放自定义css, js, image ..
 
 CharResource      -- 存放echarts转化后的smartchart
 
@@ -179,14 +174,20 @@ pip install smartchart
 
 ```
 
+#### Change Log
+```shell script
+2020/12/14  静态资源本地化
+TBD         初始友好化及VUE支持进行中
+
+```
+
 -------------------------------------------------------------------------------
 
 ### 更多使用说明:
 <font size=5 color=red><b>SmartChart</b> designed for you</font>
-
-#### SmartChart是为你而生的一个产品, 你只需要使用通用开发技术就可以使用,无需学习特定的技能, 因为她的通用性, 所以让你的知识不会因为改变而淘汰
-#### 因为她的灵活性, 你可以充分发挥你的智慧让她变得非常的Smart
-#### 抛弃繁琐的操作, 加速你的开发效率, 和BI产品相比, 如同Linux与Window的区别
+SmartChart是为你而生的一个产品, 你只需要使用通用开发技术就可以使用,无需学习特定的技能, 因为她的通用性, 所以让你的知识不会因为改变而淘汰
+因为她的灵活性, 你可以充分发挥你的智慧让她变得非常的Smart
+抛弃繁琐的操作, 加速你的开发效率, 和BI产品相比, 如同Linux与Window的区别
 
 她是一个数据集装箱, 让你非常方便的把数据组装起来后, 可使用统一的接口对外服务,支持系统间嵌入,实时,快速定制化开发. 你也可以理解为数据中台, 用可视化提供统一数据服务. 这是一个面向开发人员的平台, 实现数据的最后一公里
 
@@ -230,7 +231,7 @@ smartchart内置了非常多的图形, 可以直接拿来使用, 但是要定制
 ```
 
 
-##### 估计以让说明你有点不知如何下手, 建议先看最下方的视屏
+**估计以让说明你有点不知如何下手, 建议先看最下方的视屏**
 - [SmartChart入门](https://www.smartchart.cn/blog/article/2019/12/14/33.html "SmartChart入门")
 - [组装Dashboard](https://www.smartchart.cn/blog/article/2019/6/7/7.html "组装Dashboard")
 - [你的第一个模板](https://www.smartchart.cn/blog/article/2019/6/8/8.html "你的第一SMART CHART 模板")
