@@ -116,9 +116,18 @@ url: 登录成功后跳转链接
 
 
 #### 如果你是python开发者,可以在django项目中当作apps使用
+最简单的方法(推荐!!!!)
+请直接下载gitee/github的项目后
+pip install smartchart
+启动方式 python manage.py runserver
+帐号: admin/amdin
+
+
+如果你动手能力强
 ```shell script
 pip install smartchart
 简单配置一下, 你可以参考此demo
+资源文件你需要下载gitee/github上的(注意template的setting)
 1. 在你的setting.py的INSTALL_APPS中加入'smart_chart.echart'
 2. MIDDLEWARE 中注释掉XFrameOptionsMiddleware
 3. setting.py中设定为中国时区, 支持中文基础平台建设!

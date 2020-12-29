@@ -34,7 +34,8 @@
                                         <option value="dawn">dawn</option>
                                         <option value="sqlserver">sqlserver</option>
                                         <option value="twilight">twilight</option>
-                                    </select><span id="printlog" style="color:red"></span>
+                                    </select><a class="glyphicon glyphicon-import" href="#" id="load_sample"
+                                                style="color: rgb(255, 140, 60);">DV</a><span id="printlog" style="color:red"></span>
                                     <a class="glyphicon glyphicon-question-sign" title="帮助"
                                        style="color: rgb(155, 205, 60);float:right" onclick="load_help('help_div')"></a>
                                     <a class="glyphicon glyphicon-magnet" title="复制数据集"
@@ -98,6 +99,14 @@
         }
         })
     }
+       $("#load_sample").click(function () {
+        $.ajax({
+            type: "get", url: 'https://www.smartchart.cn/smartdata/api/?i=datavsample',
+            success: function (data) {
+                editor1.setValue(data);
+            }
+        })
+    });
 </script>
 </body>
 </html>

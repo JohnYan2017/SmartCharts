@@ -24,11 +24,12 @@ font-size:10px;
 {% block style %}
 {% endblock %}</style></head>
 <link rel="icon" type="image.png" href="/static/images/favicon.ico"><link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+{% if dv %}<script src="https://cdn.jsdelivr.net/npm/vue"></script><script src="https://unpkg.com/@jiaminghi/data-view/dist/datav.min.vue.js"></script>{% endif %}
 {% block stylesheet %}{% endblock %}{{devhead|safe}}
 {% block body %}{% endblock %}
 </html><script src="/static/js/jquery-2.2.3.min.js"></script><script type="text/javascript" src="/static/echart/dist/echarts.min.js"></script><script type="text/javascript" src="/static/echart/dist/extension/echarts-wordcloud.min.js"></script><script src="/static/echart/dist/china.js"></script><script src="/static/js/fun.js"></script><script src="/static/echart/theme/{{theme}}"></script><script type="text/javascript" src="/static/bootstrap/js/bootstrap.min.js"></script>
 {{footer|safe}}{% block javascript %}{% endblock %}
-<script>var app = {};var charts = [];{{echart_main|safe}}window.onresize = function(){for(var i = 0; i < charts.length; i++){charts[i].resize();}};
+<script>{% if dv %}var vapp = new Vue({el: '#vue_app', data: {d0:0,d1:0,d2:0,d3:0,d4:0,d5:0,d6:0,d7:0,d8:0,d9:0,d10:0,d11:0,d12:0,d13:0,d14:0,d15:0,d16:0}});{% endif %}var app = {};var charts = [];{{echart_main|safe}}window.onresize = function(){for(var i = 0; i < charts.length; i++){charts[i].resize();}};
 $(function(){
     $("#fullScreen").on("click",function(){
       var isFull=!!(document.webkitIsFullScreen || document.mozFullScreen ||

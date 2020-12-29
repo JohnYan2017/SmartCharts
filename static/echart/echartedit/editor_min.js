@@ -3,12 +3,13 @@ var smarthead = 'let dataset = __dataset__; //传入dataset\n'+
 "//dataset=[['category','C1','C2'],['L1',10,20],['L2',15,25],['L3',8,15]];\n"+
 'dataset = ds_transform(dataset) //可选, 当需要行列互转时\n'+
 "//legend_label = ['C1','C2'] //legend_label的顺序可以指定, 已知系列名\n"+
-'let legend_label = ds_getRowName(dataset) //可选, 自动获取legend\n'+
+'let legend_label = ds_rowname(dataset) //可选, 自动获取legend\n'+
 'let xlabel = dataset[0].slice(1) //x轴的标签列\n'+
 'dataset = ds_createMap(dataset) //转化成KV格式\n\n';
 var smartbottom="\ncharts.push(myChart__name__);"
 var logstr='';
 var helpText = '';
+var vapp = {};
 function print(item){logstr+=item+";"};
 function GetQueryString(name) {
   var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
