@@ -78,9 +78,9 @@ var JavaScriptHighlightRules = function(options) {
         "storage.type":
             "const|let|var|function",
         "constant.language":
-            "null|Infinity|NaN|undefined|__dataset__|__name__",
+            "null|Infinity|NaN|undefined|__dataset__|__name__|vapp",
         "support.function":
-            "alert|ds_transform|ds_split|ds_rowname|ds_remove_column|ds_createMap_all|ds_createMap|ds_fontSize|ds_toThousands|ds_getUpdown|ds_distinct|ds_crossjoin|ds_fulljoin|ds_union|startSelectAnimate|ds_round",
+            "alert|ds_transform|ds_split|ds_rowname|ds_remove_column|ds_createMap_all|ds_createMap|ds_fontSize|ds_toThousands|ds_getUpdown|ds_distinct|ds_crossjoin|ds_fulljoin|ds_union|startSelectAnimate|ds_round|ds_param",
         "constant.language.boolean": "true|false"
     }, "identifier");
     var kwBeforeRe = "case|do|else|finally|in|instanceof|return|throw|try|typeof|yield|void";
