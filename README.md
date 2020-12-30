@@ -58,8 +58,14 @@
 2. 命令行安装: 
    pip3 install smartchart
    pip3 install smartchart -U (升级)
+   安装慢建意使用
+   pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple smartchart
 
-# Mac or Linux 初始化方法
+# 初始化方法
+Window系统中以下命令的 smartchart xxx 使用 smartchart.py xxx 代替
+注意: 如果你是Windows系统且安装过pycharm, 你可能需要随意新建一个xx.py的文件,
+     右键选择打开方式, 改成永久使用python来关联打开
+
 3. 初始化DB, 命令行输入
     smartchart makemigrations
     smartchart migrate
@@ -69,26 +75,9 @@
    smartchart
    如果你需要远程访问,启动方式: 
    smartchart runserver 0.0.0.0:8000 --insecure
-6. 访问http://127.0.0.1:8000/echart/init_db/ 进行数据初始化
-   
-# Window 初始化方法
-3. 初始化DB, 你需要找到你的python安装地址,不记得了参考下图方法
-   如C:\Users\xxx\AppData\Local\Programs\Python\Python39
-   命令行输入
-   cd  C:\Users\....\Python39\Scripts\
-   python smartchart makemigrations
-   python smartchart migrate
-4. 建立管理员帐号, 如果已有可忽略
-   python smartchart createsuperuser  
-5. 本地命令行启动: 
-   python smartchart
-   如果你需要远程访问
-   启动方式: 
-   python smartchart runserver 0.0.0.0:8000 --insecure
-6. 访问http://127.0.0.1:8000/echart/init_db/ 进行数据初始化
 ```
 
-**访问首页http://127.0.0.1:8000**
+**访问首页http://127.0.0.1:8000, 点击首页右上方的云图标初始化数据**
 
 **开发前建意新建一个非超级管理员帐号(重要),避免改到内置的数据集和图形**
 
@@ -117,17 +106,18 @@ url: 登录成功后跳转链接
 
 #### 如果你是python开发者,可以在django项目中当作apps使用
 最简单的方法(推荐!!!!)
+```shell script
 请直接下载gitee/github的项目后
 pip install smartchart
 启动方式 python manage.py runserver
 帐号: admin/amdin
-
+```
 
 如果你动手能力强
 ```shell script
 pip install smartchart
 简单配置一下, 你可以参考此demo
-资源文件你需要下载gitee/github上的(注意template的setting)
+资源文件你需要下载gitee/github上的(注意template的setting你要修改成一样)
 1. 在你的setting.py的INSTALL_APPS中加入'smart_chart.echart'
 2. MIDDLEWARE 中注释掉XFrameOptionsMiddleware
 3. setting.py中设定为中国时区, 支持中文基础平台建设!
@@ -149,9 +139,8 @@ pip install smartchart
    python manage.py createsuperuser
 8. 启动服务
    python manage.py runserver
-
-9. 访问http://127.0.0.1:8000/echart/init_db/ 进行数据初始化
 ```
+**访问首页http://127.0.0.1:8000, 点击首页右上方的云图标初始化数据**
 
 ##### 图形样列参考 
 - [SmartChart图形样列](https://www.smartchart.cn/echart/show/ "图形样列")
