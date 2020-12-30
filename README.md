@@ -149,6 +149,8 @@ pip install smartchart
 #### 安装及使用问题,微信群有时效性,加以下微信号拉你入群
 <img src="https://www.smartchart.cn/media/editor/QQ20201201-140615@2x_20201201140657981573.png" alt="smartchart" height="150" />
 
+QQ群: 476715246  备注: smartchart
+
 -------------------------------------------------------------------------------
 
 ### 开发指引:
