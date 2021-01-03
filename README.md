@@ -58,6 +58,7 @@
 - [SmartChart集成DataV](https://www.smartchart.cn/echart/?type=Smartchart_DataV "集成DATAV")
 - [Smartchart图形数据联动](https://www.smartchart.cn/echart/?type=评论分析 "图形数据联动")
 - [Smartchart无关重要的视屏](https://www.ixigua.com/6910413586208653837?id=6910161770221044237 "smartchart")
+- [Smartchart与Jupyter](https://www.ixigua.com/6912682016601440772/ "smartchart")
 
 
 ### 快速开始
@@ -206,7 +207,7 @@ pip install smartchart
 ```shell script
 2020/12/14  静态资源本地化
 v3.9.8.2    支持所有常见数据库,支持VUE,DATAV
-v3.9.8.3    支持Jupyter,支持一键分享和应用dashboard模板
+v3.9.8.5    支持Jupyter,支持一键分享和应用dashboard模板
 
 ```
 
