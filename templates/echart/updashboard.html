@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SmartChartConnect</title>
+    <link rel="stylesheet" media="all" href="/static/index/input.css">
+</head>
+<body>
+<div class="wrapper">
+    <form>
+        <h1>SmartChart Dashboard</h1>
+        <h5 id="msg"></h5>
+        <div class="group">
+            <input id='id_title' placeholder="input the token" required="required" /><span class="highlight"></span><span class="bar"></span>
+        </div>
+<!--     <div class="group">
+            <input type="text" required="required" /><span class="highlight"></span><span class="bar"></span>
+            <label>Email</label>
+        </div>
+        <div class="group">
+            <input type="password" required="required" /><span class="highlight"></span><span class="bar"></span>
+            <label>Password</label>
+        </div>
+        <div class="group">
+            <textarea type="textarea" rows="5" required="required"></textarea><span class="highlight"></span><span class="bar"></span>
+            <label>Message</label>
+        </div> -->
+    </form>
+        <div class="btn-box">
+            <button id='submitup'  class="btn btn-submit">{{ action }}</button>
+            <button type="button" class="btn btn-cancel">cancel</button>
+            <h5>smartchart.cn</h5>
+        </div>
+</div></body>
+</html>
+
+<script src="/static/js/jquery-2.2.3.min.js"></script>
+
+<script>
+    var status = 0
+    $("#submitup").click(function(){
+        if(status===1){$('#msg').html('已提交, 不要重复点击');return}
+    let title = $.trim($("#id_title").val());
+			if(title == ""){
+				document.getElementById("msg").innerHTML="Pls input your keywords";
+				return;
+			}
+			status=1
+			$.ajax({
+            type: "POST",
+            url: "/echart/dash_connect/",
+            data: {id: {{id}}, a: '{{ action }}', 'key': title},
+            success: function (data) {
+                $('#msg').html(data['msg']);status=0;
+            }
+        });
+		});
+</script>

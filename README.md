@@ -206,6 +206,7 @@ pip install smartchart
 ```shell script
 2020/12/14  静态资源本地化
 v3.9.8.2    支持所有常见数据库,支持VUE,DATAV
+v3.9.8.3    支持Jupyter,支持一键分享和应用dashboard模板
 
 ```
 
@@ -222,4 +223,4 @@ v3.9.8.2    支持所有常见数据库,支持VUE,DATAV
 - 但如果要使用好smart chart, 建意了解下javascript, H5, Echarts这些前端知识, 可以让你的应用更加得心应手,创作更炫的效果
 - 如果你需要更进一步订制你的数据, 你需要了解下SQL的使用,本项目高级应用语言都是通用的技能, 象js, h5,sql 学习成本低
 
-- [SmartChart入门文档入口, 以视屏为准](https://www.smartchart.cn/blog/article/2019/12/14/33.html "SmartChart入门")
+- [SmartChart入门文档入口, 以视屏为准](https://www.smartchart.cn/blog/article/2019/6/1/3.html "SmartChart入门")
