@@ -109,6 +109,30 @@
 - Impala         需安装 pip install impyla
 - ....
 
+### Smartchart在python,Jupyter中使用
+**支持像pyecharts,Matplotlib等python绘图工具一样在Jupyter中使用, 更加方便, 更加炫酷**
+**仅仅只有两个命令,get and set, 简化数据分析工作**
+![](https://www.smartchart.cn/media/editor/WX20210103-181343@2x_20210103181856302575.png)
+
+```python
+from smart_chart.common.tools import Smart
+mysmart = Smart()
+dataset = [['A','B','C'],[12,34,23],[22,33,37]]
+ # 可从数据库中获取数据, id 为smarchart中的数据集id
+a=mysmart.get(100) 
+ #把数据写入数据集并显示图形
+mysmart.set(1,dataset,embed=1,height=200,editor='')
+dataset.append([35,44,67]) #追加数据
+ #随意命名数据集, 不一定需要smartchart中数据集已有的
+mysmart.set('DD', dataset)
+
+#你也可以全局初始化设定
+mychart = Smart(width=xx, height=xx, embed=1, editor='')
+# width, height指定图形嵌入显示的宽高
+# embed 默认不嵌入, embed=1 嵌入, embed='' 不嵌入
+# editor 是否显示图形菜单
+
+```
 
 ### 系统对接方式
 ```python
@@ -207,7 +231,7 @@ pip install smartchart
 ```shell script
 2020/12/14  静态资源本地化
 v3.9.8.2    支持所有常见数据库,支持VUE,DATAV
-v3.9.8.5    支持Jupyter,支持一键分享和应用dashboard模板
+v3.9.8.7    支持Jupyter,支持一键分享和应用dashboard模板
 
 ```
 
