@@ -74,7 +74,7 @@
    pip3 install smartchart
    pip3 install smartchart -U (升级)
    如果安装过程慢,建意使用
-   pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple smartchart
+   pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple smartchart -U
    如果你是第一次安装SmartChart(注意,非第一次不要执行,会覆盖原有DB)
    pip3 install smartdb  (初始化DB)
 ```
@@ -232,6 +232,7 @@ pip install smartchart
 2020/12/14  静态资源本地化
 v3.9.8.2    支持所有常见数据库,支持VUE,DATAV
 v3.9.8.7    支持Jupyter,支持一键分享和应用dashboard模板
+v3.9.8.9    帐号绑定功能上线
 
 ```
 

@@ -18,8 +18,9 @@
         </div>
     </form>
         <div class="btn-box">
-            <a id='submitup' class="btn btn-submit">激活</a>
+            <a type="button" id='submitup' class="btn btn-submit">激活</a>
             <a type="button" href="https://qm.qq.com/cgi-bin/qm/qr?k=eC34KwVvEtMvfh8Zyn1RSfYlzZvuvm7i&jump_from=webapi" class="btn btn-cancel">加Q群</a>
+            <a type="button" href="/echart/register/" class="btn btn-cancel">登记</a>
             <h5><a href="https://www.smartchart.cn">@smartchart.cn</a></h5>
         </div>
 </div>

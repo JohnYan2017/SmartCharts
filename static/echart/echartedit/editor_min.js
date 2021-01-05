@@ -34,7 +34,6 @@ let dataid = GetQueryString('dataid') || '';
 		type: "POST",
 		url: "/echart/savechart/",
 		data: { chartid: GetQueryString('chartid'),dataid: dataid,chart:e},
-//		data: { "chartid": 12,"dataid": 13},
 		success: function(data) {
 			console.log(data);
 			$('#printlog').html(data['msg']);
@@ -90,8 +89,8 @@ function loadoptionsample(){if(helpText===''){$.ajax({type: "get",url: 'https://
       //  var returnvalue = window.open('/echart/show', window, 'dialogwidth=500px;dialogheight=600px;status=no');
     dom.innerHTML='<iframe id="mainIframe" name="mainIframe" src="/echart/show" frameborder="0" scrolling="auto" width="100%" height="100%"></iframe>'
  });
- $("#load_smartchart").click(function () {
-    dom.innerHTML='<iframe id="mainIframe" name="mainIframe" src="https://www.smartchart.cn/echart/show" frameborder="0" scrolling="auto" width="100%" height="100%"></iframe>'
+ $("#load_smartchart").click(function () {let ec_smartkey = localStorage.getItem('ec_smartkey');
+    dom.innerHTML='<iframe id="mainIframe" name="mainIframe" src="https://www.smartchart.cn/echart/show/?t='+ec_smartkey +'" frameborder="0" scrolling="auto" width="100%" height="100%"></iframe>'
  });
  $("#load_echart").click(function () {
        // var returnvalue = window.open('https://www.smartchart.cn/echart/show', window, 'dialogwidth=500px;dialogheight=600px;status=no');
