@@ -21,7 +21,7 @@
 		<img src="https://img.shields.io/badge/Python-3.6+-green.svg" />
 	</a>
 	<a href='https://gitee.com/smartchart/smartchart/members'><img src='https://gitee.com/smartchart/smartchart/badge/fork.svg?theme=dark' alt='fork'></a>
-	<a href='https://gitee.com/smartchart/django_smartchart/stargazers'><img src='https://gitee.com/smartchart/smartchart/badge/star.svg?theme=dark' alt='star'></a>
+	<a href='https://gitee.com/smartchart/smartchart/stargazers'><img src='https://gitee.com/smartchart/smartchart/badge/star.svg?theme=dark' alt='star'></a>
 	<a target="_blank" href='https://github.com/JohnYan2017/Echarts-Django'>
 		<img src="https://img.shields.io/github/stars/JohnYan2017/Echarts-Django.svg?style=social" alt="github star"/>
 	</a>
@@ -72,14 +72,15 @@
 #### 安装SmartChart
 ```shell script
    pip3 install smartchart
+   pip3 install smartdb  (初始化DB,会覆盖以有DB)
+
+   升级
    pip3 install smartchart -U (升级)
    如果安装过程慢,建意使用
    pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple smartchart -U
-   如果你是第一次安装SmartChart(注意,非第一次不要执行,会覆盖原有DB)
-   pip3 install smartdb  (初始化DB)
 ```
 
-#### 快速启动
+#### 应用场景一: 快速启动, 独立平台使用(推荐!)
     Window系统中以下命令的 smartchart xxx 使用 smartchart.py xxx 代替
     注意: 如果你是Windows系统且安装过pycharm, 你可能需要随意新建一个xx.py的文件,
          右键选择打开方式, 改成永久使用python来关联打开
@@ -100,16 +101,9 @@
 - [Smartchart数据库与图形的对话](https://www.ixigua.com/6910413586208653837?id=6910373199603565063 "布局")
 - [SmartChart大屏模板转化](https://www.ixigua.com/6910825442245083660/ "模板")
 
-### 数据库支持说明
+-------------------------------------------------------------------------------
 
-- 原生支持的有mysql,sqlite,API,EXCEL数据
-- SQL Server     需安装 pip install pymssql
-- ORACLE         需安装 pip install cx_Oracle
-- GP,Postgrep    需安装 pip install psycopg2
-- Impala         需安装 pip install impyla
-- ....
-
-### Smartchart在python,Jupyter中使用
+### 应用场景二: 在python,Jupyter中作为数据分析使用
 **支持像pyecharts,Matplotlib等python绘图工具一样在Jupyter中使用, 更加方便, 更加炫酷**
 **仅仅只有两个命令,get and set, 简化数据分析工作**
 ![](https://www.smartchart.cn/media/editor/WX20210103-181343@2x_20210103181856302575.png)
@@ -133,8 +127,8 @@ mychart = Smart(width=xx, height=xx, embed=1, editor='')
 # editor 是否显示图形菜单
 
 ```
-
-### 系统对接方式
+-------------------------------------------------------------------------------
+### 应用场景三: 外部系统对接方式
 ```python
 # 如果需要，你可以采用单点登录的方式与smartchart进行对接嵌入
 '/echart/smart_login?id=xxx&stamp=xxx&token=xxx&url=/'
@@ -151,8 +145,8 @@ url: 登录成功后跳转链接
 # 提示：为了数据安全,对外生产环境使用,务必设定你的环境变量SMART_KEY
 ```
 
-
-### 在django项目中当作apps使用
+-------------------------------------------------------------------------------
+### 应用场景四: 在django项目中当作apps使用
 最简单的方法(推荐!!!!)
 ```shell script
 请直接下载gitee/github的项目后
@@ -161,7 +155,7 @@ pip install smartchart
 帐号: admin/amdin
 ```
 
-如果你动手能力强
+如果你动手能力强, 对django熟悉的
 ```shell script
 pip install smartchart
 简单配置一下, 你可以参考此demo
@@ -191,6 +185,14 @@ pip install smartchart
 
 **访问首页http://127.0.0.1:8000, 点击首页右上方的云图标初始化数据**
 
+### 数据库支持说明
+
+- 原生支持的有mysql,sqlite,API,EXCEL数据
+- SQL Server     需安装 pip install pymssql
+- ORACLE         需安装 pip install cx_Oracle
+- GP,Postgrep    需安装 pip install psycopg2
+- Impala         需安装 pip install impyla
+- ....
 
 ### 联系我们与帮助
 **安装及使用问题,微信群有时效性,可加以下微信号拉你入群**
@@ -233,6 +235,7 @@ pip install smartchart
 v3.9.8.2    支持所有常见数据库,支持VUE,DATAV
 v3.9.8.7    支持Jupyter,支持一键分享和应用dashboard模板
 v3.9.8.9    帐号绑定功能上线
+v3.9.8.10   用户自定义图形管理上线
 
 ```
 

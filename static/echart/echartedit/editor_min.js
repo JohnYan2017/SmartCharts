@@ -46,14 +46,16 @@ let dataid = GetQueryString('dataid') || '';
 	});
 }
 function outsideSave() { console.log('outsidesave');var e = gb.editor.getValue();
-console.log(__dataset__)
+console.log(__dataset__);
+let name = $('#chartname').val().trim();
+let remark = $('#chartremark').val().trim();
  $.ajax({
 		type: "POST",
 		url: "/echart/savechart_request/",
-		data: { chartid: GetQueryString('chartid'),"dataset":JSON.stringify(__dataset__),chart:e},
+		data: { chartid: GetQueryString('chartid'),"dataset":JSON.stringify(__dataset__),chart:e, name:name, remark:remark},
 		success: function(data) {
 			console.log(data);
-			$('#printlog').html(data['msg']);
+			$('#upmsg').html(data['msg']);
 		}
 	});
  }
@@ -257,5 +259,13 @@ var _events = [],
     },
     runDebounce = _.debounce(run, gb.debounceTime, { trailing: !0 });
 $("#save").click(serverSave);
-$("#saveoutside").click(outsideSave);
+// $("#saveoutside").click(outsideSave);
+$("#saveoutside").click(load_upload);
 $("#code-toggle-button").click(editorShowSet);
+
+function load_upload() {
+    $.ajax({
+    type: "get", url: 'https://www.smartchart.cn/smartdata/api/?i=help_uploadchart',
+    success: function (data) {$('#myModal').html(data);console.log(data);$('#myModal').modal('show');}
+});
+}
