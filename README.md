@@ -68,6 +68,7 @@
 也可以直接下载[WINDOWS64位安装版](https://npm.taobao.org/mirrors/python/3.9.0/python-3.9.0-amd64.exe "WINDOWS64位安装版")
 [MAC电脑安装版](http://npm.taobao.org/mirrors/python/3.9.0/python-3.9.0rc2-macosx10.9.pkg "MAC电脑安装版")
 - [Window平台安装视屏介绍](https://www.ixigua.com/6910413586208653837?id=6901867671193649668 "Window平台安装视屏介绍")
+**注意: Windows安装Python时需选中"Add to Path", 否则无法用命令直接启动**
 
 #### 安装SmartChart
 ```shell script
@@ -80,17 +81,14 @@
    pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple smartchart -U
 ```
 
-#### 应用场景一: 快速启动, 独立平台使用(推荐!)
-    Window系统中以下命令的 smartchart xxx 使用 smartchart.py xxx 代替
-    注意: 如果你是Windows系统且安装过pycharm, 你可能需要随意新建一个xx.py的文件,
-         右键选择打开方式, 改成永久使用python来关联打开
+### 应用场景一: 快速启动, 独立平台使用(推荐!)
 ```shell script
    本地命令行启动: 
    smartchart
    如果你需要远程访问,启动方式: 
    smartchart runserver 0.0.0.0:8000 --insecure
 ```
-**访问首页http://127.0.0.1:8000, 点击首页右上方的云图标初始化数据** 
+**访问首页http://127.0.0.1:8000 后点击首页右上方的云图标初始化数据** 
 **管理员帐号密码: admin/admin, 请及时更改密码**
 
 **开发前建意新建一个非超级管理员帐号(重要),避免改到内置的数据集和图形**
