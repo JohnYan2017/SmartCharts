@@ -6,7 +6,7 @@
 [Gitee](https://gitee.com/smartchart/smartchart)
 
 <p align="center">
-	<a href="https://www.smartchart.cn"><img src="https://www.smartchart.cn/static/index/logo8.png" width="45%"></a>
+	<a href="https://www.smartchart.cn"><img src="https://www.smartchart.cn/media/editor/WechatIMG51_20210117224243671223.png" width="45%"></a>
 </p>
 <p align="center">
 	<strong>A platform that Connect Data to Echarts.</strong>
@@ -58,7 +58,7 @@
 - [SmartChart集成DataV](https://www.smartchart.cn/echart/?type=Smartchart_DataV "集成DATAV")
 - [Smartchart图形数据联动](https://www.smartchart.cn/echart/?type=评论分析 "图形数据联动")
 - [Smartchart无关重要的视屏](https://www.ixigua.com/6910413586208653837?id=6910161770221044237 "smartchart")
-- [Smartchart与Jupyter](https://www.ixigua.com/6912682016601440772/ "smartchart")
+- [Smartchart与Jupyter](https://www.ixigua.com/6910413586208653837?id=6912682016601440772 "smartchart")
 
 
 ### 快速开始
@@ -72,20 +72,21 @@
 
 #### 安装SmartChart
 ```shell script
-   pip3 install smartchart
-   pip3 install smartdb  (初始化DB,会覆盖以有DB)
-
-   升级
-   pip3 install smartchart -U (升级)
+   step1: pip3 install smartchart
+   step2: pip3 install smartdb
+   
    如果安装过程慢,建意使用
    pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple smartchart -U
+
+   升级方法:
+   pip3 install smartchart -U (升级)
 ```
 
 ### 应用场景一: 快速启动, 独立平台使用(推荐!)
 ```shell script
    本地命令行启动: 
    smartchart
-   如果你需要远程访问,启动方式: 
+   如果你需要远程访问,服务端启动方式: 
    smartchart runserver 0.0.0.0:8000 --insecure
 ```
 **访问首页http://127.0.0.1:8000 后点击首页右上方的云图标初始化数据** 
@@ -105,6 +106,9 @@
 **支持像pyecharts,Matplotlib等python绘图工具一样在Jupyter中使用, 更加方便, 更加炫酷**
 **仅仅只有两个命令,get and set, 简化数据分析工作**
 ![](https://www.smartchart.cn/media/editor/WX20210103-181343@2x_20210103181856302575.png)
+
+- [Smartchart与Pandas](https://www.ixigua.com/6910413586208653837?id=6918162479646245389 "smartchart")
+- [Smartchart与Jupyter](https://www.ixigua.com/6910413586208653837?id=6917989046132310535 "smartchart")
 
 ```python
 from smart_chart.common.tools import Smart
@@ -234,7 +238,7 @@ v3.9.8.2    支持所有常见数据库,支持VUE,DATAV
 v3.9.8.7    支持Jupyter,支持一键分享和应用dashboard模板
 v3.9.8.9    帐号绑定功能上线
 v3.9.8.10   用户自定义图形管理上线
-
+v3.9.8.17   支持最新的Echarts5.0, 优化加载速度
 ```
 
 -------------------------------------------------------------------------------

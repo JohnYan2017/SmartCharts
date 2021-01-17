@@ -8,13 +8,12 @@
     <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
     <link rel="shortcut icon" href="/static/admin/smartui/img/logo.png">
     <link rel="stylesheet" type="text/css" href="/static/echart/echartedit/main.css">
-    <link rel="stylesheet" href="/static/admin/smartui/fontawesome-free-5.8.1-web/css/all.min.css">
     <title>SmartChart Editor</title>
+        <script type="text/javascript">
+        window.EC_DEMO_LANG = 'zh';
+    </script>
     <script type="text/javascript" src="/static/echart/echartedit/ace.js"></script>
     <script src="/static/echart/echartedit/mode-javascript.js"></script>
-    <script src="/static/echart/echartedit/text.js"></script>
-    <script src="/static/echart/echartedit/javascript.js"></script>
-
 </head>
 
 <body>
@@ -22,7 +21,7 @@
     <div id="main-container">
         <div id="code-container" style="width: 40%;">
             <div id="control-panel">
-                <div id="code-info"><span class="code-info-time">07:54:08</span><span class="code-info-type-info">图表已生成, 54ms</span></div>
+                <div id="code-info"><span class="code-info-time"></span><span class="code-info-type-info"></span></div>
                 <div class="control-btn-panel">{{editormenu|safe}}
                     <a href="javascript:;" onclick="disposeAndRun()" class="btn btn-default btn-sm">运行</a></div>
             </div>
@@ -70,7 +69,7 @@
             <div id="chart-panel" class="right-panel" _echarts_instance_="ec_1571702048137" style="-webkit-tap-highlight-color: transparent; user-select: none;">
                 <div style="position: relative; overflow: hidden; width: 800px; height: 492px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;"><canvas data-zr-dom-id="zr_0" width="800" height="492" style="position: absolute; left: 0px; top: 0px; width: 800px; height: 492px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div>
             </div>
-           <div id="tool-panel"><div id="printlog"></div><button id="code-toggle-button" class="btn btn-sm">折叠</button>|<button id="save" class="btn btn-sm">保存</button>|<button class="btn btn-sm" onclick="javascript:history.back()">返回</button>|<button id="saveoutside" class="btn btn-sm">提交社区</button>
+           <div id="tool-panel"><div id="printlog"></div><a id="code-toggle-button" style="color: #1d2124; font-size: 16px;" href="#" class="glyphicon glyphicon-transfer"> </a><a id="save" style="color: #c0a16b; font-size: 16px;" href="#" class="glyphicon glyphicon-save">保存</a><a id="saveoutside" style="color: #856404; font-size: 16px;" href="#" class="glyphicon glyphicon-cloud-upload"></a>
             <span><a href="https://www.smartchart.cn" target="_blank">© SmartChart.cn</a> </span>
                 <div id="theme"><a title="" class="default selected" data-original-title="default"><span></span></a><a title="" class="light" data-original-title="light"><span></span></a><a title="" class="dark" data-original-title="dark"><span></span></a></div></div>
         </div>
@@ -79,11 +78,10 @@
 <script type="text/javascript" src="/static/echart/dist/echarts.min.js"></script>
 <script type="text/javascript" src="/static/echart/dist/china.js"></script>
 <script type="text/javascript" src="/static/echart/dist/world.js"></script>
-<script type="text/javascript" src="/static/echart/dist/extension/echarts-wordcloud.min.js"></script>
-<script type="text/javascript" src="/static/echart/dist/extension/echarts-liquidfill.min.js"></script>
 <script src="/static/js/fun.js"></script>
 <script type="text/javascript" src="/static/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/static/echart/echartedit/lodash.js"></script>
+<script type="text/javascript" src="/static/echart/echartedit/snippets/javascript.js"></script>
 <script type="text/javascript" src="/static/echart/echartedit/ext-language_tools.js"></script>
 <script type="text/javascript" src="/static/echart/echartedit/editor_min.js"></script>
 <script>{{chartinit|safe}}</script>
