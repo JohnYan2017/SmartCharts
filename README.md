@@ -68,7 +68,7 @@
 也可以直接下载[WINDOWS64位安装版](https://npm.taobao.org/mirrors/python/3.9.0/python-3.9.0-amd64.exe "WINDOWS64位安装版")
 [MAC电脑安装版](http://npm.taobao.org/mirrors/python/3.9.0/python-3.9.0rc2-macosx10.9.pkg "MAC电脑安装版")
 - [Window平台安装视屏介绍](https://www.ixigua.com/6910413586208653837?id=6901867671193649668 "Window平台安装视屏介绍")
-**注意: Windows安装Python时需选中"Add to Path", 否则无法用命令直接启动**
+**注意: Windows安装Python时需选中"Add to Path", 否则无法用命令直接启动; 安装路径不要带空格**
 
 #### 安装SmartChart
 ```shell script
@@ -149,7 +149,8 @@ url: 登录成功后跳转链接
 
 -------------------------------------------------------------------------------
 ### 应用场景四: 在django项目中当作apps使用
-最简单的方法(推荐!!!!)
+**django新手不建意使用此方法**
+- 最简单的方法(推荐!!!!)
 ```shell script
 请直接下载gitee/github的项目后
 pip install smartchart
@@ -157,35 +158,8 @@ pip install smartchart
 帐号: admin/amdin
 ```
 
-如果你动手能力强, 对django熟悉的
-```shell script
-pip install smartchart
-简单配置一下, 你可以参考此demo
-资源文件你需要下载gitee/github上的(注意template的setting你要修改成一样)
-1. 在你的setting.py的INSTALL_APPS中加入'smart_chart.echart'
-2. MIDDLEWARE 中注释掉XFrameOptionsMiddleware
-3. setting.py中设定为中国时区, 支持中文基础平台建设!
-    LANGUAGE_CODE = 'zh-hans'
-    TIME_ZONE = 'Asia/Shanghai'
-    USE_I18N = True
-    USE_L10N = True
-    USE_TZ = False  # 此处必须为False
-4. 在你的url.py中加入引用
-    from django.conf.urls import include
-    from django.views.generic import RedirectView
-5. url.py的urlpatterns中加入路由
-    path('echart/', include('smart_chart.echart.urls')),
-    path('', RedirectView.as_view(url='echart/index/')),  #首页,可自定义路由
-6. 初始化DB, 命令行输入: 
-    python manage.py makemigrations
-    python manage.py migrate
-7. 建立管理员帐号, 如果已有可忽略
-   python manage.py createsuperuser
-8. 启动服务
-   python manage.py runserver
-```
+- 如果你动手能力强, 对django熟悉的, 可以参考Wiki中的说明进行自行加入
 
-**访问首页http://127.0.0.1:8000, 点击首页右上方的云图标初始化数据**
 
 ### 数据库支持说明
 
