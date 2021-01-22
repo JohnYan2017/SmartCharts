@@ -1,12 +1,4 @@
 var __dataset__ = [['category','C1','C2'],['L1',10,20],['L2',15,25],['L3',8,15]];
-var smarthead = 'let dataset = __dataset__; //传入dataset\n'+
-"//dataset=[['category','C1','C2'],['L1',10,20],['L2',15,25],['L3',8,15]];\n"+
-'dataset = ds_transform(dataset) //可选, 当需要行列互转时\n'+
-"//legend_label = ['C1','C2'] //legend_label的顺序可以指定, 已知系列名\n"+
-'let legend_label = ds_rowname(dataset) //可选, 自动获取legend\n'+
-'let xlabel = dataset[0].slice(1) //x轴的标签列\n'+
-'dataset = ds_createMap(dataset) //转化成KV格式\n\n';
-var smartbottom="\ncharts.push(myChart__name__);"
 var logstr='';
 var helpText = '';
 var vapp = {};
@@ -45,59 +37,10 @@ let dataid = GetQueryString('dataid') || '';
 		}
 	});
 }
-function outsideSave() { console.log('outsidesave');var e = gb.editor.getValue();
-console.log(__dataset__);
-let name = $('#chartname').val().trim();
-let remark = $('#chartremark').val().trim();
- $.ajax({
-		type: "POST",
-		url: "/echart/savechart_request/",
-		data: { chartid: GetQueryString('chartid'),"dataset":JSON.stringify(__dataset__),chart:e, name:name, remark:remark},
-		success: function(data) {
-			console.log(data);
-			$('#upmsg').html(data['msg']);
-		}
-	});
- }
+
 function localSave() { console.log('save');var e = gb.editor.getValue(); if (window.localStorage && e !== gb.loadedCode) try { window.localStorage.setItem("code", e), $("#reset-btn").css("display", "inline-block") } catch (t) { console.error(t), log("缓存到本地失败，刷新页面后图表将不被保存，请及时保存") } }
 
-function loaddefault1() {$.ajax({type: "get",url: 'https://www.smartchart.cn/smartdata/api/?i=loaddefault1',success: function (data)
- {gb.editor.setValue(data);}})};
-function loaddefault2() {$.ajax({type: "get",url: 'https://www.smartchart.cn/smartdata/api/?i=loaddefault2',success: function (data)
- {gb.editor.setValue(data);}})};
-function loaddefault3() {$.ajax({type: "get",url: 'https://www.smartchart.cn/smartdata/api/?i=loaddefault3',success: function (data)
- {gb.editor.setValue(data);}})};
-function loaddefault4() {$.ajax({type: "get",url: 'https://www.smartchart.cn/smartdata/api/?i=loaddefault4',success: function (data)
- {gb.editor.setValue(data);}})};
-function loaddefault5() {$.ajax({type: "get",url: 'https://www.smartchart.cn/smartdata/api/?i=loaddefault5',success: function (data)
- {gb.editor.setValue(data);} })};
-
- function loaddataset1() {$.ajax({type: "get",url: 'https://www.smartchart.cn/smartdata/api/?i=loaddataset1',success: function (data)
-  {__dataset__=eval(data);disposeAndRun();} })};
-  function loaddataset2() {$.ajax({type: "get",url: 'https://www.smartchart.cn/smartdata/api/?i=loaddataset2',success: function (data)
-  {__dataset__=eval(data);disposeAndRun();} })};
-  function loaddataset3() {$.ajax({type: "get",url: 'https://www.smartchart.cn/smartdata/api/?i=loaddataset3',success: function (data)
-  {__dataset__=eval(data);disposeAndRun();} })};
-  function loaddataset4() {$.ajax({type: "get",url: 'https://www.smartchart.cn/smartdata/api/?i=loaddataset4',success: function (data)
-  {__dataset__=eval(data);disposeAndRun();} })};
-  function loaddataset5() {$.ajax({type: "get",url: 'https://www.smartchart.cn/smartdata/api/?i=loaddataset5',success: function (data)
- {__dataset__=eval(data);disposeAndRun();} })};
-
 var dom = document.getElementById("chart-panel");
-
-function loadoptionsample(){if(helpText===''){$.ajax({type: "get",url: 'https://www.smartchart.cn/smartdata/api/?i=echartoption',success: function (data)
- {helpText=data;dom.innerHTML=helpText;} });}else{dom.innerHTML=helpText;}}
- $("#load_chart").click(function () {
-      //  var returnvalue = window.open('/echart/show', window, 'dialogwidth=500px;dialogheight=600px;status=no');
-    dom.innerHTML='<iframe id="mainIframe" name="mainIframe" src="/echart/show" frameborder="0" scrolling="auto" width="100%" height="100%"></iframe>'
- });
- $("#load_smartchart").click(function () {let ec_smartkey = localStorage.getItem('ec_smartkey');
-    dom.innerHTML='<iframe id="mainIframe" name="mainIframe" src="https://www.smartchart.cn/echart/show/?t='+ec_smartkey +'" frameborder="0" scrolling="auto" width="100%" height="100%"></iframe>'
- });
- $("#load_echart").click(function () {
-       // var returnvalue = window.open('https://www.smartchart.cn/echart/show', window, 'dialogwidth=500px;dialogheight=600px;status=no');
-     dom.innerHTML='<iframe id="mainIframe" name="mainIframe" src="https://gallery.echartsjs.com/explore.html" frameborder="0" scrolling="auto" width="100%" height="100%"></iframe>'
- });
 
 function makeSearch(e) { var t = []; for (var o in e) null != e[o] && t.push(o + "=" + e[o]); return t.join("&") }
 
@@ -114,11 +57,6 @@ function localLoad() {
         return true;
     } catch (t) { console.error(t); }
 }
-function gensmartchart() {
- var editstr = gb.editor.getValue().replace(/option[^=]*=/, 'option__name__=').replace(/myChart([^_]+)/g, 'myChart__name__$1').replace('(option)','(option__name__)')
-  if (editstr.indexOf('__dataset__')<0){
-  editstr = smarthead + editstr + smartbottom + '\n//dom__name__.innerHTML=table;\n\n'}
-gb.editor.setValue(editstr);}
 
 function initControl() { $("#theme-dropdown").on("click", "li a", function() { setThemeButton($(this).text()) }), $("#echarts-version-dropdown").on("click", "li a", function() { setEchartsVersionButton($(this).text()) }) }
 function setThemeButton(e) { $("#theme-btn").html("ECharts-" + e + ' <span class="caret"></span>'), $("#theme-btn").val(e),configs["theme"]=e, disposeAndRun() }
@@ -259,13 +197,4 @@ var _events = [],
     },
     runDebounce = _.debounce(run, gb.debounceTime, { trailing: !0 });
 $("#save").click(serverSave);
-// $("#saveoutside").click(outsideSave);
-$("#saveoutside").click(load_upload);
 $("#code-toggle-button").click(editorShowSet);
-
-function load_upload() {
-    $.ajax({
-    type: "get", url: 'https://www.smartchart.cn/smartdata/api/?i=help_uploadchart',
-    success: function (data) {$('#myModal').html(data);console.log(data);$('#myModal').modal('show');}
-});
-}
