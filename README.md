@@ -68,7 +68,7 @@
 也可以直接下载[WINDOWS64位安装版](https://npm.taobao.org/mirrors/python/3.9.0/python-3.9.0-amd64.exe "WINDOWS64位安装版")
 [MAC电脑安装版](http://npm.taobao.org/mirrors/python/3.9.0/python-3.9.0rc2-macosx10.9.pkg "MAC电脑安装版")
 - [Window平台安装视屏介绍](https://www.ixigua.com/6910413586208653837?id=6901867671193649668 "Window平台安装视屏介绍")
-**注意: Windows安装Python时需选中"Add to Path", 否则无法用命令直接启动; 安装路径不要带空格**
+**注意: Windows安装Python时需选中"Add to Path"**
 
 #### 安装SmartChart
 ```shell script
@@ -121,12 +121,26 @@ mysmart.set(1,dataset,embed=1,height=200,editor='')
 dataset.append([35,44,67]) #追加数据
  #随意命名数据集, 不一定需要smartchart中数据集已有的
 mysmart.set('DD', dataset)
+mysmart.set('barxxx', dataset)  #显示柱形数, 另外还有linexxx, piexxx
 
-#你也可以全局初始化设定
+####### dateset也可以直接是pandas的df ########
+import pandas as pd
+# 从数据集1中获取数据直接转成pandas df
+df = pddf(1)
+# 读取excel数据
+df = pd.read_excel('manual_smartdemo.xlsx', 'sheet1')
+#sample = df.sample(10)
+#mysmart.set('df0', sample)
+df1 = df.groupby('province').agg({'qty':'sum'}).reset_index()
+mysmart.set('pie', df1)
+
+####### 你也可以全局初始化设定 #######
 mychart = Smart(width=xx, height=xx, embed=1, editor='')
 # width, height指定图形嵌入显示的宽高
 # embed 默认不嵌入, embed=1 嵌入, embed='' 不嵌入
 # editor 是否显示图形菜单
+# push 是否持久化数据集  push=1, 无则新建有则保存数据
+
 
 ```
 -------------------------------------------------------------------------------
