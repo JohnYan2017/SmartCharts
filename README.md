@@ -72,8 +72,7 @@
 
 #### 安装SmartChart
 ```shell script
-   step1: pip3 install smartchart
-   step2: pip3 install smartdb
+   pip3 install smartchart
    
    如果安装过程慢,建意使用
    pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple smartchart -U
@@ -215,8 +214,8 @@ pip install smartchart
 ```
 
 #### 声明
-本项目后端完全免费使用, 开发不易, 为了项目能长期维护下去, 禁止反编译、分发等行为进行商用.
-需共同开发后端的同学可以与我联系进入内部项目
+本项目后端个人可免费使用, 未经授权不可商用. 
+开发不易, 为了项目能长期维护下去, 禁止反编译、分发等行为.
 
 
 #### Change Log
@@ -228,6 +227,7 @@ v3.9.8.9    帐号绑定功能上线
 v3.9.8.10   用户自定义图形管理上线
 v3.9.8.17   支持最新的Echarts5.0, 优化加载速度
 v3.9.8.20   用户自定义图形管理功能升级
+v3.9.8.23   Echarts升级5.0.1, 支持一个数据集对应多查询, 资源本地化
 ```
 
 -------------------------------------------------------------------------------

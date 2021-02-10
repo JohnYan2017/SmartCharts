@@ -11,16 +11,16 @@
 <div class="wrapper">
     <form>
         <h1>SmartChart</h1>
-        <h5 id="msg">为方便交流,需加微信或群获取激活码,请支持一杯咖啡</h5>
+        <h5 id="msg">加微信或群获取激活码,请支持一杯咖啡</h5>
         <h5><img src="https://www.smartchart.cn/static/images/auth.png" height="150px"></h5>
         <div class="group">
             <input id="authkey" placeholder="请输入你的KEY" required="required" /><span class="highlight"></span><span class="bar"></span>
         </div>
     </form>
         <div class="btn-box">
-            <a type="button" id='submitup' class="btn btn-submit">激活</a>
+            <a id='submitup' class="btn btn-submit">激活</a>
             <a type="button" href="https://qm.qq.com/cgi-bin/qm/qr?k=eC34KwVvEtMvfh8Zyn1RSfYlzZvuvm7i&jump_from=webapi" class="btn btn-cancel">加Q群</a>
-            <a type="button" href="/echart/register/" class="btn btn-cancel">登记</a>
+            <a href="/echart/register/" class="btn btn-submit">登记</a>
             <h5><a href="https://www.smartchart.cn">@smartchart.cn</a></h5>
         </div>
 </div>
