@@ -79,7 +79,6 @@ function setSplitPosition(e) {
 }
 
 function checkEditorIfToShow(){gb.editorIsShown = !0}
-//function checkEditorIfToShow() { window.innerWidth < 768 ? (void 0 === gb.editorIsShown || gb.editorIsShown === !0) && ($("#code-container").hide(), $("#h-handler").hide(), $(".right-container").css("width", "100%").css("left", "0%"), gb.editorIsShown = !1,$("#code-toggle-button").text("展开")) : (void 0 === gb.editorIsShown || gb.editorIsShown === !1) && ($("#code-container").show(), $("#h-handler").show(), setSplitPosition(.4), gb.editorIsShown = !0,$("#code-toggle-button").text("折叠")) }
 function editorShowSet(){ gb.editorIsShown === !0 ? (void 0 === gb.editorIsShown || gb.editorIsShown === !0) && ($("#code-container").hide(), $("#h-handler").hide(), $(".right-container").css("width", "100%").css("left", "0%"), gb.editorIsShown = !1,disposeAndRun(),$("#code-toggle-button").text("展开")) : (void 0 === gb.editorIsShown || gb.editorIsShown === !1) && ($("#code-container").show(), $("#h-handler").show(),setSplitPosition(handle_t), gb.editorIsShown = !0,$("#code-toggle-button").text("折叠")) }
 
 function _clearTimeTickers() {
@@ -97,7 +96,6 @@ function _clearChartEvents() { _events.forEach(function(e) { gb.chart && gb.char
 
 function disposeAndRun() {
     gb.chart && gb.chart.dispose();
-   // $("#theme-btn").val() || "default";
     gb.chart = null, run(!0)
 }
 
@@ -154,11 +152,8 @@ var _events = [],
         try {
             var myChart = gb.chart,
                 app = appEnv;
-//                console.log(gb.editor.getValue())
-//            var editstr = gb.editor.getValue().replace(/__dataset__/g, dataset).replace(/__name__/g, '')
             var editstr = gb.editor.getValue().replace(/__name__/g, '')
                 editstr = editstr.replace('charts.push(myChart);','')
-              // console.log(editstr)
             if (option = null, eval(editstr), option && "object" == typeof option && (!_.isEqual(option, gb.lastOption) || ignoreOptionNotChange)) {
                 gb.lastOption = option;
                 var startTime = +new Date;

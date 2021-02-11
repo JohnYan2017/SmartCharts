@@ -181,10 +181,11 @@ pip install smartchart
 - ORACLE         需安装 pip install cx_Oracle
 - GP,Postgrep    需安装 pip install psycopg2
 - Impala         需安装 pip install impyla
+- DB2            需安装 pip install ibm_db
 - ....
 
 ### 联系我们与帮助
-**安装及使用问题,微信群有时效性,可加以下微信号拉你入群**
+**安装及使用问题,可加以下微信号拉你入群**
 
 <img src="https://www.smartchart.cn/media/editor/QQ20201201-140615@2x_20201201140657981573.png" alt="smartchart" height="150" />
 
@@ -206,11 +207,6 @@ static/editor     -- 编辑器界面js
 static/index      -- Portal对应js, css
 static/custom     -- 你可以在此新建人个文件夹存放自定义css, js, image ..
 
-git clone 项目
-pip install smartchart
-启动方式 python manage.py runserver
-帐号: admin/amdin
-
 ```
 
 #### 声明
@@ -228,6 +224,7 @@ v3.9.8.10   用户自定义图形管理上线
 v3.9.8.17   支持最新的Echarts5.0, 优化加载速度
 v3.9.8.20   用户自定义图形管理功能升级
 v3.9.8.23   Echarts升级5.0.1, 支持一个数据集对应多查询, 资源本地化
+v3.9.9.0    print函数优化,新增数据透视函数,个人静态资源路径显示, db2支持
 ```
 
 -------------------------------------------------------------------------------
