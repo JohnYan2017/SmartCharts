@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-    <img src="https://img.shields.io/badge/Release-V3.9.8-green.svg" alt="Downloads">
+    <img src="https://img.shields.io/badge/Release-V3.9.9-green.svg" alt="Downloads">
 	<a target="_blank" href="https://www.python.org/downloads/release/python-390/">
 		<img src="https://img.shields.io/badge/Python-3.6+-green.svg" />
 	</a>
@@ -85,13 +85,10 @@
 ```shell script
    本地命令行启动: 
    smartchart
-   如果你需要远程访问,服务端启动方式: 
+   如果你是服务器部署,远程访问,服务端启动方式: 
    smartchart runserver 0.0.0.0:8000 --insecure
 ```
-**访问首页http://127.0.0.1:8000 后点击首页右上方的云图标初始化数据** 
 **管理员帐号密码: admin/admin, 请及时更改密码**
-
-**开发前建意新建一个非超级管理员帐号(重要),避免改到内置的数据集和图形**
 
 **开发前请 观看视屏说明!!! 重要!! 重要!!**
 - [Smartchart数据库与数据集SQL](https://www.ixigua.com/6910413586208653837?id=6902584882958959116 "SQL")
@@ -196,7 +193,7 @@ pip install smartchart
 -------------------------------------------------------------------------------
 
 ### 开发指引与声明:
-**此项目为前端代码开源可商用(需保留作者信息)**
+**此项目为前端代码开源(需保留作者信息)**
 ```shell script
 对应的项目目录说明:
 
@@ -225,6 +222,7 @@ v3.9.8.17   支持最新的Echarts5.0, 优化加载速度
 v3.9.8.20   用户自定义图形管理功能升级
 v3.9.8.23   Echarts升级5.0.1, 支持一个数据集对应多查询, 资源本地化
 v3.9.9.0    print函数优化,新增数据透视函数,个人静态资源路径显示, db2支持
+v3.9.9.1    开发界面美化
 ```
 
 -------------------------------------------------------------------------------
