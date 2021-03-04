@@ -135,7 +135,8 @@ mychart = Smart(width=xx, height=xx, embed=1, editor='')
 # width, height指定图形嵌入显示的宽高
 # embed 默认不嵌入, embed=1 嵌入, embed='' 不嵌入
 # editor 是否显示图形菜单
-# push 是否持久化数据集  push=1, 无则新建有则保存数据
+# push 是否持久化数据集 push=1, 无则新建有则保存数据
+# url 报表访问的url,默认是localhost
 
 
 ```
@@ -230,7 +231,7 @@ v3.9.9.1    开发界面美化
 ### 更多使用说明:
 **SmartChart designed for you / SmartChart是为你而生的一个产品,** 
 
-你只需要使用通用开发技术就可以使用,无需学习特定的技能, 因为她的通用性, 所以让你的知识不会因为改变而淘汰
+你只需要使用通用开发技术就可以使用, 因为她的通用性, 所以让你的知识不会因为改变而淘汰
 因为她的灵活性, 你可以充分发挥你的智慧让她变得非常的Smart
 抛弃繁琐的操作, 加速你的开发效率, 和BI产品相比, 如同Linux与Window的区别
 
