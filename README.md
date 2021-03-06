@@ -47,10 +47,10 @@
 - 简单, 敏捷, 高效,通用化, 高度可定制化, 让你的项目瞬间档次提升, 比拖拽开发更方便
 - 完全真正打通前后端, 图形数据联动, 筛选开发毫无压力, 支持几乎常见的所有数据库
 - 积木式的开发模式, 开箱即用, 安装简单, 依赖少, 适应各种平台
-- 我们让简单和通用化不再是个矛盾体, 请加入我们共建生态, Like it Star it
+- 我们让简单和通用化不再是个矛盾体, Like it Star it
 
 ![舆情分析](https://images.gitee.com/uploads/images/2019/0614/130021_887dc34c_2327318.png "舆情分析.png")
-![smartchart](http://smartchart.cn/media/editor/WX20201128-075135@2x_20201128075202927382.png)
+![smartchart](http://smartchart.cn/media/editor/qyj01show_20210306112736437498.png)
 ![smartchartvoice](http://smartchart.cn/media/editor/smartvoice_20201224085323156045.png)
 
 ### 样列
@@ -95,6 +95,7 @@
 - [Smartchart页面快速布局](https://www.ixigua.com/6910413586208653837?id=6907784122065191438 "布局")
 - [Smartchart数据库与图形的对话](https://www.ixigua.com/6910413586208653837?id=6910373199603565063 "布局")
 - [SmartChart大屏模板转化](https://www.ixigua.com/6910825442245083660/ "模板")
+- [SmartChart最新开发界面](https://www.ixigua.com/6936381900768412198/ "开发界面")
 
 -------------------------------------------------------------------------------
 
@@ -105,6 +106,7 @@
 
 - [Smartchart与Pandas](https://www.ixigua.com/6910413586208653837?id=6918162479646245389 "smartchart")
 - [Smartchart与Jupyter](https://www.ixigua.com/6910413586208653837?id=6917989046132310535 "smartchart")
+- [SmartChart大屏新思路](https://www.ixigua.com/6921133676189352456 "smartchart")
 
 ```python
 from smart_chart.common.tools import Smart
@@ -224,6 +226,7 @@ v3.9.8.20   用户自定义图形管理功能升级
 v3.9.8.23   Echarts升级5.0.1, 支持一个数据集对应多查询, 资源本地化
 v3.9.9.0    print函数优化,新增数据透视函数,个人静态资源路径显示, db2支持
 v3.9.9.1    开发界面美化
+v3.9.9.5    开发界面优化,fix定时刷新BUG,新增批量数据集删除
 ```
 
 -------------------------------------------------------------------------------
