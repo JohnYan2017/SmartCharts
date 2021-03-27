@@ -1,0 +1,10 @@
+{% extends "echart/base.html" %}
+{% block head %}{% endblock %}
+{% block style %}{% endblock %}
+{% block stylesheet %}{% endblock %}
+{% block body %}
+    {% for div in div_list %}
+      {{div|safe}}
+    {% endfor %}
+{% endblock %}
+{% block javascript %}{% endblock %}

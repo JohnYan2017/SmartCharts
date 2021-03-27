@@ -107,6 +107,7 @@
 - [Smartchart与Pandas](https://www.ixigua.com/6910413586208653837?id=6918162479646245389 "smartchart")
 - [Smartchart与Jupyter](https://www.ixigua.com/6910413586208653837?id=6917989046132310535 "smartchart")
 - [SmartChart大屏新思路](https://www.ixigua.com/6921133676189352456 "smartchart")
+- [SmartChart的Python连接器](https://www.ixigua.com/6944159294069670437 "smartchart")
 
 ```python
 from smart_chart.common.tools import Smart
@@ -176,12 +177,13 @@ pip install smartchart
 
 ### 数据库支持说明
 
-- 原生支持的有mysql,sqlite,API,EXCEL数据
+- 原生支持的有mysql,sqlite,API,EXCEL数据, 你可以使用python连接器扩展任意数据源
 - SQL Server     需安装 pip install pymssql
 - ORACLE         需安装 pip install cx_Oracle
 - GP,Postgrep    需安装 pip install psycopg2
 - Impala         需安装 pip install impyla
 - DB2            需安装 pip install ibm_db
+- Python         需安装 pip install pandas, openpyxl
 - ....
 
 ### 联系我们与帮助
@@ -227,6 +229,7 @@ v3.9.8.23   Echarts升级5.0.1, 支持一个数据集对应多查询, 资源本�
 v3.9.9.0    print函数优化,新增数据透视函数,个人静态资源路径显示, db2支持
 v3.9.9.1    开发界面美化
 v3.9.9.5    开发界面优化,fix定时刷新BUG,新增批量数据集删除
+v3.9.9.7    增加python连接器,数据池,自定义主模板,优化开发界面
 ```
 
 -------------------------------------------------------------------------------

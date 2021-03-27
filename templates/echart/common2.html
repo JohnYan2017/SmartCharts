@@ -1,0 +1,19 @@
+{% extends "echart/base.html" %}
+{% block head %}{% endblock %}
+{% block style %}{% endblock %}
+{% block stylesheet %}{% endblock %}
+{% block body %}
+<body {{body|safe}}>
+
+<div class="container_fluid">
+<div class="row_fluid" id="vue_app">
+    {% for div in div_list %}
+      {{div|safe}}
+    {% endfor %}    
+</div>
+</div>
+</body>
+{% endblock %}
+{% block javascript %}<script type="text/javascript" src="/static/echart/dist/extension/echarts-liquidfill.min.js"></script>
+<script type="text/javascript" src="/static/echart/dist/extension/ecStat.min.js"></script>
+<script type="text/javascript" src="/static/echart/dist/extension/echarts-wordcloud.min.js"></script>{% endblock %}

@@ -2,10 +2,11 @@ var __dataset__ = [['category','C1','C2'],['L1',10,20],['L2',15,25],['L3',8,15]]
 var logstr='';
 var helpText = '';
 var vapp = {};
-function print(item){logstr+=item+";"};
+var autoshow = true;
+function print(item){logstr+=item+";"}
 function GetQueryString(name) {
-  var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
-  var r = window.location.search.substr(1).match(reg);
+  let reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+  let r = window.location.search.substr(1).match(reg);
   if (r != null) {
     return unescape(r[2]);
   }
@@ -145,6 +146,7 @@ var appEnv = {},
 window.setTimeout = function(e, t) { var o = _oldSetTimeout(e, t); return _timeoutIdList.push(o), o }, window.setInterval = function(e, t) { var o = _oldSetInterval(e, t); return _intervalIdList.push(o), o };
 var _events = [],
     run = function(ignoreOptionNotChange) {
+         if(!(autoshow || ignoreOptionNotChange)){return}
 //      var dom = document.getElementById("chart-panel");
         if (gb.chart || (gb.chart = echarts.init(dom, configs.theme, { renderer: configs.renderer || "canvas" }), _wrapOnMethods(gb.chart)), hasEditorError()) return void log(lang.errorInEditor, "error");
 //        if (gb.chart || (gb.chart = echarts.init($("#chart-panel")[0], configs.theme, { renderer: configs.renderer || "canvas" }), _wrapOnMethods(gb.chart)), hasEditorError()) return void log(lang.errorInEditor, "error");
@@ -193,3 +195,7 @@ var _events = [],
     runDebounce = _.debounce(run, gb.debounceTime, { trailing: !0 });
 $("#save").click(serverSave);
 $("#code-toggle-button").click(editorShowSet);
+function auto_html() {
+    autoshow = !autoshow;
+    if(autoshow){$('#id_autohtml').css('color', 'red')}else{$('#id_autohtml').css('color', 'gray')}
+}

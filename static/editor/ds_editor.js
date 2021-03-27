@@ -90,7 +90,7 @@ $('#title').click(function () {
 
 $('#conn').click(function () {
   $.ajax({type: "get",url: '/echart/get_connlist/',success: function (data){
-      let connselect = $('#connselect');console.log(data['msg']);
+      let connselect = $('#connselect');connselect.empty();
           data['msg'].forEach(function (item) {
               connselect.append('<option value='+item[0]+'>'+item[1]+'</option>')
           });

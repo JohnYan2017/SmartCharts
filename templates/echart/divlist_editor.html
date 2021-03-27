@@ -40,6 +40,8 @@
                                        data-target="#myModal_reset"></a>
                                     <a class="glyphicon glyphicon-question-sign" title="帮助" href="#"
                                        style="color: rgb(155, 205, 60);float:right" onclick="load_help('help_divlist')"></a>
+                                    <a class="glyphicon glyphicon-certificate" title="开启实时调试" id="id_autohtml" href="#"
+                                       style="color: gray;float:right" onclick="auto_html()"></a>
                                     <pre id="editor1" class="edit-area"></pre>
                                 </div>
                             </div>
@@ -48,7 +50,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 col-md-5" style="padding:0.1% 0.1%;" id="preview"></div>
+        <div class="col-xs-12 col-md-5" style="padding:0.1% 0.1%;" id="preview">点击上方太阳标识可开启实时调试</div>
     </div>
 </div>
 
@@ -87,6 +89,7 @@
 <script type="text/javascript">
     editor1=init_editor('html');
     editor1.setValue(`{{div_str|safe}}`);
+    var autoshow = false;
     $('#submit').click(function () {
         let e = editor1.getValue();
         console.log(e);
@@ -109,7 +112,7 @@
         });
     });
     editor1.getSession().on('change', function (e) {
-        $("#preview").html(editor1.getValue());
+        if(autoshow){$("#preview").html(editor1.getValue());}
         $("#printlog").html('');
     });
 
@@ -127,6 +130,10 @@ function reset_seq(){
                 }
             }
     })}
+    function auto_html() {
+    autoshow = !autoshow;
+    if(autoshow){$('#id_autohtml').css('color', 'red')}else{$('#id_autohtml').css('color', 'gray')}
+}
 </script>
 </body>
 </html>
