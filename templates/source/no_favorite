@@ -12,9 +12,10 @@
     <form>
         <h1>SmartChart</h1>
         <h5 id="msg">加微信或群获取激活码,请支持一杯咖啡</h5>
-        <h5><img src="https://www.smartchart.cn/static/images/auth.png" height="150px"></h5>
+        <center><div id="qrcode"></div></center>
+        <h5><div ><img src="https://www.smartchart.cn/static/images/auth.png" height="150px"></div></h5>
         <div class="group">
-            <input id="authkey" placeholder="请输入你的KEY" required="required" /><span class="highlight"></span><span class="bar"></span>
+            <input id="authkey" style="display: none" placeholder="请输入激活码" required="required" /><span class="highlight"></span><span class="bar"></span>
         </div>
     </form>
         <div class="btn-box">
@@ -26,17 +27,34 @@
 </div>
 
 <script src="/static/js/jquery-2.2.3.min.js"></script>
+<script src="/static/js/qrcode.min.js"></script>
+
 <script>
 $("#submitup").click(function(){
     let key = $.trim($('#authkey').val());
     if(key === ''){
-        $('#msg').html('请输入KEY');
+        $('#authkey').css('display', 'initial');
+        $('#msg').html('在微信公众号"智晶数据"中使用扫码获取激活码');
+        makeCode();
         return;
     }
     $.ajax({type: "POST",url: '/echart/auth_right/', data:{key: key} ,success: function (data)
     { $('#msg').html(data['msg']);
 } });
 });
+
+var qrcode =  null;
+function makeCode () {
+$.ajax({type: "GET",url: '/echart/get_auth_key/', success: function (data)
+    { if(qrcode === null){qrcode = new QRCode(document.getElementById("qrcode"), {width : 150, height : 150})}
+    qrcode.makeCode(data['key']);
+} });
+}
+
+$.ajax({type: "GET",url: '/echart/get_auth_key/', success: function (data){
+    if(data.isauth){$('#msg').html('已激活, 有效期到:'+ data.expire);}
+} });
+
 </script>
 
 

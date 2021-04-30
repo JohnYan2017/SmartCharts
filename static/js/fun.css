@@ -1,0 +1,70 @@
+.table th, .table td {text-align: center;}
+.table {font-size:10px;}
+.devspan {position:absolute;z-index:99999;}
+.devspan:hover a, .devhead:hover select, .devhead:hover a .show{display: initial;}
+.devspan a, .devhead select, .devhead a, .hidden {display: none}
+.devhead {background:white;position:fixed;z-index:99998;}
+.fixdiv {position:absolute;z-index:10;}
+
+::-webkit-scrollbar {
+  width: 0.25rem;
+  height: 0.25rem;
+  background-image: linear-gradient(135deg, #1DE9B6 0%, rgba(8, 196, 219, 0.5) 72%, rgba(0, 182, 234, 0.3) 100%);
+}
+::-webkit-scrollbar-track {
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(135deg, #1DE9B6 0%, #08c4db 72%, #057494 100%);
+  transition: all .2s;
+  border-radius: 0.25rem;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(95, 95, 95, 0.7);
+}
+
+.tb-scroll-sty {
+	height: 100%;
+	margin: 0 auto;
+	border: 0.06rem solid #364a5f;
+	line-height: 1.8rem;
+	font-size: 1rem;
+	overflow: hidden;
+}
+.tb-scroll-sty>ul{
+	list-style-type: none;
+	margin:0;
+	padding:0;
+	background-color: #ffffff;
+}
+.tb-scroll-sty>ul>li{
+	color: #393939;
+}
+.tb-scroll-sty li {
+	height: 1.8rem;
+}
+
+.tb-scroll-head{
+	height:2rem;
+	background-color: #364a5f;
+	color:#FFF;
+	font-size: 1.2rem;
+	font-weight: 800;
+	z-index: 998;
+}
+
+.tb-baseStyle{
+	display: inline-block;
+	text-align: center;
+	width:6rem;
+	height:3.5rem;
+}
+
+.tb-evenRowStyle{
+	background-color: #f8f8f8;
+}
+.tb-rowhover{
+background-color: #52c1a1;
+color: #FFF;
+font-weight: bold;
+}
