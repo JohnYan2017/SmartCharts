@@ -53,7 +53,7 @@
         },
 
         tooltip: {
-            backgroundColor: 'rgba(0,0,0,0.5)',
+          //  backgroundColor: 'rgba(0,0,0,0.5)',
             axisPointer: {
                 // Axis indicator, coordinate trigger effective
                 type: 'line', // The default is a straight line： 'line' | 'shadow'

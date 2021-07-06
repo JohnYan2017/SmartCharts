@@ -45,21 +45,17 @@
 ### 简介
 - SmartChart基于Echarts/Django的微代码开发平台,适用于任何WEB项目
 - 简单, 敏捷, 高效,通用化, 高度可定制化, 让你的项目瞬间档次提升, 比拖拽开发更方便
-- 完全真正打通前后端, 图形数据联动, 筛选开发毫无压力, 支持几乎常见的所有数据库
+- 完全真正打通前后端, 支持图形数据联动,筛选,钻取, 支持几乎常见的所有数据库
 - 积木式的开发模式, 开箱即用, 安装简单, 依赖少, 适应各种平台
-- 我们让简单和通用化不再是个矛盾体, Like it Star it
+- 高度可定制化, 注意是高度可定制化!!
 
 ![舆情分析](https://images.gitee.com/uploads/images/2019/0614/130021_887dc34c_2327318.png "舆情分析.png")
 ![smartchart](http://smartchart.cn/media/editor/qyj01show_20210306112736437498.png)
-![smartchartvoice](http://smartchart.cn/media/editor/smartvoice_20201224085323156045.png)
 
 ### 样列
 - [SmartChart大屏样列-智慧城市_大数据大屏](https://www.smartchart.cn/echart/?type=智慧城市_大数据大屏 "大屏样列-智慧城市_大数据大屏")
 - [SmartChart集成DataV](https://www.smartchart.cn/echart/?type=Smartchart_DataV "集成DATAV")
 - [Smartchart图形数据联动](https://www.smartchart.cn/echart/?type=评论分析 "图形数据联动")
-- [Smartchart无关重要的视屏](https://www.ixigua.com/6910413586208653837?id=6910161770221044237 "smartchart")
-- [Smartchart与Jupyter](https://www.ixigua.com/6910413586208653837?id=6912682016601440772 "smartchart")
-
 
 ### 快速开始
 #### 安装Python环境
@@ -90,12 +86,8 @@
 ```
 **管理员帐号密码: admin/admin, 请及时更改密码**
 
-**开发前请 观看视屏说明!!! 重要!! 重要!!**
-- [Smartchart数据库与数据集SQL](https://www.ixigua.com/6910413586208653837?id=6902584882958959116 "SQL")
-- [Smartchart页面快速布局](https://www.ixigua.com/6910413586208653837?id=6907784122065191438 "布局")
-- [Smartchart数据库与图形的对话](https://www.ixigua.com/6910413586208653837?id=6910373199603565063 "布局")
-- [SmartChart大屏模板转化](https://www.ixigua.com/6910825442245083660/ "模板")
-- [SmartChart最新开发界面](https://www.ixigua.com/6936381900768412198/ "开发界面")
+ [SmartChart入门文档入口](https://gitee.com/smartchart/smartchart/wikis/pages "SmartChart入门")
+
 
 -------------------------------------------------------------------------------
 
@@ -104,45 +96,7 @@
 **仅仅只有两个命令,get and set, 简化数据分析工作**
 ![](https://www.smartchart.cn/media/editor/WX20210103-181343@2x_20210103181856302575.png)
 
-- [Smartchart与Pandas](https://www.ixigua.com/6910413586208653837?id=6918162479646245389 "smartchart")
-- [Smartchart与Jupyter](https://www.ixigua.com/6910413586208653837?id=6917989046132310535 "smartchart")
-- [SmartChart大屏新思路](https://www.ixigua.com/6921133676189352456 "smartchart")
-- [SmartChart的Python连接器](https://www.ixigua.com/6944159294069670437 "smartchart")
 
-```python
-from smart_chart.common.tools import Smart
-mysmart = Smart()
-dataset = [['A','B','C'],[12,34,23],[22,33,37]]
- # 可从数据库中获取数据, id 为smarchart中的数据集id
-a=mysmart.get(100) 
- #把数据写入数据集并显示图形
-mysmart.set(1,dataset,embed=1,height=200,editor='')
-dataset.append([35,44,67]) #追加数据
- #随意命名数据集, 不一定需要smartchart中数据集已有的
-mysmart.set('DD', dataset)
-mysmart.set('barxxx', dataset)  #显示柱形数, 另外还有linexxx, piexxx
-
-####### dateset也可以直接是pandas的df ########
-import pandas as pd
-# 从数据集1中获取数据直接转成pandas df
-df = pddf(1)
-# 读取excel数据
-df = pd.read_excel('manual_smartdemo.xlsx', 'sheet1')
-#sample = df.sample(10)
-#mysmart.set('df0', sample)
-df1 = df.groupby('province').agg({'qty':'sum'}).reset_index()
-mysmart.set('pie', df1)
-
-####### 你也可以全局初始化设定 #######
-mychart = Smart(width=xx, height=xx, embed=1, editor='')
-# width, height指定图形嵌入显示的宽高
-# embed 默认不嵌入, embed=1 嵌入, embed='' 不嵌入
-# editor 是否显示图形菜单
-# push 是否持久化数据集 push=1, 无则新建有则保存数据
-# url 报表访问的url,默认是localhost
-
-
-```
 -------------------------------------------------------------------------------
 ### 应用场景三: 外部系统对接方式
 ```python
@@ -187,7 +141,7 @@ pip install smartchart
 - ....
 
 ### 联系我们与帮助
-**安装及使用问题,可加以下微信号拉你入群**
+**安装及使用问题,可加以下微信号**
 
 <img src="https://www.smartchart.cn/media/editor/QQ20201201-140615@2x_20201201140657981573.png" alt="smartchart" height="150" />
 
@@ -231,6 +185,7 @@ v3.9.9.1    开发界面美化
 v3.9.9.5    开发界面优化,fix定时刷新BUG,新增批量数据集删除
 v3.9.9.7    增加python连接器,数据池,自定义主模板,优化开发界面
 v3.9.9.10   DIV设定中可以写css,新增内置动态表格,优化布局支持,增加config文件
+v3.9.9.12   优化后台数据处理性能,Jupyter使用体验
 ```
 
 -------------------------------------------------------------------------------
@@ -246,4 +201,17 @@ v3.9.9.10   DIV设定中可以写css,新增内置动态表格,优化布局支持
 - 但如果要使用好smart chart, 建意了解下javascript, H5, Echarts这些前端知识, 可以让你的应用更加得心应手,创作更炫的效果
 - 如果你需要更进一步订制你的数据, 你需要了解下SQL的使用,本项目高级应用语言都是通用的技能, 象js, h5,sql 学习成本低
 
-- [SmartChart入门文档入口, 以视屏为准](https://www.smartchart.cn/blog/article/2019/6/1/3.html "SmartChart入门")
+- [SmartChart入门文档入口](https://gitee.com/smartchart/smartchart/wikis/pages "SmartChart入门")
+
+**参考视屏,建意观看,有些可能有些久,可进入后关注作者头条号, 查看最新视屏, 请对比最新文档**
+- [Smartchart数据库与数据集SQL](https://www.ixigua.com/6910413586208653837?id=6902584882958959116 "SQL")
+- [Smartchart页面快速布局](https://www.ixigua.com/6910413586208653837?id=6907784122065191438 "布局")
+- [Smartchart数据库与图形的对话](https://www.ixigua.com/6910413586208653837?id=6910373199603565063 "布局")
+- [SmartChart大屏模板转化](https://www.ixigua.com/6910825442245083660/ "模板")
+- [SmartChart最新开发界面](https://www.ixigua.com/6936381900768412198/ "开发界面")
+
+**Jupyter相关**
+- [Smartchart与Pandas](https://www.ixigua.com/6910413586208653837?id=6918162479646245389 "smartchart")
+- [Smartchart与Jupyter](https://www.ixigua.com/6910413586208653837?id=6917989046132310535 "smartchart")
+- [SmartChart大屏新思路](https://www.ixigua.com/6921133676189352456 "smartchart")
+- [SmartChart的Python连接器](https://www.ixigua.com/6944159294069670437 "smartchart")

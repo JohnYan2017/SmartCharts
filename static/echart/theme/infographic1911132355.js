@@ -49,7 +49,7 @@
         },
 
         tooltip: {
-            backgroundColor: 'rgba(50,50,50,0.5)',
+          //  backgroundColor: 'rgba(50,50,50,0.5)',
             axisPointer : {
                 type : 'line',
                 lineStyle : {

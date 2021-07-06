@@ -9,9 +9,9 @@ var SqlHighlightRules = function() {
     var keywords = (
         "select|insert|update|delete|from|where|and|or|group|by|order|limit|offset|having|as|case|" +
         "when|else|end|type|left|right|join|on|outer|desc|asc|union|create|table|primary|key|if|" +
-        "foreign|not|references|default|null|inner|cross|natural|database|drop|grant|" +
-        "refresh|overwrite|load|upset|partitioned|partition|rownum|inpath|ds_distinct|ds_crossjoin|ds_fulljoin|ds_union|"+
-        "df|p|axis"
+        "foreign|not|references|default|null|inner|cross|natural|database|drop|grant|import|" +
+        "refresh|overwrite|load|upset|partitioned|partition|rownum|inpath|"+
+        "ds|axis"
     );
 
     var builtinConstants = (
@@ -21,7 +21,7 @@ var SqlHighlightRules = function() {
     var builtinFunctions = (
         "avg|count|first|last|max|min|sum|ucase|lcase|mid|len|round|rank|now|format|to_char|decode|trunc|" +
         "coalesce|ifnull|isnull|nvl|from_unixtime|date_format|current_timestamp|date_add|date_sub|"+
-            "pddf|pdcsv|append|concat|reset_index|groupby||loc|iloc|apply|fillna|drop_duplicates|append|merge|pivot|pivot_table"
+            "ds_get|ds_sql|ds_df|ds_list|read_csv|agg|read_excel|append|concat|reset_index|groupby|loc|iloc|apply|fillna|drop_duplicates|append|merge|pivot|pivot_table"
     );
 
     var dataTypes = (
