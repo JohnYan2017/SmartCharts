@@ -16,7 +16,7 @@ form h1 {
     text-align: center;
     color: #2196F3;
 }
-form h5 {
+form h5, a {
     text-align: center;
     text-transform: uppercase;
     color: #c6c6c6;

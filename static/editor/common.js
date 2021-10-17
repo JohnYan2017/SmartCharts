@@ -4,7 +4,7 @@ var editor1 = '';
 var helpText = '';
 var helmodal = $('#myModal');
 
-$('#ace-theme').val(theme);
+theme_init();
 $("#ace-theme").change(function () {
     theme=$("#ace-theme").val();
     editor1.setTheme("ace/theme/"+theme);
@@ -36,4 +36,18 @@ function load_help(name) {
     type: "get", url: 'https://www.smartchart.cn/smartdata/api/?i='+name,
     success: function (data) {helpText=data;helmodal.html(helpText);}
 })}helmodal.modal('show');
+}
+
+function theme_init(){
+    theme_option = `<option value="clouds">clouds</option>
+                    <option value="monokai">monokai</option>
+                    <option value="chrome">chrome</option>
+                    <option value="github">github</option>
+                    <option value="eclipse">eclipse</option>
+                    <option value="tomorrow">tomorrow</option>
+                    <option value="dawn">dawn</option>
+                    <option value="sqlserver">sqlserver</option>
+                    <option value="twilight">twilight</option>`;
+    $('#ace-theme').append(theme_option).val(theme);
+
 }

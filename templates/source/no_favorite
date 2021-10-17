@@ -11,9 +11,9 @@
 <div class="wrapper">
     <form>
         <h1>SmartChart</h1>
-        <h5 id="msg">加微信或群获取激活码,请支持一杯咖啡</h5>
+        <h5 id="msg">请支持一杯咖啡,<a href="http://smartchart.cn/blog/article/2021/10/15/68.html">激活说明</a></h5>
+        <h5 id="author"><div ><img src="https://www.smartchart.cn/static/images/auth.png" height="150px"></div></h5>
         <center><div id="qrcode"></div></center>
-        <h5><div ><img src="https://www.smartchart.cn/static/images/auth.png" height="150px"></div></h5>
         <div class="group">
             <input id="authkey" style="display: none" placeholder="请输入激活码" required="required" /><span class="highlight"></span><span class="bar"></span>
         </div>
@@ -34,7 +34,8 @@ $("#submitup").click(function(){
     let key = $.trim($('#authkey').val());
     if(key === ''){
         $('#authkey').css('display', 'initial');
-        $('#msg').html('在微信公众号"智晶数据"中使用扫码获取激活码');
+        $('#msg').html('公众号"智晶数据"中使用扫码获取激活码 <a href="http://smartchart.cn/blog/article/2021/10/15/68.html">激活说明</a>');
+        $('#author').css('display', 'None');
         makeCode();
         return;
     }

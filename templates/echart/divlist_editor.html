@@ -23,18 +23,10 @@
                         <div class="editorSet clearfix">
                             <div>
                                 <div class="editor">
-                                    <span class="label">{{name|safe}}</span><a class="submit-btn" id="submit">保存DIV</a>
+                                    <span class="label">{{name|safe}}</span>
+                                    <span class="devhead"><span class="glyphicon glyphicon-adjust" style="color: rgb(255, 140, 60);"></span>
                                     <select id="ace-theme">
-                                        <option value="clouds">clouds</option>
-                                        <option value="monokai">monokai</option>
-                                        <option value="chrome">chrome</option>
-                                        <option value="github">github</option>
-                                        <option value="eclipse">eclipse</option>
-                                        <option value="tomorrow">tomorrow</option>
-                                        <option value="dawn">dawn</option>
-                                        <option value="sqlserver">sqlserver</option>
-                                        <option value="twilight">twilight</option>
-                                    </select><span id="printlog" style="color:red">带#号的行为标识位,不要修改</span>
+                                    </select></span><a class="submit-btn" id="submit">保存DIV</a><span id="printlog" style="color:red">带#号的行为标识位,不要修改</span>
                                     <a class="glyphicon glyphicon-sort-by-attributes" title="重置顺序" href="#"
                                        style="color: rgb(255, 140, 60);float:right" data-toggle="modal"
                                        data-target="#myModal_reset"></a>
@@ -42,6 +34,10 @@
                                        style="color: rgb(155, 205, 60);float:right" onclick="load_help('help_divlist')"></a>
                                     <a class="glyphicon glyphicon-certificate" title="开启实时调试" id="id_autohtml" href="#"
                                        style="color: gray;float:right" onclick="auto_html()"></a>
+                                    <a class="glyphicon glyphicon-flash" title="转化为数据集"  href="#"
+                                       style="color: green;float:right" onclick="transform_html()"></a>
+                                    <a class="glyphicon glyphicon-th" title="可视化布局"  href="https://www.smartchart.cn/echart/layout/?id={{name}}"
+                                       style="color: green;float:right" target="_blank"></a>
                                     <pre id="editor1" class="edit-area"></pre>
                                 </div>
                             </div>
@@ -134,6 +130,19 @@ function reset_seq(){
     autoshow = !autoshow;
     if(autoshow){$('#id_autohtml').css('color', 'red')}else{$('#id_autohtml').css('color', 'gray')}
 }
+function transform_html() {
+        let e = editor1.getValue();
+        $.ajax({
+            type: "POST",
+            url: "/echart/divlist_editor_transform/",
+            data: {dashid: GetQueryString('dashid'), div: e},
+            success: function (data) {
+                if(data['div']!==''){editor1.setValue(data['div'])}
+                $('#printlog').html(data['msg']);
+            }
+        });
+}
+
 </script>
 </body>
 </html>

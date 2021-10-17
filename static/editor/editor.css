@@ -98,3 +98,6 @@
 .edit-area {
     height: 92%;
 }
+
+.devhead:hover select, .devhead:hover a .show{display: initial;}
+.devhead select, .devhead a, .hidden {display: none}

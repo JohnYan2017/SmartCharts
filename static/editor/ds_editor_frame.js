@@ -52,6 +52,7 @@ $('#conn').click(function () {
       let connselect = $('#connselect');connselect.empty();
           data['msg'].forEach(function (item) {
               connselect.append('<option value='+item[0]+'>'+item[1]+'</option>')
+              if(item[1]===$('#conn').text()){connselect.val(item[0])}
           });
       $('#modal_conn').modal('show');
 } });

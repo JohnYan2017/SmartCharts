@@ -3,12 +3,12 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>Option设计</title>
+    <title>Template设计</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge"/>
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
- <link rel="icon" type="image.png" href="/static/images/favicon.ico">
+    <link rel="icon" type="image.png" href="/static/images/favicon.ico">
     <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/editor/editor.css">
 </head>
@@ -23,13 +23,16 @@
                         <div class="editorSet clearfix">
                             <div>
                                 <div class="editor">
-                                    <span class="label">{{name|safe}}</span>
-                                 <span class="devhead"><span class="glyphicon glyphicon-adjust" style="color: rgb(255, 140, 60);"></span>
+                                    <span class="label" id="idtitle"></span>
+                                    <span class="devhead"><span class="glyphicon glyphicon-adjust" style="color: rgb(255, 140, 60);"></span>
                                     <select id="ace-theme">
-                                    </select></span><a class="glyphicon glyphicon-import" href="#" id="load_sample"
-                                                style="color: rgb(255, 140, 60);">加载样列</a><a class="submit-btn"
-                                                                               id="submit">保存option</a>
-                                    <span id="printlog" style="color:red"></span>
+                                    </select></span><a class="submit-btn" id="submit">保存Template</a><span id="printlog" style="color:red"></span>
+                                    <a class="glyphicon glyphicon-question-sign" title="帮助" href="#"
+                                       style="color: rgb(155, 205, 60);float:right" onclick="load_help('help_template')"></a>
+                                    <a class="glyphicon glyphicon-certificate" title="开启实时调试" id="id_autohtml" href="#"
+                                       style="color: gray;float:right" onclick="auto_html()"></a>
+                                    <a class="glyphicon glyphicon-th" title="可视化布局"  href="https://www.smartchart.cn/echart/layout/?id={{name}}"
+                                       style="color: green;float:right" target="_blank"></a>
                                     <pre id="editor1" class="edit-area"></pre>
                                 </div>
                             </div>
@@ -38,42 +41,11 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 col-md-5" style="padding:0.1% 0.1%;" id="preview">
-        <pre>
- //初始参数
-"paraminit":{"paramname":"paramvalue"},
- //图形点击钻取联动
-"drill":{
-    "1":{"paramname":"参数名","child":[2,3],"type":"seriesName"},
-    "2":{"paramname":"参数名","child":[1],"type":"data[0]"}
-},
- //筛选器
-"filter":{
-    "0":{"paramname":"参数名","child":[1,2,3]},
-    "1":{"paramname":"参数名","child":[2,3]}
-},
-//公共数据集
-"commonds":{
-    "4":"data0",
-    "5":"ds_leftjoin(data0,data1)", //ds_fulljoin, ds_crossjoin
-    "6":"ds_union(data0,data1)",
-    "7":"ds_union(data0,data1,withhead=false)"
-},
-//动态播放
-"animate":{"2":{"dataLen":5,"interval":1000,"showtip":1}},
-//图形背景色,深色:#0B1837 #101E44 #0f375f 淡色:#f2f2f2
-"chartcolor":"white",
-//加载自定义CSS
-"css":["/static/custom/xx","xxxx"],
-//加载自定义CSS
-"js":["/static/custom/xx","xxxx"],
-//开启datav和vue模式
-"dv":1
-//自定义模板文件
-"template":"common.html"</pre>
-自定义静态资源文件路径:<br>{{ spath }}
-        </div>
+        <div class="col-xs-12 col-md-5" style="padding:0.1% 0.1%;" id="preview">点击上方太阳标识可开启实时调试</div>
     </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 </div>
 
 <script src="/static/js/jquery-2.2.3.min.js"></script>
@@ -82,17 +54,16 @@
 <script type="text/javascript" src="/static/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/static/editor/common.js"></script>
 <script type="text/javascript">
-    var theme = localStorage.getItem('acetheme') || 'monokai';
-    $('#ace-theme').val(theme);
-    editor1=init_editor('json');
-    editor1.setValue(`{{option|safe}}`);
+    editor1=init_editor('html');
+    get_template_editor();
+    var autoshow = false;
     $('#submit').click(function () {
         let e = editor1.getValue();
         console.log(e);
         $.ajax({
             type: "POST",
-            url: "/echart/save_option/",
-            data: {dashid: GetQueryString('dashid'), option: e},
+            url: "/echart/save_template/",
+            data: {dashid: GetQueryString('dashid'), div: e},
             success: function (data) {
                 console.log(data);
                 $('#printlog').html(data['msg']);
@@ -108,16 +79,27 @@
         });
     });
     editor1.getSession().on('change', function (e) {
+        if(autoshow){$("#preview").html(editor1.getValue());}
         $("#printlog").html('');
     });
-    $("#load_sample").click(function () {
+
+    function auto_html() {
+    autoshow = !autoshow;
+    if(autoshow){$('#id_autohtml').css('color', 'red')}else{$('#id_autohtml').css('color', 'gray')}
+}
+
+function get_template_editor() {
         $.ajax({
-            type: "get", url: 'https://www.smartchart.cn/smartdata/api/?i=advancesetup',
+            type: "GET",
+            url: "/echart/get_template_editor/?dashid=" +  GetQueryString('dashid'),
+            async:false,
             success: function (data) {
-                editor1.setValue(data);
+                editor1.setValue(data['div_str'])
+                $('#idtitle').html(data['name']);
             }
-        })
-    });
+        });
+}
+
 </script>
 </body>
 </html>

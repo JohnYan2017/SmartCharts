@@ -1,12 +1,13 @@
 var dsid = GetQueryString('dsid');
-var divid = GetQueryString('divid');
+var divid = GetQueryString('divid') || '';
 var on = GetQueryString('on') || '1';
 var dsname ='';
 var seq = GetQueryString('seq') || '';
-$('#dsseq').val(seq);
+
+if(divid) {dssq_init(16);}else{$('#dsseq').css('display', 'None');}
 $.ajax({type: "get",url: '/echart/get_sqlstr/?dsid='+ dsid,success: function (data)
  {editor1.setValue(data['msg']);dsname=data['name'];$('#title').text('#'+seq+":"+dsid+dsname);$('#conn').text(data['connname']);} });
-set_onoff();
+if(divid){set_onoff();}else{$('#onoff').css('display', 'None');}
 editor1 = init_editor('sql');
 
 
@@ -57,7 +58,7 @@ $('#submit').click(function () {let e = editor1.getValue();console.log(e);
                 else{window.opener.location.reload();}}
                 catch (e) {console.log('no opener');}
                 } // window.opener=null;window.close();
-            else{window.location.href="/echart/?type=z.chart&dev=1&dataset="+dsid }
+            // else{window.location.href="/echart/?type=z.chart&dev=1&dataset="+dsid }
         }
     });
 });
@@ -93,7 +94,15 @@ $('#conn').click(function () {
       let connselect = $('#connselect');connselect.empty();
           data['msg'].forEach(function (item) {
               connselect.append('<option value='+item[0]+'>'+item[1]+'</option>')
+              if(item[1]===$('#conn').text()){connselect.val(item[0])}
           });
       $('#modal_conn').modal('show');
 } });
 });
+
+function dssq_init(qty){
+    for(let i=1;i<qty;i++) {
+        $('#dsseq').append(`<option value="${i}">${i}</option>`);
+    }
+    $('#dsseq').val(seq);
+}
