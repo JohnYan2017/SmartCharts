@@ -1,0 +1,41 @@
+<html><head><title>smartchart:{{title}}</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="X-UA-Compatible" content="IE=edge">{{contentrefresh|safe}}
+{% block head %}{% endblock %}</head>
+<link rel="icon" type="image.png" href="/static/images/favicon.ico"><link rel="stylesheet" href="/static/js/fun.css">
+<script src="/static/echart/opt/vue.js"></script>{% if dv %}<script src="/static/echart/opt/dv.js"></script>{% endif %}<script src="/static/js/jquery-2.2.3.min.js"></script>
+<link rel="stylesheet" href="/static/elementui/index.css">
+<script src="/static/elementui/index.js"></script>
+<style>
+.label-info {
+    background-color: #5bc0de;
+}
+.label {
+    display: block;
+    padding: .2em .6em .3em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+
+a {
+    color: #337ab7;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1.42857143;
+}
+</style>
+<!-- 引入样式 -->
+{#<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">#}
+<!-- 引入组件库 -->
+{#<script src="https://unpkg.com/element-ui/lib/index.js"></script>#}
+{{devhead|safe}}<div id="vue_app">{% block body %}{% endblock %}</div>
+</html><script type="text/javascript" src="/static/echart/dist/echarts.min.js"></script><script src="/static/js/fun.js"></script><script src="/static/echart/theme/{{theme}}"></script>
+{{footer|safe}}{% block javascript %}{% endblock %}
+<script>function print(item){console.log(item)};$("#smartcharthead").on("click",function(){if($("#id_devhead").hasClass('devhead')){$("#id_devhead").removeClass('devhead');}else{$("#id_devhead").addClass('devhead')}});if("undefined" == typeof vapp){var vapp = new Vue({el: '#vue_app', delimiters: ['{[', ']}'], data: {d0:'',d1:'',d2:'',d3:'',d4:'',d5:'',d6:'',d7:'',d8:'',d9:'',d10:'',d11:'',d12:'',d13:'',d14:'',d15:'',d16:''}});}var charts = [];{{echart_main|safe}}window.onresize = function(){for(var i = 0; i < charts.length; i++){charts[i].resize();}};
+$(function(){$("#fullScreen").on("click",function(){var isFull=!!(document.webkitIsFullScreen||document.mozFullScreen||document.msFullscreenElement||document.fullscreenElement);if(isFull===false){fullScreen()}else{exitFullscreen()}})});function fullScreen(){var element=document.documentElement;if(element.requestFullscreen){element.requestFullscreen()}else if(element.msRequestFullscreen){element.msRequestFullscreen()}else if(element.mozRequestFullScreen){element.mozRequestFullScreen()}else if(element.webkitRequestFullscreen){element.webkitRequestFullscreen()}}function exitFullscreen(){if(document.exitFullscreen){document.exitFullscreen()}else if(document.msExitFullscreen){document.msExitFullscreen()}else if(document.mozCancelFullScreen){document.mozCancelFullScreen()}else if(document.webkitExitFullscreen){document.webkitExitFullscreen()}}
+$(".devspan span").on("click",function(){let devspana=$(".devspan a");if(devspana.hasClass('show')){devspana.removeClass('show')}else{devspana.addClass('show')}})</script>
+<!--powered by smartchart.cn,Designed by JohnYan mailto:84345999@qq.com, https://gitee.com/smartchart/smartchart you need keep this-->

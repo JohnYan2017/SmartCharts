@@ -2110,6 +2110,7 @@ Tokenizer.prototype._emitToken = function(token) {
 	}
 	this._tokenHandler.processToken(token);
 	if (token.type === 'StartTag' && token.selfClosing && !this._tokenHandler.isSelfClosingFlagAcknowledged()) {
+	    if(token.name.slice(0,2)==='dv'){return}
 		this._parseError('non-void-element-with-trailing-solidus', {name: token.name});
 	}
 };
@@ -3736,6 +3737,7 @@ function TreeBuilder() {
 			if (this[this.start_tag_handlers[name]]) {
 				this[this.start_tag_handlers[name]](name, attributes, selfClosing);
 			} else if (this[this.start_tag_handlers["-default"]]) {
+			    if(name.slice(0,2)==='dv'){return}
 				this[this.start_tag_handlers["-default"]](name, attributes, selfClosing);
 			} else {
 				throw(new Error("No handler found for "+name));
@@ -3745,6 +3747,7 @@ function TreeBuilder() {
 			if (this[this.end_tag_handlers[name]]) {
 				this[this.end_tag_handlers[name]](name);
 			} else if (this[this.end_tag_handlers["-default"]]) {
+			    if(name.slice(0,2)==='dv'){return}
 				this[this.end_tag_handlers["-default"]](name);
 			} else {
 				throw(new Error("No handler found for "+name));

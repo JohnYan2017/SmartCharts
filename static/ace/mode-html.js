@@ -78,7 +78,7 @@ var JavaScriptHighlightRules = function(options) {
         "storage.type":
             "const|let|var|function",
         "constant.language":
-            "null|Infinity|NaN|undefined|div_list|dv-border-box-|dv-decoration-",
+            "null|Infinity|NaN|undefined|div_list|dv-border-box-|dv-decoration-|vapp|vue_app",
         "support.function":
             "alert",
         "constant.language.boolean": "true|false"

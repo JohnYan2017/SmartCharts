@@ -51,3 +51,14 @@ function theme_init(){
     $('#ace-theme').append(theme_option).val(theme);
 
 }
+
+function insert_span() {
+editor1.insert(`<el-row>
+  <el-col :span="24" >{{div_list.0|safe}}</el-col>
+</el-row>`);
+}
+function insert_vue() {
+editor1.insert(`var vapp = new Vue({el: '#vue_app', delimiters: ['{[', ']}'], data: {d0:'',d1:''},
+    });`)
+
+}

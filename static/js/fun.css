@@ -1,7 +1,7 @@
 .table th, .table td {text-align: center;}
 .table {font-size:10px;}
 .devspan {position:absolute;z-index:99999;}
-.devspan:hover a, .devhead:hover select, .devhead:hover a .show{display: initial;}
+.devspan:hover a, .devhead:hover select, .devhead:hover a, .show{display: initial;}
 .devspan a, .devhead select, .devhead a, .hidden {display: none}
 .devhead {background:white;position:fixed;z-index:99998;}
 .fixdiv {position:absolute;z-index:10;}
@@ -67,4 +67,19 @@
 background-color: #52c1a1;
 color: #FFF;
 font-weight: bold;
+}
+
+.badge {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    background-color: rgb(119, 119, 119);
+    border-radius: 10px;
 }
