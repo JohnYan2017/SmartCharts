@@ -3,7 +3,7 @@ var logstr='';
 var helpText = '';
 var vapp = {};
 var autoshow = true;
-function print(item){logstr+=item+";"}
+function print(item){logstr+=JSON.stringify(item)+ "|"}
 function GetQueryString(name) {
   let reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
   let r = window.location.search.substr(1).match(reg);
@@ -23,10 +23,11 @@ function loadlcdataset(localcachestr){__dataset__=JSON.parse(sessionStorage.getI
 
 function serverSave() { console.log('serversave');var e = gb.editor.getValue();console.log(e);
 let dataid = GetQueryString('dataid') || '';
+let divid = GetQueryString('divid') || '';
  $.ajax({
 		type: "POST",
 		url: "/echart/savechart/",
-		data: { chartid: GetQueryString('chartid'),dataid: dataid,chart:e},
+		data: { chartid: GetQueryString('chartid'),divid: divid, dataid: dataid,chart:e},
 		success: function(data) {
 			console.log(data);
 			$('#printlog').html(data['msg']);

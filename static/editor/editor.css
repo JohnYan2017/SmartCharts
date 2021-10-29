@@ -41,6 +41,9 @@
         overflow-y: hidden;
         background-color: rgb(44, 52, 55);
     }
+    .editorSet .editor_min {
+        height: 300px;
+    }
     .iframechart {
             height: 400px;
         }

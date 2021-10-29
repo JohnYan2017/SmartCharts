@@ -101,8 +101,21 @@ $('#conn').click(function () {
 });
 
 function dssq_init(qty){
-    for(let i=1;i<qty;i++) {
+    for(let i=0;i<qty;i++) {
         $('#dsseq').append(`<option value="${i}">${i}</option>`);
     }
     $('#dsseq').val(seq);
 }
+
+$('#runsql').click(function () {let e = editor1.getValue();console.log(e);
+ $.ajax({
+        type: "POST",
+        url: "/echart/run_ds/",
+        data: { dsid: dsid, sqlstr:e},
+        success: function(data) {
+            console.log(data);
+            $('#printlog').html(data.msg);
+            $('#preview').html(JSON.stringify(data.data), data.data);
+        }
+    });
+});

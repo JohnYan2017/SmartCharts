@@ -16,13 +16,13 @@
 <body>
 <div class="container_fluid">
     <div class="row_fluid">
-        <div class="col-xs-12 col-md-12" style="padding:0.5% 0.5%;">
+        <div class="col-xs-12 col-md-7" style="padding:0.5% 0.5%;">
             <div class="NightTheme">
                 <div id="main_container">
                     <div id="core" class="core core_margin1">
                         <div class="editorSet clearfix">
                             <div>
-                                <div class="editor">
+                                <div class="editor editor_min">
                                     <a class="label" id="title" ></a>
                                     <a class="glyphicon glyphicon-compressed" style="color: rgb(255, 140, 60);"
                                           id="conn" href="#"></a>
@@ -31,7 +31,7 @@
                                     </select></span>
                                     <span class="devhead"><span class="glyphicon glyphicon-map-marker" style="color: rgb(255, 140, 60);"></span>
                                     <select id="dsseq"></select></span>
-                                    <span id="changedsseq"></span><a class="submit-btn" id="submit">保存数据集</a>
+                                    <span id="changedsseq"></span><a class="submit-btn" id="submit">保存数据集</a><a class="glyphicon glyphicon-play-circle" href="#" style="color: rgb(226, 207, 84);" id="runsql">执行</a>
                                     <span id="printlog" style="color:red"></span>
                                     <a class="glyphicon glyphicon-question-sign" title="帮助" href="#"
                                        style="color: rgb(155, 205, 60);float:right" onclick="load_help('help_ds')"></a>
@@ -40,11 +40,6 @@
                                     <a class="glyphicon glyphicon-ok-sign" title="切换激活状态" id="onoff" href="#"
                                        style="color: rgb(126, 255, 140);float:right"> </a>
                                     <pre id="editor1" class="edit-area"></pre>
-                                    <span class="glyphicon glyphicon-tags"
-                                          style="color: rgb(255, 254, 170); font-size: 8px;">常规为三个字段(维度,维度,度量) 或 (维度,度量,度量...),参数可使用/* and xx = $PARAM */,不传参数据自动忽略
-你也可以直接使用dataset=[[]] 或{}来赋值. 建意用SQL工具调试好后再贴入, 更多dataset使用方法,参考 <a
-                                                href="https://www.smartchart.cn/blog/article/2019/7/9/10.html"
-                                                target="_blank">数据集说明</a></span>
                                 </div>
                             </div>
                         </div>
@@ -52,7 +47,12 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 col-md-12" style="padding:0.5% 0.5%;height:100%;" id="preview"></div>
+        <div class="col-xs-12 col-md-5" style="padding:0.5% 0.5%;" id="preview">
+            <span class="glyphicon glyphicon-tags" style="font-size: 8px;"></span>常规为三个字段(维度,维度,度量) 或
+            (维度,度量,度量...),参数可使用/* and xx = $PARAM */,不传参数据自动忽略
+            你也可以直接使用dataset=[[]] 或{}来赋值. 预览执行默认限定条数200, 更多dataset使用方法,参考 <a
+                href="https://www.smartchart.cn/blog/article/2019/7/9/10.html" target="_blank">数据集说明</a>
+        </div>
     </div>
 </div>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
