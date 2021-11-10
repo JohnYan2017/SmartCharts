@@ -3,12 +3,13 @@ var divid = GetQueryString('divid') || '';
 var on = GetQueryString('on') || '1';
 var dsname ='';
 var seq = GetQueryString('seq') || '';
+let mflag = false;
 
-if(divid) {dssq_init(16);}else{$('#dsseq').css('display', 'None');}
-$.ajax({type: "get",url: '/echart/get_sqlstr/?dsid='+ dsid,success: function (data)
- {editor1.setValue(data['msg']);dsname=data['name'];$('#title').text('#'+seq+":"+dsid+dsname);$('#conn').text(data['connname']);} });
-if(divid){set_onoff();}else{$('#onoff').css('display', 'None');}
+if(divid) {dssq_init(16);set_onoff();}else{$('#dsseq').css('display', 'None');$('#onoff').css('display', 'None');}
+
 editor1 = init_editor('sql');
+$.ajax({type: "get",async:false, url: '/echart/get_sqlstr/?dsid='+ dsid,success: function (data)
+ {editor1.setValue(data['msg']);  dsname=data['name'];$('#title').text('#'+seq+":"+dsid+dsname);$('#conn').text(data['connname']);} });
 
 
 function set_onoff() {
@@ -48,6 +49,8 @@ $('#submit').click(function () {let e = editor1.getValue();console.log(e);
         success: function(data) {
             console.log(data);
             $('#printlog').html(data['msg']);
+            $('#submit').css('background-color', 'green');
+            mflag = false;
             dsid = data['dsid'];
             dsname = data['dsname'];
             $('#title').text('#'+seq+":"+dsid+dsname);
@@ -58,12 +61,11 @@ $('#submit').click(function () {let e = editor1.getValue();console.log(e);
                 else{window.opener.location.reload();}}
                 catch (e) {console.log('no opener');}
                 } // window.opener=null;window.close();
-            // else{window.location.href="/echart/?type=z.chart&dev=1&dataset="+dsid }
         }
     });
 });
 
-editor1.getSession().on('change', function(e) {$("#printlog").html('');});
+editor1.getSession().on('change', function(e) {$("#printlog").html(''); mflag=true});
 
 
 $("#dsseq").change(function () {
@@ -107,15 +109,17 @@ function dssq_init(qty){
     $('#dsseq').val(seq);
 }
 
-$('#runsql').click(function () {let e = editor1.getValue();console.log(e);
+$('#runsql').click(function () {
+let sText=editor1.session.getTextRange(editor1.getSelectionRange());
+if(sText.length < 10){sText = editor1.getValue();}
  $.ajax({
         type: "POST",
         url: "/echart/run_ds/",
-        data: { dsid: dsid, sqlstr:e},
+        data: { dsid: dsid, sqlstr:sText},
         success: function(data) {
-            console.log(data);
             $('#printlog').html(data.msg);
             $('#preview').html(JSON.stringify(data.data), data.data);
+            if(mflag){$('#submit').css('background-color', 'red')}
         }
     });
 });

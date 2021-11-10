@@ -77,6 +77,9 @@
    pip3 install smartchart -U (升级)
 ```
 
+ [SmartChart入门文档入口](https://gitee.com/smartchart/smartchart/wikis/ "SmartChart入门")
+
+
 ### 应用场景一: 快速启动, 独立平台使用(推荐!)
 ```shell script
    本地命令行启动: 
@@ -86,7 +89,7 @@
 ```
 **管理员帐号密码: admin/admin, 请及时更改密码**
 
- [SmartChart入门文档入口](https://gitee.com/smartchart/smartchart/wikis/pages "SmartChart入门")
+ [SmartChart入门文档入口](https://gitee.com/smartchart/smartchart/wikis/ "SmartChart入门")
 
 
 -------------------------------------------------------------------------------
@@ -99,21 +102,7 @@
 
 -------------------------------------------------------------------------------
 ### 应用场景三: 外部系统对接方式
-```python
-# 如果需要，你可以采用单点登录的方式与smartchart进行对接嵌入
-'/echart/smart_login?id=xxx&stamp=xxx&token=xxx&url=/'
-'''
-参数说明：
-id: 用户名（在smartchart平台中管理）
-stamp: 时间戳(1970年1月1日到生成时间的毫秒数)
-token: 采用sha1加密, token=SHA1(链接秘钥+stamp+id)
-	   链接秘钥默认smartchart,
-	   请在环境变量设定SMART_KEY替换（重要）
-url: 登录成功后跳转链接
-'''
-
-# 提示：为了数据安全,对外生产环境使用,务必设定你的环境变量SMART_KEY
-```
+使用方法参考文档
 
 -------------------------------------------------------------------------------
 ### 应用场景四: 在django项目中当作apps使用
@@ -189,6 +178,7 @@ v3.9.9.12   优化后台数据处理性能,Jupyter使用体验
 v3.9.9.16   新增模板编辑功能,增加嵌入报表TOKEN方式,优化编辑界面,优化连接池选择
 v3.9.9.18   修复vue bug, 增加elementUI支持, 优化DataV开发体验
 v3.9.9.24   模板开发界面增加编辑功能,自动建立数据集,新增数据集测试功能,Echarts升级到5.2
+v3.9.9.25   增加变更未保存提示,数据集选择执行,优化保存模板重复提交的问题
 ```
 
 -------------------------------------------------------------------------------
@@ -204,9 +194,11 @@ v3.9.9.24   模板开发界面增加编辑功能,自动建立数据集,新增数
 - 但如果要使用好smart chart, 建意了解下javascript, H5, Echarts这些前端知识, 可以让你的应用更加得心应手,创作更炫的效果
 - 如果你需要更进一步订制你的数据, 你需要了解下SQL的使用,本项目高级应用语言都是通用的技能, 象js, h5,sql 学习成本低
 
-- [SmartChart入门文档入口](https://gitee.com/smartchart/smartchart/wikis/pages "SmartChart入门")
+- [SmartChart入门文档入口](https://gitee.com/smartchart/smartchart/wikis/ "SmartChart入门")
 
 **参考视屏,建意观看,有些可能有些久,可进入后关注作者头条号, 查看最新视屏, 请对比最新文档**
+
+**产品迭代较快, 请关注作者头条号, 查看最新视屏!!!**
 - [Smartchart数据库与数据集SQL](https://www.ixigua.com/6910413586208653837?id=6902584882958959116 "SQL")
 - [Smartchart页面快速布局](https://www.ixigua.com/6910413586208653837?id=6907784122065191438 "布局")
 - [Smartchart数据库与图形的对话](https://www.ixigua.com/6910413586208653837?id=6910373199603565063 "布局")

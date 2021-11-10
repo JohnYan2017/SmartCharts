@@ -67,10 +67,14 @@
 <script type="text/javascript">
     editor1=init_editor('html');
     get_template_editor();
-    var autoshow = false;
+    let autoshow = false;
+    let mflag = false;
+    let insubmit = false;
     $('#submit').click(function () {
         let e = editor1.getValue();
         console.log(e);
+        if(insubmit){alert('已提交处理中,不要重复点击');return}
+        insubmit = true;
         $.ajax({
             type: "POST",
             url: "/echart/save_template/",
@@ -78,6 +82,8 @@
             success: function (data) {
                 console.log(data);
                 $('#printlog').html(data['msg']);
+                mflag=false;
+                insubmit = false;
                 if (GetQueryString('r')) {
                     try {
                         window.opener.location.reload();
@@ -92,6 +98,7 @@
     editor1.getSession().on('change', function (e) {
         if(autoshow){$("#preview").html(editor1.getValue());}
         $("#printlog").html('');
+        mflag=true;
     });
 
     function auto_html() {
@@ -110,7 +117,7 @@ function get_template_editor() {
             }
         });
 }
-
+window.onbeforeunload= function(event) {if(mflag){return '你有修改'}}
 </script>
 </body>
 </html>

@@ -12,8 +12,8 @@ $("#ace-theme").change(function () {
 });
 
 function GetQueryString(name) {
-    var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
-    var r = window.location.search.substr(1).match(reg);
+    let reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+    let r = window.location.search.substr(1).match(reg);
     if (r != null) {
     return unescape(r[2]);
     }
@@ -39,7 +39,7 @@ function load_help(name) {
 }
 
 function theme_init(){
-    theme_option = `<option value="clouds">clouds</option>
+    let theme_option = `<option value="clouds">clouds</option>
                     <option value="monokai">monokai</option>
                     <option value="chrome">chrome</option>
                     <option value="github">github</option>
@@ -91,7 +91,7 @@ function open_select(name) {
                         if(name==='chart'){url= `/echart/editor_min/?chartid=${dashDict.chartid}&dataid=${dashDict.dsid}&divid=${dashDict.divid}`}
                         else if(name==='ds'){url= `/echart/ds_editor/?divid=${dashDict.divid}&dsid=${dashDict.dsid}&seq=${dashDict.seq}`}
                         else if(name==='div'){url= `/echart/div_editor/?divid=${dashDict.divid}`}
-                        $('#iframepage').attr('src', url);
+                        if(url!==$('#iframepage').attr('src')){$('#iframepage').attr('src', url)}
                         $('#modal_iframe').modal('show');
                     }else if(data.status===501){r=confirm(data.msg + ', 是否新增数据集?'); if(r===true){create_div(dashid)}}
                 }});
