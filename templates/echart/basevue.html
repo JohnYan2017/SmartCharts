@@ -28,11 +28,7 @@ a {
     line-height: 1.42857143;
 }
 </style>
-<!-- 引入样式 -->
-{#<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">#}
-<!-- 引入组件库 -->
-{#<script src="https://unpkg.com/element-ui/lib/index.js"></script>#}
-{{devhead|safe}}<div id="vue_app">{% block body %}{% endblock %}</div>
+{{devhead|safe}}<div id="vue_app">{% autoescape off %}{% block body %}{% endblock %}{% endautoescape %}</div>
 </html><script type="text/javascript" src="/static/echart/dist/echarts.min.js"></script><script src="/static/js/fun.js"></script><script src="/static/echart/theme/{{theme}}"></script>
 {{footer|safe}}{% block javascript %}{% endblock %}
 <script>function print(item){console.log(item)};$("#smartcharthead").on("click",function(){if($("#id_devhead").hasClass('devhead')){$("#id_devhead").removeClass('devhead');}else{$("#id_devhead").addClass('devhead')}});if("undefined" == typeof vapp){var vapp = new Vue({el: '#vue_app', delimiters: ['{[', ']}'], data: {d0:'',d1:'',d2:'',d3:'',d4:'',d5:'',d6:'',d7:'',d8:'',d9:'',d10:'',d11:'',d12:'',d13:'',d14:'',d15:'',d16:''}});}var charts = [];{{echart_main|safe}}window.onresize = function(){for(var i = 0; i < charts.length; i++){charts[i].resize();}};

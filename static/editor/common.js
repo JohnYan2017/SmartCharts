@@ -66,8 +66,8 @@ function insert_span() {
     if(seqList.length>0){console.log(seqList); seqList.sort(desc); maxSeq=seqList[0] + 1;
        if(maxSeq!==seqList.length){alert('序号不连续,请检查'+ seqList);return} }
     if(r){editor1.insert(`<el-row>
-  <el-col :span="24" >{{div_list.${maxSeq}|safe}}</el-col>
-</el-row>`);} else {editor1.insert(`{{div_list.${maxSeq}|safe}}`)}
+  <el-col :span="24" >{{div_list.${maxSeq}}}</el-col>
+</el-row>`);} else {editor1.insert(`{{div_list.${maxSeq}}}`)}
 }
 
 function open_select(name) {
