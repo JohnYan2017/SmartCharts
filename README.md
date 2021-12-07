@@ -49,7 +49,7 @@
 - 积木式的开发模式, 开箱即用, 安装简单, 依赖少, 适应各种平台
 - 高度可定制化, 注意是高度可定制化!!
 
-![舆情分析](https://images.gitee.com/uploads/images/2019/0614/130021_887dc34c_2327318.png "舆情分析.png")
+![大数据](https://www.smartchart.cn/media/editor/微信截图_20211202163316_20211202163647765791.png)
 ![smartchart](http://smartchart.cn/media/editor/qyj01show_20210306112736437498.png)
 
 ### 样列
@@ -84,6 +84,7 @@
 ```shell script
    本地命令行启动: 
    smartchart
+   或smartcharts(自动打开网页)
    如果你是服务器部署,远程访问,服务端启动方式: 
    smartchart runserver 0.0.0.0:8000 --insecure
 ```
@@ -112,7 +113,7 @@
 请直接下载gitee/github的项目后
 pip install smartchart
 启动方式 python manage.py runserver
-帐号: admin/amdin
+帐号: admin/admin
 ```
 
 - 如果你动手能力强, 对django熟悉的, 可以参考Wiki中的说明进行自行加入
@@ -120,7 +121,7 @@ pip install smartchart
 
 ### 数据库支持说明
 
-- 原生支持的有mysql,sqlite,API,EXCEL数据, 你可以使用python连接器扩展任意数据源
+- 默认支持的有mysql,sqlite,API,EXCEL数据, 你可以使用python连接器扩展任意数据源
 - SQL Server     需安装 pip install pymssql
 - ORACLE         需安装 pip install cx_Oracle
 - GP,Postgrep    需安装 pip install psycopg2
@@ -180,6 +181,7 @@ v3.9.9.18   修复vue bug, 增加elementUI支持, 优化DataV开发体验
 v3.9.9.24   模板开发界面增加编辑功能,自动建立数据集,新增数据集测试功能,Echarts升级到5.2
 v3.9.9.25   增加变更未保存提示,数据集选择执行,优化保存模板重复提交的问题
 v3.9.9.28   Admin适配UI, 资源文件优化
+v3.9.9.33   增加文件上传功能,增加basesimple模板,优化开发菜单
 ```
 
 -------------------------------------------------------------------------------
