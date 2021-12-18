@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-    <img src="https://img.shields.io/badge/Release-V3.9.9-green.svg" alt="Downloads">
+    <img src="https://img.shields.io/badge/Release-V4.0-green.svg" alt="Downloads">
 	<a target="_blank" href="https://www.python.org/downloads/release/python-390/">
 		<img src="https://img.shields.io/badge/Python-3.6+-green.svg" />
 	</a>
@@ -43,11 +43,12 @@
 -------------------------------------------------------------------------------
 
 ### 简介
-- SmartChart基于Echarts/Django的微代码开发平台,适用于任何WEB项目
+- 基于Echarts/Django的微代码开发平台,适用于任何WEB项目
 - 简单, 敏捷, 高效,通用化, 高度可定制化, 让你的项目瞬间档次提升, 比拖拽开发更方便
 - 完全真正打通前后端, 支持图形数据联动,筛选,钻取, 支持几乎常见的所有数据库
-- 积木式的开发模式, 开箱即用, 安装简单, 依赖少, 适应各种平台
-- 高度可定制化, 注意是高度可定制化!!
+- 积木式的开发模式, 支持拖拽布局, 开箱即用, 安装简单, 依赖少, 适应各种平台
+- 内存加速技术, 让你的数据快人一步, 大幅减少数据库压力
+- 没有重复学习成本, 高度可定制化, 注意是高度可定制化!!
 
 ![大数据](https://www.smartchart.cn/media/editor/微信截图_20211202163316_20211202163647765791.png)
 ![smartchart](http://smartchart.cn/media/editor/qyj01show_20210306112736437498.png)
@@ -86,7 +87,7 @@
    smartchart
    或smartcharts(自动打开网页)
    如果你是服务器部署,远程访问,服务端启动方式: 
-   smartchart runserver 0.0.0.0:8000 --insecure
+   smartchart runserver 0.0.0.0:8000 --insecure --noreload
 ```
 **管理员帐号密码: admin/admin, 请及时更改密码**
 
@@ -146,11 +147,9 @@ pip install smartchart
 ```shell script
 对应的项目目录说明:
 
-templates/echart  -- 编辑器界面
-templates/index   -- 首页Portal
+templates/echart  -- 编辑器界面,首页Portal
 static/echart     -- 扩展前端数据处理函数(图形编辑中可用)
 static/editor     -- 编辑器界面js
-static/index      -- Portal对应js, css
 static/custom     -- 你可以在此新建人个文件夹存放自定义css, js, image ..
 
 ```
@@ -182,8 +181,14 @@ v3.9.9.24   模板开发界面增加编辑功能,自动建立数据集,新增数
 v3.9.9.25   增加变更未保存提示,数据集选择执行,优化保存模板重复提交的问题
 v3.9.9.28   Admin适配UI, 资源文件优化
 v3.9.9.33   增加文件上传功能,增加basesimple模板,优化开发菜单
+v4.0
+- 取消boostrap布局,采用全新的24格或12格网格布局,更小的文件引用,更方便的功能
+- 增加拖拽布局方式,同时不损失自由开发模式, 可混合使用
+- 增加HTML组件区别与数据集组件
+- 更为用户友好的首页,全新的UI体验, 自动识别用户与开发者身份
+- 优化了开发菜单, 增强用户开发体验
+- 数据集开发界面完成数据源,后台同步, 前端同步修改
 ```
-
 -------------------------------------------------------------------------------
 
 ### 更多使用说明:
@@ -201,12 +206,10 @@ v3.9.9.33   增加文件上传功能,增加basesimple模板,优化开发菜单
 
 **参考视屏,建意观看,有些可能有些久,可进入后关注作者头条号, 查看最新视屏, 请对比最新文档**
 
-**产品迭代较快, 请关注作者头条号, 查看最新视屏!!!**
+**产品迭代较快, 请关注作者头条或B站号, 查看最新视屏!!!**
+- [Smartchart4.0介绍](https://www.bilibili.com/video/BV1PD4y1c7uz "SQL")
 - [Smartchart数据库与数据集SQL](https://www.ixigua.com/6910413586208653837?id=6902584882958959116 "SQL")
-- [Smartchart页面快速布局](https://www.ixigua.com/6910413586208653837?id=6907784122065191438 "布局")
 - [Smartchart数据库与图形的对话](https://www.ixigua.com/6910413586208653837?id=6910373199603565063 "布局")
-- [SmartChart大屏模板转化](https://www.ixigua.com/6910825442245083660/ "模板")
-- [SmartChart最新开发界面](https://www.ixigua.com/6936381900768412198/ "开发界面")
 
 **Jupyter相关**
 - [Smartchart与Pandas](https://www.ixigua.com/6910413586208653837?id=6918162479646245389 "smartchart")

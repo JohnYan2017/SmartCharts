@@ -1,21 +1,25 @@
 {% extends "echart/base.html" %}
 {% block head %}
 <style>
-.smt {
-      border-style: dotted;
-      border-width: 0.1rem;
-}
+.smt {text-align:center;vertical-align:middle}
+
+/*=============start_drag=============*/
+
+/*=============end_drag=============*/
 </style>
 {% endblock %}
 {% block body %}
 
-<div class="container_fluid">
-<div class="row_fluid" id="vue_app">
+<body>
+<vue id="vue_app">
     {% for div in div_list %}
-      {{div|safe}}
-    {% endfor %}    
-</div>
-</div>
+      {{div}}
+    {% endfor %}
+</vue>
+</body>
 
 {% endblock %}
-{% block javascript %}{% endblock %}
+{% block javascript %}
+<script src="/static/js/flexible.min.js"></script>
+
+{% endblock %}
