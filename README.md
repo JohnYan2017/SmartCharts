@@ -44,7 +44,7 @@
 
 ### 简介
 - Smartchart是数据可视化,大屏,移动报表,WEB应用的微代码开发平台
-- 简单, 敏捷, 高效,通用化, 高度可定制化, 让你的项目瞬间档次提升
+- 简单, 敏捷, 高效, 通用化, 高度可定制化, 让你的项目瞬间档次提升
 - 完全真正打通前后端, 支持图形数据联动,筛选,钻取, 支持几乎常见的所有数据库
 - 积木式的开发模式, 支持拖拽布局, 开箱即用, 安装简单, 依赖少, 适应各种平台
 - 支持Django App插件方式应用, 支持数据分析Jupyter方式应用
@@ -52,7 +52,7 @@
 - 没有重复学习成本, 高度可定制化, 注意是高度可定制化!!
 
 ![大数据](https://www.smartchart.cn/media/editor/微信截图_20211202163316_20211202163647765791.png)
-![smartchart](http://smartchart.cn/media/editor/qyj01show_20210306112736437498.png)
+![smartchart](http://smartchart.cn/media/editor/smartvoice_20201224085323156045.png)
 
 ### 样列
 - [SmartChart大屏样列-智慧城市_大数据大屏](https://www.smartchart.cn/echart/?type=智慧城市_大数据大屏 "大屏样列-智慧城市_大数据大屏")
@@ -82,7 +82,8 @@
  [SmartChart入门文档入口](https://gitee.com/smartchart/smartchart/wikis/ "SmartChart入门")
 
 
-### 应用场景一: 快速启动, 独立平台使用(推荐!)
+### 应用场景一: 
+如果你不熟悉django/python, 仅需要一个可视化开发平台, 可以快速启动, 独立平台使用
 ```shell script
    本地命令行启动: 
    smartchart
@@ -92,24 +93,29 @@
 ```
 **管理员帐号密码: admin/admin, 请及时更改密码**
 
- [SmartChart入门文档入口](https://gitee.com/smartchart/smartchart/wikis/ "SmartChart入门")
+[SmartChart入门文档入口](https://gitee.com/smartchart/smartchart/wikis/ "SmartChart入门")
 
 
 -------------------------------------------------------------------------------
 
-### 应用场景二: 在python,Jupyter中作为数据分析使用
+### 应用场景二: 
+如果你是数据分析爱好者, 在使用jupyter, Pandas等分析工具, 你可以当做可视化工具使用
 **支持像pyecharts,Matplotlib等python绘图工具一样在Jupyter中使用, 更加方便, 更加炫酷**
-**仅仅只有两个命令,get and set, 简化数据分析工作**
-![](https://www.smartchart.cn/media/editor/WX20210103-181343@2x_20210103181856302575.png)
+**仅仅只有两个命令,get and set, 简化数据分析工作, 还能固化分析好的数据, 生成炫酷的仪表盘**
+[Jupyter中使用SmartChart入门文档](https://gitee.com/smartchart/smartchart/wikis/6.Jupyter%E5%BA%94%E7%94%A8/%E5%9C%A8Jupyter%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%8C%87%E5%BC%95 "Jupyter中使用SmartChart入门文档")
 
 
 -------------------------------------------------------------------------------
-### 应用场景三: 外部系统对接方式
-使用方法参考文档
+### 应用场景三: 
+你也可以使用smartchart制做报表, 在你的应用系统中嵌入报表
+[嵌入SmartChart报表入门文档](https://gitee.com/smartchart/smartchart/wikis/7.%E6%8A%A5%E8%A1%A8%E5%B5%8C%E5%85%A5/%E7%AE%80%E5%8D%95%E5%B5%8C%E5%85%A5 "嵌入SmartChart报表入门文档")
 
 -------------------------------------------------------------------------------
-### 应用场景四: 在django项目中当作apps使用
-**django新手不建意使用此方法**
+### 应用场景四: 
+如果你是django应用的开发者, 那么恭喜你, 它能无缝的作为你项目的一部分
+数据可视化, 仪表盘, 低代码API开发平台的功能瞬间拥有
+[在Django中应用Smartchart入门文档](https://gitee.com/smartchart/smartchart/wikis/8.Django%E5%BA%94%E7%94%A8/%E5%B5%8C%E5%85%A5Django%20Apps "在Django中应用Smartchart")
+
 - django新手推荐下载此项目使用
 ```shell script
 请直接下载gitee/github的项目后
@@ -118,10 +124,15 @@ pip install smartchart
 帐号: admin/admin
 ```
 
-- 如果你动手能力强, 对django熟悉的, 可以参考Wiki中的说明进行自行加入
+### 应用场景五:
+smartchart不仅仅是一个可视化平台, 也是一个低代码服务API开发平台, 如果你需要对外提供
+API服务, smartchart可以让你轻松完成
+[Smartchart低代码API开发](https://gitee.com/smartchart/smartchart/wikis/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1API "Smartchart低代码API开发")
 
 
+------------------------------------------------
 ### 数据库支持说明
+Smartchart理论上可以支持任意的数据源
 
 - 默认支持的有mysql,sqlite,API,EXCEL数据, 你可以使用python连接器扩展任意数据源
 - SQL Server     需安装 pip install pymssql
@@ -142,19 +153,6 @@ pip install smartchart
 **QQ群: 476715246  暗号: smartchart**
 
 -------------------------------------------------------------------------------
-
-### 开发指引与声明:
-**此项目为前端代码开源(需保留作者信息)**
-```shell script
-对应的项目目录说明:
-
-templates/echart  -- 编辑器界面,首页Portal
-static/echart     -- 扩展前端数据处理函数(图形编辑中可用)
-static/editor     -- 编辑器界面js
-static/custom     -- 你可以在此新建人个文件夹存放自定义css, js, image ..
-
-```
-
 
 #### Change Log
 ```shell script
@@ -197,32 +195,9 @@ v5.0
 - 增加数据集开发可设定图形联动
 - 增加数据集开发可设定缓存及定时
 - 增加数据集开发可一键转化为共享数据集
+v5.1
+- 新增离线初始化DB, 新增数据集对外服务api配置
+- 静态资源优化, 增加VIP模板功能
+- 增加一键实现滚动表格及图片轮播图形, 增加一键实现边框效果
+- 增强体验去除默认加载地图js, 所有非常用js改为动态加载
 ```
--------------------------------------------------------------------------------
-
-### 更多使用说明:
-**SmartChart designed for you / SmartChart是为你而生的一个产品,** 
-
-你只需要使用通用开发技术就可以使用, 因为她的通用性, 所以让你的知识不会因为改变而淘汰
-因为她的灵活性, 你可以充分发挥你的智慧让她变得非常的Smart
-抛弃繁琐的操作, 加速你的开发效率, 和BI产品相比, 如同Linux与Window的区别
-
-- 开始使用smart chart, 您不需要任何专业知识, 无需coding, 选择模块组装即可!
-- 但如果要使用好smart chart, 建意了解下javascript, H5, Echarts这些前端知识, 可以让你的应用更加得心应手,创作更炫的效果
-- 如果你需要更进一步订制你的数据, 你需要了解下SQL的使用,本项目高级应用语言都是通用的技能, 象js, h5,sql 学习成本低
-
-- [SmartChart入门文档入口](https://gitee.com/smartchart/smartchart/wikis/ "SmartChart入门")
-
-**参考视屏,建意观看,有些可能有些久,可进入后关注作者头条号, 查看最新视屏, 请对比最新文档**
-
-**产品迭代较快, 请关注作者头条或B站号, 查看最新视屏!!!**
-- [Smartchart4.0介绍](https://www.bilibili.com/video/BV1PD4y1c7uz "4.0")
-- [Smartchart5.0介绍](https://www.bilibili.com/video/BV1fm4y1Q7DG "5.0")
-- [Smartchart数据库与数据集SQL](https://www.ixigua.com/6910413586208653837?id=6902584882958959116 "SQL")
-- [Smartchart数据库与图形的对话](https://www.ixigua.com/6910413586208653837?id=6910373199603565063 "布局")
-
-**Jupyter相关**
-- [Smartchart与Pandas](https://www.ixigua.com/6910413586208653837?id=6918162479646245389 "smartchart")
-- [Smartchart与Jupyter](https://www.ixigua.com/6910413586208653837?id=6917989046132310535 "smartchart")
-- [SmartChart大屏新思路](https://www.ixigua.com/6921133676189352456 "smartchart")
-- [SmartChart的Python连接器](https://www.ixigua.com/6944159294069670437 "smartchart")
