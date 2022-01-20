@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-    <img src="https://img.shields.io/badge/Release-V5.0-green.svg" alt="Downloads">
+    <img src="https://img.shields.io/badge/Release-V5.1-green.svg" alt="Downloads">
 	<a target="_blank" href="https://www.python.org/downloads/release/python-390/">
 		<img src="https://img.shields.io/badge/Python-3.6+-green.svg" />
 	</a>
@@ -83,7 +83,7 @@
 
 
 ### 应用场景一: 
-如果你不熟悉django/python, 仅需要一个可视化开发平台, 可以快速启动, 独立平台使用
+如果你仅需要一个数据可视化,大屏开发平台, 可以快速启动, 独立平台使用
 ```shell script
    本地命令行启动: 
    smartchart
@@ -200,4 +200,7 @@ v5.1
 - 静态资源优化, 增加VIP模板功能
 - 增加一键实现滚动表格及图片轮播图形, 增加一键实现边框效果
 - 增强体验去除默认加载地图js, 所有非常用js改为动态加载
+v5.1.10 增加rem与px互转功能,优化模板开发体验
 ```
+
+

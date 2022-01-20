@@ -1,0 +1,11 @@
+[Unit]
+Description=Smartchart
+After=syslog.target
+[Install]
+WantedBy=multi-user.target
+[Service]
+WorkingDirectory=/data/smartchart/smartcharts
+ExecStart=uwsgi --ini /data/smartchart/smartcharts/deploy/uwsgi.ini
+User=smartchart
+Restart=always
+StandardError=syslog
