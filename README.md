@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-    <img src="https://img.shields.io/badge/Release-V5.1-green.svg" alt="Downloads">
+    <img src="https://img.shields.io/badge/Release-V5.2-green.svg" alt="Downloads">
 	<a target="_blank" href="https://www.python.org/downloads/release/python-390/">
 		<img src="https://img.shields.io/badge/Python-3.6+-green.svg" />
 	</a>
@@ -132,16 +132,8 @@ API服务, smartchart可以让你轻松完成
 
 ------------------------------------------------
 ### 数据库支持说明
-Smartchart理论上可以支持任意的数据源
+Smartchart理论上可以支持任意的数据源, 详见文档中使用说明
 
-- 默认支持的有mysql,sqlite,API,EXCEL数据, 你可以使用python连接器扩展任意数据源
-- SQL Server     需安装 pip install pymssql
-- ORACLE         需安装 pip install cx_Oracle
-- GP,Postgrep    需安装 pip install psycopg2
-- Impala         需安装 pip install impyla
-- DB2            需安装 pip install ibm_db
-- Python         需安装 pip install pandas, openpyxl
-- ....
 
 ### 联系我们与帮助
 **安装及使用问题,可加以下微信号**
@@ -201,6 +193,19 @@ v5.1
 - 增加一键实现滚动表格及图片轮播图形, 增加一键实现边框效果
 - 增强体验去除默认加载地图js, 所有非常用js改为动态加载
 v5.1.10 增加rem与px互转功能,优化模板开发体验
+v5.2
+- 优化通用数据集开发
+- 自由模式开发序号问题解决
+- 增加频幕日志打印
+- 增加样式可视化开发
+- 增加仪表盘版本控制,备份恢复
+- 增加仪表盘服务器之间同步
+- 增加资源文件上传功能
+- 增加对clickhouse,达梦等数据库支持
+- 增加JDBC连接器
+- Echarts升级到5.3
+- 首页增加主题选择
+- 仪表盘V,R,E增加图标防呆
 ```
 
 

@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '#$lc1_v_)tof%192ew9fow#o+1#d1qu84d@c11y*sgjqkkl*&b'
+SECRET_KEY = '#$lc1_v_)tof%192ew9fww#o+1#d1qu84d@c11y*sgjqkkl*&b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -130,6 +130,7 @@ USE_TZ = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 # 开启STATIC_ROOT后执行: python manage.py collectstatic
+# 执行完后注释掉
 # STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
