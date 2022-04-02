@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-    <img src="https://img.shields.io/badge/Release-V5.2-green.svg" alt="Downloads">
+    <img src="https://img.shields.io/badge/Release-V5.4-green.svg" alt="Downloads">
 	<a target="_blank" href="https://www.python.org/downloads/release/python-390/">
 		<img src="https://img.shields.io/badge/Python-3.6+-green.svg" />
 	</a>
@@ -46,10 +46,11 @@
 - Smartchart是数据可视化,大屏,移动报表,WEB应用的微代码开发平台
 - 简单, 敏捷, 高效, 通用化, 高度可定制化, 让你的项目瞬间档次提升
 - 完全真正打通前后端, 支持图形数据联动,筛选,钻取, 支持几乎常见的所有数据库
-- 积木式的开发模式, 开箱即用, 安装简单, 依赖少, 适应各种平台
+- 积木式拖拽开发模式, 开箱即用, 安装简单, 依赖少, 适应各种平台
 - 支持Django App插件方式应用, 支持数据分析Jupyter方式应用
 - 内存加速技术, 让你的数据快人一步, 大幅减少数据库压力
 - 所见即所得的拖拽开发模式, 无需在画布上设计
+- 支持websocket, 数据填报设计,前端埋点
 - 支持仪表盘备份恢复快照等, 满足企业级的版本控制开发上线流程要求
 - 没有重复学习成本, 高度可定制化, 注意是高度可定制化!!
 
@@ -89,7 +90,6 @@
 ```shell script
    本地命令行启动: 
    smartchart
-   或smartcharts(自动打开网页)
    如果你是服务器部署,远程访问,服务端启动方式: 
    smartchart runserver 0.0.0.0:8000 --insecure --noreload
 ```
@@ -214,6 +214,13 @@ v5.3
 - 优化模板自由开发体验, 现在拖拽后能自动同步
 - 增加开发过程快速备份仪表盘
 - 增加安全模式,在图表异常时可使用此模式进入
+v5.4
+- 增加图形管理
+- 增加可外部调用定时刷新数据集
+- 增强版本控制功能
+- 优化自动保存拖拽
+- 增加数据填报功能
+- 优化数据服务及嵌入认证方式
 ```
 
 
