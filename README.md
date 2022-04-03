@@ -58,9 +58,9 @@
 ![smartchart](http://smartchart.cn/media/editor/smartvoice_20201224085323156045.png)
 
 ### 样列
-- [SmartChart大屏样列-智慧城市_大数据大屏](https://www.smartchart.cn/echart/?type=智慧城市_大数据大屏 "大屏样列-智慧城市_大数据大屏")
-- [SmartChart集成DataV](https://www.smartchart.cn/echart/?type=Smartchart_DataV "集成DATAV")
-- [Smartchart图形数据联动](https://www.smartchart.cn/echart/?type=评论分析 "图形数据联动")
+- [SmartChart大屏样列-智慧城市_大数据大屏](https://magiccube.smartchart.cn/echart/?type=5 "大屏样列-智慧城市_大数据大屏")
+- [SmartChart集成DataV](https://magiccube.smartchart.cn/echart/?type=3 "集成DATAV")
+- [Smartchart图形数据联动](https://magiccube.smartchart.cn/echart/?type=4 "图形数据联动")
 
 ### 快速开始
 #### 安装Python环境
