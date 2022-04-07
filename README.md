@@ -6,7 +6,7 @@
 [Gitee](https://gitee.com/smartchart/smartchart)
 
 <p align="center">
-	<a href="https://www.smartchart.cn"><img src="https://www.smartchart.cn/media/editor/WechatIMG51_20210117224243671223.png" width="45%"></a>
+	<a href="https://www.smartchart.cn"><img src="http://smartchart.cn/static/smartui/img/smartlogo.png" width="45%"></a>
 </p>
 <p align="center">
 	<strong>A platform that Connect Data to Echarts.</strong>
@@ -138,12 +138,7 @@ Smartchart理论上可以支持任意的数据源, 详见文档中使用说明
 
 
 ### 联系我们与帮助
-**安装及使用问题,可加以下微信号**
-
-<img src="https://www.smartchart.cn/media/editor/QQ20201201-140615@2x_20201201140657981573.png" alt="smartchart" height="150" />
-
 你也可以加入QQ群进行普通问题讨论
-
 **QQ群: 476715246  暗号: smartchart**
 
 -------------------------------------------------------------------------------
