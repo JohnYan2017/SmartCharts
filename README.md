@@ -9,7 +9,7 @@
 	<a href="https://www.smartchart.cn"><img src="http://smartchart.cn/static/smartui/img/smartlogo.png" width="45%"></a>
 </p>
 <p align="center">
-	<strong>A platform that Connect Data to Echarts.</strong>
+	<strong>A NoBI platform that Connect Data to Insight.</strong>
 </p>
 <p align="center">
 	<a href="https://www.smartchart.cn">https://www.smartchart.cn</a>
@@ -43,14 +43,14 @@
 -------------------------------------------------------------------------------
 
 ### 简介
-- Smartchart是数据可视化,大屏,移动报表,WEB应用的微代码开发平台
+- 数据可视化,大屏,移动报表,WEB应用的微代码NoBI(No Only BI)开发平台
 - 简单, 敏捷, 高效, 通用化, 高度可定制化, 让你的项目瞬间档次提升
 - 完全真正打通前后端, 支持图形数据联动,筛选,钻取, 支持几乎常见的所有数据库
 - 积木式拖拽开发模式, 开箱即用, 安装简单, 依赖少, 适应各种平台
-- 支持Django App插件方式应用, 支持数据分析Jupyter方式应用
+- 支持Django插件方式应用, 支持数据分析Jupyter方式应用
 - 内存加速技术, 让你的数据快人一步, 大幅减少数据库压力
 - 所见即所得的拖拽开发模式, 无需在画布上设计
-- 支持websocket, 数据填报设计,前端埋点
+- 支持websocket, 数据填报设计,前端埋点, 数据服务API低代码开发
 - 支持仪表盘备份恢复快照等, 满足企业级的版本控制开发上线流程要求
 - 没有重复学习成本, 高度可定制化, 注意是高度可定制化!!
 
@@ -83,7 +83,6 @@
 ```
 
  [SmartChart入门文档入口](https://gitee.com/smartchart/smartchart/wikis/ "SmartChart入门")
-
 
 ### 应用场景一: 
 如果你仅需要一个数据可视化,大屏开发平台, 可以快速启动, 独立平台使用
