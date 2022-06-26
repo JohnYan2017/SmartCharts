@@ -39,7 +39,7 @@
 
 
 
-###Introduction
+### Introduction
 
 - Smartchart is a microcode development platform for data visualization, large screen, mobile report and web applications
 
@@ -68,9 +68,9 @@
 
 
 
-###Quick start
+### Quick start
 
-####Install Python environment
+#### Install Python environment
 
 - Environment preparation: Official [latest Python download link](https://www.python.org/downloads/release/python-390/  "Latest Python download link")
 
@@ -86,7 +86,7 @@ You can also download [windows 64 bit installation version](https://npm.taobao.o
 
 
 
-####Installing smartchart
+#### Installing smartchart
 
 ```shell script
 
@@ -113,7 +113,7 @@ PIP3 install smartchart - U (upgrade)
 
 
 
-###Application scenario 1:
+### Application scenario 1:
 
 If you are not familiar with Django / python, you only need a visual development platform, which can be started quickly and used independently
 
@@ -144,7 +144,7 @@ smartchart runserver 0.0.0.0:8000 --insecure --noreload
 
 
 
-###Application scenario 2:
+### Application scenario 2:
 
 If you are a data analysis enthusiast and are using jupyter, pandas and other analysis tools, you can use them as visualization tools
 
@@ -159,7 +159,7 @@ If you are a data analysis enthusiast and are using jupyter, pandas and other an
 
 -------------------------------------------------------------------------------
 
-###Application scenario 3:
+### Application scenario 3:
 
 You can also use smartchart to make reports and embed reports in your application system
 
@@ -169,7 +169,7 @@ You can also use smartchart to make reports and embed reports in your applicatio
 
 -------------------------------------------------------------------------------
 
-###Application scenario 4:
+### Application scenario 4:
 
 If you are a developer of Django application, congratulations. It can be a seamless part of your project
 
@@ -184,7 +184,7 @@ Startup method: Python manage py runserver
 Account number: admin / Admin
 ```
 ------------------------------------------------
-###Database support description
+### Database support description
 Smartchart can theoretically support any data source ,Mysql, SQLite, API and Excel data are supported by default. You can use Python connector to extend any data source
 - SQL server requires PIP install pymssql
 - Oracle needs to install PIP install Cx_ Oracle
@@ -195,7 +195,7 @@ Smartchart can theoretically support any data source ,Mysql, SQLite, API and Exc
 - ....
 
 
-###Contact us for help
+### Contact us for help
 You can also join QQ group to discuss common problems
 **QQ group: 476715246 Code: smartchart**
 -------------------------------------------------------------------------------
