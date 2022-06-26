@@ -61,6 +61,7 @@
 - [SmartChart大屏样列-智慧城市_大数据大屏](https://magiccube.smartchart.cn/echart/?type=5 "大屏样列-智慧城市_大数据大屏")
 - [SmartChart集成DataV](https://magiccube.smartchart.cn/echart/?type=3 "集成DATAV")
 - [Smartchart图形数据联动](https://magiccube.smartchart.cn/echart/?type=4 "图形数据联动")
+- [Smartchart分页表格数据下载](https://magiccube.smartchart.cn/echart/?type=26 "分页表格及下载")
 
 ### 快速开始
 #### 安装Python环境
@@ -215,6 +216,17 @@ v5.4
 - 优化自动保存拖拽
 - 增加数据填报功能
 - 优化数据服务及嵌入认证方式
+v5.5
+- 调整模板中样式引用的顺序
+- 增加数据集编辑器可调整区域大小
+- 增加数据集编辑器查询时长显示
+- 增加数据集编辑器显示表格功能
+- 增加数据集增加历史查询结果显示与删除
+- 优化初始化数据集的数据源问题
+- 优化了一些图形端函数
+- 隐藏系统数据集/仪表
+- 增加pivot图形模板
+
 ```
 
 
