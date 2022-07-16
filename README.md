@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-    <img src="https://img.shields.io/badge/Release-V5.4-green.svg" alt="Downloads">
+    <img src="https://img.shields.io/badge/Release-V5.6-green.svg" alt="Downloads">
 	<a target="_blank" href="https://www.python.org/downloads/release/python-390/">
 		<img src="https://img.shields.io/badge/Python-3.6+-green.svg" />
 	</a>
@@ -226,7 +226,21 @@ v5.5
 - 优化了一些图形端函数
 - 隐藏系统数据集/仪表
 - 增加pivot图形模板
-
+v5.6
+- 新增数据集懒加载功能
+- 新增报表嵌入传入参数id加密方案
+- 新增ds_setParam,ds_mapToList函数
+- 数据集权限与图形权限绑定
+- 连接池升级
+- 项目名显示逻辑修改
+- 优化加载速度
+- 修复filter_param位置
+- 修复图形最后一行注释后不显示
+- 修复basevue未自动引入拖拽
+- 修复数据集表格预览模式不超出宽度
+- 修复django模式下上传自定义数据源问题
+- 取消高级中的初始参数设定
+- 移除滑动条样式
 ```
 
 
