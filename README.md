@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-    <img src="https://img.shields.io/badge/Release-V5.6-green.svg" alt="Downloads">
+    <img src="https://img.shields.io/badge/Release-V5.7-green.svg" alt="Downloads">
 	<a target="_blank" href="https://www.python.org/downloads/release/python-390/">
 		<img src="https://img.shields.io/badge/Python-3.6+-green.svg" />
 	</a>
@@ -43,7 +43,7 @@
 -------------------------------------------------------------------------------
 
 ### 简介
-- 数据可视化,大屏,移动报表,WEB应用的微代码NoBI(No Only BI)开发平台
+- 数据可视化,大屏,移动报表,数据中台,WEB应用的微代码NoBI(No Only BI)开发平台
 - 简单, 敏捷, 高效, 通用化, 高度可定制化, 让你的项目瞬间档次提升
 - 完全真正打通前后端, 支持图形数据联动,筛选,钻取, 支持几乎常见的所有数据库
 - 积木式拖拽开发模式, 开箱即用, 安装简单, 依赖少, 适应各种平台
@@ -64,13 +64,12 @@
 - [Smartchart分页表格数据下载](https://magiccube.smartchart.cn/echart/?type=26 "分页表格及下载")
 
 ### 快速开始
+请务必先阅读 [SmartChart入门文档入口](https://gitee.com/smartchart/smartchart/wikis/ "SmartChart入门")
 #### 安装Python环境
 - 环境准备: 官方[最新Python下载链接](https://www.python.org/downloads/release/python-390/ "最新Python下载链接")
 如果下载太慢, 可以到[淘宝镜象下载](https://npm.taobao.org/mirrors/python/3.9.0/ "淘宝镜象下载")
 也可以直接下载[WINDOWS64位安装版](https://npm.taobao.org/mirrors/python/3.9.0/python-3.9.0-amd64.exe "WINDOWS64位安装版")
 [MAC电脑安装版](http://npm.taobao.org/mirrors/python/3.9.0/python-3.9.0rc2-macosx10.9.pkg "MAC电脑安装版")
-- [Window平台安装视屏介绍](https://www.ixigua.com/6910413586208653837?id=6901867671193649668 "Window平台安装视屏介绍")
-**注意: Windows安装Python时需选中"Add to Path"**
 
 #### 安装SmartChart
 ```shell script
@@ -83,10 +82,9 @@
    pip3 install smartchart -U (升级)
 ```
 
- [SmartChart入门文档入口](https://gitee.com/smartchart/smartchart/wikis/ "SmartChart入门")
 
 ### 应用场景一: 
-如果你仅需要一个数据可视化,大屏开发平台, 可以快速启动, 独立平台使用
+数据可视化,大屏开发平台, 可以快速启动, 独立平台使用
 ```shell script
    本地命令行启动: 
    smartchart
@@ -241,6 +239,43 @@ v5.6
 - 修复django模式下上传自定义数据源问题
 - 取消高级中的初始参数设定
 - 移除滑动条样式
+v5.7
+优化模板中自由开发体验
+- 在模板中进行图形新增不再自带栅格布局
+- 新增插入栅格菜单
+- 插入拖拽或栅格现在有两种智能模式
+- 修改编辑器快捷键
+- 增加功能清空上传的文件
+- 增加样式列表
+- 增加组件列表
+- 增加工具菜单
+- 增加UI组件列表
+- 增加快速资源引入
+- 合并数据集编辑功能
+- 合并容器功能
+- 现在炫酷背景边框字体的应用更顺畅
+极大的优化了图形编辑器体验
+- 帮助及图形商店的浏览状态将会保持
+- 基础图形位置现在放在了合适的地方
+- 增加自定义图形管理
+- 图形编辑器增加echarts样列
+- 增加ds_sort函数
+大幅改善竖屏报表开发拖拽体验
+- 竖向可屏幕外拖拽
+- 带padding的容器问题
+其它功能性增强
+- 优化非激活数据集
+- api服务增加了限流控制
+- 加入一个内置数据分页查询下载模板一键应用
+- 修复DIV编辑器插入不换行
+- 增加mongodb连接器
+- 增加ES连接器
+- 增加数据集查询数量限定设定
+- 现在定时刷新会保持当前的查询参数
+- 增加资源可上传到通用静态目录
+- 登录界面动画柔和化
+- 仪表盘备份增加interval
+- 修复_id问题
 ```
 
 
