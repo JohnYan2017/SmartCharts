@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Smartchart开发手册</title>
+    <link>https://help.smartchart.cn/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/</link>
+    <description>Recent content on Smartchart开发手册</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://help.smartchart.cn/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://help.smartchart.cn/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/%E5%9F%BA%E7%A1%80%E5%9B%BE%E5%BD%A2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://help.smartchart.cn/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/%E5%9F%BA%E7%A1%80%E5%9B%BE%E5%BD%A2/</guid>
+      <description>快速应用基础图形组件 # 你可使用如下方式选择常规的图形一键进行应用(我们只放了基础图形,因为你可以通过简单修改配置转化为各种图形,如线性面积图, 柱形堆叠图..) 你也可以在图形商店中找到更多已转化好的Smartchart图形 配置项完全和Echarts原生一样
+注意: 对于一些特殊图形如地图js在图形编辑中需要进行动态加载, 如果你使用了非常规图形, 你可在图形编辑器使用ds_loadjs(&amp;lsquo;smt_china’)加载中国地图, 同理我们有 &amp;lsquo;smt_wordcloud&amp;rsquo;, &amp;lsquo;smt_world&amp;rsquo;, &amp;lsquo;smt_ecStat&amp;rsquo;, ‘smt_liquidfill’ 有些图形可能同时需要在模板中加载, 更多特殊图形加载说明参考 特殊图形模板加载</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://help.smartchart.cn/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/%E7%AE%A1%E7%90%86%E5%9B%BE%E5%BD%A2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://help.smartchart.cn/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/%E7%AE%A1%E7%90%86%E5%9B%BE%E5%BD%A2/</guid>
+      <description> 应用场景 # 如何快速复用已开发好的组件
+本地管理自定义组件 # 如下图,点击图形编辑器中的菜单,即可管理和查看自定义图形列表 点击&amp;quot;加入样列&amp;quot;即可把当前图形加入到样列清单, 点击&amp;quot;取消样列&amp;quot;即可将所选样列移除样列清单 云管理,在图形商店中保存你的图形 # 这样你就可以在图形商店看到你的图形进行重复利用 </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://help.smartchart.cn/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/Echarts%E7%BB%84%E4%BB%B6/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://help.smartchart.cn/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/Echarts%E7%BB%84%E4%BB%B6/</guid>
+      <description>应用场景 # Smartchart提供了很多通用的图形,你可以在商店中直接使用 如果要个性化需要你进行自定义, 比如你可能需要在同一个图上展示柱形图和线性图
+开发前建意先观看视屏, 了解基础说明, 视屏有点老和现在界面不一样, 目前很多功能已经做成可视化配置, 理解过程即可, 具体以文档为准
+Smartchart数据库与图形的对话 Smartchart图形开发一 Smartchart图形开发二 获取原生echarts图形 # 首先我们在ECHART官网可能找一个你喜欢的图形, 如下简单柱形图链接: 打开我们可以看对应的option:
+option = { xAxis: { type: &amp;#39;category&amp;#39;, data: [&amp;#39;Mon&amp;#39;, &amp;#39;Tue&amp;#39;, &amp;#39;Wed&amp;#39;, &amp;#39;Thu&amp;#39;, &amp;#39;Fri&amp;#39;, &amp;#39;Sat&amp;#39;, &amp;#39;Sun&amp;#39;] }, yAxis: { type: &amp;#39;value&amp;#39; }, series: [{ data: [120, 200, 150, 80, 70, 110, 130], type: &amp;#39;bar&amp;#39; }] }; 转化为smartchart图形 # 复制到Smartchart图形编辑器， 点击&amp;quot;刀叉“ 图标(目前是魔法梆)， 会自动进行初步转化 接下来我们就进行下改造, 请注意对比, 你只需照着复制即可
+let dataset = __dataset__ //传入dataset let legend_label = ds_rowname(dataset) //可选, 自动获取legend let xlabel = dataset[0].</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://help.smartchart.cn/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/HTML%E7%BB%84%E4%BB%B6/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://help.smartchart.cn/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/HTML%E7%BB%84%E4%BB%B6/</guid>
+      <description>应用场景 # 输入控件,如输入框,筛选器,多选,按钮&amp;hellip; 显示组件, 文本, 图片, 视屏&amp;hellip; 表格组件 如果你还不熟悉html, 建意先花几分钟看下文档, 推荐 HTML基础 实际应用中有不熟悉的组件, 你都可以通过baidu搜索到, 如时间选择器 如何将html组件转化为smartchart组件 # 比如我们要实现一个有多选项和按钮的网页元素 从各大搜索平台上我们可以找到html的代码是：
+&amp;lt;label&amp;gt;&amp;lt;input type=&amp;#34;checkbox&amp;#34;&amp;gt;孙尚香&amp;lt;/label&amp;gt; ..... &amp;lt;button id=&amp;#39;id_select0&amp;#39;&amp;gt;提交&amp;lt;/button&amp;gt; 那么我们可以直接在图形编辑器写上
+let dataset=__dataset__; let table = &amp;#39;&amp;#39;; table = `&amp;lt;label&amp;gt;&amp;lt;input type=&amp;#34;checkbox&amp;#34;&amp;gt;孙一香&amp;lt;/label&amp;gt; &amp;lt;label&amp;gt;&amp;lt;input type=&amp;#34;checkbox&amp;#34;&amp;gt;孙二香&amp;lt;/label&amp;gt; &amp;lt;label&amp;gt;&amp;lt;input type=&amp;#34;checkbox&amp;#34;&amp;gt;孙三香&amp;lt;/label&amp;gt;` table = table + &amp;#34;&amp;lt;button id=&amp;#39;id_select0&amp;#39;&amp;gt;提交&amp;lt;/button&amp;gt;&amp;#34; dom__name__.innerHTML=table; 但是由于我们是要通过传入的数据动态变化的，所以只需要做简单修改
+let dataset=__dataset__; let table = &amp;#39;&amp;#39;; for (let i=1;i&amp;lt;dataset.length;i++){ table = `${table}&amp;lt;label&amp;gt;&amp;lt;input type=&amp;#34;checkbox&amp;#34;/&amp;gt;${dataset[i][0]}&amp;lt;/label&amp;gt; ` } table = table + &amp;#34;&amp;lt;button id=&amp;#39;id_select__name__&amp;#39;&amp;gt;提交&amp;lt;/button&amp;gt;&amp;#34; dom__name__.innerHTML=table; 所有html你都可以进行转化成smartchart组件， 你可以通过学习”万能表格系列视屏“ 来了解通用组件开发 第一波 第二波 第三波</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://help.smartchart.cn/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/%E8%B0%83%E8%AF%95%E6%97%A5%E5%BF%97/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://help.smartchart.cn/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/%E8%B0%83%E8%AF%95%E6%97%A5%E5%BF%97/</guid>
+      <description> 关于页面日志查看 # 大家可能比较熟悉使用F12来查看网页日志, 但有的同学会觉得这不够方便, 所以 在5.1.11后, smartchart加入了可以页面直接显示日志的功能
+在仪表盘中显示 # 你只需要点击如下菜单, 即可切换是否显示日志 当在刷新页面或执行时, 日志将直接显示在右上角中, 而且还能显示出对应出错的图表序号 在图形中显示 # smartchart基于python的使用习惯, 重定义的专用的日志打印函数print 你可以在图形编辑器中使用些函数即可打印日志 比如看看鼠标放在echarts图上params, 在编辑界面和console中都能看到日志, 方便你进行调试 不仅仅这些, 你可能会想写太多打印日志, 上线了不好 smartchart已为你想到这些, 如果你在仪表盘中没有开启日志显示, print函数是不会打印任何日志
+有了仪表盘日志显示, 我们还能做更多的事情, 比如实时显示你拖拽的坐标, 让你精确定位 </description>
+    </item>
+    
+  </channel>
+</rss>

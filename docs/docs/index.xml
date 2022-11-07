@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docs on Smartchart开发手册</title>
+    <link>https://help.smartchart.cn/docs/</link>
+    <description>Recent content in Docs on Smartchart开发手册</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://help.smartchart.cn/docs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://help.smartchart.cn/docs/%E5%85%B3%E4%BA%8E%E6%88%91%E4%BB%AC/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://help.smartchart.cn/docs/%E5%85%B3%E4%BA%8E%E6%88%91%E4%BB%AC/</guid>
+      <description> 我们的目标 # 打造全生态的数据应用数据管理的平台，解决中小企业上中台难,上中台贵,见效慢的问题. 平台与时俱进，不断完善与优化中 可以通过视屏了解我们的架构设计 企业数字化与smartchart的一站式解决方案
+我们不提供数据存储与计算引擎, ETL工具, BI工具. 因为已有更优秀的产品，我们只为数据开发人员提供更敏捷的工具与平台，致力于数据服务中台建设，边缘可视化与数据管道产品, 站在巨人的肩上, 让数据更有个性，更灵活与可定制化，由于他的通用性，功能的扩展变得也是非常的Smart
+产品定位: # 实现全生态的数据服务平台(数据收集, 数据加工, 数据分享，数据管理，数据应用)
+产品模块: # 统一的数据处理调度平台、数据管道, 是基于Apache顶级项目Airflow上的二次开发产品,让数据处理的任务调度开发与管理微代码化，我们的设计理念是让开发者更方便的同时，不丧失灵活和高度可自定义，如果你使用过smartchat，你可以想象他会带来的便捷性， 产品名为smartpip, 为啥不叫smartpipe, 因为能省我们就要省&amp;hellip; 统一的可视化管理平台, 为微信等第三方应用, 提供powerbi,tableau,finebi&amp;hellip;的嵌入式及功能扩展服务，数据集即服务，一切为数据集 统一的数据上传平台, 实现线下数据的收集需求, 并提供专业的手工上传数据产品, 支持excel本地(安装与免安装版本), 支持WEB端 统一的数据分享平台与smartchart集成，可做为数据服务中台, 实现业务对数据下载的需要及为第三方提供获取数据的API接口 SmartChart可视化平台, 新一代的数据可视化产品, 解决传统BI各种痛点问题,真正面向开发人员的平台产品 元数据管理平台及数据治理，让数据的来源更清晰, 让数据应用更方便，具备自动化，可视化的数据血缘分析 新一代极速数据仓库技术, 极简架构即可实现在大数据应用的全场景需求 </description>
+    </item>
+    
+  </channel>
+</rss>

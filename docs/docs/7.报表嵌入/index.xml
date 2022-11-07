@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Smartchart开发手册</title>
+    <link>https://help.smartchart.cn/docs/7.%E6%8A%A5%E8%A1%A8%E5%B5%8C%E5%85%A5/</link>
+    <description>Recent content on Smartchart开发手册</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://help.smartchart.cn/docs/7.%E6%8A%A5%E8%A1%A8%E5%B5%8C%E5%85%A5/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://help.smartchart.cn/docs/7.%E6%8A%A5%E8%A1%A8%E5%B5%8C%E5%85%A5/%E7%AE%80%E5%8D%95%E5%B5%8C%E5%85%A5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://help.smartchart.cn/docs/7.%E6%8A%A5%E8%A1%A8%E5%B5%8C%E5%85%A5/%E7%AE%80%E5%8D%95%E5%B5%8C%E5%85%A5/</guid>
+      <description>你可能需要把Smartchart生成的图形嵌入到其它系统 首先，所有smartchart设计出来的仪表盘都有一个访问url 你可以直接访问：
+http://localhost:8000/echart?type=仪表盘名称 如：http://localhost:8000/echart?type=demo 但是smartchart默认是有权限管理的，所以如果你需要嵌入你自已的系统又不考虑权限，你可以在“设定” &amp;ndash;&amp;gt; 公开 然后在你的网页就可以直接iframe了
+&amp;lt;iframe src=&amp;#34;http://localhost:8000/echart?type=demo&amp;#34; style=&amp;#34;width:100%;height:100%&amp;#34;&amp;gt;&amp;lt;/iframe&amp;gt; </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://help.smartchart.cn/docs/7.%E6%8A%A5%E8%A1%A8%E5%B5%8C%E5%85%A5/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://help.smartchart.cn/docs/7.%E6%8A%A5%E8%A1%A8%E5%B5%8C%E5%85%A5/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/</guid>
+      <description>单点登录的方式与smartchart进行对接嵌入 # &amp;#39;/echart/smart_login?id=xxx&amp;amp;stamp=xxx&amp;amp;token=xxx&amp;amp;url=https://help.smartchart.cn/&amp;#39; &amp;#39;&amp;#39;&amp;#39; 参数说明： id: 用户名（在smartchart平台中管理） stamp: 时间戳(1970年1月1日到生成时间的毫秒数) token: 采用sha1加密, token=SHA1(链接秘钥+stamp+id) 请在安装smartchart的这台机器上设定环境变量SMART_KEY = 链接秘钥 url: 登录成功后跳转链接 &amp;#39;&amp;#39;&amp;#39; Python后台样列: # import time import hashlib import os &amp;#34;&amp;#34;&amp;#34; 参数说明： id: 用户名（在smartchart平台中管理） stamp: 时间戳(1970年1月1日到生成时间的毫秒数) token: 采用sha1加密, token=SHA1(链接秘钥+stamp+id) url: 登录成功后跳转链接 &amp;#34;&amp;#34;&amp;#34; SMART_CHART_URL = &amp;#39;http://127.0.0.1:8000&amp;#39; LOGIN_URL = SMART_CHART_URL + &amp;#39;/echart/smart_login?id={id}&amp;amp;stamp={stamp}&amp;amp;token={token}&amp;amp;url={url}&amp;#39; SMART_KEY = 链接秘钥 def get_smarturl(username, url=&amp;#39;/&amp;#39;): stamp = int(time.time() * 1000) id = username res = SMART_KEY + str(stamp) + id token = hashlib.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://help.smartchart.cn/docs/7.%E6%8A%A5%E8%A1%A8%E5%B5%8C%E5%85%A5/%E5%8D%95%E9%A1%B5%E9%9D%A2%E5%B5%8C%E5%85%A5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://help.smartchart.cn/docs/7.%E6%8A%A5%E8%A1%A8%E5%B5%8C%E5%85%A5/%E5%8D%95%E9%A1%B5%E9%9D%A2%E5%B5%8C%E5%85%A5/</guid>
+      <description>嵌入报表 # 与单点登录类似, 单点登录用于直接登录到平台访问报表 但对于只嵌入报表, 用此方法更合适(需升级到5.3.11以上)
+嵌入的url: &amp;#39;/echart/?type={reportName}&amp;amp;visitor={visitor}&amp;amp;token={token}&amp;amp;stamp={stamp}&amp;#39; 参数说明： reportName： 报表名或报表ID visitor: 用户名（在smartchart平台中管理） stamp: 时间戳(1970年1月1日到生成时间的毫秒数) token: 采用sha1加密, token=SHA1(链接秘钥+stamp+visitor+reportName) 用户名和秘钥设定参考 数据服务API的config文件
+同时你需要将visitor加入到对应的报表权限查看访问
+python样列 # 以下为python版的url生成样列，你可以转化成你对应的开发语言
+import time import hashlib import os SMART_CHART_URL = &amp;#39;http://127.0.0.1:8000&amp;#39; reportID = &amp;#39;报表ID&amp;#39; LOGIN_URL = SMART_CHART_URL + &amp;#39;/echart/?type={reportID}&amp;amp;visitor={visitor}&amp;amp;token={token}&amp;amp;stamp={stamp}&amp;#39; TOKEN = 链接秘钥 def get_smarturl(username, reportName): stamp = int(time.time() * 1000) visitor = username res = TOKEN + str(stamp) + visitor + reportID token = hashlib.sha1(res.encode(&amp;#39;utf-8&amp;#39;)).hexdigest() VISIT_DICT = { &amp;#34;visitor&amp;#34;: id, &amp;#34;stamp&amp;#34;: stamp, &amp;#34;token&amp;#34;: token, &amp;#34;reportID&amp;#34;: reportName } # 拼接好的url,直接访问 visit_url = LOGIN_URL.</description>
+    </item>
+    
+  </channel>
+</rss>

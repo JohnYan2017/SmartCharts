@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="SQLite3版本错误 在部分操作系统下（比如CentOS 7）使用SQLite3数据库运行会出现如下的错误提示：
+django.core.exceptions.ImproperlyConfigured: SQLite 3.8.3 or later is required (found 3.7.17). 这表明操作系统自带的sqlite3版本过低，需要将系统的sqlite3进行升级。
+以下是一种方法，来自于 StackOverlow：
+1、下载新版本的SQLite3
+wget https://www.sqlite.org/2019/sqlite-autoconf-3290000.tar.gz 2、解压文件
+tar zxvf sqlite-autoconf-3290000.tar.gz 3、进行解压后的目录
+cd sqlite-autoconf-3290000 4、配置安装目录
+./configure --prefix=$HOME/opt/sqlite 5、编译安装
+make &amp;&amp; make install 6、指定环境变量
+export PATH=$HOME/opt/sqlite/bin:$PATH export LD_LIBRARY_PATH=$HOME/opt/sqlite/lib export LD_RUN_PATH=$HOME/opt/sqlite/lib 完成之后可以运行sqlite3 &ndash;version 命令来查看当前的SQLite3版本。">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
+<meta property="og:description" content="SQLite3版本错误 在部分操作系统下（比如CentOS 7）使用SQLite3数据库运行会出现如下的错误提示：
+django.core.exceptions.ImproperlyConfigured: SQLite 3.8.3 or later is required (found 3.7.17). 这表明操作系统自带的sqlite3版本过低，需要将系统的sqlite3进行升级。
+以下是一种方法，来自于 StackOverlow：
+1、下载新版本的SQLite3
+wget https://www.sqlite.org/2019/sqlite-autoconf-3290000.tar.gz 2、解压文件
+tar zxvf sqlite-autoconf-3290000.tar.gz 3、进行解压后的目录
+cd sqlite-autoconf-3290000 4、配置安装目录
+./configure --prefix=$HOME/opt/sqlite 5、编译安装
+make &amp;&amp; make install 6、指定环境变量
+export PATH=$HOME/opt/sqlite/bin:$PATH export LD_LIBRARY_PATH=$HOME/opt/sqlite/lib export LD_RUN_PATH=$HOME/opt/sqlite/lib 完成之后可以运行sqlite3 &ndash;version 命令来查看当前的SQLite3版本。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://help.smartchart.cn/docs/11.%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/Linux/SQLite3%E7%89%88%E6%9C%AC%E9%94%99%E8%AF%AF/" /><meta property="article:section" content="docs" />
+
+
+
+<title>Sqlite3版本错误 | Smartchart开发手册</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.9676739f7d6fb9d37e12fd58a755b4f44ec0d94abaddeb103ece302f676fbdef.js" integrity="sha256-lnZzn31vudN&#43;Ev1Yp1W09E7A2Uq63esQPs4wL2dvve8=" crossorigin="anonymous"></script>
+
+  <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>Smartchart开发手册</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/%E5%85%B3%E4%BA%8E%E6%88%91%E4%BB%AC/" class="">关于我们</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c354321856ed6feb84c1b4323285de46" class="toggle"  />
+    <label for="section-c354321856ed6feb84c1b4323285de46" class="flex justify-between">
+      <a role="button" class="">1.基础操作</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E4%B8%93%E4%B8%9A%E7%89%88%E8%AF%B4%E6%98%8E/" class="">专业版本说明</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/" class="">快速开始</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E4%BB%AA%E8%A1%A8%E7%9B%98/" class="">第一个仪表盘</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E5%88%9B%E5%BB%BA%E8%BF%9E%E6%8E%A5%E6%B1%A0/" class="">创建连接池</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E5%BA%94%E7%94%A8%E6%A8%A1%E6%9D%BF/" class="">应用模板</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" class="">权限管理</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ebbdf386fef5a4b61debc89d61d0dadf" class="toggle"  />
+    <label for="section-ebbdf386fef5a4b61debc89d61d0dadf" class="flex justify-between">
+      <a role="button" class="">Vue相关</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/VUE%E7%9B%B8%E5%85%B3/%E4%BD%BF%E7%94%A8VUE/" class="">使用 Vue</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/VUE%E7%9B%B8%E5%85%B3/ElementUI/" class="">Element Ui</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/VUE%E7%9B%B8%E5%85%B3/DataV%E5%BA%94%E7%94%A8/" class="">Data V应用</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5bb75c87734dfbe4db2b79fa99d34f85" class="toggle"  />
+    <label for="section-5bb75c87734dfbe4db2b79fa99d34f85" class="flex justify-between">
+      <a role="button" class="">不太重要</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E4%B8%8D%E5%A4%AA%E9%87%8D%E8%A6%81/%E4%B8%BB%E9%A2%98%E5%BA%94%E7%94%A8PRO/" class="">主题应用 Pro</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E4%B8%8D%E5%A4%AA%E9%87%8D%E8%A6%81/%E5%A4%8D%E5%88%B6%E4%BB%AA%E8%A1%A8%E7%9B%98/" class="">复制仪表盘</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-54fee82a365f217fe67a17292f7959e5" class="toggle"  />
+    <label for="section-54fee82a365f217fe67a17292f7959e5" class="flex justify-between">
+      <a role="button" class="">2.数据集说明</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E5%BC%80%E5%8F%91%E7%95%8C%E9%9D%A2/" class="">数据集开发界面</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/SQL%E6%95%B0%E6%8D%AE%E9%9B%86/" class="">Sql数据集</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E5%85%B1%E4%BA%AB%E6%95%B0%E6%8D%AE%E9%9B%86/" class="">共享数据集</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E6%95%B0%E6%8D%AE%E5%88%B7%E6%96%B0/" class="">数据集数据刷新</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E6%87%92%E5%8A%A0%E8%BD%BD/" class="">数据集懒加载</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-9297282a5313a9b54d7163ab91c1089a" class="toggle"  />
+    <label for="section-9297282a5313a9b54d7163ab91c1089a" class="flex justify-between">
+      <a role="button" class="">Excel数据</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/EXCEL%E6%95%B0%E6%8D%AE/%E4%BB%8EEXCEL%E7%B2%98%E8%B4%B4%E6%95%B0%E6%8D%AE/" class="">从 Excel粘贴数据</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/EXCEL%E6%95%B0%E6%8D%AE/%E6%95%B0%E6%8D%AE%E4%B8%8A%E4%BC%A0/" class="">数据上传</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-17dce050c02e560c36fb8bcb52fc8432" class="toggle"  />
+    <label for="section-17dce050c02e560c36fb8bcb52fc8432" class="flex justify-between">
+      <a role="button" class="">特殊数据源</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/API%E6%95%B0%E6%8D%AE%E9%9B%86/" class="">Api数据集</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/Python%E6%95%B0%E6%8D%AE%E9%9B%86/" class="">Python数据集</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE%E6%BA%90/" class="">自定义数据源</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/Elasticsearch%E6%95%B0%E6%8D%AE%E6%BA%90/" class="">Elasticsearch数据源</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/JDBC%E6%95%B0%E6%8D%AE%E6%BA%90/" class="">Jdbc数据源</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/kafka%E6%95%B0%E6%8D%AE%E6%BA%90/" class="">Kafka数据源</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/mongodb%E6%95%B0%E6%8D%AE%E6%BA%90/" class="">Mongodb数据源</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/Redis%E6%95%B0%E6%8D%AE%E6%BA%90/" class="">Redis数据源</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/sqlalchemy%E8%BF%9E%E6%8E%A5/" class="">Sqlalchemy连接</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c5a4ac1635ece2dfef28e23678ea9e21" class="toggle"  />
+    <label for="section-c5a4ac1635ece2dfef28e23678ea9e21" class="flex justify-between">
+      <a role="button" class="">3.图形开发</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/%E5%9F%BA%E7%A1%80%E5%9B%BE%E5%BD%A2/" class="">基础图形</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/%E7%AE%A1%E7%90%86%E5%9B%BE%E5%BD%A2/" class="">管理图形</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/Echarts%E7%BB%84%E4%BB%B6/" class="">Echarts组件</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/HTML%E7%BB%84%E4%BB%B6/" class="">Html组件</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/%E8%B0%83%E8%AF%95%E6%97%A5%E5%BF%97/" class="">调试日志</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-8b7ef748294c9611ad2ef758768793c4" class="toggle"  />
+    <label for="section-8b7ef748294c9611ad2ef758768793c4" class="flex justify-between">
+      <a role="button" class="">函数方法</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/%E5%87%BD%E6%95%B0%E6%96%B9%E6%B3%95/%E5%9B%BE%E5%BD%A2%E7%AB%AF%E6%95%B0%E6%8D%AE%E5%87%BD%E6%95%B0/" class="">图形端数据函数</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/%E5%87%BD%E6%95%B0%E6%96%B9%E6%B3%95/Jquery%E9%81%8D%E5%8E%86%E6%96%B9%E6%B3%95/" class="">Jquery遍历方法</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4e8eda9dcb8eb0bfa033731d4401df15" class="toggle"  />
+    <label for="section-4e8eda9dcb8eb0bfa033731d4401df15" class="flex justify-between">
+      <a role="button" class="">特殊图形</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/%E7%89%B9%E6%AE%8A%E5%9B%BE%E5%BD%A2/LineUp%E5%9B%BE%E5%BD%A2/" class="">Line Up图形</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/%E7%89%B9%E6%AE%8A%E5%9B%BE%E5%BD%A2/%E4%BD%BF%E7%94%A8%E5%9B%BE%E6%A0%87/" class="">使用图标</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/%E7%89%B9%E6%AE%8A%E5%9B%BE%E5%BD%A2/%E6%97%A0%E7%BC%9D%E6%BB%9A%E5%8A%A8/" class="">无缝滚动</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/%E7%89%B9%E6%AE%8A%E5%9B%BE%E5%BD%A2/%E7%89%B9%E6%AE%8A%E5%9B%BE%E5%BD%A2%E5%8A%A0%E8%BD%BD/" class="">特殊图形加载</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-30aee618b2f055fbebe03b9acabc9330" class="toggle"  />
+    <label for="section-30aee618b2f055fbebe03b9acabc9330" class="flex justify-between">
+      <a role="button" class="">Element Ui组件</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/ElementUI%E7%BB%84%E4%BB%B6/%E5%B8%A6%E5%88%86%E9%A1%B5%E7%9A%84%E8%A1%A8%E6%A0%BC/" class="">带分页的表格</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-478b5d3161d3129d62529b01d6fb834c" class="toggle"  />
+    <label for="section-478b5d3161d3129d62529b01d6fb834c" class="flex justify-between">
+      <a role="button" class="">4.布局说明</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/4.%E5%B8%83%E5%B1%80%E8%AF%B4%E6%98%8E/%E5%B8%83%E5%B1%80%E6%8C%87%E5%BC%95/" class="">布局指引</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/4.%E5%B8%83%E5%B1%80%E8%AF%B4%E6%98%8E/%E6%8B%96%E6%8B%BD%E8%87%AA%E5%8A%A8%E5%AF%B9%E9%BD%90/" class="">拖拽自动对齐</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/4.%E5%B8%83%E5%B1%80%E8%AF%B4%E6%98%8E/%E5%88%A0%E9%99%A4%E5%AE%B9%E5%99%A8/" class="">删除容器</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e562f2d46bae3fd1d44d386234399fae" class="toggle"  />
+    <label for="section-e562f2d46bae3fd1d44d386234399fae" class="flex justify-between">
+      <a role="button" class="">不常用</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/4.%E5%B8%83%E5%B1%80%E8%AF%B4%E6%98%8E/%E4%B8%8D%E5%B8%B8%E7%94%A8/%E4%BB%A3%E7%A0%81%E8%BD%AC%E5%8C%96%E5%B8%83%E5%B1%80/" class="">代码转化布局</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/4.%E5%B8%83%E5%B1%80%E8%AF%B4%E6%98%8E/%E4%B8%8D%E5%B8%B8%E7%94%A8/%E5%AE%B9%E5%99%A8%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2/" class="">容器管理界面</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-86bbf1d771d855758065f951675b7ee7" class="toggle"  />
+    <label for="section-86bbf1d771d855758065f951675b7ee7" class="flex justify-between">
+      <a role="button" class="">5.参数及联动钻取</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/5.%E5%8F%82%E6%95%B0%E5%8F%8A%E8%81%94%E5%8A%A8%E9%92%BB%E5%8F%96/%E5%8F%82%E6%95%B0%E7%BC%96%E5%86%99%E6%96%B9%E6%B3%95/" class="">参数编写方法</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/5.%E5%8F%82%E6%95%B0%E5%8F%8A%E8%81%94%E5%8A%A8%E9%92%BB%E5%8F%96/%E5%9B%BE%E5%BD%A2%E8%81%94%E5%8A%A8%E9%92%BB%E5%8F%96/" class="">图形联动钻取</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/5.%E5%8F%82%E6%95%B0%E5%8F%8A%E8%81%94%E5%8A%A8%E9%92%BB%E5%8F%96/%E7%AD%9B%E9%80%89%E5%99%A8%E6%8C%87%E5%8D%97/" class="">筛选器指南</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/5.%E5%8F%82%E6%95%B0%E5%8F%8A%E8%81%94%E5%8A%A8%E9%92%BB%E5%8F%96/%E7%BB%84%E4%BB%B6%E8%87%AA%E5%AE%9A%E4%B9%89%E8%81%94%E5%8A%A8/" class="">组件自定义联动</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-f63e740209b278b6f39640e9184d9131" class="toggle"  />
+    <label for="section-f63e740209b278b6f39640e9184d9131" class="flex justify-between">
+      <a role="button" class="">6. Jupyter应用</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.Jupyter%E5%BA%94%E7%94%A8/Jupyter%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%8C%87%E5%BC%95/" class="">Jupyter中使用指引</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-bfe0709421fcc9cc6742d70724a0841d" class="toggle"  />
+    <label for="section-bfe0709421fcc9cc6742d70724a0841d" class="flex justify-between">
+      <a role="button" class="">7.报表嵌入</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/7.%E6%8A%A5%E8%A1%A8%E5%B5%8C%E5%85%A5/%E7%AE%80%E5%8D%95%E5%B5%8C%E5%85%A5/" class="">简单嵌入</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/7.%E6%8A%A5%E8%A1%A8%E5%B5%8C%E5%85%A5/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" class="">单点登录</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/7.%E6%8A%A5%E8%A1%A8%E5%B5%8C%E5%85%A5/%E5%8D%95%E9%A1%B5%E9%9D%A2%E5%B5%8C%E5%85%A5/" class="">单页面嵌入</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-50ddcd837bca405840b973f89ee4c795" class="toggle"  />
+    <label for="section-50ddcd837bca405840b973f89ee4c795" class="flex justify-between">
+      <a role="button" class="">8. Django应用</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/8.Django%E5%BA%94%E7%94%A8/%E5%B5%8C%E5%85%A5Django-Apps/" class="">嵌入 Django Apps</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/8.Django%E5%BA%94%E7%94%A8/FAQ/" class="">Faq</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5993cc9afbdbeb95951fd5cb478b261e" class="toggle"  />
+    <label for="section-5993cc9afbdbeb95951fd5cb478b261e" class="flex justify-between">
+      <a role="button" class="">9.进阶开发 Pro</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%AE%9E%E6%88%98%E5%A4%A7%E5%B1%8F%E6%A8%A1%E6%9D%BF%E8%BD%AC%E5%8C%96/" class="">实战大屏模板转化</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-dfb5fa29524e460812ce8a0b7ec153ff" class="toggle"  />
+    <label for="section-dfb5fa29524e460812ce8a0b7ec153ff" class="flex justify-between">
+      <a role="button" class="">模板开发</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%A8%A1%E6%9D%BF%E5%BC%80%E5%8F%91/%E6%A8%A1%E6%9D%BF%E5%BC%80%E5%8F%91%E7%95%8C%E9%9D%A2/" class="">模板开发界面</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%A8%A1%E6%9D%BF%E5%BC%80%E5%8F%91/%E5%BF%AB%E6%8D%B7%E5%BC%80%E5%8F%91/" class="">快捷开发</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%A8%A1%E6%9D%BF%E5%BC%80%E5%8F%91/%E4%B8%8A%E4%BC%A0%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6/" class="">上传资源文件</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%A8%A1%E6%9D%BF%E5%BC%80%E5%8F%91/%E8%BE%B9%E6%A1%86%E4%B8%8E%E8%A3%85%E9%A5%B0/" class="">边框与装饰</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%A8%A1%E6%9D%BF%E5%BC%80%E5%8F%91/%E6%A0%B7%E5%BC%8F%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/" class="">样式快速上手</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%A8%A1%E6%9D%BF%E5%BC%80%E5%8F%91/IDE%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F/" class="">ID E开发模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%A8%A1%E6%9D%BF%E5%BC%80%E5%8F%91/%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C/" class="">动画效果</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%A8%A1%E6%9D%BF%E5%BC%80%E5%8F%91/%E7%BC%96%E8%BE%91%E5%99%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="">编辑器快捷键</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1API/" class="">数据服务 API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%A4%87%E4%BB%BD%E6%81%A2%E5%A4%8D%E5%8F%8A%E7%89%88%E6%9C%AC/" class="">备份恢复及版本</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD/" class="">数据下载</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E5%A1%AB%E6%8A%A5/" class="">数据填报</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%90%8E%E5%8F%B0API%E5%88%B7%E6%96%B0/" class="">后台 Api刷新</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/webSocket%E6%96%B9%E5%BC%8F/" class="">Web Socket方式</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-3f5ca2fcf9ff7a0e49dc6f9a1c867e71" class="toggle"  />
+    <label for="section-3f5ca2fcf9ff7a0e49dc6f9a1c867e71" class="flex justify-between">
+      <a role="button" class="">10.其它</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/10.%E5%85%B6%E5%AE%83/FAQ/" class="">Faq</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/10.%E5%85%B6%E5%AE%83/%E8%AF%95%E7%94%A8%E6%BF%80%E6%B4%BB%E8%AF%B4%E6%98%8E/" class="">试用激活说明</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-1221ac066d992a43b363728eac9711d8" class="toggle" checked />
+    <label for="section-1221ac066d992a43b363728eac9711d8" class="flex justify-between">
+      <a role="button" class="">11.部署指南</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-df28c15db9b442124658f06e614fc60b" class="toggle" checked />
+    <label for="section-df28c15db9b442124658f06e614fc60b" class="flex justify-between">
+      <a role="button" class="">Linux</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/11.%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/Linux/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/" class="">快速开始</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/11.%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/Linux/SQLite3%E7%89%88%E6%9C%AC%E9%94%99%E8%AF%AF/" class="active">Sqlite3版本错误</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/11.%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/Linux/%E7%94%9F%E4%BA%A7%E9%83%A8%E7%BD%B2/" class="">生产部署</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://www.smartchart.cn/"  target="_blank" rel="noopener">
+        官网
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://gitee.com/smartchart/smartchart"  target="_blank" rel="noopener">
+        Gitee
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Sqlite3版本错误</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents"></nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><p>SQLite3版本错误
+在部分操作系统下（比如CentOS 7）使用SQLite3数据库运行会出现如下的错误提示：</p>
+<pre tabindex="0"><code>django.core.exceptions.ImproperlyConfigured: SQLite 3.8.3 or later is required (found 3.7.17).
+</code></pre><p>这表明操作系统自带的sqlite3版本过低，需要将系统的sqlite3进行升级。</p>
+<p>以下是一种方法，来自于 StackOverlow：</p>
+<p>1、下载新版本的SQLite3</p>
+<pre tabindex="0"><code>wget https://www.sqlite.org/2019/sqlite-autoconf-3290000.tar.gz
+</code></pre><p>2、解压文件</p>
+<pre tabindex="0"><code>tar zxvf sqlite-autoconf-3290000.tar.gz
+</code></pre><p>3、进行解压后的目录</p>
+<pre tabindex="0"><code>cd sqlite-autoconf-3290000
+</code></pre><p>4、配置安装目录</p>
+<pre tabindex="0"><code>./configure --prefix=$HOME/opt/sqlite
+</code></pre><p>5、编译安装</p>
+<pre tabindex="0"><code>make &amp;&amp; make install
+</code></pre><p>6、指定环境变量</p>
+<pre tabindex="0"><code>export PATH=$HOME/opt/sqlite/bin:$PATH
+export LD_LIBRARY_PATH=$HOME/opt/sqlite/lib
+export LD_RUN_PATH=$HOME/opt/sqlite/lib
+</code></pre><p>完成之后可以运行sqlite3 &ndash;version 命令来查看当前的SQLite3版本。</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+  <div>
+    <a class="flex align-center" href="https://gitee.com/smartchart/smartchart/docs/content/docs/11.%e9%83%a8%e7%bd%b2%e6%8c%87%e5%8d%97/Linux/SQLite3%e7%89%88%e6%9c%ac%e9%94%99%e8%af%af.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents"></nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
