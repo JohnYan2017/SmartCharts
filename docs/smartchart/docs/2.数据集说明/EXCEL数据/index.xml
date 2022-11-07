@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Smartchart开发手册</title>
+    <link>https://smartchart.gitee.io/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/EXCEL%E6%95%B0%E6%8D%AE/</link>
+    <description>Recent content on Smartchart开发手册</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://smartchart.gitee.io/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/EXCEL%E6%95%B0%E6%8D%AE/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://smartchart.gitee.io/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/EXCEL%E6%95%B0%E6%8D%AE/%E4%BB%8EEXCEL%E7%B2%98%E8%B4%B4%E6%95%B0%E6%8D%AE/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smartchart.gitee.io/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/EXCEL%E6%95%B0%E6%8D%AE/%E4%BB%8EEXCEL%E7%B2%98%E8%B4%B4%E6%95%B0%E6%8D%AE/</guid>
+      <description> 固定数据集 # 有一些场景, 比如已有一些固定的筛选器,或是需要测试用,或者Demo,或者其它图形需要用到一些共用的已确定好的数据 这样我们可以不需要通过查询数据库的方式, 而直接写入数据集, 支持数组和字典的格式 你只需要在数据集中起始写入 dataset= , 这样就是默认是固定数据
+如何快速的输入固定数据集, 你可以通过直接从EXCEL复制到数据集编辑器(以下图片非目前编辑器, 供参考),保存以后会自动生成: 固定数据集也支持之前提到传参数, 魔术方法, 缓存等所有数据集的功能 </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://smartchart.gitee.io/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/EXCEL%E6%95%B0%E6%8D%AE/%E6%95%B0%E6%8D%AE%E4%B8%8A%E4%BC%A0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smartchart.gitee.io/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/EXCEL%E6%95%B0%E6%8D%AE/%E6%95%B0%E6%8D%AE%E4%B8%8A%E4%BC%A0/</guid>
+      <description>用户如何上传文件 # smartchart默认是不自带文件上传功能 但是smartchart是可以自已创造上传页面, 在模板商店中你可以找到相关模板进行购买 然后通过模板下载的方式下载后进行操作 这样每一个页面是可以单独使用权限控制的,就和控制报表权限一样,你还可能按需随意定制页面 关于上传文件的路径 # 默认的上传主目录是在项目的log的文件夹下面, 你可以在setting.py(自定义django) 或 config.ini中设定UPLOAD_PATH来修改你的上传目录 比如你上传页面的报表ID是23, 那么文件将会被上传到UPLOAD_PATH/23/你的文件名
+如何使用上传的文件 # 你需要使用 python连接器, 来操作你的上传的数据, 内置了变量ds_path为你的上传目录, 所以可以更方便的读取上传的文件,如上文件 df = pd.read_excel(ds_path+&amp;rsquo;/23/文件名&#39;)</description>
+    </item>
+    
+  </channel>
+</rss>

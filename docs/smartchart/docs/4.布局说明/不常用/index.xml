@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Smartchart开发手册</title>
+    <link>https://smartchart.gitee.io/docs/4.%E5%B8%83%E5%B1%80%E8%AF%B4%E6%98%8E/%E4%B8%8D%E5%B8%B8%E7%94%A8/</link>
+    <description>Recent content on Smartchart开发手册</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://smartchart.gitee.io/docs/4.%E5%B8%83%E5%B1%80%E8%AF%B4%E6%98%8E/%E4%B8%8D%E5%B8%B8%E7%94%A8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://smartchart.gitee.io/docs/4.%E5%B8%83%E5%B1%80%E8%AF%B4%E6%98%8E/%E4%B8%8D%E5%B8%B8%E7%94%A8/%E4%BB%A3%E7%A0%81%E8%BD%AC%E5%8C%96%E5%B8%83%E5%B1%80/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smartchart.gitee.io/docs/4.%E5%B8%83%E5%B1%80%E8%AF%B4%E6%98%8E/%E4%B8%8D%E5%B8%B8%E7%94%A8/%E4%BB%A3%E7%A0%81%E8%BD%AC%E5%8C%96%E5%B8%83%E5%B1%80/</guid>
+      <description>由于我们移除了boostrap的布局方式, 此布局不再做推荐! 初次学习的同学, 可能会需要一个拖拉拽的布局方式(3.9.9.13以上才支持), 所以下面介绍的是smartchart的辅助布局方法
+你可以在&amp;quot;布局&amp;quot; 中找到入口 进入编辑器后, 你可以拖拉拽的方式进行布局, 注意我们建意你一个column(C)容器只放一个smartchart的图形便于标准化 点击&amp;quot;生成&amp;quot;, 复制相关代码 回到仪表盘&amp;quot;布局&amp;quot;, 粘贴到编辑器, 点击 &amp;ldquo;闪电&amp;rdquo; 图标, 进行转化, 可能会提示你数据集不够,这样你需要新增足够数量的数据集后再点转化 注: 代码转化布局你可以不用可视化辅助, 可以用其它任意每三方布局工具生成代码后粘过来生成, 需要注意的格式是: 在你需要数据集的地方使用以下代码即可:
+&amp;lt;div style=&amp;#34;height:100%&amp;#34; id=&amp;#34;container_{name}&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; 转化完成后, 点击保存即可应用布局 </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://smartchart.gitee.io/docs/4.%E5%B8%83%E5%B1%80%E8%AF%B4%E6%98%8E/%E4%B8%8D%E5%B8%B8%E7%94%A8/%E5%AE%B9%E5%99%A8%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smartchart.gitee.io/docs/4.%E5%B8%83%E5%B1%80%E8%AF%B4%E6%98%8E/%E4%B8%8D%E5%B8%B8%E7%94%A8/%E5%AE%B9%E5%99%A8%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2/</guid>
+      <description> 容器管理 # 你可以单独对一个容器进行编辑，或者在全局进行编辑 全局编辑器 移动图形
+你有两种方法移动数据集 可以在“报表” 中直接暴力修改序号 也可以在数据集编辑器中移动， 可选择插入（带着容器一起动），替换（容器不动，就是整体布局不变化， 只移动数据和图形） </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Smartchart开发手册</title>
+    <link>https://smartchart.gitee.io/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/</link>
+    <description>Recent content on Smartchart开发手册</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://smartchart.gitee.io/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://smartchart.gitee.io/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/API%E6%95%B0%E6%8D%AE%E9%9B%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smartchart.gitee.io/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/API%E6%95%B0%E6%8D%AE%E9%9B%86/</guid>
+      <description>对接外部API取数, 注意返回一定要是JSON格式 你只需要在数据集编辑框中如下输入
+-- GET 方法: dataset= { &amp;#34;url&amp;#34;:&amp;#34;https://www.smartchart.cn/smartdata/api/?i=loaddataset1&amp;amp;j=1&amp;#34; } -- POST 方法: dataset= { &amp;#34;url&amp;#34;:&amp;#34;https://www.smartchart.cn/smartdata/api&amp;#34;, &amp;#34;method&amp;#34;:&amp;#34;POST&amp;#34;, &amp;#34;data&amp;#34;:{&amp;#34;i&amp;#34;:&amp;#34;loaddataset1&amp;#34;, &amp;#34;j&amp;#34;:&amp;#34;1&amp;#34;} ... } 例如你可以传入参数做出联动效果
+dataset= { &amp;#34;url&amp;#34;:&amp;#34;https://www.smartchart.cn/smartdata/api&amp;#34;, &amp;#34;method&amp;#34;:&amp;#34;POST&amp;#34;, &amp;#34;data&amp;#34;:{&amp;#34;i&amp;#34;:&amp;#34;loaddataset1&amp;#34;, &amp;#34;j&amp;#34;:&amp;#34;/*$参数名*/&amp;#34;} ... } 你也可以增加header等认证方式
+dataset= { &amp;#34;url&amp;#34;:&amp;#34;https://www.smartchart.cn/smartdata/api&amp;#34;, &amp;#34;method&amp;#34;:&amp;#34;GET&amp;#34;, &amp;#34;headers&amp;#34;:{&amp;#34;Cookie&amp;#34;:&amp;#34;xxxxxxx&amp;#34;} ... } </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://smartchart.gitee.io/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/Python%E6%95%B0%E6%8D%AE%E9%9B%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smartchart.gitee.io/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/Python%E6%95%B0%E6%8D%AE%E9%9B%86/</guid>
+      <description>应用场景 # 当SQL查询无法满足你的需求, 你需要对查询后的结果进行处理, 或者你需要使用Excel的数据源, 甚至你需要对不同系统的数据进行查询, Python连接器可以帮到你 我们又称他为万能数据集， 你可以使用任何python语法， 需要把数据集的结果赋值给ds变量!!
+首先你需要新建python连接器, 由于安全控制只允许超级管理员建立 # 内置函数说明 ds_get(id) #输入目标数据集的id名, 可以获取目标数据集 ds_df(id) #输入目标数据集的id名, 转化成pandas的df对象 ds_sql(conn_name, sql_str) #输入连接池中的名称, SQL语句, 获取数据集 ds_list(df) #将pandas的df对象转化成数据集 使用方法样列说明 # # 读取Excel数据处理, 如需上传页面可参考&amp;#34;数据上传&amp;#34;说明 import pandas as pd df = pd.read_excel(&amp;#39;/Users/../smartdemo.xlsx&amp;#39;, &amp;#39;demo&amp;#39;) df = df.groupby(&amp;#39;c3&amp;#39;).agg({&amp;#39;qty&amp;#39;:&amp;#39;sum&amp;#39;}).reset_index() ds = ds_list(df) #从数据集获取数据 ds=ds_get(12) ds=ds[:15] #从数据集获取数据转化成pandas对象处理 df = ds_df(12) df = df.sort_values(by=&amp;#34;出场数&amp;#34;, ascending=False) ds = ds_list(df) #可以生成字典格式的数据集供多个图形使用 import pandas as pd df = pd.read_excel(&amp;#39;/Users/../smartdemo.xlsx&amp;#39;, &amp;#39;demo&amp;#39;) df1 = df.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://smartchart.gitee.io/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE%E6%BA%90/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smartchart.gitee.io/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE%E6%BA%90/</guid>
+      <description>smartchart已实现大部分常用的数据源连接, 对于其它的, 您也可以使用python数据源进行处理 但是使用python数据源有一定的缺陷, 需要在dataset上写python代码, 不能复用 对于一些带连接信息的还需要重复写入 所以你还可以使用自定义数据源
+应用场景 # 未内置的数据源, 如需要使用sparkSQL, ES等 标准处理满足不了要求, 需要对数据进行预处理的情况 需要刷新时触发预警等自定义动作 需要自定义写入方法, 个性化查询需求, 甚至是实时爬取数据 使用方法 # 首先你需要新建一个python脚本文件, 如diy_conn.py 复制以下代码到这个文件, 然后编写你的自定义查询方法 def dataset(*args, **kwargs): &amp;#34;&amp;#34;&amp;#34; 返回查询数据集 :return: 二维数组或JSON字典 &amp;#34;&amp;#34;&amp;#34; sqlList = args[0] # 数据集编辑界面的输入已按分号拆分成数组 [sql1, sql2...] config = args[1] # 相关的配置字典{&amp;#39;host&amp;#39;,&amp;#39;port&amp;#39;,&amp;#39;user&amp;#39;,&amp;#39;password&amp;#39;,&amp;#39;db&amp;#39;} # 插入你的数据查询及处理代码, 生成result即可 result = [[]] return result def insert_dataset(*args, **kwargs): &amp;#34;&amp;#34;&amp;#34; 数据填表实现 &amp;#34;&amp;#34;&amp;#34; contents = args[0] # 传入的数据集二维数组格式 table = args[1] # 配置中的表名 config = args[3] # 相关的配置字典{&amp;#39;host&amp;#39;,&amp;#39;port&amp;#39;,&amp;#39;user&amp;#39;,&amp;#39;password&amp;#39;,&amp;#39;db&amp;#39;} # 插入你的写入数据逻辑代码 在任意的仪表盘开发界面中 &amp;ldquo;模板&amp;rdquo; &amp;ndash;&amp;gt; 点击上传图标, 将这个python文件上传即可 新建数据源, 驱动填写之前上传过的文件名, 比如我们这个是diy_conn, 其它参数按照你自定义的需求填写, 会自动传入你的自定义函数 之后你可以正常使用这个自定义数据源了</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://smartchart.gitee.io/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/Elasticsearch%E6%95%B0%E6%8D%AE%E6%BA%90/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smartchart.gitee.io/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/Elasticsearch%E6%95%B0%E6%8D%AE%E6%BA%90/</guid>
+      <description>数据源配置方法 # 查询方法 # 更多查询方法参考 # 模糊查询 body = { &amp;#39;query&amp;#39;: { # 查询命令 &amp;#39;match&amp;#39;: { # 查询方法：模糊查询（会被分词）。比如此代码，会查到只包含：“我爱你”， “中国”的内容 &amp;#39;name&amp;#39;: &amp;#39;刘&amp;#39; } }, &amp;#39;size&amp;#39;: 20 # 不指定默认是10，最大值不超过10000（可以修改，但是同时会增加数据库压力） } term，精准单值查询 # 注：此方法只能查询一个字段，且只能指定一个值。类似于mysql中的where ziduan=&amp;#39;a&amp;#39; body ={ &amp;#39;query&amp;#39;:{ &amp;#39;term&amp;#39;:{ &amp;#39;ziduan1.keyword&amp;#39;: &amp;#39;刘婵&amp;#39; # 查询内容等于“我爱你中国的”的数据。查询中文，在字段后面需要加上.keyword # &amp;#39;ziduan2&amp;#39;: &amp;#39;liuchan&amp;#39; } } } erms，精准多值查询 #此方法只能查询一个字段，但可以同时指定多个值。类似于mysql中的where ziduan in (a, b,c...) body ={ &amp;#34;query&amp;#34;:{ &amp;#34;terms&amp;#34;:{ &amp;#34;ziduan1.keyword&amp;#34;: [&amp;#34;刘婵&amp;#34;, &amp;#34;赵云&amp;#34;] # 查询ziduan1=&amp;#34;刘婵&amp;#34;或=赵云...的数据 } } } multi_match，多字段查询 # 查询多个字段中都包含指定内容的数据 body = { &amp;#34;query&amp;#34;:{ &amp;#34;multi_match&amp;#34;:{ &amp;#34;query&amp;#34;:&amp;#34;我爱你中国&amp;#34;, # 指定查询内容，注意：会被分词 &amp;#34;fields&amp;#34;:[&amp;#34;ziduan1&amp;#34;, &amp;#34;ziduan2&amp;#34;] # 指定字段 } } } prefix，前缀查询 body = { &amp;#39;query&amp;#39;: { &amp;#39;prefix&amp;#39;: { &amp;#39;ziduan.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://smartchart.gitee.io/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/JDBC%E6%95%B0%E6%8D%AE%E6%BA%90/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smartchart.gitee.io/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/JDBC%E6%95%B0%E6%8D%AE%E6%BA%90/</guid>
+      <description> 应用场景 # 当无法在python中找到连接库时, 你还可以采用jdbc的连接方式
+使用方法 # 首先您需要安装jdbc的包 pip install JayDeBeApi 在任意的一个仪表盘的 &amp;ldquo;模板&amp;rdquo; 编辑器中, 点击上传资源的图标上传相应的jdbc JAR包即可 新建连接的方式, 以下使用impala为例 </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://smartchart.gitee.io/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/kafka%E6%95%B0%E6%8D%AE%E6%BA%90/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smartchart.gitee.io/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/kafka%E6%95%B0%E6%8D%AE%E6%BA%90/</guid>
+      <description>用于获取kafka指定分区的最后一条记录, 用于实时场景 使用方法参考&amp;quot;自定义数据源&amp;quot; 以下为参考代码:
+def dataset(*args, **kwargs): &amp;#34;&amp;#34;&amp;#34; 返回查询数据集 :return: 二维数组或JSON字典 &amp;#34;&amp;#34;&amp;#34; from kafka import KafkaConsumer, TopicPartition import json sqlList = args[0] # 数据集编辑界面的输入已按分号拆分成数组 [sql1, sql2...] config = args[1] # 相关的配置字典{&amp;#39;host&amp;#39;,&amp;#39;port&amp;#39;,&amp;#39;user&amp;#39;,&amp;#39;password&amp;#39;,&amp;#39;db&amp;#39;} # 插入你的数据查询及处理代码, 生成result即可 result = {} consumer = KafkaConsumer(sasl_mechanism=&amp;#39;PLAIN&amp;#39;, security_protocol=&amp;#39;SASL_PLAINTEXT&amp;#39;, sasl_plain_username=config[&amp;#39;user&amp;#39;], sasl_plain_password=config[&amp;#39;password&amp;#39;], bootstrap_servers=config[&amp;#39;host&amp;#39;], auto_offset_reset=&amp;#39;earliest&amp;#39;, api_version=(1, 0, 0), consumer_timeout_ms=50, value_deserializer=lambda v: json.loads(v.decode(&amp;#39;utf-8&amp;#39;)), ) topic = sqlList[0] partition = int(config[&amp;#39;db&amp;#39;]) tp = TopicPartition(topic=topic, partition=partition) consumer.assign([tp]) end_offsets = consumer.end_offsets([tp]).get(tp) # 获取当前消费者最大偏移量 consumer.seek(tp, offset=end_offsets-1) for message in consumer: result = message.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://smartchart.gitee.io/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/mongodb%E6%95%B0%E6%8D%AE%E6%BA%90/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smartchart.gitee.io/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/mongodb%E6%95%B0%E6%8D%AE%E6%BA%90/</guid>
+      <description> 使用方法 # 连接池正常配置即可 数据集开发中，填写查询需求： {&amp;#34;db&amp;#34;: &amp;#34;db1&amp;#34;, &amp;#34;table&amp;#34;: &amp;#34;tb1&amp;#34;, &amp;#34;filter&amp;#34;: {&amp;#34;name&amp;#34;: &amp;#34;Zarten&amp;#34;}, &amp;#34;projection&amp;#34;: {&amp;#34;_id&amp;#34;: 0}, &amp;#34;sort&amp;#34;: [[&amp;#34;_id&amp;#34;, 1]], &amp;#34;limit&amp;#34;: 10} 由于返回的字典格式， 如需转化成二维数组， 可使图形中的转化函数ds_mapToList
+let dataset=ds_mapToList(__dataset__); 参数说明： # 除table，其它都为可选参数
+参数 说明 样列 db 数库名,默认连接设定中db名 table 表名[必填] filter 筛选项,具体用法参考下文 {&amp;ldquo;name&amp;rdquo;: &amp;ldquo;Zarten&amp;rdquo;,&amp;ldquo;date&amp;rdquo;:&amp;ldquo;2020-10-01&amp;rdquo;} projection 显示列 {&amp;ldquo;name&amp;rdquo;: 1,&amp;ldquo;date&amp;rdquo;:1} sort 排序，-1为降序 [[&amp;ldquo;date&amp;rdquo;, -1]] limit 限定返回数量 filter条件说明 # 且条件
+{&amp;#34;age&amp;#34;:{&amp;#34;$gt&amp;#34;:22}, &amp;#34;name&amp;#34;:{&amp;#34;$regex&amp;#34;:&amp;#34;user&amp;#34;}} 或条件
+{ &amp;#34;$or&amp;#34;: [ {&amp;#34;age&amp;#34;: {&amp;#34;$gt&amp;#34;: 22}}, {&amp;#34;name&amp;#34;: {&amp;#34;$regex&amp;#34;: &amp;#34;user&amp;#34;}} ] } 比较查询 $lt和&amp;lt;，$lte和&amp;lt;=，$gt和&amp;gt;，gte和&amp;gt;=，ne和!=是一一对应的 {&amp;#34;field_name&amp;#34;: {&amp;#34;$lt&amp;#34;: value, &amp;#34;$gt&amp;#34;: value}} 关联查询$in和$nin {&amp;#34;field_name&amp;#34;: {&amp;#34;$in&amp;#34;: [1,5,8]}} $regex为模糊查询的字符串提供正则表达式功能 {&amp;#34;$or&amp;#34;: [{&amp;#34;field_name&amp;#34;: {&amp;#39;$regex&amp;#39;: value}},{&amp;#34;field_name2&amp;#34;: {&amp;#34;$regex&amp;#34;: value}}]} </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://smartchart.gitee.io/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/Redis%E6%95%B0%E6%8D%AE%E6%BA%90/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smartchart.gitee.io/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/Redis%E6%95%B0%E6%8D%AE%E6%BA%90/</guid>
+      <description>应用场景 # 你可能会有这样的一些需求, 展示数据是要通过外部的程序计算好,如一些实时的计算场景,用spark计算好的数据 或爬虫爬取的数据, 然后写入redis或nosql的数据库,最后由前端图形直接展示或数据下载,SmartChart支持这一块的应用
+使用方法 # 你可以创建一个redis的连接池, 然后按照通用的方法建立数据集 不同的是, 数据集的SQL区不再是写sql代码, 而只需要写redis中的keyname
+如redis中存储的数据是keyname 为 &amp;ldquo;指标A&amp;rdquo;, 数据 &amp;lsquo;{&amp;ldquo;长沙&amp;rdquo;:1,&amp;ldquo;上海&amp;rdquo;:2}&amp;rsquo; 这样我们只需要在数据集中写上
+指标A 即可, 最后你会得到{&amp;ldquo;长沙&amp;rdquo;:1,&amp;ldquo;上海&amp;rdquo;:2}的返回结果
+如果你需要的是表格格式, 那么你只需要往redis中存入一个二维数组, 比如: [[&amp;ldquo;省份&amp;rdquo;,&amp;ldquo;数量&amp;rdquo;],[&amp;ldquo;长沙&amp;rdquo;,1],[&amp;ldquo;上海&amp;rdquo;,2]]
+注意数据存入redis为字符串格式,你可使用python的json.dumps来生成字符串格式存入
+当然我们也支持同一个数据中获取多个keyname # 比如还有一个&amp;quot;指标B&amp;quot;, 数据是&#39;12345&#39; 我们可以同时写上两个指标,用分号隔开:
+指标A;指标B 最后你会得到的结果是: { &amp;ldquo;指标A&amp;rdquo;:{&amp;ldquo;长沙&amp;rdquo;:1,&amp;ldquo;上海&amp;rdquo;:2}, &amp;ldquo;指标B&amp;rdquo;:12345 }</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://smartchart.gitee.io/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/sqlalchemy%E8%BF%9E%E6%8E%A5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smartchart.gitee.io/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/sqlalchemy%E8%BF%9E%E6%8E%A5/</guid>
+      <description>常规的连接池的设定, 大家应该都很清楚了, Smartchart也支持sqlalchemy连接, 对于一些smartchart不支持的数据源可以使用此方法 配置方法: 只用填以上内容, 其它可留空 连接地址的写法参考sqlalchemy说明:
+可选参数。一个标准的链接URL是这样的： dialect+driver://username:password@host:port/database dialect，是数据库类型，大概包括：sqlite, mysql, postgresql, oracle, or mssql. driver，是使用的数据库API，驱动，连接包，随便叫什么吧。 username，用户名 password，密码 host，网络地址，可以用ip，域名，计算机名，当然是你能访问到的。 port，数据库端口。 databas，数据库名。 其实这些也就dialect和dirver需要解释。 二：连接sqlite3 1，驱动 sqlite3是个文件数据库，不需要什么驱动，或者说python内置了驱动。 2，标准连接参数 # sqlite://&amp;lt;nohostname&amp;gt;/&amp;lt;path&amp;gt; 没有hostname 3，各种链接参数 # 相对路径，就是这个python文件同目录下foo.db engine = create_engine(&amp;#39;sqlite:///foo.db&amp;#39;) #绝对路径 #Unix/Mac下用四条////表示 engine = create_engine(&amp;#39;sqlite:////absolute/path/to/foo.db&amp;#39;) #Windows下用三条///加盘符路径用两条\\ engine = create_engine(&amp;#39;sqlite:///C:\\path\\to\\foo.db&amp;#39;) #Windows 也可以这么用三条///加盘符路径用一条\ engine = create_engine(r&amp;#39;sqlite:///C:\path\to\foo.db&amp;#39;) #数据库建在内存里。URI保持为空即可 engine = create_engine(&amp;#39;sqlite://&amp;#39;) 三：连接mysql（mariadb） sqlalchemy默认使用mysql-python作为链接驱动，既default模式 选哪种驱动，就装哪个包。 1，default默认链接方式 engine = create_engine(&amp;#39;mysql://scott:tiger@localhost/foo&amp;#39;) 2，# mysql-python，声明使用mysql-python驱动 engine = create_engine(&amp;#39;mysql+mysqldb://scott:tiger@localhost/foo&amp;#39;) 3，MySQL-connector-python 声明使用MySQL-connector-python驱动（推荐使用） engine = create_engine(&amp;#39;mysql+mysqlconnector://scott:tiger@localhost/foo&amp;#39;) 4，OurSQL 声明使用OurSQL驱动 engine = create_engine(&amp;#39;mysql+oursql://scott:tiger@localhost/foo&amp;#39;) 四：连接Microsoft SQL Server sqlalchemy默认使用 pyodbc作为链接驱动。 1，pyodbc engine = create_engine(&amp;#39;mssql+pyodbc://scott:tiger@mydsn&amp;#39;) 2，pymssql engine = create_engine(&amp;#39;mssql+pymssql://scott:tiger@hostname:port/dbname&amp;#39;) 五：连接PostgreSQL PostgreSQL默认使用 psycopg2作为链接驱动，既default模式 1， default engine = create_engine(&amp;#39;postgresql://scott:tiger@localhost/mydatabase&amp;#39;) 2，psycopg2 engine = create_engine(&amp;#39;postgresql+psycopg2://scott:tiger@localhost/mydatabase&amp;#39;) 3， pg8000 engine = create_engine(&amp;#39;postgresql+pg8000://scott:tiger@localhost/mydatabase&amp;#39;) 六：连接Oracle Oracle可能只有 cx_oracle一个驱动包，既default模式和声明模式一样。 1，default engine = create_engine(&amp;#39;oracle://scott:tiger@127.</description>
+    </item>
+    
+  </channel>
+</rss>

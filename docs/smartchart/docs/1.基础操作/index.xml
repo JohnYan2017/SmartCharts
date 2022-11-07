@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Smartchart开发手册</title>
+    <link>https://smartchart.gitee.io/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/</link>
+    <description>Recent content on Smartchart开发手册</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://smartchart.gitee.io/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>专业版本说明</title>
+      <link>https://smartchart.gitee.io/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E4%B8%93%E4%B8%9A%E7%89%88%E8%AF%B4%E6%98%8E/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smartchart.gitee.io/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E4%B8%93%E4%B8%9A%E7%89%88%E8%AF%B4%E6%98%8E/</guid>
+      <description> 版权声明 # 为项目能持续维护，并保持稳定的模式，按照社区投票的意见, 开始区分免费版本和专业版本 目前免费版本无需激活， 你可以使用到常用的功能，我们也会保持持续的更新 为保持项目的健康发展，如需进行商用，您需提供使用方并知会作者进行授权
+免费版使用者必须保留SmartChart相关版权标识及LOGO，禁止对其进行修改和删除 如果违反，将保留对侵权者追究责任的权利
+激活方式 # 您在初次安装Smartchart后会自动免费激活20天的专业版本, 之后专业版本功能会限制使用 请务必仔细阅读免费版本与专业版本的区别, 避免带来的不便 后续如果您还需要继续体验专业版本， 点击查看激活试用方式， 如果您是企业用途，建意使用专业版，获取更快的开发效率，可视化效果, 可靠性的保障及极速的查询体验
+针对个人独立开发者,你可以采用廉价的专业版仪表盘激活方案, 可满足小项目的可视化要求 如果需要永久激活专业版，可关注公众号与客服联系,或扫码联系微信客服了解, 非诚勿扰
+微信客服不提供技术咨询, 如有使用方法的疑惑,建意加QQ群:476715246 进行沟通
+免费版本与专业版本对比: # 功能 免费版 专业版 中台版 栅格布局 V V V DATAV V V V 拖拽布局 V V 自由开发 V V 切换图表主题 V V 主题自由设计 V V 引入JS V V 引入CSS V V 上传静态资源 V V 使用VUE V V V 数据集开发 V V V 所有数据源 V V V 图形开发 V V V 图形商店 V V V 普通模板应用 V V V 专业模板应用 V V 复制仪表盘 V V V 钻取 V V V 联动 V V V 筛选 V V V 单点登录 V V V 嵌入认证 V V LDAP认证 V V Juypter V V V 快捷存档 V V 数据加速 V V 数据API服务 V V 后台API刷新 V V 仪表盘同步 V V 仪表盘版本管理 V V 数据填报 V V 报表Portal V V 多级项目菜单 V 商业授权 V V 优先咨询 V V 专业边框背景 V V 3D场景 V V 中国式报表 V V 生产部署文档 V V 个性化修改 V V 授权书 V V 低代码ETL V 调度平台 V 智慧BI V 数据资产 V 数据血缘 V 租户管理 V </description>
+    </item>
+    
+    <item>
+      <title>快速开始</title>
+      <link>https://smartchart.gitee.io/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smartchart.gitee.io/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/</guid>
+      <description>开发前你可以先观看操作方面的 :exclamation: 操作视屏教程 :exclamation: 5.0变更操作视屏教程 :exclamation: 开发系列合集,关注作者持续更新
+由于版本的变更, 一些图标可能会有一些变化, 但位置无太大的变化
+安装Python环境 # 环境准备: 官方 最新Python下载链接,可以到 淘宝镜象下载,也可以下载 WINDOWS64位安装版, MAC电脑安装版
+Window平台安装视屏介绍,注意: Windows安装Python时需选中&amp;quot;Add to Path&amp;quot; Linux安装可参考文档下方的部署说明, Linux安装说明
+安装SmartChart # 在Shell或CMD命令行执行
+pip3 install smartchart 如果安装过程慢,建意使用 pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple smartchart -U 升级方法: pip3 install smartchart -U (升级) 启动smartchart # 本地命令行启动: smartchart 如果你是服务器部署,远程访问,服务端启动方式: smartchart runserver 0.0.0.0:8000 --insecure --noreload 如果出现套接字，端口被占用， 可修改端口号启动， 如 smartchart runserver 0.0.0.0:8001 --insecure --noreload 一般本地启动后访问： http://127.0.0.1:8000 管理员帐号密码: admin/admin, 请及时更改密码
+如果忘记密码, 可以使用此命令重置 smartchart changepassword 用户名 鼠标滑动，点击如下图DEV图标, 切换为开发模式,这样才可以看到开发相关菜单,后打开demo页面 注意: 不切换是正常的用户报表浏览模式!</description>
+    </item>
+    
+    <item>
+      <title>第一个仪表盘</title>
+      <link>https://smartchart.gitee.io/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E4%BB%AA%E8%A1%A8%E7%9B%98/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smartchart.gitee.io/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E4%BB%AA%E8%A1%A8%E7%9B%98/</guid>
+      <description>由于版本的变更, 一些图标可能会有一些变化, 但位置无太大的变化
+新建仪表盘 # 在开发模式下，滑动“开发管理” -&amp;gt;&amp;ldquo;仪表盘&amp;rdquo;-&amp;gt; &amp;ldquo;新增Dashboard&amp;rdquo; 填写相应信息后点击“保存” 点击进入仪表盘开发, 注意点击 &amp;ldquo;E&amp;rdquo; 字!! 点击新增(注意拖拽布局功能为PRO版本, 后续免费版本中将无法使用), 如果你坚持使用免费版本功能, 请使用左边的蓝色颜色的新增, 具体布局方式参考 数据集编辑 # 点开“数据集” 输入以下SQL后，点击“保存并刷新”, 关闭数据集编辑界面 select H1 as heroname, sum(qty) as 出场数 from smartdemo2 group by H1 order by sum(qty) desc 图形编辑 # 点开“图形编辑” 点击“云图标”，第一次使用可能要你进行登记，按提示操作即可， 在商店中找到合适的图形点击，会自动复制到剪贴板 贴粘到图形编辑器后，点击保存， 关闭图形编辑框 拖拽布局 # 重复以上步骤，再新增一个， 你可以使用拖拽的方式, 移动到不同的地方 </description>
+    </item>
+    
+    <item>
+      <title>创建连接池</title>
+      <link>https://smartchart.gitee.io/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E5%88%9B%E5%BB%BA%E8%BF%9E%E6%8E%A5%E6%B1%A0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smartchart.gitee.io/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E5%88%9B%E5%BB%BA%E8%BF%9E%E6%8E%A5%E6%B1%A0/</guid>
+      <description>如何新增数据源 # 在开发模式下，点击“开发管理”-&amp;gt;数据源-&amp;gt;新增 配置连接池参数，注意数据库填写是备注中有写的名称 你可以通过新建一个数据集来测试连接池的连通性
+点击“保存” 后，回到数据集列表 点击如下图标&amp;quot;E&amp;quot;，进入数据集开发界面 在开发界面调试 安全控制 # 你可以在“参数”中设定安全控制，可避免用户误操作导致前后端卡死 limit: 可限定最大返回数据数量(但实际数据库查询无limit,需通过mode控制) mode: 控制用户查询行为，默认为模式1
+模式 说明 0 严格模式，每次查询向数据库都会增加limit，MPP类型数据库可能会排序失效 1 开发模式，仅调试查询数据库都会增加limit，调试时MPP类型数据库可能会排序失效，但不影响实际 2 宽松模式，查询都不带limit, 仅控制返回limit,需开发者避免大查询 支持的数据源： # 数据库 驱动填写 需安装 使用说明 Mysql mysql 默认支持 Mysql连接池 mysqlpool Sqlite sqlite 默认支持 连接地址填写绝对路径 API 任意 默认支持 参考数据集说明文档 EXCEL 任意 默认支持 参考数据集说明文档 SQL Server mssql 需安装 pip install pymssql SQL Server连接池 mssqlpool ORACLE oracle pip install cx_Oracle ORACLE连接池 oraclepool PostgreSql gp pip install psycopg2 GP gp pip install psycopg2 Impala impala pip install impyla Hive hive pip install impyla DB2 db2 pip install ibm_db 达梦 dm pip install dmPython Python python pip install pandas, openpyxl 参考数据集-&amp;gt;特殊数据源 Redis redis pip install redis 参考数据集-&amp;gt;特殊数据源 Mongodb mongodb pip install pymongo 参考数据集-&amp;gt;特殊数据源 Clickhouse clickhouse pip install clickhouse_driver Elasticsearch es pip install elasticsearch==7.</description>
+    </item>
+    
+    <item>
+      <title>应用模板</title>
+      <link>https://smartchart.gitee.io/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E5%BA%94%E7%94%A8%E6%A8%A1%E6%9D%BF/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smartchart.gitee.io/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E5%BA%94%E7%94%A8%E6%A8%A1%E6%9D%BF/</guid>
+      <description>应用场景 # 你可以快速应用开发好的模板,极大的提高你的开发和学习效率
+应用本地模板 # 你可以快速应用本地备份的模板, 我们内置了一个 通用的数据查询和下载模板 , 你可以尝试
+新建一个全新的dashboard, 不要放任何报表, 点击保存且编辑后, 下方可以看到下载链接, 然后点击下载即可直接应用 输入&amp;quot;01_SMARTCHART&amp;quot;, 点击本地恢复即可 更多本地备份恢复参考
+应用商店模板 # 方法同上&amp;quot;应用本地模板&amp;quot;, 注意应用商店模板为收费增值服务
+你可以点击 模板查询, 查看相应的价格后在 TB购买即可获取下载密钥 如果是全新的仪表盘, 直接输入下载密钥, 点击&amp;quot; 商城下载 &amp;ldquo;即可 如果仪表盘中有数据集且不再需要, 可以在下载密钥前面加上FORCE即可自动清空已有数据集后自动下载 注意模板太廉价,购买后并没有咨询服务,请务必自行了解如何使用
+资源文件放置路径 有些资源会离线打包提供给你, 只需上传即可, 上传方法参考
+如果不清楚可以观看视屏说明 使用方法可参考视屏: 一键应用模板</description>
+    </item>
+    
+    <item>
+      <title>权限管理</title>
+      <link>https://smartchart.gitee.io/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smartchart.gitee.io/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</guid>
+      <description>目前的权限管理,大概如下:
+开发者权限 # 你点击DEV后, 才会出进入后台的图标, 在后台中你可以控制用户的开发权限 新建用户默认是没有开发权限的, 在首页也看不到任何开发相关的菜单
+如果你需要给用户开发权限, 需要设定如下: Dashboard报表查看权限 # 你可以在 仪表盘设定 中进行权限管理 全局编辑或查看权限 由平台用户组或用户权限配置, 如果用户需要查看报表, 需先分配到有查看权限的组中, 默认加入集团组可以具备查看权限 在dashboard设定页面中可针对人员来分配 编辑权限, 有编辑权限同时也会满足查看权限 在dashboard设定页面中可针对组来分配 查看权限 未上线 的报表, 只会在编辑页面中出现, 可以预览 公开 的报表, 如没有分配编辑权限,在编辑页面中不出现, 但在查看页面所有人可见，你可以共享给所有人，访问url: http://xxxxx：8000/echart?type=你的仪表盘名称 手机端过滤, 你可以通过 &amp;ldquo;全端&amp;rdquo;,&amp;ldquo;电脑端&amp;rdquo; 选项实现, 当勾选 &amp;ldquo;全端&amp;rdquo; 时, 手机端电脑端都会显示, 当未勾选 全端, 也不勾选 电脑端时, 只会在 手机显示, 反之只在电脑端显示 总结 # 在编辑入口只会显示 有按人员分配编辑权限的报表清单, 在查看入口中会显示已启用且上线且(已分配查看权限或编辑权限或公开)的报表 所以你可以么这么搭配: 对于通用报表可以所有人访问的, 但你又不想让他在清单中显示, 你可以将他设为公开但不上线 对于开发中的报表, 你可以设为未上线</description>
+    </item>
+    
+  </channel>
+</rss>

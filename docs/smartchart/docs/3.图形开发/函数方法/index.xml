@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Smartchart开发手册</title>
+    <link>https://smartchart.gitee.io/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/%E5%87%BD%E6%95%B0%E6%96%B9%E6%B3%95/</link>
+    <description>Recent content on Smartchart开发手册</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://smartchart.gitee.io/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/%E5%87%BD%E6%95%B0%E6%96%B9%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://smartchart.gitee.io/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/%E5%87%BD%E6%95%B0%E6%96%B9%E6%B3%95/%E5%9B%BE%E5%BD%A2%E7%AB%AF%E6%95%B0%E6%8D%AE%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smartchart.gitee.io/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/%E5%87%BD%E6%95%B0%E6%96%B9%E6%B3%95/%E5%9B%BE%E5%BD%A2%E7%AB%AF%E6%95%B0%E6%8D%AE%E5%87%BD%E6%95%B0/</guid>
+      <description>应用场景 # 在图形开发中，我们可能需要使用js对传递过来的数据进行处理
+原始数据格式 # 假设dataset的格式是, SQL = Select 维度1,维度2,数据 from xxxx, 生成的数据集如下
+dataset = [[&amp;#39;category&amp;#39;,&amp;#39;C1&amp;#39;,&amp;#39;C2&amp;#39;], [&amp;#39;R1&amp;#39;, 12, 18], [&amp;#39;R2&amp;#39;, 10, 17] ] 转化函数 # 生成字典表示为key-&amp;gt;[], 常用于定制化高的图形 # result = ds_createMap(dataset) 结果 = {&amp;#34;category&amp;#34;:[&amp;#39;C1&amp;#39;,&amp;#39;C2&amp;#39;], &amp;#34;R1&amp;#34; : [12, 10], &amp;#34;R2&amp;#34; : [18, 17]} 生成非常多前端组件要求的格式 # result = ds_createMap_all(dataset) 结果 = [{&amp;#34;category&amp;#34;:&amp;#34;R1&amp;#34;, &amp;#34;C1&amp;#34;: 12, &amp;#34;C2&amp;#34;: 18}, {&amp;#34;category&amp;#34;:&amp;#34;R2&amp;#34;, &amp;#34;C1&amp;#34;: 10, &amp;#34;C2&amp;#34;: 17}] 获取列名list, 用于获取系列名 # result = ds_rowname(dataset) 结果 = [&amp;#39;R1&amp;#39;,&amp;#39;R2&amp;#39;] 将数据集行列转化, 一般用于坐标轴翻转 # result = ds_transform(dataset) 结果 = [[&amp;#39;category&amp;#39;,&amp;#39;R1&amp;#39;,&amp;#39;R2&amp;#39;], [&amp;#39;C1&amp;#39;, 12, 10], [&amp;#39;C2&amp;#39;, 18, 17]] 两个数据集左关联, 常用于将两段查询数据合并 # 假设需要关联的数据集格式： dataset2 = [[&amp;#39;category&amp;#39;,&amp;#39;C3&amp;#39;], [&amp;#39;R1&amp;#39;, 38], [&amp;#39;R6&amp;#39;, 13]] 处理后的结果： result = ds_leftjoin(dataset, dataset2) 结果 = [[&amp;#39;category&amp;#39;,&amp;#39;C1&amp;#39;,&amp;#39;C2&amp;#39;,&amp;#39;C3&amp;#39;], [&amp;#39;R1&amp;#39;, 12, 18, 38], [&amp;#39;R2&amp;#39;, 10, 17, 0] ] 数据集旋转，在excel中叫透视表 # 比如需要将dataset3的户型变成指标 dataset3 = [[&amp;#39;城市&amp;#39;,&amp;#39;户型&amp;#39;,&amp;#39;数量&amp;#39;], [&amp;#39;长沙&amp;#39;,&amp;#39;A&amp;#39;,35], [&amp;#39;上海&amp;#39;,&amp;#39;B&amp;#39;,19]] 处理后的结果： result = ds_pivot(dataset3) 结果 = [[&amp;#34;城市&amp;#34;,&amp;#34;A&amp;#34;,&amp;#34;B&amp;#34;], [&amp;#34;长沙&amp;#34;,35,0], [&amp;#34;上海&amp;#34;,0,19]] 移除数据集中的某几列 # 比如移除第1列（序号0） result=ds_remove_column(dataset,remove_list=[0]) 结果 = [[&amp;#39;R1&amp;#39;,&amp;#39;R2&amp;#39;], [12, 10], [18, 17] ] smartchart图形中可用的转化函数 # 函数名 函数说明 样列 ds_transform(dataset) 行列替换 ds_split(data,sep=&amp;rsquo;,&amp;rsquo;,head_add=[]) 将第一列拆分成多个字段,默认逗号分隔, 如果不传表头,取SQL中的字段名拆分 ds_createMap(data) data表示传入的二位数组,生成结果表示为key-&amp;gt;[], 常用于echarts指定数据 ds_createMap_all(data) data表示传入的二维数组,生成结果表示为[{A:A1,B:B1,C:C1},{A:A2,B:B2,C:C2}&amp;hellip;] ds_mapToList(data) 将createMap_all的格式还原成二维数组, 常用于将nosql(mongodb,es.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://smartchart.gitee.io/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/%E5%87%BD%E6%95%B0%E6%96%B9%E6%B3%95/Jquery%E9%81%8D%E5%8E%86%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smartchart.gitee.io/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/%E5%87%BD%E6%95%B0%E6%96%B9%E6%B3%95/Jquery%E9%81%8D%E5%8E%86%E6%96%B9%E6%B3%95/</guid>
+      <description>在做自定义html组件的时候你可能需要用得上：
+一、向上遍历
+parent() 获取元素的直接父元素 $(&amp;#34;span&amp;#34;).parent().css({ &amp;#34;color&amp;#34;:&amp;#34;red&amp;#34;, &amp;#34;border&amp;#34;:&amp;#34;1px solid red&amp;#34; }) parents() 获取元素的祖先元素，直到根元素html $(&amp;#34;span&amp;#34;).parents().css({ &amp;#34;color&amp;#34;:&amp;#34;red&amp;#34;, &amp;#34;border&amp;#34;:&amp;#34;1px solid red&amp;#34; }) parentsUntil() 向上查找直到遇见某个祖先元素为止 $(&amp;#34;span&amp;#34;).parentsUntil(&amp;#34;div&amp;#34;).css({	//向上查找直到遇见div元素为止 &amp;#34;color&amp;#34;:&amp;#34;red&amp;#34;, &amp;#34;border&amp;#34;:&amp;#34;1px solid red&amp;#34; }) 二、向下遍历
+1. children() 查找子元素[按照从属关系] $(&amp;#34;ul&amp;#34;).children(&amp;#34;li:first-child&amp;#34;) 2. find() 按照指定的条件向下查找 $(&amp;#34;ul&amp;#34;).find(&amp;#34;span&amp;#34;) 三、水平遍历
+1. siblings() 获取元素的所有兄弟元素 $(&amp;#34;.start&amp;#34;).siblings().css({color:&amp;#34;red&amp;#34;,border:&amp;#34;2px solid red&amp;#34;}) 2. next() 获取元素的下一个兄弟元素 $(&amp;#34;.start&amp;#34;).next().css({color:&amp;#34;red&amp;#34;,border:&amp;#34;2px solid red&amp;#34;}) 3. nextAll() 获取其后的所有兄弟元素 $(&amp;#34;.start&amp;#34;).nextAll().css({color:&amp;#34;red&amp;#34;,border:&amp;#34;2px solid red&amp;#34;}) 4. nextUntil() 查找后面所有的兄弟元素，直到遇见某个元素为止 $(&amp;#34;.start&amp;#34;).nextUntil(&amp;#34;li:last-child&amp;#34;).css({color:&amp;#34;red&amp;#34;,border:&amp;#34;2px solid red&amp;#34;}) 5. prev() 查找上一个兄弟元素 $(&amp;#34;li.start&amp;#34;).prev().css({color:&amp;#34;red&amp;#34;,border:&amp;#34;2px solid red&amp;#34;}) 6. prevAll() 查找上面所有的兄弟元素 $(&amp;#34;li.</description>
+    </item>
+    
+  </channel>
+</rss>

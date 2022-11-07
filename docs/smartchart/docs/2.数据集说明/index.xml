@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Smartchart开发手册</title>
+    <link>https://smartchart.gitee.io/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/</link>
+    <description>Recent content on Smartchart开发手册</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://smartchart.gitee.io/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://smartchart.gitee.io/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E5%BC%80%E5%8F%91%E7%95%8C%E9%9D%A2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smartchart.gitee.io/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E5%BC%80%E5%8F%91%E7%95%8C%E9%9D%A2/</guid>
+      <description>开发前建意先观看视屏, 了解基础说明, 视屏有点老和现在界面不一样, 目前很多功能已经做成可视化配置, 理解过程即可, 具体以文档为准
+Smartchart数据集与图形 从仪表盘界面中进入简易开发界面 # </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://smartchart.gitee.io/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/SQL%E6%95%B0%E6%8D%AE%E9%9B%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smartchart.gitee.io/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/SQL%E6%95%B0%E6%8D%AE%E9%9B%86/</guid>
+      <description>SmartChart标准数据集你可以想象为一个EXCEL的二维表, 有行和列 你直接在数据集开发界面填写SQL即可
+标准图形的数据表类型 # A类数据源 # 比如你的原始数据库中表的格式如下, 表名tb_name: 城市 户型 数量 长沙 A 12 长沙 A 23 上海 B 19 查询的sql: select 城市,户型,sum(数量) AS 数量 from tb_name group by 城市,户型 正常的查询的结果为: [[&amp;#39;城市&amp;#39;,&amp;#39;户型&amp;#39;,&amp;#39;数量&amp;#39;], [&amp;#39;长沙&amp;#39;,&amp;#39;A&amp;#39;,35], [&amp;#39;上海&amp;#39;,&amp;#39;B &amp;#39;,19]] 由于生成的数据格式第二行是 [字符,字符,数值], 后台会自动进行转列动作, 生成图表更容易使用格式: [[&amp;#39;Categroy&amp;#39;,&amp;#39;A&amp;#39;,&amp;#39;B&amp;#39;], [&amp;#39;长沙&amp;#39;, 35, 0], [&amp;#39;上海&amp;#39;, 0, 19]] B类数据源 # 再比如我们有一个表的数据格式, 指标是展开的: 城市 A B 长沙 10 12 上海 11 19 长沙 9 10 我们可以写的sql是: select 城市, sum(A) as A, sum(B) as B from tb_name group by 城市 这样得到的结果是: [[&amp;#39;城市&amp;#39;,&amp;#39;A&amp;#39;,&amp;#39;B&amp;#39;], [&amp;#39;长沙&amp;#39;, 19, 22], [&amp;#39;上海&amp;#39;, 11, 19]] 和我们的标准格式也是一样的 SQL多段查询 # 有时你一个数据集可能只用一个SQL查询还不够，比如你需要一个清单数据，同时你需要一个汇总数据做为说明在图形中显示，这样你就需要使用多条SQL语句，在数据集中的写法你只需要用分号隔开，如：</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://smartchart.gitee.io/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E5%85%B1%E4%BA%AB%E6%95%B0%E6%8D%AE%E9%9B%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smartchart.gitee.io/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E5%85%B1%E4%BA%AB%E6%95%B0%E6%8D%AE%E9%9B%86/</guid>
+      <description> 应用场景 # 优化查询, 可一个数据集查询完所有数据进行分发 减少重复查询的浪费, 同一个数据只查询一次 使用方法 # 在数据开发界面点击按钮就可以切换成共享数据集/普通数据集 切换完成, 你会发现数据集消失,然后图标跑到菜单上面去了, 你可以在此修改你的查询 在”高级“ 中配置 这样1，2号图形都映射到了共享数据集的数据 你也可以在数据集中写多个SQL查询 在”高级“ 设定中进行数据映射 观察1，2 号图形的变化 </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://smartchart.gitee.io/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E6%95%B0%E6%8D%AE%E5%88%B7%E6%96%B0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smartchart.gitee.io/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E6%95%B0%E6%8D%AE%E5%88%B7%E6%96%B0/</guid>
+      <description>数据刷新设定方法 # smartchart提供非常精细的数据刷新功能,及内存加速功能 你可以在数据集开发界面，点击连接的图标，进行设定 定时刷新 # 你可以设定前端页面数据集向后端请求刷新的时间间隔，单位秒
+如果你发现定时刷新，数据并没有变化，可能原因是您数据的缓存时间设定大于定时刷新的时间
+数据集缓存加速（PRO) # smartchart专业版提供内存加速技术，对数据库仅需请求一次，之后都是毫秒级响应
+间隔时间刷新,单位分钟,如设定 间隔时间为0.5, 则如果下一次访问时间超过30秒, 即触发数据刷新 固定时点刷新, 如设定 间隔时间 为-1, 则固定时点刷新, 即访问的时间超过固定的时点时(如下图每天09:25), 触发数据刷新 强制刷新, 访问url加上&amp;amp;refresh=Y, 则强制刷新数据, 此刷新不会影响间隔或固定刷新的时间, 不会更新下次同步时间 后台触发强制刷新 (PRO) # 请参考文档 后台主动触发刷新</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://smartchart.gitee.io/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E6%87%92%E5%8A%A0%E8%BD%BD/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smartchart.gitee.io/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E6%87%92%E5%8A%A0%E8%BD%BD/</guid>
+      <description>应用场景 # 类似于前后端开发, 后端会提供一些接口给前端, 但前端不一定需要在一打开页面就进行查询接口, 而是当有需要时再查询, 比如数据下载, 只有当用户有下载需求时再加载, 再比如有些与后台的数据联动, 我们只需要第一次加载时只显示第一层级, 点击时再加载其它层级
+开启数据集懒加载 # 你可以点击数据集的开发界面的&amp;quot;连接&amp;quot; 图标, 将&amp;quot;前端刷新(秒)&amp;quot; 修改为-1 这时当打开仪表盘时, 此数据集不会被加载
+应用 # 一般懒加载数据集主要是用来做数据查询的, 所以并不太需要显示图形, 所以我们主要是用于在图形中进行赋值操作 比如先在模板中定义一个全局变量: 然后修改图形编辑中的代码: 即刷新数据集时会进行变量赋值 如果您使用VUE, 那么会更方便, 你可以直接使用vapp.变量名 = dataset进行赋值
+查询数据 # 你可以随时手动触发数据集的刷新, 比如懒加载的数据集序号为0 你可以在你需要触发刷新的地方调用ds_refresh(0)即可刷新0号数据集并执行0号数据集中的JS代码
+TIPS 可以将懒加载的数据集同时转化为共享数据集(参考上文), 懒加载数据集将移到菜单栏显示</description>
+    </item>
+    
+  </channel>
+</rss>

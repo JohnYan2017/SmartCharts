@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Smartchart开发手册</title>
+    <link>https://smartchart.gitee.io/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E4%B8%8D%E5%A4%AA%E9%87%8D%E8%A6%81/</link>
+    <description>Recent content on Smartchart开发手册</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://smartchart.gitee.io/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E4%B8%8D%E5%A4%AA%E9%87%8D%E8%A6%81/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://smartchart.gitee.io/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E4%B8%8D%E5%A4%AA%E9%87%8D%E8%A6%81/%E4%B8%BB%E9%A2%98%E5%BA%94%E7%94%A8PRO/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smartchart.gitee.io/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E4%B8%8D%E5%A4%AA%E9%87%8D%E8%A6%81/%E4%B8%BB%E9%A2%98%E5%BA%94%E7%94%A8PRO/</guid>
+      <description>点击smartchart图标,切换到菜单固定模式, 你可看到主题的选择 </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://smartchart.gitee.io/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E4%B8%8D%E5%A4%AA%E9%87%8D%E8%A6%81/%E5%A4%8D%E5%88%B6%E4%BB%AA%E8%A1%A8%E7%9B%98/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smartchart.gitee.io/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E4%B8%8D%E5%A4%AA%E9%87%8D%E8%A6%81/%E5%A4%8D%E5%88%B6%E4%BB%AA%E8%A1%A8%E7%9B%98/</guid>
+      <description> 复制仪表盘 # 好不容易开发好了一个仪表盘, 想再做一个类似的, 或者想要一个测试用, 还需要一个个数据集, 图形复制粘贴么, 不, 你仅仅只需要点击下, 将给你复制出一个全新的仪表盘 注意: 复制出来的仪表盘, 数据集是与原仪表盘公用的！！
+如果你想将数据集独立出来, 可以按下图操作, 进入数据集设定, 点击磁铁, 将为你自动创建一个全新的数据集 </description>
+    </item>
+    
+  </channel>
+</rss>
