@@ -3,18 +3,20 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content=" 使用方法 # 连接池正常配置即可 数据集开发中，填写查询需求： {&#34;db&#34;: &#34;db1&#34;, &#34;table&#34;: &#34;tb1&#34;, &#34;filter&#34;: {&#34;name&#34;: &#34;Zarten&#34;}, &#34;projection&#34;: {&#34;_id&#34;: 0}, &#34;sort&#34;: [[&#34;_id&#34;, 1]], &#34;limit&#34;: 10} 由于返回的字典格式， 如需转化成二维数组， 可使图形中的转化函数ds_mapToList
+<meta name="description" content="使用方法 # 连接池正常配置即可 数据集开发中，填写查询需求： {&#34;db&#34;: &#34;db1&#34;, &#34;table&#34;: &#34;tb1&#34;, &#34;filter&#34;: {&#34;name&#34;: &#34;Zarten&#34;}, &#34;projection&#34;: {&#34;_id&#34;: 0}, &#34;sort&#34;: [[&#34;_id&#34;, 1]], &#34;limit&#34;: 10} 由于返回的字典格式， 如需转化成二维数组， 可使图形中的转化函数ds_mapToList
 let dataset=ds_mapToList(__dataset__); 参数说明： # 除table，其它都为可选参数
 参数 说明 样列 db 数库名,默认连接设定中db名 table 表名[必填] filter 筛选项,具体用法参考下文 {&ldquo;name&rdquo;: &ldquo;Zarten&rdquo;,&ldquo;date&rdquo;:&ldquo;2020-10-01&rdquo;} projection 显示列 {&ldquo;name&rdquo;: 1,&ldquo;date&rdquo;:1} sort 排序，-1为降序 [[&ldquo;date&rdquo;, -1]] limit 限定返回数量 filter条件说明 # 且条件
 {&#34;age&#34;:{&#34;$gt&#34;:22}, &#34;name&#34;:{&#34;$regex&#34;:&#34;user&#34;}} 或条件
-{ &#34;$or&#34;: [ {&#34;age&#34;: {&#34;$gt&#34;: 22}}, {&#34;name&#34;: {&#34;$regex&#34;: &#34;user&#34;}} ] } 比较查询 $lt和&lt;，$lte和&lt;=，$gt和&gt;，gte和&gt;=，ne和!=是一一对应的 {&#34;field_name&#34;: {&#34;$lt&#34;: value, &#34;$gt&#34;: value}} 关联查询$in和$nin {&#34;field_name&#34;: {&#34;$in&#34;: [1,5,8]}} $regex为模糊查询的字符串提供正则表达式功能 {&#34;$or&#34;: [{&#34;field_name&#34;: {&#39;$regex&#39;: value}},{&#34;field_name2&#34;: {&#34;$regex&#34;: value}}]} ">
+{ &#34;$or&#34;: [ {&#34;age&#34;: {&#34;$gt&#34;: 22}}, {&#34;name&#34;: {&#34;$regex&#34;: &#34;user&#34;}} ] } 比较查询 $lt和&lt;，$lte和&lt;=，$gt和&gt;，gte和&gt;=，ne和!=是一一对应的
+{&#34;field_name&#34;: {&#34;$lt&#34;: value, &#34;$gt&#34;: value}} 关联查询$in和$nin">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
-<meta property="og:description" content=" 使用方法 # 连接池正常配置即可 数据集开发中，填写查询需求： {&#34;db&#34;: &#34;db1&#34;, &#34;table&#34;: &#34;tb1&#34;, &#34;filter&#34;: {&#34;name&#34;: &#34;Zarten&#34;}, &#34;projection&#34;: {&#34;_id&#34;: 0}, &#34;sort&#34;: [[&#34;_id&#34;, 1]], &#34;limit&#34;: 10} 由于返回的字典格式， 如需转化成二维数组， 可使图形中的转化函数ds_mapToList
+<meta property="og:description" content="使用方法 # 连接池正常配置即可 数据集开发中，填写查询需求： {&#34;db&#34;: &#34;db1&#34;, &#34;table&#34;: &#34;tb1&#34;, &#34;filter&#34;: {&#34;name&#34;: &#34;Zarten&#34;}, &#34;projection&#34;: {&#34;_id&#34;: 0}, &#34;sort&#34;: [[&#34;_id&#34;, 1]], &#34;limit&#34;: 10} 由于返回的字典格式， 如需转化成二维数组， 可使图形中的转化函数ds_mapToList
 let dataset=ds_mapToList(__dataset__); 参数说明： # 除table，其它都为可选参数
 参数 说明 样列 db 数库名,默认连接设定中db名 table 表名[必填] filter 筛选项,具体用法参考下文 {&ldquo;name&rdquo;: &ldquo;Zarten&rdquo;,&ldquo;date&rdquo;:&ldquo;2020-10-01&rdquo;} projection 显示列 {&ldquo;name&rdquo;: 1,&ldquo;date&rdquo;:1} sort 排序，-1为降序 [[&ldquo;date&rdquo;, -1]] limit 限定返回数量 filter条件说明 # 且条件
 {&#34;age&#34;:{&#34;$gt&#34;:22}, &#34;name&#34;:{&#34;$regex&#34;:&#34;user&#34;}} 或条件
-{ &#34;$or&#34;: [ {&#34;age&#34;: {&#34;$gt&#34;: 22}}, {&#34;name&#34;: {&#34;$regex&#34;: &#34;user&#34;}} ] } 比较查询 $lt和&lt;，$lte和&lt;=，$gt和&gt;，gte和&gt;=，ne和!=是一一对应的 {&#34;field_name&#34;: {&#34;$lt&#34;: value, &#34;$gt&#34;: value}} 关联查询$in和$nin {&#34;field_name&#34;: {&#34;$in&#34;: [1,5,8]}} $regex为模糊查询的字符串提供正则表达式功能 {&#34;$or&#34;: [{&#34;field_name&#34;: {&#39;$regex&#39;: value}},{&#34;field_name2&#34;: {&#34;$regex&#34;: value}}]} " />
+{ &#34;$or&#34;: [ {&#34;age&#34;: {&#34;$gt&#34;: 22}}, {&#34;name&#34;: {&#34;$regex&#34;: &#34;user&#34;}} ] } 比较查询 $lt和&lt;，$lte和&lt;=，$gt和&gt;，gte和&gt;=，ne和!=是一一对应的
+{&#34;field_name&#34;: {&#34;$lt&#34;: value, &#34;$gt&#34;: value}} 关联查询$in和$nin" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://help.smartchart.cn/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/mongodb%E6%95%B0%E6%8D%AE%E6%BA%90/" /><meta property="article:section" content="docs" />
 
@@ -25,7 +27,7 @@ let dataset=ds_mapToList(__dataset__); 参数说明： # 除table，其它都为
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.9676739f7d6fb9d37e12fd58a755b4f44ec0d94abaddeb103ece302f676fbdef.js" integrity="sha256-lnZzn31vudN&#43;Ev1Yp1W09E7A2Uq63esQPs4wL2dvve8=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.1be3c355ca719359b48f4e06cdf4cc64b831fa788e6edab327874a0b75ecffe3.js" integrity="sha256-G&#43;PDVcpxk1m0j04GzfTMZLgx&#43;niObtqzJ4dKC3Xs/&#43;M=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -80,6 +82,19 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="/docs/%E5%85%B3%E4%BA%8E%E6%88%91%E4%BB%AC/" class="">关于我们</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/%E8%AE%BE%E8%AE%A1%E7%90%86%E5%BF%B5/" class="">设计理念</a>
   
 
         </li>
@@ -989,9 +1004,9 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-f63e740209b278b6f39640e9184d9131" class="toggle"  />
-    <label for="section-f63e740209b278b6f39640e9184d9131" class="flex justify-between">
-      <a role="button" class="">6. Jupyter应用</a>
+    <input type="checkbox" id="section-1a4301e6dac08bd3bdb48c3500ec971d" class="toggle"  />
+    <label for="section-1a4301e6dac08bd3bdb48c3500ec971d" class="flex justify-between">
+      <a role="button" class="">6.进阶开发 Pro</a>
     </label>
   
 
@@ -1005,7 +1020,223 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/6.Jupyter%E5%BA%94%E7%94%A8/Jupyter%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%8C%87%E5%BC%95/" class="">Jupyter中使用指引</a>
+    <input type="checkbox" id="section-3b9f1904c5bd48ec9e224dbf4f4a7d54" class="toggle"  />
+    <label for="section-3b9f1904c5bd48ec9e224dbf4f4a7d54" class="flex justify-between">
+      <a role="button" class="">低代码开发</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91/%E6%A8%A1%E6%9D%BF%E5%BC%80%E5%8F%91%E7%95%8C%E9%9D%A2/" class="">模板开发界面</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91/%E5%BF%AB%E6%8D%B7%E5%BC%80%E5%8F%91/" class="">快捷开发</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91/%E4%B8%8A%E4%BC%A0%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6/" class="">上传资源文件</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91/%E8%BE%B9%E6%A1%86%E4%B8%8E%E8%A3%85%E9%A5%B0/" class="">边框与装饰</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91/%E6%A0%B7%E5%BC%8F%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/" class="">样式快速上手</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91/IDE%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F/" class="">ID E开发模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91/%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C/" class="">动画效果</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91/%E7%BC%96%E8%BE%91%E5%99%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="">编辑器快捷键</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%AE%9E%E6%88%98%E5%A4%A7%E5%B1%8F%E6%A8%A1%E6%9D%BF%E8%BD%AC%E5%8C%96/" class="">实战大屏模板转化</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1API/" class="">数据服务 API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%A4%87%E4%BB%BD%E6%81%A2%E5%A4%8D%E5%8F%8A%E7%89%88%E6%9C%AC/" class="">备份恢复及版本</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD/" class="">数据下载</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E5%A1%AB%E6%8A%A5/" class="">数据填报</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A6%96%E9%A1%B5/" class="">自定义首页</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%90%8E%E5%8F%B0API%E5%88%B7%E6%96%B0/" class="">后台 Api刷新</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/webSocket%E6%96%B9%E5%BC%8F/" class="">Web Socket方式</a>
   
 
         </li>
@@ -1130,9 +1361,9 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-5993cc9afbdbeb95951fd5cb478b261e" class="toggle"  />
-    <label for="section-5993cc9afbdbeb95951fd5cb478b261e" class="flex justify-between">
-      <a role="button" class="">9.进阶开发 Pro</a>
+    <input type="checkbox" id="section-b7c8fb0b06f0332d83d8a5dbf7287f20" class="toggle"  />
+    <label for="section-b7c8fb0b06f0332d83d8a5dbf7287f20" class="flex justify-between">
+      <a role="button" class="">9. Jupyter应用</a>
     </label>
   
 
@@ -1146,210 +1377,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%AE%9E%E6%88%98%E5%A4%A7%E5%B1%8F%E6%A8%A1%E6%9D%BF%E8%BD%AC%E5%8C%96/" class="">实战大屏模板转化</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-dfb5fa29524e460812ce8a0b7ec153ff" class="toggle"  />
-    <label for="section-dfb5fa29524e460812ce8a0b7ec153ff" class="flex justify-between">
-      <a role="button" class="">模板开发</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%A8%A1%E6%9D%BF%E5%BC%80%E5%8F%91/%E6%A8%A1%E6%9D%BF%E5%BC%80%E5%8F%91%E7%95%8C%E9%9D%A2/" class="">模板开发界面</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%A8%A1%E6%9D%BF%E5%BC%80%E5%8F%91/%E5%BF%AB%E6%8D%B7%E5%BC%80%E5%8F%91/" class="">快捷开发</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%A8%A1%E6%9D%BF%E5%BC%80%E5%8F%91/%E4%B8%8A%E4%BC%A0%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6/" class="">上传资源文件</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%A8%A1%E6%9D%BF%E5%BC%80%E5%8F%91/%E8%BE%B9%E6%A1%86%E4%B8%8E%E8%A3%85%E9%A5%B0/" class="">边框与装饰</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%A8%A1%E6%9D%BF%E5%BC%80%E5%8F%91/%E6%A0%B7%E5%BC%8F%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/" class="">样式快速上手</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%A8%A1%E6%9D%BF%E5%BC%80%E5%8F%91/IDE%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F/" class="">ID E开发模式</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%A8%A1%E6%9D%BF%E5%BC%80%E5%8F%91/%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C/" class="">动画效果</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%A8%A1%E6%9D%BF%E5%BC%80%E5%8F%91/%E7%BC%96%E8%BE%91%E5%99%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="">编辑器快捷键</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1API/" class="">数据服务 API</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%A4%87%E4%BB%BD%E6%81%A2%E5%A4%8D%E5%8F%8A%E7%89%88%E6%9C%AC/" class="">备份恢复及版本</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD/" class="">数据下载</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E5%A1%AB%E6%8A%A5/" class="">数据填报</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%90%8E%E5%8F%B0API%E5%88%B7%E6%96%B0/" class="">后台 Api刷新</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/webSocket%E6%96%B9%E5%BC%8F/" class="">Web Socket方式</a>
+    <a href="/docs/9.Jupyter%E5%BA%94%E7%94%A8/Jupyter%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%8C%87%E5%BC%95/" class="">Jupyter中使用指引</a>
   
 
         </li>
@@ -1562,7 +1590,9 @@ https://github.com/alex-shpak/hugo-book
       <ul>
         <li>
           <ul>
-            <li></li>
+            <li><a href="#使用方法">使用方法</a></li>
+            <li><a href="#参数说明">参数说明：</a></li>
+            <li><a href="#filter条件说明">filter条件说明</a></li>
           </ul>
         </li>
       </ul>
@@ -1579,22 +1609,22 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h4 id="使用方法">
+  <article class="markdown"><h3 id="使用方法">
   使用方法
   <a class="anchor" href="#%e4%bd%bf%e7%94%a8%e6%96%b9%e6%b3%95">#</a>
-</h4>
+</h3>
 <p>连接池正常配置即可
 数据集开发中，填写查询需求：
 
-  <img src="https://images.gitee.com/uploads/images/2022/0805/125528_63d6e63c_5500438.png" alt="输入图片说明" title="屏幕截图.png"/></p>
-<pre tabindex="0"><code>{&#34;db&#34;: &#34;db1&#34;, &#34;table&#34;: &#34;tb1&#34;, &#34;filter&#34;: {&#34;name&#34;: &#34;Zarten&#34;}, 
-&#34;projection&#34;: {&#34;_id&#34;: 0}, &#34;sort&#34;: [[&#34;_id&#34;, 1]], &#34;limit&#34;: 10}
-</code></pre><p>由于返回的字典格式， 如需转化成二维数组， 可使图形中的转化函数ds_mapToList</p>
-<pre tabindex="0"><code>let dataset=ds_mapToList(__dataset__);
-</code></pre><h4 id="参数说明">
+  <img referrerpolicy="no-referrer" src="https://images.gitee.com/uploads/images/2022/0805/125528_63d6e63c_5500438.png" alt="输入图片说明" title="屏幕截图.png"/></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#f92672">&#34;db&#34;</span>: <span style="color:#e6db74">&#34;db1&#34;</span>, <span style="color:#f92672">&#34;table&#34;</span>: <span style="color:#e6db74">&#34;tb1&#34;</span>, <span style="color:#f92672">&#34;filter&#34;</span>: {<span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Zarten&#34;</span>}, 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&#34;projection&#34;</span>: {<span style="color:#f92672">&#34;_id&#34;</span>: <span style="color:#ae81ff">0</span>}, <span style="color:#f92672">&#34;sort&#34;</span>: [[<span style="color:#e6db74">&#34;_id&#34;</span>, <span style="color:#ae81ff">1</span>]], <span style="color:#f92672">&#34;limit&#34;</span>: <span style="color:#ae81ff">10</span>}
+</span></span></code></pre></div><p>由于返回的字典格式， 如需转化成二维数组， 可使图形中的转化函数ds_mapToList</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">dataset</span><span style="color:#f92672">=</span><span style="color:#a6e22e">ds_mapToList</span>(<span style="color:#a6e22e">__dataset__</span>);
+</span></span></code></pre></div><h3 id="参数说明">
   参数说明：
   <a class="anchor" href="#%e5%8f%82%e6%95%b0%e8%af%b4%e6%98%8e">#</a>
-</h4>
+</h3>
 <p>除table，其它都为可选参数</p>
 <table>
 <thead>
@@ -1637,22 +1667,22 @@ https://github.com/alex-shpak/hugo-book
 </tr>
 </tbody>
 </table>
-<h4 id="filter条件说明">
+<h3 id="filter条件说明">
   filter条件说明
   <a class="anchor" href="#filter%e6%9d%a1%e4%bb%b6%e8%af%b4%e6%98%8e">#</a>
-</h4>
+</h3>
 <p>且条件</p>
-<pre tabindex="0"><code>{&#34;age&#34;:{&#34;$gt&#34;:22}, &#34;name&#34;:{&#34;$regex&#34;:&#34;user&#34;}}
-</code></pre><p>或条件</p>
-<pre tabindex="0"><code>{ &#34;$or&#34;: [ {&#34;age&#34;: {&#34;$gt&#34;: 22}}, {&#34;name&#34;: {&#34;$regex&#34;: &#34;user&#34;}} ] }
-</code></pre><pre tabindex="0"><code>比较查询
-$lt和&lt;，$lte和&lt;=，$gt和&gt;，gte和&gt;=，ne和!=是一一对应的
-{&#34;field_name&#34;: {&#34;$lt&#34;: value, &#34;$gt&#34;: value}}
-关联查询$in和$nin
-{&#34;field_name&#34;: {&#34;$in&#34;: [1,5,8]}}
-$regex为模糊查询的字符串提供正则表达式功能
-{&#34;$or&#34;: [{&#34;field_name&#34;: {&#39;$regex&#39;: value}},{&#34;field_name2&#34;: {&#34;$regex&#34;: value}}]}
-</code></pre></article>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#f92672">&#34;age&#34;</span>:{<span style="color:#f92672">&#34;$gt&#34;</span>:<span style="color:#ae81ff">22</span>}, <span style="color:#f92672">&#34;name&#34;</span>:{<span style="color:#f92672">&#34;$regex&#34;</span>:<span style="color:#e6db74">&#34;user&#34;</span>}}
+</span></span></code></pre></div><p>或条件</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{ <span style="color:#f92672">&#34;$or&#34;</span>: [ {<span style="color:#f92672">&#34;age&#34;</span>: {<span style="color:#f92672">&#34;$gt&#34;</span>: <span style="color:#ae81ff">22</span>}}, {<span style="color:#f92672">&#34;name&#34;</span>: {<span style="color:#f92672">&#34;$regex&#34;</span>: <span style="color:#e6db74">&#34;user&#34;</span>}} ] }
+</span></span></code></pre></div><p>比较查询
+$lt和&lt;，$lte和&lt;=，$gt和&gt;，gte和&gt;=，ne和!=是一一对应的</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#f92672">&#34;field_name&#34;</span>: {<span style="color:#f92672">&#34;$lt&#34;</span>: <span style="color:#960050;background-color:#1e0010">value</span>, <span style="color:#f92672">&#34;$gt&#34;</span>: <span style="color:#960050;background-color:#1e0010">value</span>}}
+</span></span></code></pre></div><p>关联查询$in和$nin</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#f92672">&#34;field_name&#34;</span>: {<span style="color:#f92672">&#34;$in&#34;</span>: [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">8</span>]}}
+</span></span></code></pre></div><p>$regex为模糊查询的字符串提供正则表达式功能</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#f92672">&#34;$or&#34;</span>: [{<span style="color:#f92672">&#34;field_name&#34;</span>: {<span style="color:#960050;background-color:#1e0010">&#39;$regex&#39;:</span> <span style="color:#960050;background-color:#1e0010">value</span>}},{<span style="color:#f92672">&#34;field_name2&#34;</span>: {<span style="color:#f92672">&#34;$regex&#34;</span>: <span style="color:#960050;background-color:#1e0010">value</span>}}]}
+</span></span></code></pre></div></article>
  
       
 
@@ -1704,7 +1734,9 @@ $regex为模糊查询的字符串提供正则表达式功能
       <ul>
         <li>
           <ul>
-            <li></li>
+            <li><a href="#使用方法">使用方法</a></li>
+            <li><a href="#参数说明">参数说明：</a></li>
+            <li><a href="#filter条件说明">filter条件说明</a></li>
           </ul>
         </li>
       </ul>

@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="应用场景 # 输入控件,如输入框,筛选器,多选,按钮&hellip; 显示组件, 文本, 图片, 视屏&hellip; 表格组件 如果你还不熟悉html, 建意先花几分钟看下文档, 推荐 HTML基础 实际应用中有不熟悉的组件, 你都可以通过baidu搜索到, 如时间选择器 如何将html组件转化为smartchart组件 # 比如我们要实现一个有多选项和按钮的网页元素 从各大搜索平台上我们可以找到html的代码是：
+<meta name="description" content="应用场景 # 输入控件,如输入框,筛选器,多选,按钮&hellip; 显示组件, 文本, 图片, 视屏&hellip; 表格组件 如果你还不熟悉html, 建意先花几分钟看下文档, 推荐 HTML基础 实际应用中有不熟悉的组件, 你都可以通过baidu搜索到, 如时间选择器 html组件转化为smartchart组件 # 比如我们要实现一个有多选项和按钮的网页元素 从各大搜索平台上我们可以找到html的代码是：
 &lt;label&gt;&lt;input type=&#34;checkbox&#34;&gt;孙尚香&lt;/label&gt; ..... &lt;button id=&#39;id_select0&#39;&gt;提交&lt;/button&gt; 那么我们可以直接在图形编辑器写上
 let dataset=__dataset__; let table = &#39;&#39;; table = `&lt;label&gt;&lt;input type=&#34;checkbox&#34;&gt;孙一香&lt;/label&gt; &lt;label&gt;&lt;input type=&#34;checkbox&#34;&gt;孙二香&lt;/label&gt; &lt;label&gt;&lt;input type=&#34;checkbox&#34;&gt;孙三香&lt;/label&gt;` table = table &#43; &#34;&lt;button id=&#39;id_select0&#39;&gt;提交&lt;/button&gt;&#34; dom__name__.innerHTML=table; 但是由于我们是要通过传入的数据动态变化的，所以只需要做简单修改
 let dataset=__dataset__; let table = &#39;&#39;; for (let i=1;i&lt;dataset.length;i&#43;&#43;){ table = `${table}&lt;label&gt;&lt;input type=&#34;checkbox&#34;/&gt;${dataset[i][0]}&lt;/label&gt; ` } table = table &#43; &#34;&lt;button id=&#39;id_select__name__&#39;&gt;提交&lt;/button&gt;&#34; dom__name__.innerHTML=table; 所有html你都可以进行转化成smartchart组件， 你可以通过学习”万能表格系列视屏“ 来了解通用组件开发 第一波 第二波 第三波">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
-<meta property="og:description" content="应用场景 # 输入控件,如输入框,筛选器,多选,按钮&hellip; 显示组件, 文本, 图片, 视屏&hellip; 表格组件 如果你还不熟悉html, 建意先花几分钟看下文档, 推荐 HTML基础 实际应用中有不熟悉的组件, 你都可以通过baidu搜索到, 如时间选择器 如何将html组件转化为smartchart组件 # 比如我们要实现一个有多选项和按钮的网页元素 从各大搜索平台上我们可以找到html的代码是：
+<meta property="og:description" content="应用场景 # 输入控件,如输入框,筛选器,多选,按钮&hellip; 显示组件, 文本, 图片, 视屏&hellip; 表格组件 如果你还不熟悉html, 建意先花几分钟看下文档, 推荐 HTML基础 实际应用中有不熟悉的组件, 你都可以通过baidu搜索到, 如时间选择器 html组件转化为smartchart组件 # 比如我们要实现一个有多选项和按钮的网页元素 从各大搜索平台上我们可以找到html的代码是：
 &lt;label&gt;&lt;input type=&#34;checkbox&#34;&gt;孙尚香&lt;/label&gt; ..... &lt;button id=&#39;id_select0&#39;&gt;提交&lt;/button&gt; 那么我们可以直接在图形编辑器写上
 let dataset=__dataset__; let table = &#39;&#39;; table = `&lt;label&gt;&lt;input type=&#34;checkbox&#34;&gt;孙一香&lt;/label&gt; &lt;label&gt;&lt;input type=&#34;checkbox&#34;&gt;孙二香&lt;/label&gt; &lt;label&gt;&lt;input type=&#34;checkbox&#34;&gt;孙三香&lt;/label&gt;` table = table &#43; &#34;&lt;button id=&#39;id_select0&#39;&gt;提交&lt;/button&gt;&#34; dom__name__.innerHTML=table; 但是由于我们是要通过传入的数据动态变化的，所以只需要做简单修改
 let dataset=__dataset__; let table = &#39;&#39;; for (let i=1;i&lt;dataset.length;i&#43;&#43;){ table = `${table}&lt;label&gt;&lt;input type=&#34;checkbox&#34;/&gt;${dataset[i][0]}&lt;/label&gt; ` } table = table &#43; &#34;&lt;button id=&#39;id_select__name__&#39;&gt;提交&lt;/button&gt;&#34; dom__name__.innerHTML=table; 所有html你都可以进行转化成smartchart组件， 你可以通过学习”万能表格系列视屏“ 来了解通用组件开发 第一波 第二波 第三波" />
@@ -23,7 +23,7 @@ let dataset=__dataset__; let table = &#39;&#39;; for (let i=1;i&lt;dataset.lengt
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.9676739f7d6fb9d37e12fd58a755b4f44ec0d94abaddeb103ece302f676fbdef.js" integrity="sha256-lnZzn31vudN&#43;Ev1Yp1W09E7A2Uq63esQPs4wL2dvve8=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.1be3c355ca719359b48f4e06cdf4cc64b831fa788e6edab327874a0b75ecffe3.js" integrity="sha256-G&#43;PDVcpxk1m0j04GzfTMZLgx&#43;niObtqzJ4dKC3Xs/&#43;M=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -78,6 +78,19 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="/docs/%E5%85%B3%E4%BA%8E%E6%88%91%E4%BB%AC/" class="">关于我们</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/%E8%AE%BE%E8%AE%A1%E7%90%86%E5%BF%B5/" class="">设计理念</a>
   
 
         </li>
@@ -987,9 +1000,9 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-f63e740209b278b6f39640e9184d9131" class="toggle"  />
-    <label for="section-f63e740209b278b6f39640e9184d9131" class="flex justify-between">
-      <a role="button" class="">6. Jupyter应用</a>
+    <input type="checkbox" id="section-1a4301e6dac08bd3bdb48c3500ec971d" class="toggle"  />
+    <label for="section-1a4301e6dac08bd3bdb48c3500ec971d" class="flex justify-between">
+      <a role="button" class="">6.进阶开发 Pro</a>
     </label>
   
 
@@ -1003,7 +1016,223 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/6.Jupyter%E5%BA%94%E7%94%A8/Jupyter%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%8C%87%E5%BC%95/" class="">Jupyter中使用指引</a>
+    <input type="checkbox" id="section-3b9f1904c5bd48ec9e224dbf4f4a7d54" class="toggle"  />
+    <label for="section-3b9f1904c5bd48ec9e224dbf4f4a7d54" class="flex justify-between">
+      <a role="button" class="">低代码开发</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91/%E6%A8%A1%E6%9D%BF%E5%BC%80%E5%8F%91%E7%95%8C%E9%9D%A2/" class="">模板开发界面</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91/%E5%BF%AB%E6%8D%B7%E5%BC%80%E5%8F%91/" class="">快捷开发</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91/%E4%B8%8A%E4%BC%A0%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6/" class="">上传资源文件</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91/%E8%BE%B9%E6%A1%86%E4%B8%8E%E8%A3%85%E9%A5%B0/" class="">边框与装饰</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91/%E6%A0%B7%E5%BC%8F%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/" class="">样式快速上手</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91/IDE%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F/" class="">ID E开发模式</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91/%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C/" class="">动画效果</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91/%E7%BC%96%E8%BE%91%E5%99%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="">编辑器快捷键</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%AE%9E%E6%88%98%E5%A4%A7%E5%B1%8F%E6%A8%A1%E6%9D%BF%E8%BD%AC%E5%8C%96/" class="">实战大屏模板转化</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1API/" class="">数据服务 API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%A4%87%E4%BB%BD%E6%81%A2%E5%A4%8D%E5%8F%8A%E7%89%88%E6%9C%AC/" class="">备份恢复及版本</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD/" class="">数据下载</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E5%A1%AB%E6%8A%A5/" class="">数据填报</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A6%96%E9%A1%B5/" class="">自定义首页</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%90%8E%E5%8F%B0API%E5%88%B7%E6%96%B0/" class="">后台 Api刷新</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/webSocket%E6%96%B9%E5%BC%8F/" class="">Web Socket方式</a>
   
 
         </li>
@@ -1128,9 +1357,9 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-5993cc9afbdbeb95951fd5cb478b261e" class="toggle"  />
-    <label for="section-5993cc9afbdbeb95951fd5cb478b261e" class="flex justify-between">
-      <a role="button" class="">9.进阶开发 Pro</a>
+    <input type="checkbox" id="section-b7c8fb0b06f0332d83d8a5dbf7287f20" class="toggle"  />
+    <label for="section-b7c8fb0b06f0332d83d8a5dbf7287f20" class="flex justify-between">
+      <a role="button" class="">9. Jupyter应用</a>
     </label>
   
 
@@ -1144,210 +1373,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%AE%9E%E6%88%98%E5%A4%A7%E5%B1%8F%E6%A8%A1%E6%9D%BF%E8%BD%AC%E5%8C%96/" class="">实战大屏模板转化</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-dfb5fa29524e460812ce8a0b7ec153ff" class="toggle"  />
-    <label for="section-dfb5fa29524e460812ce8a0b7ec153ff" class="flex justify-between">
-      <a role="button" class="">模板开发</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%A8%A1%E6%9D%BF%E5%BC%80%E5%8F%91/%E6%A8%A1%E6%9D%BF%E5%BC%80%E5%8F%91%E7%95%8C%E9%9D%A2/" class="">模板开发界面</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%A8%A1%E6%9D%BF%E5%BC%80%E5%8F%91/%E5%BF%AB%E6%8D%B7%E5%BC%80%E5%8F%91/" class="">快捷开发</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%A8%A1%E6%9D%BF%E5%BC%80%E5%8F%91/%E4%B8%8A%E4%BC%A0%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6/" class="">上传资源文件</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%A8%A1%E6%9D%BF%E5%BC%80%E5%8F%91/%E8%BE%B9%E6%A1%86%E4%B8%8E%E8%A3%85%E9%A5%B0/" class="">边框与装饰</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%A8%A1%E6%9D%BF%E5%BC%80%E5%8F%91/%E6%A0%B7%E5%BC%8F%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/" class="">样式快速上手</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%A8%A1%E6%9D%BF%E5%BC%80%E5%8F%91/IDE%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F/" class="">ID E开发模式</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%A8%A1%E6%9D%BF%E5%BC%80%E5%8F%91/%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C/" class="">动画效果</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%A8%A1%E6%9D%BF%E5%BC%80%E5%8F%91/%E7%BC%96%E8%BE%91%E5%99%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="">编辑器快捷键</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1API/" class="">数据服务 API</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%A4%87%E4%BB%BD%E6%81%A2%E5%A4%8D%E5%8F%8A%E7%89%88%E6%9C%AC/" class="">备份恢复及版本</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD/" class="">数据下载</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E5%A1%AB%E6%8A%A5/" class="">数据填报</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%90%8E%E5%8F%B0API%E5%88%B7%E6%96%B0/" class="">后台 Api刷新</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/webSocket%E6%96%B9%E5%BC%8F/" class="">Web Socket方式</a>
+    <a href="/docs/9.Jupyter%E5%BA%94%E7%94%A8/Jupyter%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%8C%87%E5%BC%95/" class="">Jupyter中使用指引</a>
   
 
         </li>
@@ -1561,7 +1587,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           <ul>
             <li><a href="#应用场景">应用场景</a></li>
-            <li><a href="#如何将html组件转化为smartchart组件">如何将html组件转化为smartchart组件</a></li>
+            <li><a href="#html组件转化为smartchart组件">html组件转化为smartchart组件</a></li>
           </ul>
         </li>
       </ul>
@@ -1592,15 +1618,15 @@ https://github.com/alex-shpak/hugo-book
   <a href="https://www.runoob.com/html/html-tutorial.html">HTML基础</a>
 实际应用中有不熟悉的组件, 你都可以通过baidu搜索到, 如时间选择器
 
-  <img src="https://images.gitee.com/uploads/images/2022/0731/211441_f3eb7ce4_5500438.png" alt="输入图片说明" title="屏幕截图.png"/></p>
+  <img referrerpolicy="no-referrer" src="https://images.gitee.com/uploads/images/2022/0731/211441_f3eb7ce4_5500438.png" alt="输入图片说明" title="屏幕截图.png"/></p>
 </blockquote>
-<h3 id="如何将html组件转化为smartchart组件">
-  如何将html组件转化为smartchart组件
-  <a class="anchor" href="#%e5%a6%82%e4%bd%95%e5%b0%86html%e7%bb%84%e4%bb%b6%e8%bd%ac%e5%8c%96%e4%b8%basmartchart%e7%bb%84%e4%bb%b6">#</a>
+<h3 id="html组件转化为smartchart组件">
+  html组件转化为smartchart组件
+  <a class="anchor" href="#html%e7%bb%84%e4%bb%b6%e8%bd%ac%e5%8c%96%e4%b8%basmartchart%e7%bb%84%e4%bb%b6">#</a>
 </h3>
 <p>比如我们要实现一个有多选项和按钮的网页元素
 
-  <img src="https://images.gitee.com/uploads/images/2021/0701/150141_1e0ba921_5500438.png" alt="输入图片说明" title="屏幕截图.png"/></p>
+  <img referrerpolicy="no-referrer" src="https://images.gitee.com/uploads/images/2021/0701/150141_1e0ba921_5500438.png" alt="输入图片说明" title="屏幕截图.png"/></p>
 <p>从各大搜索平台上我们可以找到html的代码是：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">label</span>&gt;&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;checkbox&#34;</span>&gt;孙尚香&lt;/<span style="color:#f92672">label</span>&gt;
 </span></span><span style="display:flex;"><span>.....
@@ -1684,7 +1710,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           <ul>
             <li><a href="#应用场景">应用场景</a></li>
-            <li><a href="#如何将html组件转化为smartchart组件">如何将html组件转化为smartchart组件</a></li>
+            <li><a href="#html组件转化为smartchart组件">html组件转化为smartchart组件</a></li>
           </ul>
         </li>
       </ul>

@@ -48,6 +48,7 @@
 - 完全真正打通前后端, 支持图形数据联动,筛选,钻取, 支持几乎常见的所有数据库
 - 积木式拖拽开发模式, 开箱即用, 安装简单, 依赖少, 适应各种平台
 - 支持Django插件方式应用, 支持数据分析Jupyter方式应用
+- 支持中国式报表类EXCEL开发, 支持3D场景大屏
 - 内存加速技术, 让你的数据快人一步, 大幅减少数据库压力
 - 所见即所得的拖拽开发模式, 无需在画布上设计
 - 支持websocket, 数据填报设计,前端埋点, 数据服务API低代码开发
@@ -64,7 +65,9 @@
 - [Smartchart分页表格数据下载](https://magiccube.smartchart.cn/echart/?type=26 "分页表格及下载")
 
 ### 快速开始
-请务必先阅读 [SmartChart入门文档入口](https://gitee.com/smartchart/smartchart/wikis/ "SmartChart入门")
+- 请务必先阅读 [SmartChart入门文档入口](https://help.smartchart.cn/ "SmartChart入门")
+- 请务必先阅读 [SmartChart入门文档入口](https://help.smartchart.cn/ "SmartChart入门")
+- 请务必先阅读 [SmartChart入门文档入口](https://help.smartchart.cn/ "SmartChart入门")
 #### 安装Python环境
 - 环境准备: 官方[最新Python下载链接](https://www.python.org/downloads/release/python-390/ "最新Python下载链接")
 如果下载太慢, 可以到[淘宝镜象下载](https://npm.taobao.org/mirrors/python/3.9.0/ "淘宝镜象下载")
@@ -93,7 +96,7 @@
 ```
 **管理员帐号密码: admin/admin, 请及时更改密码**
 
-[SmartChart入门文档入口](https://gitee.com/smartchart/smartchart/wikis/ "SmartChart入门")
+[SmartChart入门文档入口](https://help.smartchart.cn/ "SmartChart入门")
 
 
 -------------------------------------------------------------------------------
@@ -102,33 +105,21 @@
 如果你是数据分析爱好者, 在使用jupyter, Pandas等分析工具, 你可以当做可视化工具使用
 **支持像pyecharts,Matplotlib等python绘图工具一样在Jupyter中使用, 更加方便, 更加炫酷**
 **仅仅只有两个命令,get and set, 简化数据分析工作, 还能固化分析好的数据, 生成炫酷的仪表盘**
-[Jupyter中使用SmartChart入门文档](https://gitee.com/smartchart/smartchart/wikis/6.Jupyter%E5%BA%94%E7%94%A8/%E5%9C%A8Jupyter%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%8C%87%E5%BC%95 "Jupyter中使用SmartChart入门文档")
 
 
 -------------------------------------------------------------------------------
 ### 应用场景三: 
 你也可以使用smartchart制做报表, 在你的应用系统中嵌入报表
-[嵌入SmartChart报表入门文档](https://gitee.com/smartchart/smartchart/wikis/7.%E6%8A%A5%E8%A1%A8%E5%B5%8C%E5%85%A5/%E7%AE%80%E5%8D%95%E5%B5%8C%E5%85%A5 "嵌入SmartChart报表入门文档")
 
 -------------------------------------------------------------------------------
 ### 应用场景四: 
 如果你是django应用的开发者, 那么恭喜你, 它能无缝的作为你项目的一部分
 数据可视化, 仪表盘, 低代码API开发平台的功能瞬间拥有
-[在Django中应用Smartchart入门文档](https://gitee.com/smartchart/smartchart/wikis/8.Django%E5%BA%94%E7%94%A8/%E5%B5%8C%E5%85%A5Django%20Apps "在Django中应用Smartchart")
 
-- django新手推荐下载此项目使用
-```shell script
-请直接下载gitee/github的项目后
-pip install smartchart
-启动方式 python manage.py runserver
-帐号: admin/admin
-```
 
 ### 应用场景五:
 smartchart不仅仅是一个可视化平台, 也是一个低代码服务API开发平台, 如果你需要对外提供
 API服务, smartchart可以让你轻松完成
-[Smartchart低代码API开发](https://gitee.com/smartchart/smartchart/wikis/9.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1API "Smartchart低代码API开发")
-
 
 ------------------------------------------------
 ### 数据库支持说明

@@ -25,13 +25,10 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/</guid>
-      <description>开发前你可以先观看操作方面的 :exclamation: 操作视屏教程 :exclamation: 5.0变更操作视屏教程 :exclamation: 开发系列合集,关注作者持续更新
-由于版本的变更, 一些图标可能会有一些变化, 但位置无太大的变化
-安装Python环境 # 环境准备: 官方 最新Python下载链接,可以到 淘宝镜象下载,也可以下载 WINDOWS64位安装版, MAC电脑安装版
-Window平台安装视屏介绍,注意: Windows安装Python时需选中&amp;quot;Add to Path&amp;quot; Linux安装可参考文档下方的部署说明, Linux安装说明
-安装SmartChart # 在Shell或CMD命令行执行
+      <description>开发前你可以先观看操作方面的 操作视屏教程 5.0变更操作视屏教程 开发系列合集,关注作者持续更新 由于版本的变更, 一些图标可能会有一些变化, 但位置无太大的变化
+安装Python环境 # 环境准备: 官方 最新Python下载链接,可以到 淘宝镜象下载,也可以下载 WINDOWS64位安装版, MAC电脑安装版 Window平台安装视屏介绍,注意: Windows安装Python时需选中&amp;quot;Add to Path&amp;quot; Linux安装可参考文档下方的部署说明, Linux安装说明 安装SmartChart # 在Shell或CMD命令行执行
 pip3 install smartchart 如果安装过程慢,建意使用 pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple smartchart -U 升级方法: pip3 install smartchart -U (升级) 启动smartchart # 本地命令行启动: smartchart 如果你是服务器部署,远程访问,服务端启动方式: smartchart runserver 0.0.0.0:8000 --insecure --noreload 如果出现套接字，端口被占用， 可修改端口号启动， 如 smartchart runserver 0.0.0.0:8001 --insecure --noreload 一般本地启动后访问： http://127.0.0.1:8000 管理员帐号密码: admin/admin, 请及时更改密码
-如果忘记密码, 可以使用此命令重置 smartchart changepassword 用户名 鼠标滑动，点击如下图DEV图标, 切换为开发模式,这样才可以看到开发相关菜单,后打开demo页面 注意: 不切换是正常的用户报表浏览模式!</description>
+如果忘记密码, 可以使用此命令重置 smartchart changepassword 用户名 查看demo # 尝试熟悉编辑菜单 尝试点开数据集查看SQL写法， 图形编辑器， 容器等 仪表盘菜单 # 功能项 子项 使用说明 菜单栏 - 点击可展开隐藏, 可移动位置 设定 常规设定 权限管理,水印,模板应用,版本控制.</description>
     </item>
     
     <item>
@@ -41,7 +38,8 @@ pip3 install smartchart 如果安装过程慢,建意使用 pip3 install -i https
       
       <guid>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E4%BB%AA%E8%A1%A8%E7%9B%98/</guid>
       <description>由于版本的变更, 一些图标可能会有一些变化, 但位置无太大的变化
-新建仪表盘 # 在开发模式下，滑动“开发管理” -&amp;gt;&amp;ldquo;仪表盘&amp;rdquo;-&amp;gt; &amp;ldquo;新增Dashboard&amp;rdquo; 填写相应信息后点击“保存” 点击进入仪表盘开发, 注意点击 &amp;ldquo;E&amp;rdquo; 字!! 点击新增(注意拖拽布局功能为PRO版本, 后续免费版本中将无法使用), 如果你坚持使用免费版本功能, 请使用左边的蓝色颜色的新增, 具体布局方式参考 数据集编辑 # 点开“数据集” 输入以下SQL后，点击“保存并刷新”, 关闭数据集编辑界面 select H1 as heroname, sum(qty) as 出场数 from smartdemo2 group by H1 order by sum(qty) desc 图形编辑 # 点开“图形编辑” 点击“云图标”，第一次使用可能要你进行登记，按提示操作即可， 在商店中找到合适的图形点击，会自动复制到剪贴板 贴粘到图形编辑器后，点击保存， 关闭图形编辑框 拖拽布局 # 重复以上步骤，再新增一个， 你可以使用拖拽的方式, 移动到不同的地方 </description>
+新建仪表盘 # 在开发模式下，滑动“开发管理” -&amp;gt;&amp;ldquo;仪表盘&amp;rdquo;-&amp;gt; &amp;ldquo;新增Dashboard&amp;rdquo; 填写相应信息后点击“保存” 点击进入仪表盘开发, 注意点击 &amp;ldquo;E&amp;rdquo; 字!! 点击新增(注意拖拽布局功能为PRO版本, 后续免费版本中将无法使用), 如果你坚持使用免费版本功能, 请使用新增栅格组件, 具体布局方式参考
+数据集编辑 # 点开“数据集” 输入以下SQL后，点击“保存并刷新”, 关闭数据集编辑界面 select H1 as heroname, sum(qty) as 出场数 from smartdemo2 group by H1 order by sum(qty) desc 图形编辑 # 点开“图形编辑” 点击“云图标”，第一次使用可能要你进行登记，按提示操作即可， 在商店中找到合适的图形点击，会自动复制到剪贴板 贴粘到图形编辑器后，点击保存， 关闭图形编辑框 拖拽布局 # 重复以上步骤，再新增一个， 你可以使用拖拽的方式, 移动到不同的地方 </description>
     </item>
     
     <item>
