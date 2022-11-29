@@ -4,13 +4,15 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="整理一份完整的SmartChart布局说明 # 推荐先观看视屏了解 smartchart布局方式
-容器说明 # 容器 说明 定位容器 用于图形定位, 有拖拽和栅格两种. 在界面上新增时会自带;在模板编辑中新增图形时需自行加入容器 图形容器 用于图形选择, 使用id选择器, 如序号为2的容器, 选择器为#container_2 图形 可视化的实际单位, 如选择图形中的table标签, 可使用#container_2 table 响应式布局 # 一般移动端报表推荐使用响应式布局, 一次布局可以同时满足电脑端/移动端的需求 当你新增一个数据集时, smartchart会给你一段默认的代码
-&lt;div class=&#34;el-col-xs-24 el-col-md-24&#34; style=&#34;padding:0.2rem;height:50%;&#34; &gt; &lt;div style=&#34;height:100%;&#34; id=&#34;container_{name}&#34;&gt;&lt;/div&gt; &lt;/div&gt; el-col-md-24 : 电脑端宽度设定 控制图形父容器的宽度, 整行分成24个栅格, 如果你想让图形占一半, 就可以改成el-col-md-12 el-col-xs-24 ：移动端宽度设定 padding:0.5% 0.5%: 控制图形的上下, 左右内边距, padding: 上 右 下 左 比如你想要图形在容器中往下走一点, 你可写成 padding: 1% 0 0 0 height:50%; 盒子的高度, 相对于父容器的高度， 最外层即浏览器高度 大屏开发推荐使用拖拽布局（PRO) # 大家如果开发大屏, 只是用响应式布局可能对于复杂的布局不是很方便, 你也可以采用拖拽绝对定位的方法, 这样你可以随意指定图形的所在位置.">
+容器说明 # 容器 说明 定位容器 用于图形定位, 有拖拽和栅格两种. 在界面上新增时会自带;在模板编辑中新增图形时需自行加入容器 图形容器 用于图形选择, 使用id选择器, 如序号为2的容器, 选择器为#container_2 图形 可视化的实际单位, 如选择图形中的table标签, 可使用#container_2 table 6.0版本中拖拽布局方式已可同时满足电脑端/移动端的需求
+响应式布局 # 当你新增一个栅格图形时, smartchart会给你一段默认的代码
+&lt;div class=&#34;el-col-xs-24 el-col-md-24&#34; style=&#34;padding:0.2rem;height:50%;&#34; &gt; &lt;div style=&#34;height:100%;&#34; id=&#34;container_{name}&#34;&gt;&lt;/div&gt; &lt;/div&gt; el-col-md-24 : 电脑端宽度设定 控制图形父容器的宽度, 整行分成24个栅格, 如果你想让图形占一半, 就可以改成el-col-md-12 el-col-xs-24 ：移动端宽度设定 padding:0.5% 0.5%: 控制图形的上下, 左右内边距, padding: 上 右 下 左 比如你想要图形在容器中往下走一点, 你可写成 padding: 1% 0 0 0 height:50%; 盒子的高度, 相对于父容器的高度， 最外层即浏览器高度 推荐使用拖拽布局（PRO) # 只是用响应式布局可能对于复杂的布局不是很方便, 你也可以采用拖拽绝对定位的方法, 这样你可以随意指定图形的所在位置.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
 <meta property="og:description" content="整理一份完整的SmartChart布局说明 # 推荐先观看视屏了解 smartchart布局方式
-容器说明 # 容器 说明 定位容器 用于图形定位, 有拖拽和栅格两种. 在界面上新增时会自带;在模板编辑中新增图形时需自行加入容器 图形容器 用于图形选择, 使用id选择器, 如序号为2的容器, 选择器为#container_2 图形 可视化的实际单位, 如选择图形中的table标签, 可使用#container_2 table 响应式布局 # 一般移动端报表推荐使用响应式布局, 一次布局可以同时满足电脑端/移动端的需求 当你新增一个数据集时, smartchart会给你一段默认的代码
-&lt;div class=&#34;el-col-xs-24 el-col-md-24&#34; style=&#34;padding:0.2rem;height:50%;&#34; &gt; &lt;div style=&#34;height:100%;&#34; id=&#34;container_{name}&#34;&gt;&lt;/div&gt; &lt;/div&gt; el-col-md-24 : 电脑端宽度设定 控制图形父容器的宽度, 整行分成24个栅格, 如果你想让图形占一半, 就可以改成el-col-md-12 el-col-xs-24 ：移动端宽度设定 padding:0.5% 0.5%: 控制图形的上下, 左右内边距, padding: 上 右 下 左 比如你想要图形在容器中往下走一点, 你可写成 padding: 1% 0 0 0 height:50%; 盒子的高度, 相对于父容器的高度， 最外层即浏览器高度 大屏开发推荐使用拖拽布局（PRO) # 大家如果开发大屏, 只是用响应式布局可能对于复杂的布局不是很方便, 你也可以采用拖拽绝对定位的方法, 这样你可以随意指定图形的所在位置." />
+容器说明 # 容器 说明 定位容器 用于图形定位, 有拖拽和栅格两种. 在界面上新增时会自带;在模板编辑中新增图形时需自行加入容器 图形容器 用于图形选择, 使用id选择器, 如序号为2的容器, 选择器为#container_2 图形 可视化的实际单位, 如选择图形中的table标签, 可使用#container_2 table 6.0版本中拖拽布局方式已可同时满足电脑端/移动端的需求
+响应式布局 # 当你新增一个栅格图形时, smartchart会给你一段默认的代码
+&lt;div class=&#34;el-col-xs-24 el-col-md-24&#34; style=&#34;padding:0.2rem;height:50%;&#34; &gt; &lt;div style=&#34;height:100%;&#34; id=&#34;container_{name}&#34;&gt;&lt;/div&gt; &lt;/div&gt; el-col-md-24 : 电脑端宽度设定 控制图形父容器的宽度, 整行分成24个栅格, 如果你想让图形占一半, 就可以改成el-col-md-12 el-col-xs-24 ：移动端宽度设定 padding:0.5% 0.5%: 控制图形的上下, 左右内边距, padding: 上 右 下 左 比如你想要图形在容器中往下走一点, 你可写成 padding: 1% 0 0 0 height:50%; 盒子的高度, 相对于父容器的高度， 最外层即浏览器高度 推荐使用拖拽布局（PRO) # 只是用响应式布局可能对于复杂的布局不是很方便, 你也可以采用拖拽绝对定位的方法, 这样你可以随意指定图形的所在位置." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://help.smartchart.cn/docs/4.%E5%B8%83%E5%B1%80%E8%AF%B4%E6%98%8E/%E5%B8%83%E5%B1%80%E6%8C%87%E5%BC%95/" /><meta property="article:section" content="docs" />
 
@@ -21,7 +23,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.1be3c355ca719359b48f4e06cdf4cc64b831fa788e6edab327874a0b75ecffe3.js" integrity="sha256-G&#43;PDVcpxk1m0j04GzfTMZLgx&#43;niObtqzJ4dKC3Xs/&#43;M=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.eff5ead249bdb00bf7e8cf7706b90ecda1171dbc4487c7815e22ae0914f925a2.js" integrity="sha256-7/Xq0km9sAv36M93BrkOzaEXHbxEh8eBXiKuCRT5JaI=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -144,6 +146,19 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E4%BB%AA%E8%A1%A8%E7%9B%98/" class="">第一个仪表盘</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%8D%E6%9D%82%E6%8A%A5%E8%A1%A8/" class="">第一个复杂报表</a>
   
 
         </li>
@@ -1587,7 +1602,7 @@ https://github.com/alex-shpak/hugo-book
             <li><a href="#整理一份完整的smartchart布局说明">整理一份完整的SmartChart布局说明</a></li>
             <li><a href="#容器说明">容器说明</a></li>
             <li><a href="#响应式布局">响应式布局</a></li>
-            <li><a href="#大屏开发推荐使用拖拽布局pro">大屏开发推荐使用拖拽布局（PRO)</a></li>
+            <li><a href="#推荐使用拖拽布局pro">推荐使用拖拽布局（PRO)</a></li>
             <li><a href="#混合布局pro">混合布局(PRO)</a></li>
           </ul>
         </li>
@@ -1638,12 +1653,14 @@ https://github.com/alex-shpak/hugo-book
 </tr>
 </tbody>
 </table>
+<blockquote>
+<p>6.0版本中拖拽布局方式已可同时满足电脑端/移动端的需求</p>
+</blockquote>
 <h3 id="响应式布局">
   响应式布局
   <a class="anchor" href="#%e5%93%8d%e5%ba%94%e5%bc%8f%e5%b8%83%e5%b1%80">#</a>
 </h3>
-<p>一般移动端报表推荐使用响应式布局, 一次布局可以同时满足电脑端/移动端的需求
-当你新增一个数据集时, smartchart会给你一段默认的代码</p>
+<p>当你新增一个栅格图形时, smartchart会给你一段默认的代码</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;el-col-xs-24 el-col-md-24&#34;</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;padding:0.2rem;height:50%;&#34;</span> &gt;
 </span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;height:100%;&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;container_{name}&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
 </span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">div</span>&gt;
@@ -1656,11 +1673,11 @@ https://github.com/alex-shpak/hugo-book
 </span></span><span style="display:flex;"><span>比如你想要图形在容器中往下走一点, 你可写成 padding: 1% 0 0 0
 </span></span><span style="display:flex;"><span>height:50%;
 </span></span><span style="display:flex;"><span>盒子的高度, 相对于父容器的高度， 最外层即浏览器高度
-</span></span></code></pre></div><h3 id="大屏开发推荐使用拖拽布局pro">
-  大屏开发推荐使用拖拽布局（PRO)
-  <a class="anchor" href="#%e5%a4%a7%e5%b1%8f%e5%bc%80%e5%8f%91%e6%8e%a8%e8%8d%90%e4%bd%bf%e7%94%a8%e6%8b%96%e6%8b%bd%e5%b8%83%e5%b1%80pro">#</a>
+</span></span></code></pre></div><h3 id="推荐使用拖拽布局pro">
+  推荐使用拖拽布局（PRO)
+  <a class="anchor" href="#%e6%8e%a8%e8%8d%90%e4%bd%bf%e7%94%a8%e6%8b%96%e6%8b%bd%e5%b8%83%e5%b1%80pro">#</a>
 </h3>
-<p>大家如果开发大屏, 只是用响应式布局可能对于复杂的布局不是很方便, 你也可以采用拖拽绝对定位的方法, 这样你可以随意指定图形的所在位置.
+<p>只是用响应式布局可能对于复杂的布局不是很方便, 你也可以采用拖拽绝对定位的方法, 这样你可以随意指定图形的所在位置.
 方法可参考视屏 
   <a href="https://www.bilibili.com/video/BV1PD4y1c7uz/">拖拽说明</a>
 你可以配合使用 ”模板开发“ 来实现高度定制化的效果， 参考 
@@ -1725,7 +1742,7 @@ https://github.com/alex-shpak/hugo-book
             <li><a href="#整理一份完整的smartchart布局说明">整理一份完整的SmartChart布局说明</a></li>
             <li><a href="#容器说明">容器说明</a></li>
             <li><a href="#响应式布局">响应式布局</a></li>
-            <li><a href="#大屏开发推荐使用拖拽布局pro">大屏开发推荐使用拖拽布局（PRO)</a></li>
+            <li><a href="#推荐使用拖拽布局pro">推荐使用拖拽布局（PRO)</a></li>
             <li><a href="#混合布局pro">混合布局(PRO)</a></li>
           </ul>
         </li>

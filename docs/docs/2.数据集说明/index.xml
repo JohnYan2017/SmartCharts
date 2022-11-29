@@ -31,7 +31,7 @@ Smartchart数据集与图形 从仪表盘界面中进入简易开发界面 # </d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E5%85%B1%E4%BA%AB%E6%95%B0%E6%8D%AE%E9%9B%86/</guid>
-      <description> 应用场景 # 优化查询, 可一个数据集查询完所有数据进行分发 减少重复查询的浪费, 同一个数据只查询一次 使用方法 # 在数据开发界面点击按钮就可以切换成共享数据集/普通数据集 切换完成, 你会发现数据集消失,然后图标跑到菜单上面去了, 你可以在此修改你的查询 在”高级“ 中配置 这样1，2号图形都映射到了共享数据集的数据 你也可以在数据集中写多个SQL查询 在”高级“ 设定中进行数据映射 观察1，2 号图形的变化 </description>
+      <description> 应用场景 # 优化查询, 可一个数据集查询完所有数据进行分发 减少重复查询的浪费, 同一个数据只查询一次 使用方法 # 在仪表盘开发界面, &amp;ldquo;新增&amp;rdquo; &amp;ndash;&amp;gt; &amp;ldquo;共享数据&amp;rdquo; 在&amp;quot;设定&amp;quot; &amp;ndash;&amp;gt; ”高级“ &amp;ndash;&amp;gt;&amp;ldquo;高级设定&amp;rdquo; 中配置 这样3，4号图形都映射到了共享数据集(2号)的数据 你也可以在数据集中写多个SQL查询 -- 英雄1 select H1, count(1) as qty1 from smartdemo2 group by H1 limit 10; -- 英雄2 select H2, count(1) as qty2 from smartdemo2 group by H2 limit 10 然后在&amp;quot;设定&amp;quot; &amp;ndash;&amp;gt; ”高级“ &amp;ndash;&amp;gt;&amp;ldquo;高级设定&amp;rdquo; 中配置进行数据映射 </description>
     </item>
     
     <item>
@@ -53,10 +53,10 @@ Smartchart数据集与图形 从仪表盘界面中进入简易开发界面 # </d
       
       <guid>https://help.smartchart.cn/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E6%87%92%E5%8A%A0%E8%BD%BD/</guid>
       <description>应用场景 # 类似于前后端开发, 后端会提供一些接口给前端, 但前端不一定需要在一打开页面就进行查询接口, 而是当有需要时再查询, 比如数据下载, 只有当用户有下载需求时再加载, 再比如有些与后台的数据联动, 我们只需要第一次加载时只显示第一层级, 点击时再加载其它层级
-开启数据集懒加载 # 你可以点击数据集的开发界面的&amp;quot;连接&amp;quot; 图标, 将&amp;quot;前端刷新(秒)&amp;quot; 修改为-1 这时当打开仪表盘时, 此数据集不会被加载
+开启数据集懒加载 # 在仪表盘&amp;quot;新增&amp;quot;&amp;ndash;&amp;gt;&amp;ldquo;懒加载数据集&amp;rdquo; 这时当打开仪表盘时, 此数据集不会被加载
 应用 # 一般懒加载数据集主要是用来做数据查询的, 所以并不太需要显示图形, 所以我们主要是用于在图形中进行赋值操作 比如先在模板中定义一个全局变量: 然后修改图形编辑中的代码: 即刷新数据集时会进行变量赋值 如果您使用VUE, 那么会更方便, 你可以直接使用vapp.变量名 = dataset进行赋值
 查询数据 # 你可以随时手动触发数据集的刷新, 比如懒加载的数据集序号为0 你可以在你需要触发刷新的地方调用ds_refresh(0)即可刷新0号数据集并执行0号数据集中的JS代码
-TIPS 可以将懒加载的数据集同时转化为共享数据集(参考上文), 懒加载数据集将移到菜单栏显示</description>
+TIPS 当没有修改过懒加载数据集的图形时, 默认的全局变量为 &amp;ldquo;data序号&amp;rdquo;, 如懒加载数据集序号为0, 可使用data0获取数据集刷新后的数据</description>
     </item>
     
   </channel>

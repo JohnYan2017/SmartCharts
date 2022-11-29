@@ -92,8 +92,9 @@ dataset = [[&amp;#39;category&amp;#39;,&amp;#39;C1&amp;#39;,&amp;#39;C2&amp;#39;
       
       <guid>https://help.smartchart.cn/docs/4.%E5%B8%83%E5%B1%80%E8%AF%B4%E6%98%8E/%E5%B8%83%E5%B1%80%E6%8C%87%E5%BC%95/</guid>
       <description>整理一份完整的SmartChart布局说明 # 推荐先观看视屏了解 smartchart布局方式
-容器说明 # 容器 说明 定位容器 用于图形定位, 有拖拽和栅格两种. 在界面上新增时会自带;在模板编辑中新增图形时需自行加入容器 图形容器 用于图形选择, 使用id选择器, 如序号为2的容器, 选择器为#container_2 图形 可视化的实际单位, 如选择图形中的table标签, 可使用#container_2 table 响应式布局 # 一般移动端报表推荐使用响应式布局, 一次布局可以同时满足电脑端/移动端的需求 当你新增一个数据集时, smartchart会给你一段默认的代码
-&amp;lt;div class=&amp;#34;el-col-xs-24 el-col-md-24&amp;#34; style=&amp;#34;padding:0.2rem;height:50%;&amp;#34; &amp;gt; &amp;lt;div style=&amp;#34;height:100%;&amp;#34; id=&amp;#34;container_{name}&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; el-col-md-24 : 电脑端宽度设定 控制图形父容器的宽度, 整行分成24个栅格, 如果你想让图形占一半, 就可以改成el-col-md-12 el-col-xs-24 ：移动端宽度设定 padding:0.5% 0.5%: 控制图形的上下, 左右内边距, padding: 上 右 下 左 比如你想要图形在容器中往下走一点, 你可写成 padding: 1% 0 0 0 height:50%; 盒子的高度, 相对于父容器的高度， 最外层即浏览器高度 大屏开发推荐使用拖拽布局（PRO) # 大家如果开发大屏, 只是用响应式布局可能对于复杂的布局不是很方便, 你也可以采用拖拽绝对定位的方法, 这样你可以随意指定图形的所在位置.</description>
+容器说明 # 容器 说明 定位容器 用于图形定位, 有拖拽和栅格两种. 在界面上新增时会自带;在模板编辑中新增图形时需自行加入容器 图形容器 用于图形选择, 使用id选择器, 如序号为2的容器, 选择器为#container_2 图形 可视化的实际单位, 如选择图形中的table标签, 可使用#container_2 table 6.0版本中拖拽布局方式已可同时满足电脑端/移动端的需求
+响应式布局 # 当你新增一个栅格图形时, smartchart会给你一段默认的代码
+&amp;lt;div class=&amp;#34;el-col-xs-24 el-col-md-24&amp;#34; style=&amp;#34;padding:0.2rem;height:50%;&amp;#34; &amp;gt; &amp;lt;div style=&amp;#34;height:100%;&amp;#34; id=&amp;#34;container_{name}&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; el-col-md-24 : 电脑端宽度设定 控制图形父容器的宽度, 整行分成24个栅格, 如果你想让图形占一半, 就可以改成el-col-md-12 el-col-xs-24 ：移动端宽度设定 padding:0.5% 0.5%: 控制图形的上下, 左右内边距, padding: 上 右 下 左 比如你想要图形在容器中往下走一点, 你可写成 padding: 1% 0 0 0 height:50%; 盒子的高度, 相对于父容器的高度， 最外层即浏览器高度 推荐使用拖拽布局（PRO) # 只是用响应式布局可能对于复杂的布局不是很方便, 你也可以采用拖拽绝对定位的方法, 这样你可以随意指定图形的所在位置.</description>
     </item>
     
     <item>
@@ -354,7 +355,7 @@ DataV配置方法文档: 图表</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E5%85%B1%E4%BA%AB%E6%95%B0%E6%8D%AE%E9%9B%86/</guid>
-      <description> 应用场景 # 优化查询, 可一个数据集查询完所有数据进行分发 减少重复查询的浪费, 同一个数据只查询一次 使用方法 # 在数据开发界面点击按钮就可以切换成共享数据集/普通数据集 切换完成, 你会发现数据集消失,然后图标跑到菜单上面去了, 你可以在此修改你的查询 在”高级“ 中配置 这样1，2号图形都映射到了共享数据集的数据 你也可以在数据集中写多个SQL查询 在”高级“ 设定中进行数据映射 观察1，2 号图形的变化 </description>
+      <description> 应用场景 # 优化查询, 可一个数据集查询完所有数据进行分发 减少重复查询的浪费, 同一个数据只查询一次 使用方法 # 在仪表盘开发界面, &amp;ldquo;新增&amp;rdquo; &amp;ndash;&amp;gt; &amp;ldquo;共享数据&amp;rdquo; 在&amp;quot;设定&amp;quot; &amp;ndash;&amp;gt; ”高级“ &amp;ndash;&amp;gt;&amp;ldquo;高级设定&amp;rdquo; 中配置 这样3，4号图形都映射到了共享数据集(2号)的数据 你也可以在数据集中写多个SQL查询 -- 英雄1 select H1, count(1) as qty1 from smartdemo2 group by H1 limit 10; -- 英雄2 select H2, count(1) as qty2 from smartdemo2 group by H2 limit 10 然后在&amp;quot;设定&amp;quot; &amp;ndash;&amp;gt; ”高级“ &amp;ndash;&amp;gt;&amp;ldquo;高级设定&amp;rdquo; 中配置进行数据映射 </description>
     </item>
     
     <item>
@@ -461,8 +462,7 @@ import time import hashlib import os SMART_CHART_URL = &amp;#39;http://127.0.0.1
       
       <guid>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E4%BB%AA%E8%A1%A8%E7%9B%98/</guid>
       <description>由于版本的变更, 一些图标可能会有一些变化, 但位置无太大的变化
-新建仪表盘 # 在开发模式下，滑动“开发管理” -&amp;gt;&amp;ldquo;仪表盘&amp;rdquo;-&amp;gt; &amp;ldquo;新增Dashboard&amp;rdquo; 填写相应信息后点击“保存” 点击进入仪表盘开发, 注意点击 &amp;ldquo;E&amp;rdquo; 字!! 点击新增(注意拖拽布局功能为PRO版本, 后续免费版本中将无法使用), 如果你坚持使用免费版本功能, 请使用新增栅格组件, 具体布局方式参考
-数据集编辑 # 点开“数据集” 输入以下SQL后，点击“保存并刷新”, 关闭数据集编辑界面 select H1 as heroname, sum(qty) as 出场数 from smartdemo2 group by H1 order by sum(qty) desc 图形编辑 # 点开“图形编辑” 点击“云图标”，第一次使用可能要你进行登记，按提示操作即可， 在商店中找到合适的图形点击，会自动复制到剪贴板 贴粘到图形编辑器后，点击保存， 关闭图形编辑框 拖拽布局 # 重复以上步骤，再新增一个， 你可以使用拖拽的方式, 移动到不同的地方 </description>
+新建仪表盘 # 在开发模式下，滑动“开发管理” -&amp;gt;&amp;ldquo;仪表盘&amp;rdquo;-&amp;gt; &amp;ldquo;新增Dashboard&amp;rdquo; 填写相应信息后点击“保存” 点击进入仪表盘开发, 注意点击 &amp;ldquo;E&amp;rdquo; 字!! 点击新增(注意拖拽布局功能为PRO版本, 后续免费版本中将无法使用), 如果你坚持使用免费版本功能, 请使用新增栅格组件, 具体布局方式参考 数据集编辑 # 点开“数据集” - 输入以下SQL后，点击“保存并刷新”, 关闭数据集编辑界面 select H1 as heroname, sum(qty) as 出场数 from smartdemo2 group by H1 order by sum(qty) desc 图形编辑 # 点开“图形编辑” 点击“图形”，可以选择基础图形, 也可以使用图形商店,第一次使用可能要你进行登记，按提示操作即可， 在商店中找到合适的图形点击，会自动复制到剪贴板 贴粘到图形编辑器后，点击保存， 关闭图形编辑框 拖拽布局 # 重复以上步骤，再新增一个， 你可以使用拖拽的方式, 移动到不同的地方 </description>
     </item>
     
     <item>
@@ -472,10 +472,10 @@ import time import hashlib import os SMART_CHART_URL = &amp;#39;http://127.0.0.1
       
       <guid>https://help.smartchart.cn/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E6%87%92%E5%8A%A0%E8%BD%BD/</guid>
       <description>应用场景 # 类似于前后端开发, 后端会提供一些接口给前端, 但前端不一定需要在一打开页面就进行查询接口, 而是当有需要时再查询, 比如数据下载, 只有当用户有下载需求时再加载, 再比如有些与后台的数据联动, 我们只需要第一次加载时只显示第一层级, 点击时再加载其它层级
-开启数据集懒加载 # 你可以点击数据集的开发界面的&amp;quot;连接&amp;quot; 图标, 将&amp;quot;前端刷新(秒)&amp;quot; 修改为-1 这时当打开仪表盘时, 此数据集不会被加载
+开启数据集懒加载 # 在仪表盘&amp;quot;新增&amp;quot;&amp;ndash;&amp;gt;&amp;ldquo;懒加载数据集&amp;rdquo; 这时当打开仪表盘时, 此数据集不会被加载
 应用 # 一般懒加载数据集主要是用来做数据查询的, 所以并不太需要显示图形, 所以我们主要是用于在图形中进行赋值操作 比如先在模板中定义一个全局变量: 然后修改图形编辑中的代码: 即刷新数据集时会进行变量赋值 如果您使用VUE, 那么会更方便, 你可以直接使用vapp.变量名 = dataset进行赋值
 查询数据 # 你可以随时手动触发数据集的刷新, 比如懒加载的数据集序号为0 你可以在你需要触发刷新的地方调用ds_refresh(0)即可刷新0号数据集并执行0号数据集中的JS代码
-TIPS 可以将懒加载的数据集同时转化为共享数据集(参考上文), 懒加载数据集将移到菜单栏显示</description>
+TIPS 当没有修改过懒加载数据集的图形时, 默认的全局变量为 &amp;ldquo;data序号&amp;rdquo;, 如懒加载数据集序号为0, 可使用data0获取数据集刷新后的数据</description>
     </item>
     
     <item>
@@ -527,14 +527,12 @@ ds_download(name, dataset) 参数说明: name: 文件名称 dataset: 可以是�
     </item>
     
     <item>
-      <title>创建连接池</title>
-      <link>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E5%88%9B%E5%BB%BA%E8%BF%9E%E6%8E%A5%E6%B1%A0/</link>
+      <title>第一个复杂报表</title>
+      <link>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%8D%E6%9D%82%E6%8A%A5%E8%A1%A8/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E5%88%9B%E5%BB%BA%E8%BF%9E%E6%8E%A5%E6%B1%A0/</guid>
-      <description>如何新增数据源 # 在开发模式下，点击“开发管理”-&amp;gt;数据源-&amp;gt;新增 配置连接池参数，注意数据库填写是备注中有写的名称 你可以通过新建一个数据集来测试连接池的连通性
-点击“保存” 后，回到数据集列表 点击如下图标&amp;quot;E&amp;quot;，进入数据集开发界面 在开发界面调试 安全控制 # 你可以在“参数”中设定安全控制，可避免用户误操作导致前后端卡死 limit: 可限定最大返回数据数量(但实际数据库查询无limit,需通过mode控制) mode: 控制用户查询行为，默认为模式1
-模式 说明 0 严格模式，每次查询向数据库都会增加limit，MPP类型数据库可能会排序失效 1 开发模式，仅调试查询数据库都会增加limit，调试时MPP类型数据库可能会排序失效，但不影响实际 2 宽松模式，查询都不带limit, 仅控制返回limit,需开发者避免大查询 支持的数据源： # 数据库 驱动填写 需安装 使用说明 Mysql mysql 默认支持 Mysql连接池 mysqlpool Sqlite sqlite 默认支持 连接地址填写绝对路径 API 任意 默认支持 参考数据集说明文档 EXCEL 任意 默认支持 参考数据集说明文档 SQL Server mssql 需安装 pip install pymssql SQL Server连接池 mssqlpool ORACLE oracle pip install cx_Oracle ORACLE连接池 oraclepool PostgreSql gp pip install psycopg2 GP gp pip install psycopg2 Impala impala pip install impyla Hive hive pip install impyla DB2 db2 pip install ibm_db 达梦 dm pip install dmPython Python python pip install pandas, openpyxl 参考数据集-&amp;gt;特殊数据源 Redis redis pip install redis 参考数据集-&amp;gt;特殊数据源 Mongodb mongodb pip install pymongo 参考数据集-&amp;gt;特殊数据源 Clickhouse clickhouse pip install clickhouse_driver Elasticsearch es pip install elasticsearch==7.</description>
+      <guid>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%8D%E6%9D%82%E6%8A%A5%E8%A1%A8/</guid>
+      <description> 新建仪表盘 # 在开发模式下，滑动“开发管理” -&amp;gt;&amp;ldquo;仪表盘&amp;rdquo;-&amp;gt; &amp;ldquo;新增Dashboard&amp;rdquo; 填写相应信息后点击“保存” 点击进入仪表盘开发, 注意点击 &amp;ldquo;E&amp;rdquo; 字!! 点击新增&amp;ndash;&amp;gt;复杂报表 数据集编辑 # 点开“数据集” 输入以下SQL后，点击“保存并刷新”, 关闭数据集编辑界面 select H1 as 英雄名称, sum(qty) as 英雄1出场数 from smartdemo2 group by H1 order by sum(qty) desc; select count(1) as 总出场数 from smartdemo2 报表页面开发 # 和excel一样, 编辑相应表格 点击&amp;quot;数据集图标&amp;quot;(再次点击隐藏), 显示数据集字段名, 选中单元格, 单击字段名填入 点击&amp;quot;获取数据&amp;quot;, 可对真实数据调整样式 点击&amp;quot;保存&amp;quot; 点击&amp;quot;预览&amp;quot;, 可查看最终效果 </description>
     </item>
     
     <item>
@@ -586,18 +584,14 @@ CSS的几种引入方式 行内样式 行内式是在标记的style属性中设�
     </item>
     
     <item>
-      <title>应用模板</title>
-      <link>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E5%BA%94%E7%94%A8%E6%A8%A1%E6%9D%BF/</link>
+      <title>创建连接池</title>
+      <link>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E5%88%9B%E5%BB%BA%E8%BF%9E%E6%8E%A5%E6%B1%A0/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E5%BA%94%E7%94%A8%E6%A8%A1%E6%9D%BF/</guid>
-      <description>应用场景 # 你可以快速应用开发好的模板,极大的提高你的开发和学习效率
-应用本地模板 # 你可以快速应用本地备份的模板, 我们内置了一个 通用的数据查询和下载模板 , 你可以尝试
-新建一个全新的dashboard, 不要放任何报表, 点击保存且编辑后, 下方可以看到下载链接, 然后点击下载即可直接应用 输入&amp;quot;01_SMARTCHART&amp;quot;, 点击本地恢复即可 更多本地备份恢复参考
-应用商店模板 # 方法同上&amp;quot;应用本地模板&amp;quot;, 注意应用商店模板为收费增值服务
-你可以点击 模板查询, 查看相应的价格后在 TB购买即可获取下载密钥 如果是全新的仪表盘, 直接输入下载密钥, 点击&amp;quot; 商城下载 &amp;ldquo;即可 如果仪表盘中有数据集且不再需要, 可以在下载密钥前面加上FORCE即可自动清空已有数据集后自动下载 注意模板太廉价,购买后并没有咨询服务,请务必自行了解如何使用
-资源文件放置路径 有些资源会离线打包提供给你, 只需上传即可, 上传方法参考
-如果不清楚可以观看视屏说明 使用方法可参考视屏: 一键应用模板</description>
+      <guid>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E5%88%9B%E5%BB%BA%E8%BF%9E%E6%8E%A5%E6%B1%A0/</guid>
+      <description>如何新增数据源 # 在开发模式下，点击“开发管理”-&amp;gt;数据源-&amp;gt;新增 配置连接池参数，注意数据库填写是备注中有写的名称 你可以通过新建一个数据集来测试连接池的连通性
+点击“保存” 后，回到数据集列表 点击如下图标&amp;quot;E&amp;quot;，进入数据集开发界面 在开发界面调试 安全控制 # 你可以在“参数”中设定安全控制，可避免用户误操作导致前后端卡死 limit: 可限定最大返回数据数量(但实际数据库查询无limit,需通过mode控制) mode: 控制用户查询行为，默认为模式1
+模式 说明 0 严格模式，每次查询向数据库都会增加limit，MPP类型数据库可能会排序失效 1 开发模式，仅调试查询数据库都会增加limit，调试时MPP类型数据库可能会排序失效，但不影响实际 2 宽松模式，查询都不带limit, 仅控制返回limit,需开发者避免大查询 支持的数据源： # 数据库 驱动填写 需安装 使用说明 Mysql mysql 默认支持 Mysql连接池 mysqlpool Sqlite sqlite 默认支持 连接地址填写绝对路径 API 任意 默认支持 参考数据集说明文档 EXCEL 任意 默认支持 参考数据集说明文档 SQL Server mssql 需安装 pip install pymssql SQL Server连接池 mssqlpool ORACLE oracle pip install cx_Oracle ORACLE连接池 oraclepool PostgreSql gp pip install psycopg2 GP gp pip install psycopg2 Impala impala pip install impyla Hive hive pip install impyla DB2 db2 pip install ibm_db 达梦 dm pip install dmPython Python python pip install pandas, openpyxl 参考数据集-&amp;gt;特殊数据源 Redis redis pip install redis 参考数据集-&amp;gt;特殊数据源 Mongodb mongodb pip install pymongo 参考数据集-&amp;gt;特殊数据源 Clickhouse clickhouse pip install clickhouse_driver Elasticsearch es pip install elasticsearch==7.</description>
     </item>
     
     <item>
@@ -628,14 +622,18 @@ curl -k --insecure &amp;#34;https://www.baidu.com” 修改为可执行文件 ch
     </item>
     
     <item>
-      <title>权限管理</title>
-      <link>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</link>
+      <title>应用模板</title>
+      <link>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E5%BA%94%E7%94%A8%E6%A8%A1%E6%9D%BF/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</guid>
-      <description>目前的权限管理,大概如下:
-开发者权限 # 你点击DEV后, 才会出进入后台的图标, 在后台中你可以控制用户的开发权限 新建用户默认是没有开发权限的, 在首页也看不到任何开发相关的菜单
-如果你需要给用户开发权限, 需要设定如下: Dashboard报表查看权限 # 你可以在 仪表盘设定 中进行权限管理 全局编辑或查看权限 由平台用户组或用户权限配置, 如果用户需要查看报表, 需先分配到有查看权限的组中, 默认加入集团组可以具备查看权限 在dashboard设定页面中可针对人员来分配 编辑权限, 有编辑权限同时也会满足查看权限 在dashboard设定页面中可针对组来分配 查看权限 未上线 的报表, 只会在编辑页面中出现, 可以预览 公开 的报表, 如没有分配编辑权限,在编辑页面中不出现, 但在查看页面所有人可见，你可以共享给所有人，访问url: http://xxxxx：8000/echart?type=你的仪表盘名称 手机端过滤, 你可以通过 &amp;ldquo;全端&amp;rdquo;,&amp;ldquo;电脑端&amp;rdquo; 选项实现, 当勾选 &amp;ldquo;全端&amp;rdquo; 时, 手机端电脑端都会显示, 当未勾选 全端, 也不勾选 电脑端时, 只会在 手机显示, 反之只在电脑端显示 总结 # 在编辑入口只会显示 有按人员分配编辑权限的报表清单, 在查看入口中会显示已启用且上线且(已分配查看权限或编辑权限或公开)的报表 所以你可以么这么搭配: 对于通用报表可以所有人访问的, 但你又不想让他在清单中显示, 你可以将他设为公开但不上线 对于开发中的报表, 你可以设为未上线</description>
+      <guid>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E5%BA%94%E7%94%A8%E6%A8%A1%E6%9D%BF/</guid>
+      <description>应用场景 # 你可以快速应用开发好的模板,极大的提高你的开发和学习效率
+应用本地模板 # 你可以快速应用本地备份的模板, 我们内置了一个 通用的数据查询和下载模板 , 你可以尝试
+新建一个全新的dashboard, 不要放任何报表, 点击保存且编辑后, 下方可以看到下载链接, 然后点击下载即可直接应用 输入&amp;quot;01_SMARTCHART&amp;quot;, 点击本地恢复即可 更多本地备份恢复参考
+应用商店模板 # 方法同上&amp;quot;应用本地模板&amp;quot;, 注意应用商店模板为收费增值服务
+你可以点击 模板查询, 查看相应的价格后在 TB购买即可获取下载密钥 如果是全新的仪表盘, 直接输入下载密钥, 点击&amp;quot; 商城下载 &amp;ldquo;即可 如果仪表盘中有数据集且不再需要, 可以在下载密钥前面加上FORCE即可自动清空已有数据集后自动下载 注意模板太廉价,购买后并没有咨询服务,请务必自行了解如何使用
+资源文件放置路径 有些资源会离线打包提供给你, 只需上传即可, 上传方法参考
+如果不清楚可以观看视屏说明 使用方法可参考视屏: 一键应用模板</description>
     </item>
     
     <item>
@@ -658,6 +656,17 @@ curl -k --insecure &amp;#34;https://www.baidu.com” 修改为可执行文件 ch
 @-webkit-keyframes spin { from {-webkit-transform: rotate(0deg);} to {-webkit-transform: rotate(360deg);} } @keyframes spin { from {transform: rotate(0deg);} to {transform: rotate(360deg);} } .Rotate { -webkit-animation: spin 3s linear 3s 5 alternate; animation: spin 3s linear infinite; } 如需任意组件自动旋转, 只需将Rotate这个类给到这个组件即可, 比如图形
 &amp;lt;img class=&amp;#34;Rotate&amp;#34; src=&amp;#34;https://www.smartchart.cn/media/editor/smc162_20220407150432307320.png&amp;#34;&amp;gt; 组件变形 # 常见变形沿着Y轴, 其它变形方式自已搜索, 比如需要0号,1号图形变形的样式写法
 #container_0{transform:skewY(10deg);} #container_1{transform:skewY(-10deg);} 效果如下: </description>
+    </item>
+    
+    <item>
+      <title>权限管理</title>
+      <link>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</guid>
+      <description>目前的权限管理,大概如下:
+开发者权限 # 你点击DEV后, 才会出进入后台的图标, 在后台中你可以控制用户的开发权限 新建用户默认是没有开发权限的, 在首页也看不到任何开发相关的菜单
+如果你需要给用户开发权限, 需要设定如下: Dashboard报表查看权限 # 你可以在 仪表盘设定 中进行权限管理 全局编辑或查看权限 由平台用户组或用户权限配置, 如果用户需要查看报表, 需先分配到有查看权限的组中, 默认加入集团组可以具备查看权限 在dashboard设定页面中可针对人员来分配 编辑权限, 有编辑权限同时也会满足查看权限 在dashboard设定页面中可针对组来分配 查看权限 未上线 的报表, 只会在编辑页面中出现, 可以预览 公开 的报表, 如没有分配编辑权限,在编辑页面中不出现, 但在查看页面所有人可见，你可以共享给所有人，访问url: http://xxxxx：8000/echart?type=你的仪表盘名称 手机端过滤, 你可以通过 &amp;ldquo;全端&amp;rdquo;,&amp;ldquo;电脑端&amp;rdquo; 选项实现, 当勾选 &amp;ldquo;全端&amp;rdquo; 时, 手机端电脑端都会显示, 当未勾选 全端, 也不勾选 电脑端时, 只会在 手机显示, 反之只在电脑端显示 总结 # 在编辑入口只会显示 有按人员分配编辑权限的报表清单, 在查看入口中会显示已启用且上线且(已分配查看权限或编辑权限或公开)的报表 所以你可以么这么搭配: 对于通用报表可以所有人访问的, 但你又不想让他在清单中显示, 你可以将他设为公开但不上线 对于开发中的报表, 你可以设为未上线</description>
     </item>
     
     <item>

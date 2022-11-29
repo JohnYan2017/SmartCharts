@@ -38,8 +38,16 @@ pip3 install smartchart 如果安装过程慢,建意使用 pip3 install -i https
       
       <guid>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E4%BB%AA%E8%A1%A8%E7%9B%98/</guid>
       <description>由于版本的变更, 一些图标可能会有一些变化, 但位置无太大的变化
-新建仪表盘 # 在开发模式下，滑动“开发管理” -&amp;gt;&amp;ldquo;仪表盘&amp;rdquo;-&amp;gt; &amp;ldquo;新增Dashboard&amp;rdquo; 填写相应信息后点击“保存” 点击进入仪表盘开发, 注意点击 &amp;ldquo;E&amp;rdquo; 字!! 点击新增(注意拖拽布局功能为PRO版本, 后续免费版本中将无法使用), 如果你坚持使用免费版本功能, 请使用新增栅格组件, 具体布局方式参考
-数据集编辑 # 点开“数据集” 输入以下SQL后，点击“保存并刷新”, 关闭数据集编辑界面 select H1 as heroname, sum(qty) as 出场数 from smartdemo2 group by H1 order by sum(qty) desc 图形编辑 # 点开“图形编辑” 点击“云图标”，第一次使用可能要你进行登记，按提示操作即可， 在商店中找到合适的图形点击，会自动复制到剪贴板 贴粘到图形编辑器后，点击保存， 关闭图形编辑框 拖拽布局 # 重复以上步骤，再新增一个， 你可以使用拖拽的方式, 移动到不同的地方 </description>
+新建仪表盘 # 在开发模式下，滑动“开发管理” -&amp;gt;&amp;ldquo;仪表盘&amp;rdquo;-&amp;gt; &amp;ldquo;新增Dashboard&amp;rdquo; 填写相应信息后点击“保存” 点击进入仪表盘开发, 注意点击 &amp;ldquo;E&amp;rdquo; 字!! 点击新增(注意拖拽布局功能为PRO版本, 后续免费版本中将无法使用), 如果你坚持使用免费版本功能, 请使用新增栅格组件, 具体布局方式参考 数据集编辑 # 点开“数据集” - 输入以下SQL后，点击“保存并刷新”, 关闭数据集编辑界面 select H1 as heroname, sum(qty) as 出场数 from smartdemo2 group by H1 order by sum(qty) desc 图形编辑 # 点开“图形编辑” 点击“图形”，可以选择基础图形, 也可以使用图形商店,第一次使用可能要你进行登记，按提示操作即可， 在商店中找到合适的图形点击，会自动复制到剪贴板 贴粘到图形编辑器后，点击保存， 关闭图形编辑框 拖拽布局 # 重复以上步骤，再新增一个， 你可以使用拖拽的方式, 移动到不同的地方 </description>
+    </item>
+    
+    <item>
+      <title>第一个复杂报表</title>
+      <link>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%8D%E6%9D%82%E6%8A%A5%E8%A1%A8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%8D%E6%9D%82%E6%8A%A5%E8%A1%A8/</guid>
+      <description> 新建仪表盘 # 在开发模式下，滑动“开发管理” -&amp;gt;&amp;ldquo;仪表盘&amp;rdquo;-&amp;gt; &amp;ldquo;新增Dashboard&amp;rdquo; 填写相应信息后点击“保存” 点击进入仪表盘开发, 注意点击 &amp;ldquo;E&amp;rdquo; 字!! 点击新增&amp;ndash;&amp;gt;复杂报表 数据集编辑 # 点开“数据集” 输入以下SQL后，点击“保存并刷新”, 关闭数据集编辑界面 select H1 as 英雄名称, sum(qty) as 英雄1出场数 from smartdemo2 group by H1 order by sum(qty) desc; select count(1) as 总出场数 from smartdemo2 报表页面开发 # 和excel一样, 编辑相应表格 点击&amp;quot;数据集图标&amp;quot;(再次点击隐藏), 显示数据集字段名, 选中单元格, 单击字段名填入 点击&amp;quot;获取数据&amp;quot;, 可对真实数据调整样式 点击&amp;quot;保存&amp;quot; 点击&amp;quot;预览&amp;quot;, 可查看最终效果 </description>
     </item>
     
     <item>
