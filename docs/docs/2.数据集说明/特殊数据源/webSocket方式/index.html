@@ -3,29 +3,23 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="应用场景 # 类似于前后端开发, 后端会提供一些接口给前端, 但前端不一定需要在一打开页面就进行查询接口, 而是当有需要时再查询, 比如数据下载, 只有当用户有下载需求时再加载, 再比如有些与后台的数据联动, 我们只需要第一次加载时只显示第一层级, 点击时再加载其它层级
-开启数据集懒加载 # 在仪表盘&quot;新增&quot;&ndash;&gt;&ldquo;懒加载数据集&rdquo; 这时当打开仪表盘时, 此数据集不会被加载
-应用 # 一般懒加载数据集主要是用来做数据查询的, 所以并不太需要显示图形, 所以我们主要是用于在图形中进行赋值操作 比如先在模板中定义一个全局变量: 然后修改图形编辑中的代码: 即刷新数据集时会进行变量赋值 如果您使用VUE, 那么会更方便, 你可以直接使用vapp.变量名 = dataset进行赋值
-查询数据 # 你可以随时手动触发数据集的刷新, 比如懒加载的数据集序号为0 你可以在你需要触发刷新的地方调用ds_refresh(0)即可刷新0号数据集并执行0号数据集中的JS代码
-TIPS 当没有修改过懒加载数据集的图形时, 默认的全局变量为 &ldquo;data序号&rdquo;, 如懒加载数据集序号为0, 可使用data0获取数据集刷新后的数据">
+<meta name="description" content=" 应用场景 # 对于实时程度要求比较高的情况下, 如果你后端已有实现websocket的接口, smartchart也可以很方便的接入 参考以下步骤即可
+在&quot;模板&quot;中定义一个全局变量, 如ws_data 编写连接和接收代码段逻辑 在接收代码段加入ds_refresh, 如要刷新0号图形, 则加入ds_refresh(0) 在&quot;高级&quot;设定中加入共享数据集设定, 把ws_data映射到0号图形即可 代码段参考 # let ws_data = [[&#39;初始化&#39;,&#39;V&#39;],[&#39;A&#39;,&#39;2&#39;]]; let ws = null; if(&#39;webSocket&#39; in window){ print(&#39;支持webSocket&#39;); ws = new webSocket(&#39;ws://127.0.0.1:2222/abc&#39;); //连接成功 ws.onopen = function(){ print(&#39;ws连接成功&#39;); } //接收消息 ws.onmessage = function(evt){ ws_data = evt.data; ds_refresh(0); } } else{ print(&#39;浏览器不支持ws&#39;) } ">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
-<meta property="og:description" content="应用场景 # 类似于前后端开发, 后端会提供一些接口给前端, 但前端不一定需要在一打开页面就进行查询接口, 而是当有需要时再查询, 比如数据下载, 只有当用户有下载需求时再加载, 再比如有些与后台的数据联动, 我们只需要第一次加载时只显示第一层级, 点击时再加载其它层级
-开启数据集懒加载 # 在仪表盘&quot;新增&quot;&ndash;&gt;&ldquo;懒加载数据集&rdquo; 这时当打开仪表盘时, 此数据集不会被加载
-应用 # 一般懒加载数据集主要是用来做数据查询的, 所以并不太需要显示图形, 所以我们主要是用于在图形中进行赋值操作 比如先在模板中定义一个全局变量: 然后修改图形编辑中的代码: 即刷新数据集时会进行变量赋值 如果您使用VUE, 那么会更方便, 你可以直接使用vapp.变量名 = dataset进行赋值
-查询数据 # 你可以随时手动触发数据集的刷新, 比如懒加载的数据集序号为0 你可以在你需要触发刷新的地方调用ds_refresh(0)即可刷新0号数据集并执行0号数据集中的JS代码
-TIPS 当没有修改过懒加载数据集的图形时, 默认的全局变量为 &ldquo;data序号&rdquo;, 如懒加载数据集序号为0, 可使用data0获取数据集刷新后的数据" />
+<meta property="og:description" content=" 应用场景 # 对于实时程度要求比较高的情况下, 如果你后端已有实现websocket的接口, smartchart也可以很方便的接入 参考以下步骤即可
+在&quot;模板&quot;中定义一个全局变量, 如ws_data 编写连接和接收代码段逻辑 在接收代码段加入ds_refresh, 如要刷新0号图形, 则加入ds_refresh(0) 在&quot;高级&quot;设定中加入共享数据集设定, 把ws_data映射到0号图形即可 代码段参考 # let ws_data = [[&#39;初始化&#39;,&#39;V&#39;],[&#39;A&#39;,&#39;2&#39;]]; let ws = null; if(&#39;webSocket&#39; in window){ print(&#39;支持webSocket&#39;); ws = new webSocket(&#39;ws://127.0.0.1:2222/abc&#39;); //连接成功 ws.onopen = function(){ print(&#39;ws连接成功&#39;); } //接收消息 ws.onmessage = function(evt){ ws_data = evt.data; ds_refresh(0); } } else{ print(&#39;浏览器不支持ws&#39;) } " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://help.smartchart.cn/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E6%87%92%E5%8A%A0%E8%BD%BD/" /><meta property="article:section" content="docs" />
+<meta property="og:url" content="https://help.smartchart.cn/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/webSocket%E6%96%B9%E5%BC%8F/" /><meta property="article:section" content="docs" />
 
 
 
-<title>数据集懒加载 | Smartchart开发手册</title>
+<title>Web Socket方式 | Smartchart开发手册</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.eff5ead249bdb00bf7e8cf7706b90ecda1171dbc4487c7815e22ae0914f925a2.js" integrity="sha256-7/Xq0km9sAv36M93BrkOzaEXHbxEh8eBXiKuCRT5JaI=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.2303c3b073dd2c74e111bf72840f2b5118ffa228235011e8e7a7bb09478696a2.js" integrity="sha256-IwPDsHPdLHThEb9yhA8rURj/oigjUBHo56e7CUeGlqI=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -161,6 +155,32 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%8D%E6%9D%82%E6%8A%A5%E8%A1%A8/" class="">第一个复杂报表</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA3D%E5%9C%BA%E6%99%AF/" class="">第一个3D场景</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E4%B8%8A%E7%BA%BF%E6%95%B0%E6%8D%AE%E9%9B%86/" class="">第一个上线数据集</a>
   
 
         </li>
@@ -366,19 +386,6 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E5%85%B1%E4%BA%AB%E6%95%B0%E6%8D%AE%E9%9B%86/" class="">共享数据集</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
     <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E6%95%B0%E6%8D%AE%E5%88%B7%E6%96%B0/" class="">数据集数据刷新</a>
   
 
@@ -392,67 +399,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E6%87%92%E5%8A%A0%E8%BD%BD/" class="active">数据集懒加载</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-9297282a5313a9b54d7163ab91c1089a" class="toggle"  />
-    <label for="section-9297282a5313a9b54d7163ab91c1089a" class="flex justify-between">
-      <a role="button" class="">Excel数据</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/EXCEL%E6%95%B0%E6%8D%AE/%E4%BB%8EEXCEL%E7%B2%98%E8%B4%B4%E6%95%B0%E6%8D%AE/" class="">从 Excel粘贴数据</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/EXCEL%E6%95%B0%E6%8D%AE/%E6%95%B0%E6%8D%AE%E4%B8%8A%E4%BC%A0/" class="">数据上传</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-17dce050c02e560c36fb8bcb52fc8432" class="toggle"  />
+    <input type="checkbox" id="section-17dce050c02e560c36fb8bcb52fc8432" class="toggle" checked />
     <label for="section-17dce050c02e560c36fb8bcb52fc8432" class="flex justify-between">
       <a role="button" class="">特殊数据源</a>
     </label>
@@ -481,6 +428,19 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/%E4%BD%BF%E7%94%A8EXCEL%E6%95%B0%E6%8D%AE/" class="">使用 Excel数据</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
     <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/Python%E6%95%B0%E6%8D%AE%E9%9B%86/" class="">Python数据集</a>
   
 
@@ -495,6 +455,19 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE%E6%BA%90/" class="">自定义数据源</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/webSocket%E6%96%B9%E5%BC%8F/" class="active">Web Socket方式</a>
   
 
         </li>
@@ -559,6 +532,19 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/promitheus%E6%95%B0%E6%8D%AE%E6%BA%90/" class="">Promitheus数据源</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
     <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/Redis%E6%95%B0%E6%8D%AE%E6%BA%90/" class="">Redis数据源</a>
   
 
@@ -573,6 +559,53 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/sqlalchemy%E8%BF%9E%E6%8E%A5/" class="">Sqlalchemy连接</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b696a5333fb0b6aa0ada2335e5fe864c" class="toggle"  />
+    <label for="section-b696a5333fb0b6aa0ada2335e5fe864c" class="flex justify-between">
+      <a role="button" class="">数据集形态</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E5%BD%A2%E6%80%81/%E5%85%B1%E4%BA%AB%E6%95%B0%E6%8D%AE%E9%9B%86/" class="">共享数据集</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E5%BD%A2%E6%80%81/%E6%95%B0%E6%8D%AE%E9%9B%86%E6%87%92%E5%8A%A0%E8%BD%BD/" class="">数据集懒加载</a>
   
 
         </li>
@@ -883,53 +916,6 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
     
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-e562f2d46bae3fd1d44d386234399fae" class="toggle"  />
-    <label for="section-e562f2d46bae3fd1d44d386234399fae" class="flex justify-between">
-      <a role="button" class="">不常用</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/4.%E5%B8%83%E5%B1%80%E8%AF%B4%E6%98%8E/%E4%B8%8D%E5%B8%B8%E7%94%A8/%E4%BB%A3%E7%A0%81%E8%BD%AC%E5%8C%96%E5%B8%83%E5%B1%80/" class="">代码转化布局</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/4.%E5%B8%83%E5%B1%80%E8%AF%B4%E6%98%8E/%E4%B8%8D%E5%B8%B8%E7%94%A8/%E5%AE%B9%E5%99%A8%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2/" class="">容器管理界面</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
   </ul>
 
         </li>
@@ -1156,7 +1142,23 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%AE%9E%E6%88%98%E5%A4%A7%E5%B1%8F%E6%A8%A1%E6%9D%BF%E8%BD%AC%E5%8C%96/" class="">实战大屏模板转化</a>
+    <input type="checkbox" id="section-2b5b070b11b526d911f2143b53347842" class="toggle"  />
+    <label for="section-2b5b070b11b526d911f2143b53347842" class="flex justify-between">
+      <a role="button" class="">数据服务</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1API/" class="">数据服务 API</a>
   
 
         </li>
@@ -1169,7 +1171,51 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1API/" class="">数据服务 API</a>
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD/" class="">数据下载</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E5%A1%AB%E6%8A%A5/" class="">数据填报</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E5%90%8E%E5%8F%B0API%E5%88%B7%E6%96%B0/" class="">后台 Api刷新</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%AE%9E%E6%88%98%E5%A4%A7%E5%B1%8F%E6%A8%A1%E6%9D%BF%E8%BD%AC%E5%8C%96/" class="">实战大屏模板转化</a>
   
 
         </li>
@@ -1195,59 +1241,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD/" class="">数据下载</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E5%A1%AB%E6%8A%A5/" class="">数据填报</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
     <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A6%96%E9%A1%B5/" class="">自定义首页</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%90%8E%E5%8F%B0API%E5%88%B7%E6%96%B0/" class="">后台 Api刷新</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/webSocket%E6%96%B9%E5%BC%8F/" class="">Web Socket方式</a>
   
 
         </li>
@@ -1581,7 +1575,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>数据集懒加载</strong>
+  <strong>Web Socket方式</strong>
 
   <label for="toc-control">
     
@@ -1602,9 +1596,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           <ul>
             <li><a href="#应用场景">应用场景</a></li>
-            <li><a href="#开启数据集懒加载">开启数据集懒加载</a></li>
-            <li><a href="#应用">应用</a></li>
-            <li><a href="#查询数据">查询数据</a></li>
+            <li><a href="#代码段参考">代码段参考</a></li>
           </ul>
         </li>
       </ul>
@@ -1625,40 +1617,40 @@ https://github.com/alex-shpak/hugo-book
   应用场景
   <a class="anchor" href="#%e5%ba%94%e7%94%a8%e5%9c%ba%e6%99%af">#</a>
 </h3>
-<p>类似于前后端开发, 后端会提供一些接口给前端, 但前端不一定需要在一打开页面就进行查询接口, 而是当有需要时再查询,
-比如数据下载, 只有当用户有下载需求时再加载,
-再比如有些与后台的数据联动, 我们只需要第一次加载时只显示第一层级, 点击时再加载其它层级</p>
-<h3 id="开启数据集懒加载">
-  开启数据集懒加载
-  <a class="anchor" href="#%e5%bc%80%e5%90%af%e6%95%b0%e6%8d%ae%e9%9b%86%e6%87%92%e5%8a%a0%e8%bd%bd">#</a>
+<p>对于实时程度要求比较高的情况下, 如果你后端已有实现websocket的接口, smartchart也可以很方便的接入
+参考以下步骤即可</p>
+<ol>
+<li>在&quot;模板&quot;中定义一个全局变量, 如ws_data</li>
+<li>编写连接和接收代码段逻辑</li>
+<li>在接收代码段加入ds_refresh, 如要刷新0号图形, 则加入ds_refresh(0)</li>
+<li>在&quot;高级&quot;设定中加入共享数据集设定, 把ws_data映射到0号图形即可</li>
+</ol>
+<p>
+  <img referrerpolicy="no-referrer" src="https://images.gitee.com/uploads/images/2022/0331/095209_3dde4cd3_5500438.png" alt="输入图片说明" title="屏幕截图.png"/></p>
+<h3 id="代码段参考">
+  代码段参考
+  <a class="anchor" href="#%e4%bb%a3%e7%a0%81%e6%ae%b5%e5%8f%82%e8%80%83">#</a>
 </h3>
-<p>在仪表盘&quot;新增&quot;&ndash;&gt;&ldquo;懒加载数据集&rdquo;
-这时当打开仪表盘时, 此数据集不会被加载</p>
-<h3 id="应用">
-  应用
-  <a class="anchor" href="#%e5%ba%94%e7%94%a8">#</a>
-</h3>
-<p>一般懒加载数据集主要是用来做数据查询的, 所以并不太需要显示图形, 所以我们主要是用于在图形中进行赋值操作
-比如先在模板中定义一个全局变量:
-
-  <img referrerpolicy="no-referrer" src="https://images.gitee.com/uploads/images/2022/0715/210058_ad704d9c_5500438.png" alt="输入图片说明" title="屏幕截图.png"/>
-然后修改图形编辑中的代码:
-
-  <img referrerpolicy="no-referrer" src="https://images.gitee.com/uploads/images/2022/0715/210204_b12749a3_5500438.png" alt="输入图片说明" title="屏幕截图.png"/>
-即刷新数据集时会进行变量赋值
-如果您使用VUE, 那么会更方便, 你可以直接使用vapp.变量名 = dataset进行赋值</p>
-<h3 id="查询数据">
-  查询数据
-  <a class="anchor" href="#%e6%9f%a5%e8%af%a2%e6%95%b0%e6%8d%ae">#</a>
-</h3>
-<p>你可以随时手动触发数据集的刷新, 比如懒加载的数据集序号为0
-你可以在你需要触发刷新的地方调用ds_refresh(0)即可刷新0号数据集并执行0号数据集中的JS代码</p>
-<blockquote>
-<p>TIPS
-当没有修改过懒加载数据集的图形时, 默认的全局变量为 &ldquo;data序号&rdquo;,
-如懒加载数据集序号为0, 可使用data0获取数据集刷新后的数据</p>
-</blockquote>
-</article>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">ws_data</span> <span style="color:#f92672">=</span> [[<span style="color:#e6db74">&#39;初始化&#39;</span>,<span style="color:#e6db74">&#39;V&#39;</span>],[<span style="color:#e6db74">&#39;A&#39;</span>,<span style="color:#e6db74">&#39;2&#39;</span>]];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">ws</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(<span style="color:#e6db74">&#39;webSocket&#39;</span> <span style="color:#66d9ef">in</span> window){
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">print</span>(<span style="color:#e6db74">&#39;支持webSocket&#39;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">ws</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">webSocket</span>(<span style="color:#e6db74">&#39;ws://127.0.0.1:2222/abc&#39;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//连接成功
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">ws</span>.<span style="color:#a6e22e">onopen</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(){
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">print</span>(<span style="color:#e6db74">&#39;ws连接成功&#39;</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//接收消息
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">ws</span>.<span style="color:#a6e22e">onmessage</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">evt</span>){
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">ws_data</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">evt</span>.<span style="color:#a6e22e">data</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">ds_refresh</span>(<span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">print</span>(<span style="color:#e6db74">&#39;浏览器不支持ws&#39;</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div></article>
  
       
 
@@ -1670,7 +1662,7 @@ https://github.com/alex-shpak/hugo-book
 
 
   <div>
-    <a class="flex align-center" href="https://gitee.com/smartchart/smartchart/docs/content/docs/2.%e6%95%b0%e6%8d%ae%e9%9b%86%e8%af%b4%e6%98%8e/%e6%95%b0%e6%8d%ae%e9%9b%86%e6%87%92%e5%8a%a0%e8%bd%bd.md" target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://gitee.com/smartchart/smartchart/docs/content/docs/2.%e6%95%b0%e6%8d%ae%e9%9b%86%e8%af%b4%e6%98%8e/%e7%89%b9%e6%ae%8a%e6%95%b0%e6%8d%ae%e6%ba%90/webSocket%e6%96%b9%e5%bc%8f.md" target="_blank" rel="noopener">
       <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>
@@ -1711,9 +1703,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           <ul>
             <li><a href="#应用场景">应用场景</a></li>
-            <li><a href="#开启数据集懒加载">开启数据集懒加载</a></li>
-            <li><a href="#应用">应用</a></li>
-            <li><a href="#查询数据">查询数据</a></li>
+            <li><a href="#代码段参考">代码段参考</a></li>
           </ul>
         </li>
       </ul>

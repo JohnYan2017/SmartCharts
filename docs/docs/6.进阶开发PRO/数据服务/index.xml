@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Smartchart开发手册</title>
+    <link>https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/</link>
+    <description>Recent content on Smartchart开发手册</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1API/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1API/</guid>
+      <description>SmartChart的数据集功能, 可以非常方便的实现数据对外微服务 # 权限设定 # 帐号访问权限 # 超级管理员可以在首页右上角用户图标的菜单中, 找到&amp;quot;服务配置&amp;quot;打开 比如需要调用API的用户名为test 和 test2，用户名需要是在你的用户设定中存在的,内容如下: { &amp;#34;test&amp;#34;: { &amp;#34;token&amp;#34;: &amp;#34;smartchart&amp;#34; }, &amp;#34;test2&amp;#34;: { &amp;#34;token&amp;#34;: &amp;#34;smartchartxxx&amp;#34;, &amp;#34;host&amp;#34;: [&amp;#34;10.10.10.10&amp;#34;,&amp;#34;10.10.10.23&amp;#34;], &amp;#34;limit&amp;#34;: 60, &amp;#34;log&amp;#34;:1, &amp;#34;cors&amp;#34;: 1 } } 可选设定参考test2 host:API白名单配置，limit:一分钟内可调用次数, log:日志记录方式. cors:永许跨域访问
+数据集权限 # 在数据集权限管理中, 将你需要开放的数据集的权限, 设定给对应的用户 请求方式 # 加密接口请求方式（推荐） # 下文提到的&amp;quot;秘钥&amp;quot;即上文设定中的&amp;quot;token&amp;quot;, 注意上文的token非下文提到的token
+GET 请求 # #接口请求格式: url= &amp;#39;/echart/dataset_api/?visitor=xxx&amp;amp;token=xxx&amp;amp;type=xxx&amp;amp;stamp=xxxxx&amp;amp;param={&amp;#34;xx&amp;#34;:&amp;#34;xxx&amp;#34;,&amp;#34;xx&amp;#34;:&amp;#34;xxxx&amp;#34;}&amp;#39; # 参数说明 visitor: 用户名 type: 接口数据集ID stamp: 时间戳(1970年1月1日到生成时间的毫秒数) token: 采用sha1加密, token=SHA1(秘钥 + stamp + visitor + type) param: 数据集查询参数清单(可选), 格式json字符串, 如: &amp;#39;{&amp;#34;参数A&amp;#34;:&amp;#34;xxxx&amp;#34;, &amp;#34;参数B&amp;#34;:&amp;#34;xxxx&amp;#34;}&amp;#39; # 接口返回格式Json: { &amp;#34;data&amp;#34;:[[]], &amp;#34;result&amp;#34;:&amp;#34;success&amp;#34;, &amp;#34;maxpg&amp;#34;:1, &amp;#34;pg&amp;#34;:1 } # 返回值说明: data : 二维数组, 第一行为表头, 样列数据如下 [[&amp;#34;heroname&amp;#34;, &amp;#34;qty&amp;#34;],[&amp;#34;镜&amp;#34;,658],[&amp;#34;猪八戒&amp;#34;,591]] result : success 或 error maxpg/pg : GET请求固定为1不分页 POST请求(适用于后台定时同步数据，查询请用GET请求方法) # #接口请求格式: url: /echart/dataset_api/ # 请求参数data: { &amp;#34;visitor&amp;#34;:&amp;#34;xxx&amp;#34;, &amp;#34;token&amp;#34;:&amp;#34;xxx&amp;#34;, &amp;#34;stamp&amp;#34;:xxxxx, &amp;#34;type&amp;#34;:&amp;#34;xxx&amp;#34;, &amp;#34;pagesize&amp;#34;:&amp;#34;xxx&amp;#34;, &amp;#34;pg&amp;#34;:&amp;#34;xxx&amp;#34;, &amp;#34;param&amp;#34;:&amp;#39;{&amp;#34;xxx&amp;#34;:&amp;#34;xxxx&amp;#34;}&amp;#39; } # data参数说明 visitor: 用户名 type: 接口数据集ID stamp: 时间戳(1970年1月1日到生成时间的毫秒数) token: 采用sha1加密, token=SHA1(秘钥 + stamp + visitor + type) Pagesize: 采用分页, 每页的数据量大小 pg: 返回第几页 param: 数据集查询参数清单(可单), 拼接成json字符串, 如: &amp;#39;{&amp;#34;参数A&amp;#34;:&amp;#34;xxxx&amp;#34;, &amp;#34;参数B&amp;#34;:&amp;#34;xxxx&amp;#34;}&amp;#39; #接口返回格式Json: { &amp;#34;data&amp;#34;:[[]], &amp;#34;result&amp;#34;:&amp;#34;success&amp;#34;, &amp;#34;maxpg&amp;#34;:xxx, #最大页数 &amp;#34;pg&amp;#34;:xx, #当前页数 &amp;#34;casheflag&amp;#34;: xx, #如果是999说明命中缓存 &amp;#34;total&amp;#34;:xx, #总条数 } 注意： 只有post是分页的, 第一页是带标题的， 后面页不带标题 由于post方式会使用缓存进行分页,如命中缓存传参不会生效，小数据量请使用get方式请求 不要请求大数据量，大量数据请采用limit, offset传参方式进行分页</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD/</guid>
+      <description>应用场景: # 需要要下载数据集的数据到本地
+使用方法 # 仅需要录活使用ds_download这个函数, 你可以开发出非常个性化的下载功能
+ds_download(name, dataset) 参数说明: name: 文件名称 dataset: 可以是二维数组也可以是字符串 样例: # 可在&amp;quot;模板&amp;quot; 中新建一个下载按钮, 并指定一个ID,如id_down1, 拖拽到你需要的位置 在任意一个图形开发或js代码段中加入以下代码即可
+$(&amp;#39;#id_down1&amp;#39;).click(()=&amp;gt;{ ds_download(&amp;#39;报表数据.csv&amp;#39;, dataset); }); 这样就可以实现点击按钮下载数据了</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E5%A1%AB%E6%8A%A5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E5%A1%AB%E6%8A%A5/</guid>
+      <description>应用场景 # 收集用户端录入的数据 前端处理好的数据回写到任意系统 制做问卷系统 埋点应用 使用方法 # 新建一个懒加载数据集,填写内容格式如下: # 如果需将数据保存到对应的表名 dataset={ &amp;#34;table&amp;#34;:&amp;#34;表名&amp;#34; } 如需指定字段, 可如下方式填写 dataset={ &amp;#34;table&amp;#34;:&amp;#34;表名(字段1, 字段2)&amp;#34; } 在&amp;quot;模板&amp;quot;中编写录入组件代码, # 具体可参考视屏
+&amp;lt;h1 class=&amp;#34;smtdrag&amp;#34; id=&amp;#34;id_1648895680659&amp;#34;&amp;gt;数据填报&amp;lt;/h1&amp;gt; &amp;lt;div class=&amp;#34;smtdrag&amp;#34; id=&amp;#34;id_1648895855760&amp;#34;&amp;gt; &amp;lt;label&amp;gt;用户&amp;lt;/label&amp;gt;&amp;lt;input id=&amp;#34;id_visitor&amp;#34;&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div class=&amp;#34;smtdrag&amp;#34; id=&amp;#34;id_1648895859160&amp;#34;&amp;gt; &amp;lt;label&amp;gt;动作&amp;lt;/label&amp;gt;&amp;lt;input id=&amp;#34;id_action&amp;#34;&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div class=&amp;#34;smtdrag&amp;#34; id=&amp;#34;id_1648895956207&amp;#34;&amp;gt; &amp;lt;button id=&amp;#34;idbtn01&amp;#34;&amp;gt;提交&amp;lt;/button&amp;gt; &amp;lt;/div&amp;gt; 在&amp;quot;模板&amp;quot; 中编写JS代码 $(&amp;#39;#idbtn01&amp;#39;).click(function(){ //获取填写的数据 let visitor = $(&amp;#39;#id_visitor&amp;#39;).val(); let action = $(&amp;#39;#id_action&amp;#39;).val(); //拼接一个填写好的数组 let dataset = [visitor, action]; //上传填写的数据 //0:为上文新建的数据集序号, dataset:要写入的数据 print(ds_save(0, dataset)); }) 更多关于写入数据库的数据集格式说明 # //只写入一行数据, 样列如下: dataset = [&amp;#39;a&amp;#39;,&amp;#39;b&amp;#39;] //同时写入多行数据: dataset = [[], [&amp;#39;a1&amp;#39;,&amp;#39;b1&amp;#39;],[&amp;#39;a2&amp;#39;, &amp;#39;b2&amp;#39;]] //如果需要自动记录写入者用户名: dataset = [&amp;#39;$username&amp;#39;, &amp;#39;b&amp;#39;] mongodb写入方式</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E5%90%8E%E5%8F%B0API%E5%88%B7%E6%96%B0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E5%90%8E%E5%8F%B0API%E5%88%B7%E6%96%B0/</guid>
+      <description>应用场景 # 有ETL流程，需要等待后台数据刷新完成后，再触发仪表盘的刷新，数据未完成刷新，仪表盘不刷新 针对有一些耗时的查询, 虽然smartchart有缓存加速, 但是在第一次刷新时可能不能达到极速 用户需要随时都能体验到极速的打开效果 使用后台API刷新，建意将仪表盘中数据集的缓存时间设置长一些，比如2天（2880分钟）
+后台数据主动刷新接口 # (购买专业版本后支持)
+你需要在setting.py中设定API_TOKEN API_TOKEN = &amp;#39;xxxxxxxx&amp;#39; 找到你要刷新的仪表盘编码, 你可以在打开的仪表盘url上面找到这个type id
+后台访问如下api url即可
+http://ip:端口/echart/refresh_ds/?type=你的报表ID&amp;amp;token=你设定的API_TOKEN 关于定时刷新 # 为保持产品的轻量化及坚持专业的产品做专业的事情, 归一化统一化的架构设计, 我们不会集成相关调度系统, 一般我们推荐使用您自有的调度工具或平台, 如airflow, 我们也有相关的配套产品
+如果您仅仅是简单应用, 也无需使用专用调度来增加运维复杂度, 可以使用linux自带的即可
+新建一个sh文件, 假设目录在/data/smartchart vim refresh_smartchart.sh 写入需要刷新的脚本 echo start refresh $(date &amp;#34;+%Y-%m-%d %H:%M:%S&amp;#34;) curl http://ip:端口/echart/?type=你的报表ID1&amp;amp;token=你设定的API_TOKEN curl http://ip:端口/echart/?type=你的报表ID2&amp;amp;token=你设定的API_TOKEN echo end refresh $(date &amp;#34;+%Y-%m-%d %H:%M:%S&amp;#34;) 如果你的网址是https, 可如下方法使用curl
+curl -k --insecure &amp;#34;https://www.baidu.com” 修改为可执行文件 chmod 775 refresh_smartchart.sh 使用crontab来定时执行 # 编辑crontab crontab -e # 比如需要每天晚上5点10分执行 10 5 * * * /data/smartchart/refresh_smartchart.</description>
+    </item>
+    
+  </channel>
+</rss>

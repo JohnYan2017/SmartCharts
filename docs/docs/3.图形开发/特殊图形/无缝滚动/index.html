@@ -4,19 +4,17 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="通用滚动 # 例如你的html如下
-&lt;div id=&#34;smtid&#34; style=&#34;height:100%&#34;&gt; &lt;ul&gt; &lt;li&gt;smartchart&lt;/li&gt; &lt;li&gt;bigdata&lt;/li&gt; &lt;li&gt;echarts&lt;/li&gt; &lt;li&gt;make it great&lt;/li&gt; &lt;/ul&gt; &lt;/div&gt; 你只需要使用以下函数, 即可实现在无缝滚动 由于smtid是ID, 则使用 ds_liMarquee(&rsquo;#smtid&rsquo;) 即可开启自动滚动 如果 class=&ldquo;smtclass&rdquo;, 那么也可以使用类选择器 ds_liMarquee(&rsquo;.smtclass&#39;)
-我们也可以使用更多的配置方法
-marconfig={ playtime: 3000, //滚动3秒 pausetime: 3000, //停3秒 config:{ direction: &#39;up&#39;,//向上滚动 runshort: false,//内容不足时不滚动 scrollamount: 20//速度 } } 可以使用 ds_liMarquee(&rsquo;#smtid&rsquo;, marconfig) 传入配置
-更多config说明:
-名称 类型 默认值 说明 direction 字符串 left 滚动方向，可选 left / right / up / down loop 整数 -1 循环次数，-1 为无限循环 scrolldelay 整数 0 每次重复之前的延迟 scrollamount 整数 50 滚动速度，越大越快 circular 布尔值 true 无缝滚动，如果为 false，则和 marquee 效果一样 drag 布尔值 true 鼠标可拖动 runshort 布尔值 true 内容不足是否滚动 hoverstop 布尔值 true 鼠标悬停暂停 xml 布尔值 false 加载xml 文件 inverthover 布尔值 false 反向，即默认不滚动，鼠标悬停滚动 内置滚动表格 # smartchart内置了滚动表格, 可以一键生成 如果你需要修改表格的样式, 如字体,颜色等, 你可以在模板中重定义样式 具体样式的写法, 参考 样式快速入门">
+&lt;div id=&#34;smtid&#34; style=&#34;height:100%&#34;&gt; &lt;ul&gt; &lt;li&gt;smartchart&lt;/li&gt; &lt;li&gt;bigdata&lt;/li&gt; &lt;li&gt;echarts&lt;/li&gt; &lt;li&gt;make it great&lt;/li&gt; &lt;/ul&gt; &lt;/div&gt; 你只需要在图形中使用以下函数, 即可实现在无缝滚动
+//smtid是滚动容器的ID ds_liMarquee(&#39;#smtid&#39;) //如果 class=&#34;smtclass&#34;, 那么也可以使用类选择器 ds_liMarquee(&#39;.smtclass&#39;) 我们也可以使用更多的配置方法
+marconfig={ playtime: 3000, //滚动3秒 pausetime: 3000, //停3秒 config:{ direction: &#39;up&#39;,//向上滚动 runshort: false,//内容不足时不滚动 scrollamount: 20//速度 } } //传入自定义配置 ds_liMarquee(&#39;#smtid&#39;, marconfig) 更多config说明:
+名称 类型 默认值 说明 direction 字符串 left 滚动方向，可选 left / right / up / down loop 整数 -1 循环次数，-1 为无限循环 scrolldelay 整数 0 每次重复之前的延迟 scrollamount 整数 50 滚动速度，越大越快 circular 布尔值 true 无缝滚动，如果为 false，则和 marquee 效果一样 drag 布尔值 true 鼠标可拖动 runshort 布尔值 true 内容不足是否滚动 hoverstop 布尔值 true 鼠标悬停暂停 xml 布尔值 false 加载xml 文件 inverthover 布尔值 false 反向，即默认不滚动，鼠标悬停滚动 内置滚动表格 # smartchart内置了滚动表格, 可以一键生成">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
 <meta property="og:description" content="通用滚动 # 例如你的html如下
-&lt;div id=&#34;smtid&#34; style=&#34;height:100%&#34;&gt; &lt;ul&gt; &lt;li&gt;smartchart&lt;/li&gt; &lt;li&gt;bigdata&lt;/li&gt; &lt;li&gt;echarts&lt;/li&gt; &lt;li&gt;make it great&lt;/li&gt; &lt;/ul&gt; &lt;/div&gt; 你只需要使用以下函数, 即可实现在无缝滚动 由于smtid是ID, 则使用 ds_liMarquee(&rsquo;#smtid&rsquo;) 即可开启自动滚动 如果 class=&ldquo;smtclass&rdquo;, 那么也可以使用类选择器 ds_liMarquee(&rsquo;.smtclass&#39;)
-我们也可以使用更多的配置方法
-marconfig={ playtime: 3000, //滚动3秒 pausetime: 3000, //停3秒 config:{ direction: &#39;up&#39;,//向上滚动 runshort: false,//内容不足时不滚动 scrollamount: 20//速度 } } 可以使用 ds_liMarquee(&rsquo;#smtid&rsquo;, marconfig) 传入配置
-更多config说明:
-名称 类型 默认值 说明 direction 字符串 left 滚动方向，可选 left / right / up / down loop 整数 -1 循环次数，-1 为无限循环 scrolldelay 整数 0 每次重复之前的延迟 scrollamount 整数 50 滚动速度，越大越快 circular 布尔值 true 无缝滚动，如果为 false，则和 marquee 效果一样 drag 布尔值 true 鼠标可拖动 runshort 布尔值 true 内容不足是否滚动 hoverstop 布尔值 true 鼠标悬停暂停 xml 布尔值 false 加载xml 文件 inverthover 布尔值 false 反向，即默认不滚动，鼠标悬停滚动 内置滚动表格 # smartchart内置了滚动表格, 可以一键生成 如果你需要修改表格的样式, 如字体,颜色等, 你可以在模板中重定义样式 具体样式的写法, 参考 样式快速入门" />
+&lt;div id=&#34;smtid&#34; style=&#34;height:100%&#34;&gt; &lt;ul&gt; &lt;li&gt;smartchart&lt;/li&gt; &lt;li&gt;bigdata&lt;/li&gt; &lt;li&gt;echarts&lt;/li&gt; &lt;li&gt;make it great&lt;/li&gt; &lt;/ul&gt; &lt;/div&gt; 你只需要在图形中使用以下函数, 即可实现在无缝滚动
+//smtid是滚动容器的ID ds_liMarquee(&#39;#smtid&#39;) //如果 class=&#34;smtclass&#34;, 那么也可以使用类选择器 ds_liMarquee(&#39;.smtclass&#39;) 我们也可以使用更多的配置方法
+marconfig={ playtime: 3000, //滚动3秒 pausetime: 3000, //停3秒 config:{ direction: &#39;up&#39;,//向上滚动 runshort: false,//内容不足时不滚动 scrollamount: 20//速度 } } //传入自定义配置 ds_liMarquee(&#39;#smtid&#39;, marconfig) 更多config说明:
+名称 类型 默认值 说明 direction 字符串 left 滚动方向，可选 left / right / up / down loop 整数 -1 循环次数，-1 为无限循环 scrolldelay 整数 0 每次重复之前的延迟 scrollamount 整数 50 滚动速度，越大越快 circular 布尔值 true 无缝滚动，如果为 false，则和 marquee 效果一样 drag 布尔值 true 鼠标可拖动 runshort 布尔值 true 内容不足是否滚动 hoverstop 布尔值 true 鼠标悬停暂停 xml 布尔值 false 加载xml 文件 inverthover 布尔值 false 反向，即默认不滚动，鼠标悬停滚动 内置滚动表格 # smartchart内置了滚动表格, 可以一键生成" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://help.smartchart.cn/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/%E7%89%B9%E6%AE%8A%E5%9B%BE%E5%BD%A2/%E6%97%A0%E7%BC%9D%E6%BB%9A%E5%8A%A8/" /><meta property="article:section" content="docs" />
 
@@ -27,7 +25,7 @@ marconfig={ playtime: 3000, //滚动3秒 pausetime: 3000, //停3秒 config:{ dir
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.eff5ead249bdb00bf7e8cf7706b90ecda1171dbc4487c7815e22ae0914f925a2.js" integrity="sha256-7/Xq0km9sAv36M93BrkOzaEXHbxEh8eBXiKuCRT5JaI=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.2303c3b073dd2c74e111bf72840f2b5118ffa228235011e8e7a7bb09478696a2.js" integrity="sha256-IwPDsHPdLHThEb9yhA8rURj/oigjUBHo56e7CUeGlqI=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -163,6 +161,32 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%8D%E6%9D%82%E6%8A%A5%E8%A1%A8/" class="">第一个复杂报表</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA3D%E5%9C%BA%E6%99%AF/" class="">第一个3D场景</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E4%B8%8A%E7%BA%BF%E6%95%B0%E6%8D%AE%E9%9B%86/" class="">第一个上线数据集</a>
   
 
         </li>
@@ -368,81 +392,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E5%85%B1%E4%BA%AB%E6%95%B0%E6%8D%AE%E9%9B%86/" class="">共享数据集</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
     <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E6%95%B0%E6%8D%AE%E5%88%B7%E6%96%B0/" class="">数据集数据刷新</a>
   
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E6%87%92%E5%8A%A0%E8%BD%BD/" class="">数据集懒加载</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-9297282a5313a9b54d7163ab91c1089a" class="toggle"  />
-    <label for="section-9297282a5313a9b54d7163ab91c1089a" class="flex justify-between">
-      <a role="button" class="">Excel数据</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/EXCEL%E6%95%B0%E6%8D%AE/%E4%BB%8EEXCEL%E7%B2%98%E8%B4%B4%E6%95%B0%E6%8D%AE/" class="">从 Excel粘贴数据</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/EXCEL%E6%95%B0%E6%8D%AE/%E6%95%B0%E6%8D%AE%E4%B8%8A%E4%BC%A0/" class="">数据上传</a>
-  
-
-        </li>
-      
-    
-  </ul>
 
         </li>
       
@@ -483,6 +434,19 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/%E4%BD%BF%E7%94%A8EXCEL%E6%95%B0%E6%8D%AE/" class="">使用 Excel数据</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
     <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/Python%E6%95%B0%E6%8D%AE%E9%9B%86/" class="">Python数据集</a>
   
 
@@ -497,6 +461,19 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE%E6%BA%90/" class="">自定义数据源</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/webSocket%E6%96%B9%E5%BC%8F/" class="">Web Socket方式</a>
   
 
         </li>
@@ -561,6 +538,19 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/promitheus%E6%95%B0%E6%8D%AE%E6%BA%90/" class="">Promitheus数据源</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
     <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/Redis%E6%95%B0%E6%8D%AE%E6%BA%90/" class="">Redis数据源</a>
   
 
@@ -575,6 +565,53 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/sqlalchemy%E8%BF%9E%E6%8E%A5/" class="">Sqlalchemy连接</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b696a5333fb0b6aa0ada2335e5fe864c" class="toggle"  />
+    <label for="section-b696a5333fb0b6aa0ada2335e5fe864c" class="flex justify-between">
+      <a role="button" class="">数据集形态</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E5%BD%A2%E6%80%81/%E5%85%B1%E4%BA%AB%E6%95%B0%E6%8D%AE%E9%9B%86/" class="">共享数据集</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E5%BD%A2%E6%80%81/%E6%95%B0%E6%8D%AE%E9%9B%86%E6%87%92%E5%8A%A0%E8%BD%BD/" class="">数据集懒加载</a>
   
 
         </li>
@@ -885,53 +922,6 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
     
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-e562f2d46bae3fd1d44d386234399fae" class="toggle"  />
-    <label for="section-e562f2d46bae3fd1d44d386234399fae" class="flex justify-between">
-      <a role="button" class="">不常用</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/4.%E5%B8%83%E5%B1%80%E8%AF%B4%E6%98%8E/%E4%B8%8D%E5%B8%B8%E7%94%A8/%E4%BB%A3%E7%A0%81%E8%BD%AC%E5%8C%96%E5%B8%83%E5%B1%80/" class="">代码转化布局</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/4.%E5%B8%83%E5%B1%80%E8%AF%B4%E6%98%8E/%E4%B8%8D%E5%B8%B8%E7%94%A8/%E5%AE%B9%E5%99%A8%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2/" class="">容器管理界面</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
   </ul>
 
         </li>
@@ -1158,7 +1148,23 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%AE%9E%E6%88%98%E5%A4%A7%E5%B1%8F%E6%A8%A1%E6%9D%BF%E8%BD%AC%E5%8C%96/" class="">实战大屏模板转化</a>
+    <input type="checkbox" id="section-2b5b070b11b526d911f2143b53347842" class="toggle"  />
+    <label for="section-2b5b070b11b526d911f2143b53347842" class="flex justify-between">
+      <a role="button" class="">数据服务</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1API/" class="">数据服务 API</a>
   
 
         </li>
@@ -1171,7 +1177,51 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1API/" class="">数据服务 API</a>
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD/" class="">数据下载</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E5%A1%AB%E6%8A%A5/" class="">数据填报</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E5%90%8E%E5%8F%B0API%E5%88%B7%E6%96%B0/" class="">后台 Api刷新</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%AE%9E%E6%88%98%E5%A4%A7%E5%B1%8F%E6%A8%A1%E6%9D%BF%E8%BD%AC%E5%8C%96/" class="">实战大屏模板转化</a>
   
 
         </li>
@@ -1197,59 +1247,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD/" class="">数据下载</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E5%A1%AB%E6%8A%A5/" class="">数据填报</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
     <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A6%96%E9%A1%B5/" class="">自定义首页</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%90%8E%E5%8F%B0API%E5%88%B7%E6%96%B0/" class="">后台 Api刷新</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/webSocket%E6%96%B9%E5%BC%8F/" class="">Web Socket方式</a>
   
 
         </li>
@@ -1626,29 +1624,32 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#%e9%80%9a%e7%94%a8%e6%bb%9a%e5%8a%a8">#</a>
 </h3>
 <p>例如你的html如下</p>
-<pre tabindex="0"><code>&lt;div id=&#34;smtid&#34; style=&#34;height:100%&#34;&gt;
-    &lt;ul&gt;
-        &lt;li&gt;smartchart&lt;/li&gt;
-        &lt;li&gt;bigdata&lt;/li&gt;
-        &lt;li&gt;echarts&lt;/li&gt;
-        &lt;li&gt;make it great&lt;/li&gt;
-    &lt;/ul&gt;
-&lt;/div&gt;
-</code></pre><p>你只需要使用以下函数, 即可实现在无缝滚动
-由于smtid是ID, 则使用 ds_liMarquee(&rsquo;#smtid&rsquo;) 即可开启自动滚动
-如果 class=&ldquo;smtclass&rdquo;, 那么也可以使用类选择器 ds_liMarquee(&rsquo;.smtclass')</p>
-<p>我们也可以使用更多的配置方法</p>
-<pre tabindex="0"><code> marconfig={
-    playtime: 3000, //滚动3秒
-    pausetime: 3000, //停3秒
-    config:{
-        direction: &#39;up&#39;,//向上滚动
-        runshort: false,//内容不足时不滚动
-        scrollamount: 20//速度
-    }
- }
-</code></pre><p>可以使用 ds_liMarquee(&rsquo;#smtid&rsquo;, marconfig) 传入配置</p>
-<p>更多config说明:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;smtid&#34;</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;height:100%&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">ul</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">li</span>&gt;smartchart&lt;/<span style="color:#f92672">li</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">li</span>&gt;bigdata&lt;/<span style="color:#f92672">li</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">li</span>&gt;echarts&lt;/<span style="color:#f92672">li</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">li</span>&gt;make it great&lt;/<span style="color:#f92672">li</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">ul</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span></code></pre></div><p>你只需要在图形中使用以下函数, 即可实现在无缝滚动</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">//smtid是滚动容器的ID
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">ds_liMarquee</span>(<span style="color:#e6db74">&#39;#smtid&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//如果 class=&#34;smtclass&#34;, 那么也可以使用类选择器
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">ds_liMarquee</span>(<span style="color:#e6db74">&#39;.smtclass&#39;</span>)
+</span></span></code></pre></div><p>我们也可以使用更多的配置方法</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span> <span style="color:#a6e22e">marconfig</span><span style="color:#f92672">=</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">playtime</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">3000</span>, <span style="color:#75715e">//滚动3秒
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">pausetime</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">3000</span>, <span style="color:#75715e">//停3秒
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">config</span><span style="color:#f92672">:</span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">direction</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;up&#39;</span>,<span style="color:#75715e">//向上滚动
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">runshort</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,<span style="color:#75715e">//内容不足时不滚动
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">scrollamount</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">20</span><span style="color:#75715e">//速度
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span> }
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//传入自定义配置 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">ds_liMarquee</span>(<span style="color:#e6db74">&#39;#smtid&#39;</span>, <span style="color:#a6e22e">marconfig</span>)
+</span></span></code></pre></div><p>更多config说明:</p>
 <table>
 <thead>
 <tr>
@@ -1725,56 +1726,61 @@ https://github.com/alex-shpak/hugo-book
   内置滚动表格
   <a class="anchor" href="#%e5%86%85%e7%bd%ae%e6%bb%9a%e5%8a%a8%e8%a1%a8%e6%a0%bc">#</a>
 </h3>
-<p>smartchart内置了滚动表格, 可以一键生成
-如果你需要修改表格的样式, 如字体,颜色等, 你可以在模板中重定义样式
-具体样式的写法, 参考 
+<p>smartchart内置了滚动表格, 可以一键生成</p>
+<h4 id="样式自定义">
+  样式自定义
+  <a class="anchor" href="#%e6%a0%b7%e5%bc%8f%e8%87%aa%e5%ae%9a%e4%b9%89">#</a>
+</h4>
+<p>如需修改表格的样式, 如字体,颜色等, 可以在模板中重定义样式
+具体样式写法, 参考 
   <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91/%E6%A0%B7%E5%BC%8F%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/">样式快速入门</a></p>
-<pre tabindex="0"><code>如下例修改表头高度为5rem, 内容单元格高度3rem 及背景字体等
-/*表头样式*/
-.smtlisthead{
-    background: #fff2cc;
-    color: red;
-    height: 5rem;
-}
-
-.smtlisthead span{
-    height: 5rem;
-}
-
-/*表格本体样式*/
-.smtlistnav{
-    height: calc(100% - 5rem);
-    color: red;
-    overflow: auto;
-}
-
-.smtlistnav li span{
-    height: 3rem;
-}
-
-
-/*修改奇数行背景*/
-.smtlistnav ul li:nth-child(odd){ background: rgba(100,100,100,.1);}
-偶数行将odd改为even
-
-/*指定某单独格宽度对齐*/
-&lt;span&gt;
-  &lt;span style=&#34;width:32rem;height:100%;flex-shrink:0;justify-content:left&#34;&gt;&lt;span&gt;
-&lt;/span&gt;
-
-/*单元格点击响应*/
-let lastClickDom;
-let lastDomColor;
-$(&#39;#smtlist__name__, li&#39;).click(function(params){
-    try{lastClickDom.css(&#39;background&#39;, lastDomColor)}catch{}
-    lastDomColor = $(this).css(&#39;background&#39;);
-    $(this).css(&#39;background&#39;, &#39;yellow&#39;);
-    lastClickDom = $(this);
-    let myparam = $(this).children(&#39;span&#39;).eq(0).text(); //获取点击的参数
-    //以下加入你的action
-    
-});
-</code></pre></article>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#75715e">/*表头样式*/</span>
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">smtlisthead</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">background</span>: <span style="color:#ae81ff">#fff2cc</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">red</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">5</span><span style="color:#66d9ef">rem</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">smtlisthead</span> <span style="color:#f92672">span</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">5</span><span style="color:#66d9ef">rem</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/*表格本体样式*/</span>
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">smtlistnav</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">height</span>: calc(<span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">5</span><span style="color:#66d9ef">rem</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">red</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">overflow</span>: <span style="color:#66d9ef">auto</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">smtlistnav</span> <span style="color:#f92672">li</span> <span style="color:#f92672">span</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">3</span><span style="color:#66d9ef">rem</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/*修改奇数行背景,偶数行将odd改为even*/</span>
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">smtlistnav</span> <span style="color:#f92672">ul</span> <span style="color:#f92672">li</span>:<span style="color:#a6e22e">nth-child</span><span style="color:#f92672">(</span><span style="color:#f92672">odd</span><span style="color:#f92672">)</span>{ <span style="color:#66d9ef">background</span>: rgba(<span style="color:#ae81ff">100</span>,<span style="color:#ae81ff">100</span>,<span style="color:#ae81ff">100</span>,<span style="color:#ae81ff">.1</span>);}
+</span></span></code></pre></div><h4 id="指定某单元格宽度对齐">
+  指定某单元格宽度对齐
+  <a class="anchor" href="#%e6%8c%87%e5%ae%9a%e6%9f%90%e5%8d%95%e5%85%83%e6%a0%bc%e5%ae%bd%e5%ba%a6%e5%af%b9%e9%bd%90">#</a>
+</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">span</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width:32rem;height:100%;flex-shrink:0;justify-content:left&#34;</span>&gt;&lt;<span style="color:#f92672">span</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">span</span>&gt;
+</span></span></code></pre></div><h4 id="单元格点击响应">
+  单元格点击响应
+  <a class="anchor" href="#%e5%8d%95%e5%85%83%e6%a0%bc%e7%82%b9%e5%87%bb%e5%93%8d%e5%ba%94">#</a>
+</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">lastClickDom</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">lastDomColor</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;#smtlist__name__, li&#39;</span>).<span style="color:#a6e22e">click</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">params</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>{<span style="color:#a6e22e">lastClickDom</span>.<span style="color:#a6e22e">css</span>(<span style="color:#e6db74">&#39;background&#39;</span>, <span style="color:#a6e22e">lastDomColor</span>)}<span style="color:#66d9ef">catch</span>{}
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">lastDomColor</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$</span>(<span style="color:#66d9ef">this</span>).<span style="color:#a6e22e">css</span>(<span style="color:#e6db74">&#39;background&#39;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">$</span>(<span style="color:#66d9ef">this</span>).<span style="color:#a6e22e">css</span>(<span style="color:#e6db74">&#39;background&#39;</span>, <span style="color:#e6db74">&#39;yellow&#39;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">lastClickDom</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$</span>(<span style="color:#66d9ef">this</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">myparam</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$</span>(<span style="color:#66d9ef">this</span>).<span style="color:#a6e22e">children</span>(<span style="color:#e6db74">&#39;span&#39;</span>).<span style="color:#a6e22e">eq</span>(<span style="color:#ae81ff">0</span>).<span style="color:#a6e22e">text</span>(); <span style="color:#75715e">//获取点击的参数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">//以下加入你的action
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div></article>
  
       
 

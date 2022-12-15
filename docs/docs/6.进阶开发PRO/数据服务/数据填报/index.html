@@ -3,35 +3,23 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="应用场景 # 有ETL流程，需要等待后台数据刷新完成后，再触发仪表盘的刷新，数据未完成刷新，仪表盘不刷新 针对有一些耗时的查询, 虽然smartchart有缓存加速, 但是在第一次刷新时可能不能达到极速 用户需要随时都能体验到极速的打开效果 使用后台API刷新，建意将仪表盘中数据集的缓存时间设置长一些，比如2天（2880分钟）
-后台数据主动刷新接口 # (购买专业版本后支持)
-你需要在setting.py中设定API_TOKEN API_TOKEN = &#39;xxxxxxxx&#39; 找到你要刷新的仪表盘编码, 你可以在打开的仪表盘url上面找到这个type id
-后台访问如下api url即可
-http://ip:端口/echart/refresh_ds/?type=你的报表ID&amp;token=你设定的API_TOKEN 关于定时刷新 # 为保持产品的轻量化及坚持专业的产品做专业的事情, 归一化统一化的架构设计, 我们不会集成相关调度系统, 一般我们推荐使用您自有的调度工具或平台, 如airflow, 我们也有相关的配套产品
-如果您仅仅是简单应用, 也无需使用专用调度来增加运维复杂度, 可以使用linux自带的即可
-新建一个sh文件, 假设目录在/data/smartchart vim refresh_smartchart.sh 写入需要刷新的脚本 echo start refresh $(date &#34;&#43;%Y-%m-%d %H:%M:%S&#34;) curl http://ip:端口/echart/?type=你的报表ID1&amp;token=你设定的API_TOKEN curl http://ip:端口/echart/?type=你的报表ID2&amp;token=你设定的API_TOKEN echo end refresh $(date &#34;&#43;%Y-%m-%d %H:%M:%S&#34;) 如果你的网址是https, 可如下方法使用curl
-curl -k --insecure &#34;https://www.baidu.com” 修改为可执行文件 chmod 775 refresh_smartchart.sh 使用crontab来定时执行 # 编辑crontab crontab -e # 比如需要每天晚上5点10分执行 10 5 * * * /data/smartchart/refresh_smartchart.">
+<meta name="description" content="应用场景 # 收集用户端录入的数据 前端处理好的数据回写到任意系统 制做问卷系统 埋点应用 使用方法 # 新建一个懒加载数据集,填写内容格式如下: # 如果需将数据保存到对应的表名 dataset={ &#34;table&#34;:&#34;表名&#34; } 如需指定字段, 可如下方式填写 dataset={ &#34;table&#34;:&#34;表名(字段1, 字段2)&#34; } 在&quot;模板&quot;中编写录入组件代码, # 具体可参考视屏
+&lt;h1 class=&#34;smtdrag&#34; id=&#34;id_1648895680659&#34;&gt;数据填报&lt;/h1&gt; &lt;div class=&#34;smtdrag&#34; id=&#34;id_1648895855760&#34;&gt; &lt;label&gt;用户&lt;/label&gt;&lt;input id=&#34;id_visitor&#34;&gt; &lt;/div&gt; &lt;div class=&#34;smtdrag&#34; id=&#34;id_1648895859160&#34;&gt; &lt;label&gt;动作&lt;/label&gt;&lt;input id=&#34;id_action&#34;&gt; &lt;/div&gt; &lt;div class=&#34;smtdrag&#34; id=&#34;id_1648895956207&#34;&gt; &lt;button id=&#34;idbtn01&#34;&gt;提交&lt;/button&gt; &lt;/div&gt; 在&quot;模板&quot; 中编写JS代码 $(&#39;#idbtn01&#39;).click(function(){ //获取填写的数据 let visitor = $(&#39;#id_visitor&#39;).val(); let action = $(&#39;#id_action&#39;).val(); //拼接一个填写好的数组 let dataset = [visitor, action]; //上传填写的数据 //0:为上文新建的数据集序号, dataset:要写入的数据 print(ds_save(0, dataset)); }) 更多关于写入数据库的数据集格式说明 # //只写入一行数据, 样列如下: dataset = [&#39;a&#39;,&#39;b&#39;] //同时写入多行数据: dataset = [[], [&#39;a1&#39;,&#39;b1&#39;],[&#39;a2&#39;, &#39;b2&#39;]] //如果需要自动记录写入者用户名: dataset = [&#39;$username&#39;, &#39;b&#39;] mongodb写入方式">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
-<meta property="og:description" content="应用场景 # 有ETL流程，需要等待后台数据刷新完成后，再触发仪表盘的刷新，数据未完成刷新，仪表盘不刷新 针对有一些耗时的查询, 虽然smartchart有缓存加速, 但是在第一次刷新时可能不能达到极速 用户需要随时都能体验到极速的打开效果 使用后台API刷新，建意将仪表盘中数据集的缓存时间设置长一些，比如2天（2880分钟）
-后台数据主动刷新接口 # (购买专业版本后支持)
-你需要在setting.py中设定API_TOKEN API_TOKEN = &#39;xxxxxxxx&#39; 找到你要刷新的仪表盘编码, 你可以在打开的仪表盘url上面找到这个type id
-后台访问如下api url即可
-http://ip:端口/echart/refresh_ds/?type=你的报表ID&amp;token=你设定的API_TOKEN 关于定时刷新 # 为保持产品的轻量化及坚持专业的产品做专业的事情, 归一化统一化的架构设计, 我们不会集成相关调度系统, 一般我们推荐使用您自有的调度工具或平台, 如airflow, 我们也有相关的配套产品
-如果您仅仅是简单应用, 也无需使用专用调度来增加运维复杂度, 可以使用linux自带的即可
-新建一个sh文件, 假设目录在/data/smartchart vim refresh_smartchart.sh 写入需要刷新的脚本 echo start refresh $(date &#34;&#43;%Y-%m-%d %H:%M:%S&#34;) curl http://ip:端口/echart/?type=你的报表ID1&amp;token=你设定的API_TOKEN curl http://ip:端口/echart/?type=你的报表ID2&amp;token=你设定的API_TOKEN echo end refresh $(date &#34;&#43;%Y-%m-%d %H:%M:%S&#34;) 如果你的网址是https, 可如下方法使用curl
-curl -k --insecure &#34;https://www.baidu.com” 修改为可执行文件 chmod 775 refresh_smartchart.sh 使用crontab来定时执行 # 编辑crontab crontab -e # 比如需要每天晚上5点10分执行 10 5 * * * /data/smartchart/refresh_smartchart." />
+<meta property="og:description" content="应用场景 # 收集用户端录入的数据 前端处理好的数据回写到任意系统 制做问卷系统 埋点应用 使用方法 # 新建一个懒加载数据集,填写内容格式如下: # 如果需将数据保存到对应的表名 dataset={ &#34;table&#34;:&#34;表名&#34; } 如需指定字段, 可如下方式填写 dataset={ &#34;table&#34;:&#34;表名(字段1, 字段2)&#34; } 在&quot;模板&quot;中编写录入组件代码, # 具体可参考视屏
+&lt;h1 class=&#34;smtdrag&#34; id=&#34;id_1648895680659&#34;&gt;数据填报&lt;/h1&gt; &lt;div class=&#34;smtdrag&#34; id=&#34;id_1648895855760&#34;&gt; &lt;label&gt;用户&lt;/label&gt;&lt;input id=&#34;id_visitor&#34;&gt; &lt;/div&gt; &lt;div class=&#34;smtdrag&#34; id=&#34;id_1648895859160&#34;&gt; &lt;label&gt;动作&lt;/label&gt;&lt;input id=&#34;id_action&#34;&gt; &lt;/div&gt; &lt;div class=&#34;smtdrag&#34; id=&#34;id_1648895956207&#34;&gt; &lt;button id=&#34;idbtn01&#34;&gt;提交&lt;/button&gt; &lt;/div&gt; 在&quot;模板&quot; 中编写JS代码 $(&#39;#idbtn01&#39;).click(function(){ //获取填写的数据 let visitor = $(&#39;#id_visitor&#39;).val(); let action = $(&#39;#id_action&#39;).val(); //拼接一个填写好的数组 let dataset = [visitor, action]; //上传填写的数据 //0:为上文新建的数据集序号, dataset:要写入的数据 print(ds_save(0, dataset)); }) 更多关于写入数据库的数据集格式说明 # //只写入一行数据, 样列如下: dataset = [&#39;a&#39;,&#39;b&#39;] //同时写入多行数据: dataset = [[], [&#39;a1&#39;,&#39;b1&#39;],[&#39;a2&#39;, &#39;b2&#39;]] //如果需要自动记录写入者用户名: dataset = [&#39;$username&#39;, &#39;b&#39;] mongodb写入方式" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%90%8E%E5%8F%B0API%E5%88%B7%E6%96%B0/" /><meta property="article:section" content="docs" />
+<meta property="og:url" content="https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E5%A1%AB%E6%8A%A5/" /><meta property="article:section" content="docs" />
 
 
 
-<title>后台 Api刷新 | Smartchart开发手册</title>
+<title>数据填报 | Smartchart开发手册</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.eff5ead249bdb00bf7e8cf7706b90ecda1171dbc4487c7815e22ae0914f925a2.js" integrity="sha256-7/Xq0km9sAv36M93BrkOzaEXHbxEh8eBXiKuCRT5JaI=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.2303c3b073dd2c74e111bf72840f2b5118ffa228235011e8e7a7bb09478696a2.js" integrity="sha256-IwPDsHPdLHThEb9yhA8rURj/oigjUBHo56e7CUeGlqI=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -167,6 +155,32 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%8D%E6%9D%82%E6%8A%A5%E8%A1%A8/" class="">第一个复杂报表</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA3D%E5%9C%BA%E6%99%AF/" class="">第一个3D场景</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E4%B8%8A%E7%BA%BF%E6%95%B0%E6%8D%AE%E9%9B%86/" class="">第一个上线数据集</a>
   
 
         </li>
@@ -372,81 +386,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E5%85%B1%E4%BA%AB%E6%95%B0%E6%8D%AE%E9%9B%86/" class="">共享数据集</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
     <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E6%95%B0%E6%8D%AE%E5%88%B7%E6%96%B0/" class="">数据集数据刷新</a>
   
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E6%87%92%E5%8A%A0%E8%BD%BD/" class="">数据集懒加载</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-9297282a5313a9b54d7163ab91c1089a" class="toggle"  />
-    <label for="section-9297282a5313a9b54d7163ab91c1089a" class="flex justify-between">
-      <a role="button" class="">Excel数据</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/EXCEL%E6%95%B0%E6%8D%AE/%E4%BB%8EEXCEL%E7%B2%98%E8%B4%B4%E6%95%B0%E6%8D%AE/" class="">从 Excel粘贴数据</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/EXCEL%E6%95%B0%E6%8D%AE/%E6%95%B0%E6%8D%AE%E4%B8%8A%E4%BC%A0/" class="">数据上传</a>
-  
-
-        </li>
-      
-    
-  </ul>
 
         </li>
       
@@ -487,6 +428,19 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/%E4%BD%BF%E7%94%A8EXCEL%E6%95%B0%E6%8D%AE/" class="">使用 Excel数据</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
     <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/Python%E6%95%B0%E6%8D%AE%E9%9B%86/" class="">Python数据集</a>
   
 
@@ -501,6 +455,19 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE%E6%BA%90/" class="">自定义数据源</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/webSocket%E6%96%B9%E5%BC%8F/" class="">Web Socket方式</a>
   
 
         </li>
@@ -565,6 +532,19 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/promitheus%E6%95%B0%E6%8D%AE%E6%BA%90/" class="">Promitheus数据源</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
     <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/Redis%E6%95%B0%E6%8D%AE%E6%BA%90/" class="">Redis数据源</a>
   
 
@@ -579,6 +559,53 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/sqlalchemy%E8%BF%9E%E6%8E%A5/" class="">Sqlalchemy连接</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b696a5333fb0b6aa0ada2335e5fe864c" class="toggle"  />
+    <label for="section-b696a5333fb0b6aa0ada2335e5fe864c" class="flex justify-between">
+      <a role="button" class="">数据集形态</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E5%BD%A2%E6%80%81/%E5%85%B1%E4%BA%AB%E6%95%B0%E6%8D%AE%E9%9B%86/" class="">共享数据集</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E5%BD%A2%E6%80%81/%E6%95%B0%E6%8D%AE%E9%9B%86%E6%87%92%E5%8A%A0%E8%BD%BD/" class="">数据集懒加载</a>
   
 
         </li>
@@ -889,53 +916,6 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
     
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-e562f2d46bae3fd1d44d386234399fae" class="toggle"  />
-    <label for="section-e562f2d46bae3fd1d44d386234399fae" class="flex justify-between">
-      <a role="button" class="">不常用</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/4.%E5%B8%83%E5%B1%80%E8%AF%B4%E6%98%8E/%E4%B8%8D%E5%B8%B8%E7%94%A8/%E4%BB%A3%E7%A0%81%E8%BD%AC%E5%8C%96%E5%B8%83%E5%B1%80/" class="">代码转化布局</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/4.%E5%B8%83%E5%B1%80%E8%AF%B4%E6%98%8E/%E4%B8%8D%E5%B8%B8%E7%94%A8/%E5%AE%B9%E5%99%A8%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2/" class="">容器管理界面</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
   </ul>
 
         </li>
@@ -1162,7 +1142,23 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%AE%9E%E6%88%98%E5%A4%A7%E5%B1%8F%E6%A8%A1%E6%9D%BF%E8%BD%AC%E5%8C%96/" class="">实战大屏模板转化</a>
+    <input type="checkbox" id="section-2b5b070b11b526d911f2143b53347842" class="toggle" checked />
+    <label for="section-2b5b070b11b526d911f2143b53347842" class="flex justify-between">
+      <a role="button" class="">数据服务</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1API/" class="">数据服务 API</a>
   
 
         </li>
@@ -1175,7 +1171,51 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1API/" class="">数据服务 API</a>
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD/" class="">数据下载</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E5%A1%AB%E6%8A%A5/" class="active">数据填报</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E5%90%8E%E5%8F%B0API%E5%88%B7%E6%96%B0/" class="">后台 Api刷新</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%AE%9E%E6%88%98%E5%A4%A7%E5%B1%8F%E6%A8%A1%E6%9D%BF%E8%BD%AC%E5%8C%96/" class="">实战大屏模板转化</a>
   
 
         </li>
@@ -1201,59 +1241,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD/" class="">数据下载</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E5%A1%AB%E6%8A%A5/" class="">数据填报</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
     <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A6%96%E9%A1%B5/" class="">自定义首页</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%90%8E%E5%8F%B0API%E5%88%B7%E6%96%B0/" class="active">后台 Api刷新</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/webSocket%E6%96%B9%E5%BC%8F/" class="">Web Socket方式</a>
   
 
         </li>
@@ -1587,7 +1575,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>后台 Api刷新</strong>
+  <strong>数据填报</strong>
 
   <label for="toc-control">
     
@@ -1608,8 +1596,8 @@ https://github.com/alex-shpak/hugo-book
         <li>
           <ul>
             <li><a href="#应用场景">应用场景</a></li>
-            <li><a href="#后台数据主动刷新接口">后台数据主动刷新接口</a></li>
-            <li><a href="#关于定时刷新">关于定时刷新</a></li>
+            <li><a href="#使用方法">使用方法</a></li>
+            <li><a href="#更多关于写入数据库的数据集格式说明">更多关于写入数据库的数据集格式说明</a></li>
           </ul>
         </li>
       </ul>
@@ -1631,75 +1619,76 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#%e5%ba%94%e7%94%a8%e5%9c%ba%e6%99%af">#</a>
 </h3>
 <ul>
-<li>有ETL流程，需要等待后台数据刷新完成后，再触发仪表盘的刷新，数据未完成刷新，仪表盘不刷新</li>
-<li>针对有一些耗时的查询, 虽然smartchart有缓存加速, 但是在第一次刷新时可能不能达到极速</li>
-<li>用户需要随时都能体验到极速的打开效果</li>
+<li>收集用户端录入的数据</li>
+<li>前端处理好的数据回写到任意系统</li>
+<li>制做问卷系统</li>
+<li>埋点应用</li>
 </ul>
-<blockquote>
-<p>使用后台API刷新，建意将仪表盘中数据集的缓存时间设置长一些，比如2天（2880分钟）</p>
-</blockquote>
-<h3 id="后台数据主动刷新接口">
-  后台数据主动刷新接口
-  <a class="anchor" href="#%e5%90%8e%e5%8f%b0%e6%95%b0%e6%8d%ae%e4%b8%bb%e5%8a%a8%e5%88%b7%e6%96%b0%e6%8e%a5%e5%8f%a3">#</a>
+<h3 id="使用方法">
+  使用方法
+  <a class="anchor" href="#%e4%bd%bf%e7%94%a8%e6%96%b9%e6%b3%95">#</a>
 </h3>
-<p>(购买专业版本后支持)</p>
-<ol>
-<li>你需要在setting.py中设定API_TOKEN</li>
-</ol>
-<pre tabindex="0"><code>API_TOKEN = &#39;xxxxxxxx&#39;
-</code></pre><ol start="2">
-<li>
-<p>找到你要刷新的仪表盘编码, 你可以在打开的仪表盘url上面找到这个type id</p>
-</li>
-<li>
-<p>后台访问如下api url即可</p>
-</li>
-</ol>
-<pre tabindex="0"><code>http://ip:端口/echart/refresh_ds/?type=你的报表ID&amp;token=你设定的API_TOKEN
-</code></pre><h3 id="关于定时刷新">
-  关于定时刷新
-  <a class="anchor" href="#%e5%85%b3%e4%ba%8e%e5%ae%9a%e6%97%b6%e5%88%b7%e6%96%b0">#</a>
-</h3>
-<p>为保持产品的轻量化及坚持专业的产品做专业的事情, 归一化统一化的架构设计, 我们不会集成相关调度系统,
-一般我们推荐使用您自有的调度工具或平台, 如airflow, 我们也有相关的配套产品</p>
-<p>如果您仅仅是简单应用, 也无需使用专用调度来增加运维复杂度, 可以使用linux自带的即可</p>
+<h4 id="新建一个懒加载数据集填写内容格式如下">
+  新建一个懒加载数据集,填写内容格式如下:
+  <a class="anchor" href="#%e6%96%b0%e5%bb%ba%e4%b8%80%e4%b8%aa%e6%87%92%e5%8a%a0%e8%bd%bd%e6%95%b0%e6%8d%ae%e9%9b%86%e5%a1%ab%e5%86%99%e5%86%85%e5%ae%b9%e6%a0%bc%e5%bc%8f%e5%a6%82%e4%b8%8b">#</a>
+</h4>
 <ul>
-<li>新建一个sh文件, 假设目录在/data/smartchart</li>
+<li>如果需将数据保存到对应的表名</li>
 </ul>
-<pre tabindex="0"><code>vim refresh_smartchart.sh
-</code></pre><ul>
-<li>写入需要刷新的脚本</li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>dataset<span style="color:#f92672">=</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;table&#34;</span>:<span style="color:#e6db74">&#34;表名&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>如需指定字段, 可如下方式填写</li>
 </ul>
-<pre tabindex="0"><code>echo  start refresh $(date &#34;+%Y-%m-%d %H:%M:%S&#34;)
-curl  http://ip:端口/echart/?type=你的报表ID1&amp;token=你设定的API_TOKEN
-curl  http://ip:端口/echart/?type=你的报表ID2&amp;token=你设定的API_TOKEN
-echo  end refresh $(date &#34;+%Y-%m-%d %H:%M:%S&#34;)
-</code></pre><blockquote>
-<p>如果你的网址是https, 可如下方法使用curl</p>
-</blockquote>
-<pre tabindex="0"><code>curl -k --insecure &#34;https://www.baidu.com”
-</code></pre><ul>
-<li>修改为可执行文件</li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>dataset<span style="color:#f92672">=</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;table&#34;</span>:<span style="color:#e6db74">&#34;表名(字段1, 字段2)&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="在模板中编写录入组件代码">
+  在&quot;模板&quot;中编写录入组件代码,
+  <a class="anchor" href="#%e5%9c%a8%e6%a8%a1%e6%9d%bf%e4%b8%ad%e7%bc%96%e5%86%99%e5%bd%95%e5%85%a5%e7%bb%84%e4%bb%b6%e4%bb%a3%e7%a0%81">#</a>
+</h4>
+<p>
+  <a href="https://www.ixigua.com/7081979465198207500">具体可参考视屏</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>    &lt;<span style="color:#f92672">h1</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;smtdrag&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;id_1648895680659&#34;</span>&gt;数据填报&lt;/<span style="color:#f92672">h1</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;smtdrag&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;id_1648895855760&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">label</span>&gt;用户&lt;/<span style="color:#f92672">label</span>&gt;&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;id_visitor&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;smtdrag&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;id_1648895859160&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">label</span>&gt;动作&lt;/<span style="color:#f92672">label</span>&gt;&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;id_action&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;smtdrag&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;id_1648895956207&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;idbtn01&#34;</span>&gt;提交&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span></code></pre></div><p>
+  <img referrerpolicy="no-referrer" src="https://images.gitee.com/uploads/images/2022/0402/211149_67f80d32_5500438.png" alt="输入图片说明" title="屏幕截图.png"/></p>
+<ul>
+<li>在&quot;模板&quot; 中编写JS代码</li>
 </ul>
-<pre tabindex="0"><code>chmod 775 refresh_smartchart.sh
-</code></pre><ul>
-<li>使用crontab来定时执行</li>
-</ul>
-<pre tabindex="0"><code># 编辑crontab
-crontab -e
-# 比如需要每天晚上5点10分执行
-10 5 * * * /data/smartchart/refresh_smartchart.sh &gt;&gt;/data/smartchart/log.txt 2&gt;&amp;1
-
-# 定时参数说明
-*    *    *    *    *
--    -    -    -    -
-|    |    |    |    |
-|    |    |    |    +----- 星期中星期几 (0 - 6) (星期天 为0)
-|    |    |    +---------- 月份 (1 - 12) 
-|    |    +--------------- 一个月中的第几天 (1 - 31)
-|    +-------------------- 小时 (0 - 23)
-+------------------------- 分钟 (0 - 59)
-</code></pre></article>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>   <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;#idbtn01&#39;</span>).<span style="color:#a6e22e">click</span>(<span style="color:#66d9ef">function</span>(){
+</span></span><span style="display:flex;"><span>       <span style="color:#75715e">//获取填写的数据
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>       <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">visitor</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;#id_visitor&#39;</span>).<span style="color:#a6e22e">val</span>();
+</span></span><span style="display:flex;"><span>       <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">action</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;#id_action&#39;</span>).<span style="color:#a6e22e">val</span>();
+</span></span><span style="display:flex;"><span>       <span style="color:#75715e">//拼接一个填写好的数组
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>       <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">dataset</span> <span style="color:#f92672">=</span> [<span style="color:#a6e22e">visitor</span>, <span style="color:#a6e22e">action</span>];
+</span></span><span style="display:flex;"><span>       <span style="color:#75715e">//上传填写的数据
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>       <span style="color:#75715e">//0:为上文新建的数据集序号, dataset:要写入的数据
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>       <span style="color:#a6e22e">print</span>(<span style="color:#a6e22e">ds_save</span>(<span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">dataset</span>));
+</span></span><span style="display:flex;"><span>   })
+</span></span></code></pre></div><h3 id="更多关于写入数据库的数据集格式说明">
+  更多关于写入数据库的数据集格式说明
+  <a class="anchor" href="#%e6%9b%b4%e5%a4%9a%e5%85%b3%e4%ba%8e%e5%86%99%e5%85%a5%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e6%95%b0%e6%8d%ae%e9%9b%86%e6%a0%bc%e5%bc%8f%e8%af%b4%e6%98%8e">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">//只写入一行数据, 样列如下:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">dataset</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;a&#39;</span>,<span style="color:#e6db74">&#39;b&#39;</span>]
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//同时写入多行数据:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">dataset</span> <span style="color:#f92672">=</span> [[], [<span style="color:#e6db74">&#39;a1&#39;</span>,<span style="color:#e6db74">&#39;b1&#39;</span>],[<span style="color:#e6db74">&#39;a2&#39;</span>, <span style="color:#e6db74">&#39;b2&#39;</span>]]
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//如果需要自动记录写入者用户名:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">dataset</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;$username&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>]
+</span></span></code></pre></div><p>mongodb写入方式</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">ds_save</span>(<span style="color:#ae81ff">0</span>, {<span style="color:#e6db74">&#34;h1&#34;</span><span style="color:#f92672">:</span><span style="color:#ae81ff">123</span>, <span style="color:#e6db74">&#34;h2&#34;</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34;bb&#34;</span>});
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ds_save</span>(<span style="color:#ae81ff">0</span>, [[],{<span style="color:#e6db74">&#34;h1&#34;</span><span style="color:#f92672">:</span><span style="color:#ae81ff">123</span>, <span style="color:#e6db74">&#34;h2&#34;</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34;aa&#34;</span>},{<span style="color:#e6db74">&#34;h1&#34;</span><span style="color:#f92672">:</span><span style="color:#ae81ff">1234</span>, <span style="color:#e6db74">&#34;h2&#34;</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34;dd&#34;</span>}]);
+</span></span></code></pre></div></article>
  
       
 
@@ -1711,7 +1700,7 @@ crontab -e
 
 
   <div>
-    <a class="flex align-center" href="https://gitee.com/smartchart/smartchart/docs/content/docs/6.%e8%bf%9b%e9%98%b6%e5%bc%80%e5%8f%91PRO/%e5%90%8e%e5%8f%b0API%e5%88%b7%e6%96%b0.md" target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://gitee.com/smartchart/smartchart/docs/content/docs/6.%e8%bf%9b%e9%98%b6%e5%bc%80%e5%8f%91PRO/%e6%95%b0%e6%8d%ae%e6%9c%8d%e5%8a%a1/%e6%95%b0%e6%8d%ae%e5%a1%ab%e6%8a%a5.md" target="_blank" rel="noopener">
       <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>
@@ -1752,8 +1741,8 @@ crontab -e
         <li>
           <ul>
             <li><a href="#应用场景">应用场景</a></li>
-            <li><a href="#后台数据主动刷新接口">后台数据主动刷新接口</a></li>
-            <li><a href="#关于定时刷新">关于定时刷新</a></li>
+            <li><a href="#使用方法">使用方法</a></li>
+            <li><a href="#更多关于写入数据库的数据集格式说明">更多关于写入数据库的数据集格式说明</a></li>
           </ul>
         </li>
       </ul>

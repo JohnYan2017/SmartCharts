@@ -3,12 +3,10 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="SmartChart标准数据集你可以想象为一个EXCEL的二维表, 有行和列 你直接在数据集开发界面填写SQL即可
-标准图形的数据表类型 # A类数据源 # 比如你的原始数据库中表的格式如下, 表名tb_name: 城市 户型 数量 长沙 A 12 长沙 A 23 上海 B 19 查询的sql: select 城市,户型,sum(数量) AS 数量 from tb_name group by 城市,户型 正常的查询的结果为: [[&#39;城市&#39;,&#39;户型&#39;,&#39;数量&#39;], [&#39;长沙&#39;,&#39;A&#39;,35], [&#39;上海&#39;,&#39;B &#39;,19]] 由于生成的数据格式第二行是 [字符,字符,数值], 后台会自动进行转列动作, 生成图表更容易使用格式: [[&#39;Categroy&#39;,&#39;A&#39;,&#39;B&#39;], [&#39;长沙&#39;, 35, 0], [&#39;上海&#39;, 0, 19]] B类数据源 # 再比如我们有一个表的数据格式, 指标是展开的: 城市 A B 长沙 10 12 上海 11 19 长沙 9 10 我们可以写的sql是: select 城市, sum(A) as A, sum(B) as B from tb_name group by 城市 这样得到的结果是: [[&#39;城市&#39;,&#39;A&#39;,&#39;B&#39;], [&#39;长沙&#39;, 19, 22], [&#39;上海&#39;, 11, 19]] 和我们的标准格式也是一样的 SQL多段查询 # 有时你一个数据集可能只用一个SQL查询还不够，比如你需要一个清单数据，同时你需要一个汇总数据做为说明在图形中显示，这样你就需要使用多条SQL语句，在数据集中的写法你只需要用分号隔开，如：">
+<meta name="description" content="前言 # 使用最广泛的数据集一般都是SQL数据集 SmartChart标准数据集你可以想象为一个EXCEL的二维表, 有行和列 你直接在数据集开发界面填写SQL即可 更多数据集说明查看&quot;特殊数据源&quot; 动态传参数据集查看&quot;参数及联动&quot;章节 标准图形的数据表类型 # A类数据源 # # 比如你的原始数据库中表的格式如下, 表名tb_name: 城市 户型 数量 长沙 A 12 长沙 A 23 上海 B 19 # 查询的sql: select 城市,户型,sum(数量) AS 数量 from tb_name group by 城市,户型 # 正常的查询的结果为: [[&#39;城市&#39;,&#39;户型&#39;,&#39;数量&#39;], [&#39;长沙&#39;,&#39;A&#39;,35], [&#39;上海&#39;,&#39;B &#39;,19]] # 由于生成的数据格式第二行是 [字符,字符,数值], 后台会自动进行转列动作, # 生成图表更容易使用格式: [[&#39;Categroy&#39;,&#39;A&#39;,&#39;B&#39;], [&#39;长沙&#39;, 35, 0], [&#39;上海&#39;, 0, 19]] B类数据源 # # 再比如我们有一个表的数据格式, 指标是展开的: 城市 A B 长沙 10 12 上海 11 19 长沙 9 10 # 我们可以写的sql是: select 城市, sum(A) as A, sum(B) as B from tb_name group by 城市 # 这样得到的结果是: [[&#39;城市&#39;,&#39;A&#39;,&#39;B&#39;], [&#39;长沙&#39;, 19, 22], [&#39;上海&#39;, 11, 19]] 这样和我们的标准格式也是一样的 SQL多段查询 # 有时你一个数据集可能只用一个SQL查询还不够，比如你需要一个清单数据，同时你需要一个汇总数据做为说明在图形中显示，这样你就需要使用多条SQL语句，在数据集中的写法你只需要用分号隔开，如：">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
-<meta property="og:description" content="SmartChart标准数据集你可以想象为一个EXCEL的二维表, 有行和列 你直接在数据集开发界面填写SQL即可
-标准图形的数据表类型 # A类数据源 # 比如你的原始数据库中表的格式如下, 表名tb_name: 城市 户型 数量 长沙 A 12 长沙 A 23 上海 B 19 查询的sql: select 城市,户型,sum(数量) AS 数量 from tb_name group by 城市,户型 正常的查询的结果为: [[&#39;城市&#39;,&#39;户型&#39;,&#39;数量&#39;], [&#39;长沙&#39;,&#39;A&#39;,35], [&#39;上海&#39;,&#39;B &#39;,19]] 由于生成的数据格式第二行是 [字符,字符,数值], 后台会自动进行转列动作, 生成图表更容易使用格式: [[&#39;Categroy&#39;,&#39;A&#39;,&#39;B&#39;], [&#39;长沙&#39;, 35, 0], [&#39;上海&#39;, 0, 19]] B类数据源 # 再比如我们有一个表的数据格式, 指标是展开的: 城市 A B 长沙 10 12 上海 11 19 长沙 9 10 我们可以写的sql是: select 城市, sum(A) as A, sum(B) as B from tb_name group by 城市 这样得到的结果是: [[&#39;城市&#39;,&#39;A&#39;,&#39;B&#39;], [&#39;长沙&#39;, 19, 22], [&#39;上海&#39;, 11, 19]] 和我们的标准格式也是一样的 SQL多段查询 # 有时你一个数据集可能只用一个SQL查询还不够，比如你需要一个清单数据，同时你需要一个汇总数据做为说明在图形中显示，这样你就需要使用多条SQL语句，在数据集中的写法你只需要用分号隔开，如：" />
+<meta property="og:description" content="前言 # 使用最广泛的数据集一般都是SQL数据集 SmartChart标准数据集你可以想象为一个EXCEL的二维表, 有行和列 你直接在数据集开发界面填写SQL即可 更多数据集说明查看&quot;特殊数据源&quot; 动态传参数据集查看&quot;参数及联动&quot;章节 标准图形的数据表类型 # A类数据源 # # 比如你的原始数据库中表的格式如下, 表名tb_name: 城市 户型 数量 长沙 A 12 长沙 A 23 上海 B 19 # 查询的sql: select 城市,户型,sum(数量) AS 数量 from tb_name group by 城市,户型 # 正常的查询的结果为: [[&#39;城市&#39;,&#39;户型&#39;,&#39;数量&#39;], [&#39;长沙&#39;,&#39;A&#39;,35], [&#39;上海&#39;,&#39;B &#39;,19]] # 由于生成的数据格式第二行是 [字符,字符,数值], 后台会自动进行转列动作, # 生成图表更容易使用格式: [[&#39;Categroy&#39;,&#39;A&#39;,&#39;B&#39;], [&#39;长沙&#39;, 35, 0], [&#39;上海&#39;, 0, 19]] B类数据源 # # 再比如我们有一个表的数据格式, 指标是展开的: 城市 A B 长沙 10 12 上海 11 19 长沙 9 10 # 我们可以写的sql是: select 城市, sum(A) as A, sum(B) as B from tb_name group by 城市 # 这样得到的结果是: [[&#39;城市&#39;,&#39;A&#39;,&#39;B&#39;], [&#39;长沙&#39;, 19, 22], [&#39;上海&#39;, 11, 19]] 这样和我们的标准格式也是一样的 SQL多段查询 # 有时你一个数据集可能只用一个SQL查询还不够，比如你需要一个清单数据，同时你需要一个汇总数据做为说明在图形中显示，这样你就需要使用多条SQL语句，在数据集中的写法你只需要用分号隔开，如：" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://help.smartchart.cn/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/SQL%E6%95%B0%E6%8D%AE%E9%9B%86/" /><meta property="article:section" content="docs" />
 
@@ -19,7 +17,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.eff5ead249bdb00bf7e8cf7706b90ecda1171dbc4487c7815e22ae0914f925a2.js" integrity="sha256-7/Xq0km9sAv36M93BrkOzaEXHbxEh8eBXiKuCRT5JaI=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.2303c3b073dd2c74e111bf72840f2b5118ffa228235011e8e7a7bb09478696a2.js" integrity="sha256-IwPDsHPdLHThEb9yhA8rURj/oigjUBHo56e7CUeGlqI=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -155,6 +153,32 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%8D%E6%9D%82%E6%8A%A5%E8%A1%A8/" class="">第一个复杂报表</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA3D%E5%9C%BA%E6%99%AF/" class="">第一个3D场景</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E4%B8%8A%E7%BA%BF%E6%95%B0%E6%8D%AE%E9%9B%86/" class="">第一个上线数据集</a>
   
 
         </li>
@@ -360,81 +384,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E5%85%B1%E4%BA%AB%E6%95%B0%E6%8D%AE%E9%9B%86/" class="">共享数据集</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
     <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E6%95%B0%E6%8D%AE%E5%88%B7%E6%96%B0/" class="">数据集数据刷新</a>
   
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E6%87%92%E5%8A%A0%E8%BD%BD/" class="">数据集懒加载</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-9297282a5313a9b54d7163ab91c1089a" class="toggle"  />
-    <label for="section-9297282a5313a9b54d7163ab91c1089a" class="flex justify-between">
-      <a role="button" class="">Excel数据</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/EXCEL%E6%95%B0%E6%8D%AE/%E4%BB%8EEXCEL%E7%B2%98%E8%B4%B4%E6%95%B0%E6%8D%AE/" class="">从 Excel粘贴数据</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/EXCEL%E6%95%B0%E6%8D%AE/%E6%95%B0%E6%8D%AE%E4%B8%8A%E4%BC%A0/" class="">数据上传</a>
-  
-
-        </li>
-      
-    
-  </ul>
 
         </li>
       
@@ -475,6 +426,19 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/%E4%BD%BF%E7%94%A8EXCEL%E6%95%B0%E6%8D%AE/" class="">使用 Excel数据</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
     <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/Python%E6%95%B0%E6%8D%AE%E9%9B%86/" class="">Python数据集</a>
   
 
@@ -489,6 +453,19 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE%E6%BA%90/" class="">自定义数据源</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/webSocket%E6%96%B9%E5%BC%8F/" class="">Web Socket方式</a>
   
 
         </li>
@@ -553,6 +530,19 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/promitheus%E6%95%B0%E6%8D%AE%E6%BA%90/" class="">Promitheus数据源</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
     <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/Redis%E6%95%B0%E6%8D%AE%E6%BA%90/" class="">Redis数据源</a>
   
 
@@ -567,6 +557,53 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/sqlalchemy%E8%BF%9E%E6%8E%A5/" class="">Sqlalchemy连接</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b696a5333fb0b6aa0ada2335e5fe864c" class="toggle"  />
+    <label for="section-b696a5333fb0b6aa0ada2335e5fe864c" class="flex justify-between">
+      <a role="button" class="">数据集形态</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E5%BD%A2%E6%80%81/%E5%85%B1%E4%BA%AB%E6%95%B0%E6%8D%AE%E9%9B%86/" class="">共享数据集</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E5%BD%A2%E6%80%81/%E6%95%B0%E6%8D%AE%E9%9B%86%E6%87%92%E5%8A%A0%E8%BD%BD/" class="">数据集懒加载</a>
   
 
         </li>
@@ -877,53 +914,6 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
     
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-e562f2d46bae3fd1d44d386234399fae" class="toggle"  />
-    <label for="section-e562f2d46bae3fd1d44d386234399fae" class="flex justify-between">
-      <a role="button" class="">不常用</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/4.%E5%B8%83%E5%B1%80%E8%AF%B4%E6%98%8E/%E4%B8%8D%E5%B8%B8%E7%94%A8/%E4%BB%A3%E7%A0%81%E8%BD%AC%E5%8C%96%E5%B8%83%E5%B1%80/" class="">代码转化布局</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/4.%E5%B8%83%E5%B1%80%E8%AF%B4%E6%98%8E/%E4%B8%8D%E5%B8%B8%E7%94%A8/%E5%AE%B9%E5%99%A8%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2/" class="">容器管理界面</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
   </ul>
 
         </li>
@@ -1150,7 +1140,23 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%AE%9E%E6%88%98%E5%A4%A7%E5%B1%8F%E6%A8%A1%E6%9D%BF%E8%BD%AC%E5%8C%96/" class="">实战大屏模板转化</a>
+    <input type="checkbox" id="section-2b5b070b11b526d911f2143b53347842" class="toggle"  />
+    <label for="section-2b5b070b11b526d911f2143b53347842" class="flex justify-between">
+      <a role="button" class="">数据服务</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1API/" class="">数据服务 API</a>
   
 
         </li>
@@ -1163,7 +1169,51 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1API/" class="">数据服务 API</a>
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD/" class="">数据下载</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E5%A1%AB%E6%8A%A5/" class="">数据填报</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E5%90%8E%E5%8F%B0API%E5%88%B7%E6%96%B0/" class="">后台 Api刷新</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%AE%9E%E6%88%98%E5%A4%A7%E5%B1%8F%E6%A8%A1%E6%9D%BF%E8%BD%AC%E5%8C%96/" class="">实战大屏模板转化</a>
   
 
         </li>
@@ -1189,59 +1239,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD/" class="">数据下载</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E5%A1%AB%E6%8A%A5/" class="">数据填报</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
     <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A6%96%E9%A1%B5/" class="">自定义首页</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%90%8E%E5%8F%B0API%E5%88%B7%E6%96%B0/" class="">后台 Api刷新</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/webSocket%E6%96%B9%E5%BC%8F/" class="">Web Socket方式</a>
   
 
         </li>
@@ -1595,9 +1593,9 @@ https://github.com/alex-shpak/hugo-book
       <ul>
         <li>
           <ul>
+            <li><a href="#前言">前言</a></li>
             <li><a href="#标准图形的数据表类型">标准图形的数据表类型</a></li>
             <li><a href="#sql多段查询">SQL多段查询</a></li>
-            <li><a href="#支持的数据源">支持的数据源：</a></li>
           </ul>
         </li>
       </ul>
@@ -1614,8 +1612,17 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><p>SmartChart标准数据集你可以想象为一个EXCEL的二维表, 有行和列
-你直接在数据集开发界面填写SQL即可</p>
+  <article class="markdown"><h3 id="前言">
+  前言
+  <a class="anchor" href="#%e5%89%8d%e8%a8%80">#</a>
+</h3>
+<ul>
+<li>使用最广泛的数据集一般都是SQL数据集</li>
+<li>SmartChart标准数据集你可以想象为一个EXCEL的二维表, 有行和列</li>
+<li>你直接在数据集开发界面填写SQL即可</li>
+<li>更多数据集说明查看&quot;特殊数据源&quot;</li>
+<li>动态传参数据集查看&quot;参数及联动&quot;章节</li>
+</ul>
 <h3 id="标准图形的数据表类型">
   标准图形的数据表类型
   <a class="anchor" href="#%e6%a0%87%e5%87%86%e5%9b%be%e5%bd%a2%e7%9a%84%e6%95%b0%e6%8d%ae%e8%a1%a8%e7%b1%bb%e5%9e%8b">#</a>
@@ -1624,206 +1631,55 @@ https://github.com/alex-shpak/hugo-book
   A类数据源
   <a class="anchor" href="#a%e7%b1%bb%e6%95%b0%e6%8d%ae%e6%ba%90">#</a>
 </h4>
-<pre tabindex="0"><code>比如你的原始数据库中表的格式如下, 表名tb_name:
-城市    户型    数量
-长沙    A       12
-长沙    A       23
-上海    B       19
-
-查询的sql: select 城市,户型,sum(数量) AS 数量 from tb_name group by 城市,户型
-正常的查询的结果为:
-[[&#39;城市&#39;,&#39;户型&#39;,&#39;数量&#39;],
- [&#39;长沙&#39;,&#39;A&#39;,35],
- [&#39;上海&#39;,&#39;B &#39;,19]]
-由于生成的数据格式第二行是 [字符,字符,数值], 后台会自动进行转列动作, 
-生成图表更容易使用格式:
-[[&#39;Categroy&#39;,&#39;A&#39;,&#39;B&#39;],
- [&#39;长沙&#39;,     35, 0],
- [&#39;上海&#39;,     0, 19]]
-</code></pre><h4 id="b类数据源">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 比如你的原始数据库中表的格式如下, 表名tb_name:</span>
+</span></span><span style="display:flex;"><span>城市    户型    数量
+</span></span><span style="display:flex;"><span>长沙    A       <span style="color:#ae81ff">12</span>
+</span></span><span style="display:flex;"><span>长沙    A       <span style="color:#ae81ff">23</span>
+</span></span><span style="display:flex;"><span>上海    B       <span style="color:#ae81ff">19</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 查询的sql: </span>
+</span></span><span style="display:flex;"><span>select 城市,户型,sum(数量) AS 数量 <span style="color:#f92672">from</span> tb_name group by 城市,户型
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 正常的查询的结果为:</span>
+</span></span><span style="display:flex;"><span>[[<span style="color:#e6db74">&#39;城市&#39;</span>,<span style="color:#e6db74">&#39;户型&#39;</span>,<span style="color:#e6db74">&#39;数量&#39;</span>],
+</span></span><span style="display:flex;"><span> [<span style="color:#e6db74">&#39;长沙&#39;</span>,<span style="color:#e6db74">&#39;A&#39;</span>,<span style="color:#ae81ff">35</span>],
+</span></span><span style="display:flex;"><span> [<span style="color:#e6db74">&#39;上海&#39;</span>,<span style="color:#e6db74">&#39;B &#39;</span>,<span style="color:#ae81ff">19</span>]]
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 由于生成的数据格式第二行是 [字符,字符,数值], 后台会自动进行转列动作, </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 生成图表更容易使用格式:</span>
+</span></span><span style="display:flex;"><span>[[<span style="color:#e6db74">&#39;Categroy&#39;</span>,<span style="color:#e6db74">&#39;A&#39;</span>,<span style="color:#e6db74">&#39;B&#39;</span>],
+</span></span><span style="display:flex;"><span> [<span style="color:#e6db74">&#39;长沙&#39;</span>,     <span style="color:#ae81ff">35</span>, <span style="color:#ae81ff">0</span>],
+</span></span><span style="display:flex;"><span> [<span style="color:#e6db74">&#39;上海&#39;</span>,     <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">19</span>]]
+</span></span></code></pre></div><h4 id="b类数据源">
   B类数据源
   <a class="anchor" href="#b%e7%b1%bb%e6%95%b0%e6%8d%ae%e6%ba%90">#</a>
 </h4>
-<pre tabindex="0"><code>再比如我们有一个表的数据格式, 指标是展开的:
-城市    A     B
-长沙    10    12
-上海    11    19
-长沙    9     10
-
-我们可以写的sql是:
-select 城市, sum(A) as A, sum(B) as B from tb_name group by 城市
-这样得到的结果是:
-[[&#39;城市&#39;,&#39;A&#39;,&#39;B&#39;],
- [&#39;长沙&#39;, 19, 22],
- [&#39;上海&#39;, 11, 19]]
-和我们的标准格式也是一样的
-</code></pre><h3 id="sql多段查询">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 再比如我们有一个表的数据格式, 指标是展开的:</span>
+</span></span><span style="display:flex;"><span>城市    A     B
+</span></span><span style="display:flex;"><span>长沙    <span style="color:#ae81ff">10</span>    <span style="color:#ae81ff">12</span>
+</span></span><span style="display:flex;"><span>上海    <span style="color:#ae81ff">11</span>    <span style="color:#ae81ff">19</span>
+</span></span><span style="display:flex;"><span>长沙    <span style="color:#ae81ff">9</span>     <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 我们可以写的sql是:</span>
+</span></span><span style="display:flex;"><span>select 城市, sum(A) <span style="color:#66d9ef">as</span> A, sum(B) <span style="color:#66d9ef">as</span> B <span style="color:#f92672">from</span> tb_name group by 城市
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 这样得到的结果是:</span>
+</span></span><span style="display:flex;"><span>[[<span style="color:#e6db74">&#39;城市&#39;</span>,<span style="color:#e6db74">&#39;A&#39;</span>,<span style="color:#e6db74">&#39;B&#39;</span>],
+</span></span><span style="display:flex;"><span> [<span style="color:#e6db74">&#39;长沙&#39;</span>, <span style="color:#ae81ff">19</span>, <span style="color:#ae81ff">22</span>],
+</span></span><span style="display:flex;"><span> [<span style="color:#e6db74">&#39;上海&#39;</span>, <span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">19</span>]]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>这样和我们的标准格式也是一样的
+</span></span></code></pre></div><h3 id="sql多段查询">
   SQL多段查询
   <a class="anchor" href="#sql%e5%a4%9a%e6%ae%b5%e6%9f%a5%e8%af%a2">#</a>
 </h3>
 <p>有时你一个数据集可能只用一个SQL查询还不够，比如你需要一个清单数据，同时你需要一个汇总数据做为说明在图形中显示，这样你就需要使用多条SQL语句，在数据集中的写法你只需要用分号隔开，如：</p>
-<pre tabindex="0"><code>select ... from xxx;
-select ..... from xxxxxxx
-
-传递到图形中的格式为：
-{&#34;df0&#34;:[[...]]. &#34;df1&#34;:[[......]]}
-df0, df1分别对应的是第一段和第二段查询
-</code></pre><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">//数据集中的查询
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">select</span> ... <span style="color:#a6e22e">from</span> <span style="color:#a6e22e">xxx</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">select</span> ..... <span style="color:#a6e22e">from</span> <span style="color:#a6e22e">xxxxxxx</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 传递到图形中的格式为:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>{<span style="color:#e6db74">&#34;df0&#34;</span><span style="color:#f92672">:</span>[[...]]. <span style="color:#e6db74">&#34;df1&#34;</span><span style="color:#f92672">:</span>[[......]]}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">df0</span>, <span style="color:#a6e22e">df1分别对应的是第一段和第二段查询</span>
+</span></span></code></pre></div><p>
   <a href="https://www.ixigua.com/6928570043022180876">多段查询使用视屏参考</a></p>
-<h3 id="支持的数据源">
-  支持的数据源：
-  <a class="anchor" href="#%e6%94%af%e6%8c%81%e7%9a%84%e6%95%b0%e6%8d%ae%e6%ba%90">#</a>
-</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">数据库</th>
-<th style="text-align:center">驱动填写</th>
-<th style="text-align:center">需安装</th>
-<th style="text-align:center">使用说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Mysql</td>
-<td style="text-align:center">mysql</td>
-<td style="text-align:center">默认支持</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:left">Mysql连接池</td>
-<td style="text-align:center">mysqlpool</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:left">Sqlite</td>
-<td style="text-align:center">sqlite</td>
-<td style="text-align:center">默认支持</td>
-<td style="text-align:center">连接地址填写绝对路径</td>
-</tr>
-<tr>
-<td style="text-align:left">API</td>
-<td style="text-align:center">任意</td>
-<td style="text-align:center">默认支持</td>
-<td style="text-align:center">参考数据集说明文档</td>
-</tr>
-<tr>
-<td style="text-align:left">EXCEL</td>
-<td style="text-align:center">任意</td>
-<td style="text-align:center">默认支持</td>
-<td style="text-align:center">参考数据集说明文档</td>
-</tr>
-<tr>
-<td style="text-align:left">SQL Server</td>
-<td style="text-align:center">mssql</td>
-<td style="text-align:center">需安装 pip install pymssql</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:left">SQL Server连接池</td>
-<td style="text-align:center">mssqlpool</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:left">ORACLE</td>
-<td style="text-align:center">oracle</td>
-<td style="text-align:center">pip install cx_Oracle</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:left">ORACLE连接池</td>
-<td style="text-align:center">oraclepool</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:left">PostgreSql</td>
-<td style="text-align:center">gp</td>
-<td style="text-align:center">pip install psycopg2</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:left">GP</td>
-<td style="text-align:center">gp</td>
-<td style="text-align:center">pip install psycopg2</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:left">Impala</td>
-<td style="text-align:center">impala</td>
-<td style="text-align:center">pip install impyla</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:left">Hive</td>
-<td style="text-align:center">hive</td>
-<td style="text-align:center">pip install impyla</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:left">DB2</td>
-<td style="text-align:center">db2</td>
-<td style="text-align:center">pip install ibm_db</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:left">达梦</td>
-<td style="text-align:center">dm</td>
-<td style="text-align:center">pip install dmPython</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:left">Python</td>
-<td style="text-align:center">python</td>
-<td style="text-align:center">pip install pandas, openpyxl</td>
-<td style="text-align:center">参考数据集-&gt;特殊数据源</td>
-</tr>
-<tr>
-<td style="text-align:left">Redis</td>
-<td style="text-align:center">redis</td>
-<td style="text-align:center">pip install redis</td>
-<td style="text-align:center">参考数据集-&gt;特殊数据源</td>
-</tr>
-<tr>
-<td style="text-align:left">Mongodb</td>
-<td style="text-align:center">mongodb</td>
-<td style="text-align:center">pip install pymongo</td>
-<td style="text-align:center">参考数据集-&gt;特殊数据源</td>
-</tr>
-<tr>
-<td style="text-align:left">Clickhouse</td>
-<td style="text-align:center">clickhouse</td>
-<td style="text-align:center">pip install clickhouse_driver</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:left">Elasticsearch</td>
-<td style="text-align:center">es</td>
-<td style="text-align:center">pip install elasticsearch==7.13.0</td>
-<td style="text-align:center">参考数据集-&gt;特殊数据源</td>
-</tr>
-<tr>
-<td style="text-align:left">Sqlalchemy</td>
-<td style="text-align:center">sqlalchemy</td>
-<td style="text-align:center">pip install sqlalchemy</td>
-<td style="text-align:center">参考数据集-&gt;特殊数据源</td>
-</tr>
-<tr>
-<td style="text-align:left">JDBC</td>
-<td style="text-align:center">jdbc</td>
-<td style="text-align:center">pip install JayDeBeApi</td>
-<td style="text-align:center">参考数据集-&gt;特殊数据源</td>
-</tr>
-<tr>
-<td style="text-align:left">自定义</td>
-<td style="text-align:center">自定义</td>
-<td style="text-align:center">用户自由定义</td>
-<td style="text-align:center">参考数据集-&gt;特殊数据源</td>
-</tr>
-</tbody>
-</table>
 </article>
  
       
@@ -1876,9 +1732,9 @@ df0, df1分别对应的是第一段和第二段查询
       <ul>
         <li>
           <ul>
+            <li><a href="#前言">前言</a></li>
             <li><a href="#标准图形的数据表类型">标准图形的数据表类型</a></li>
             <li><a href="#sql多段查询">SQL多段查询</a></li>
-            <li><a href="#支持的数据源">支持的数据源：</a></li>
           </ul>
         </li>
       </ul>

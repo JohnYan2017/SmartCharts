@@ -3,14 +3,16 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="SmartChart的数据集功能, 可以非常方便的实现数据对外微服务 # 权限设定 # 如果你使用的是自已搭建的django项目, 你需要在项目的根目录下新建一个JSON文件, 如果是使用smartchart启动的, 配置文件在项目的安装目录下可以找到 名为apiconfig.json, 比如需要调用API的用户名为test 和 test2，用户名需要是在你的用户设定中存在的,内容如下: { &#34;test&#34;: { &#34;token&#34;: &#34;smartchart&#34; }, &#34;test2&#34;: { &#34;token&#34;: &#34;smartchartxxx&#34;, &#34;host&#34;: [&#34;10.10.10.10&#34;,&#34;10.10.10.23&#34;], &#34;limit&#39;: 60, &#34;log&#34;:1, &#34;cors&#34;: 1 } } 可选设定参考test2 host:API白名单配置，limit:一分钟内可调用次数, log:日志记录方式. cors:永许跨域访问
-然后你只需要将你的数据集中的权限设定给对应的用户即可 请求方式 # 加密接口请求方式（推荐） # GET 请求 # #接口请求格式: url: /echart/dataset_api/?visitor=xxx&amp;token=xxx&amp;type=xxx&amp;stamp=xxxxx&amp;param={&#34;xx&#34;:&#34;xxx&#34;,&#34;xx&#34;:&#34;xxxx&#34;} # 参数说明 visitor: 用户名 type: 接口数据集ID stamp: 时间戳(1970年1月1日到生成时间的毫秒数) token: 采用sha1加密, token=SHA1(秘钥 &#43; stamp &#43; Visitor &#43; Type) param: 传入的参数值(可选)，格式json字符串，如多个参数: &#39;{&#34;参数A&#34;:&#34;xxxx&#34;, &#34;参数B&#34;:&#34;xxxx&#34;}&#39; # 接口返回格式 Json: { &#34;data&#34;:[[]], &#34;result&#34;:&#34;success&#34;, &#34;maxpg&#34;:1, &#34;pg&#34;:1 } 返回值说明： data : 二维数组，第一行为表头， 样列数据 [[&#34;heroname&#34;, &#34;qty&#34;],[&#34;镜&#34;,658],[&#34;猪八戒&#34;,591]] result : success 或 error maxpg/pg : GET请求固定为1不分页 POST请求(适用于后台定时同步数据，查询请用GET请求方法) # #接口请求格式: url: /echart/dataset_api/ # 请求参数说明 data: { &#34;visitor&#34;:&#34;xxx&#34;, &#34;token&#34;:&#34;xxx&#34;, &#34;stamp&#34;:xxxxx, &#34;type&#34;:&#34;xxx&#34;, &#34;pagesize&#34;:&#34;xxx&#34;, &#34;pg&#34;:&#34;xxx&#34;, &#34;param&#34;:&#39;{&#34;xxx&#34;:&#34;xxxx&#34;}&#39; } # 参数说明 visitor: 用户名 type: 接口数据集ID stamp: 时间戳(1970年1月1日到生成时间的毫秒数) token: 采用sha1加密, token=SHA1(秘钥 &#43; stamp &#43; Visitor &#43; Type) Pagesize: 采用分页，每页的数据量大小 pg: 返回第几页 param: 传入的参数值，格式json字符串，如多个参数 &#39;{&#34;参数A&#34;:&#34;xxxx&#34;, &#34;参数B&#34;:&#34;xxxx&#34;}&#39; #接口返回格式 Json: { &#34;data&#34;:[[]], &#34;result&#34;:&#34;success&#34;, &#34;maxpg&#34;:xxx, #最大页数 &#34;pg&#34;:xx, #当前页数 &#34;casheflag&#34;: xx, #如果是999说明命中缓存 &#34;total&#34;:xx, #总条数 } 注意： 只有post是分页的, 第一页是带标题的， 后面页不带标题 由于post方式会使用缓存进行分页,如命中缓存传参不会生效，小数据量请使用get方式请求 不要请求大数据量，大量数据请采用limit, offset传参方式进行分页">
+<meta name="description" content="SmartChart的数据集功能, 可以非常方便的实现数据对外微服务 # 权限设定 # 帐号访问权限 # 超级管理员可以在首页右上角用户图标的菜单中, 找到&quot;服务配置&quot;打开 比如需要调用API的用户名为test 和 test2，用户名需要是在你的用户设定中存在的,内容如下: { &#34;test&#34;: { &#34;token&#34;: &#34;smartchart&#34; }, &#34;test2&#34;: { &#34;token&#34;: &#34;smartchartxxx&#34;, &#34;host&#34;: [&#34;10.10.10.10&#34;,&#34;10.10.10.23&#34;], &#34;limit&#34;: 60, &#34;log&#34;:1, &#34;cors&#34;: 1 } } 可选设定参考test2 host:API白名单配置，limit:一分钟内可调用次数, log:日志记录方式. cors:永许跨域访问
+数据集权限 # 在数据集权限管理中, 将你需要开放的数据集的权限, 设定给对应的用户 请求方式 # 加密接口请求方式（推荐） # 下文提到的&quot;秘钥&quot;即上文设定中的&quot;token&quot;, 注意上文的token非下文提到的token
+GET 请求 # #接口请求格式: url= &#39;/echart/dataset_api/?visitor=xxx&amp;token=xxx&amp;type=xxx&amp;stamp=xxxxx&amp;param={&#34;xx&#34;:&#34;xxx&#34;,&#34;xx&#34;:&#34;xxxx&#34;}&#39; # 参数说明 visitor: 用户名 type: 接口数据集ID stamp: 时间戳(1970年1月1日到生成时间的毫秒数) token: 采用sha1加密, token=SHA1(秘钥 &#43; stamp &#43; visitor &#43; type) param: 数据集查询参数清单(可选), 格式json字符串, 如: &#39;{&#34;参数A&#34;:&#34;xxxx&#34;, &#34;参数B&#34;:&#34;xxxx&#34;}&#39; # 接口返回格式Json: { &#34;data&#34;:[[]], &#34;result&#34;:&#34;success&#34;, &#34;maxpg&#34;:1, &#34;pg&#34;:1 } # 返回值说明: data : 二维数组, 第一行为表头, 样列数据如下 [[&#34;heroname&#34;, &#34;qty&#34;],[&#34;镜&#34;,658],[&#34;猪八戒&#34;,591]] result : success 或 error maxpg/pg : GET请求固定为1不分页 POST请求(适用于后台定时同步数据，查询请用GET请求方法) # #接口请求格式: url: /echart/dataset_api/ # 请求参数data: { &#34;visitor&#34;:&#34;xxx&#34;, &#34;token&#34;:&#34;xxx&#34;, &#34;stamp&#34;:xxxxx, &#34;type&#34;:&#34;xxx&#34;, &#34;pagesize&#34;:&#34;xxx&#34;, &#34;pg&#34;:&#34;xxx&#34;, &#34;param&#34;:&#39;{&#34;xxx&#34;:&#34;xxxx&#34;}&#39; } # data参数说明 visitor: 用户名 type: 接口数据集ID stamp: 时间戳(1970年1月1日到生成时间的毫秒数) token: 采用sha1加密, token=SHA1(秘钥 &#43; stamp &#43; visitor &#43; type) Pagesize: 采用分页, 每页的数据量大小 pg: 返回第几页 param: 数据集查询参数清单(可单), 拼接成json字符串, 如: &#39;{&#34;参数A&#34;:&#34;xxxx&#34;, &#34;参数B&#34;:&#34;xxxx&#34;}&#39; #接口返回格式Json: { &#34;data&#34;:[[]], &#34;result&#34;:&#34;success&#34;, &#34;maxpg&#34;:xxx, #最大页数 &#34;pg&#34;:xx, #当前页数 &#34;casheflag&#34;: xx, #如果是999说明命中缓存 &#34;total&#34;:xx, #总条数 } 注意： 只有post是分页的, 第一页是带标题的， 后面页不带标题 由于post方式会使用缓存进行分页,如命中缓存传参不会生效，小数据量请使用get方式请求 不要请求大数据量，大量数据请采用limit, offset传参方式进行分页">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
-<meta property="og:description" content="SmartChart的数据集功能, 可以非常方便的实现数据对外微服务 # 权限设定 # 如果你使用的是自已搭建的django项目, 你需要在项目的根目录下新建一个JSON文件, 如果是使用smartchart启动的, 配置文件在项目的安装目录下可以找到 名为apiconfig.json, 比如需要调用API的用户名为test 和 test2，用户名需要是在你的用户设定中存在的,内容如下: { &#34;test&#34;: { &#34;token&#34;: &#34;smartchart&#34; }, &#34;test2&#34;: { &#34;token&#34;: &#34;smartchartxxx&#34;, &#34;host&#34;: [&#34;10.10.10.10&#34;,&#34;10.10.10.23&#34;], &#34;limit&#39;: 60, &#34;log&#34;:1, &#34;cors&#34;: 1 } } 可选设定参考test2 host:API白名单配置，limit:一分钟内可调用次数, log:日志记录方式. cors:永许跨域访问
-然后你只需要将你的数据集中的权限设定给对应的用户即可 请求方式 # 加密接口请求方式（推荐） # GET 请求 # #接口请求格式: url: /echart/dataset_api/?visitor=xxx&amp;token=xxx&amp;type=xxx&amp;stamp=xxxxx&amp;param={&#34;xx&#34;:&#34;xxx&#34;,&#34;xx&#34;:&#34;xxxx&#34;} # 参数说明 visitor: 用户名 type: 接口数据集ID stamp: 时间戳(1970年1月1日到生成时间的毫秒数) token: 采用sha1加密, token=SHA1(秘钥 &#43; stamp &#43; Visitor &#43; Type) param: 传入的参数值(可选)，格式json字符串，如多个参数: &#39;{&#34;参数A&#34;:&#34;xxxx&#34;, &#34;参数B&#34;:&#34;xxxx&#34;}&#39; # 接口返回格式 Json: { &#34;data&#34;:[[]], &#34;result&#34;:&#34;success&#34;, &#34;maxpg&#34;:1, &#34;pg&#34;:1 } 返回值说明： data : 二维数组，第一行为表头， 样列数据 [[&#34;heroname&#34;, &#34;qty&#34;],[&#34;镜&#34;,658],[&#34;猪八戒&#34;,591]] result : success 或 error maxpg/pg : GET请求固定为1不分页 POST请求(适用于后台定时同步数据，查询请用GET请求方法) # #接口请求格式: url: /echart/dataset_api/ # 请求参数说明 data: { &#34;visitor&#34;:&#34;xxx&#34;, &#34;token&#34;:&#34;xxx&#34;, &#34;stamp&#34;:xxxxx, &#34;type&#34;:&#34;xxx&#34;, &#34;pagesize&#34;:&#34;xxx&#34;, &#34;pg&#34;:&#34;xxx&#34;, &#34;param&#34;:&#39;{&#34;xxx&#34;:&#34;xxxx&#34;}&#39; } # 参数说明 visitor: 用户名 type: 接口数据集ID stamp: 时间戳(1970年1月1日到生成时间的毫秒数) token: 采用sha1加密, token=SHA1(秘钥 &#43; stamp &#43; Visitor &#43; Type) Pagesize: 采用分页，每页的数据量大小 pg: 返回第几页 param: 传入的参数值，格式json字符串，如多个参数 &#39;{&#34;参数A&#34;:&#34;xxxx&#34;, &#34;参数B&#34;:&#34;xxxx&#34;}&#39; #接口返回格式 Json: { &#34;data&#34;:[[]], &#34;result&#34;:&#34;success&#34;, &#34;maxpg&#34;:xxx, #最大页数 &#34;pg&#34;:xx, #当前页数 &#34;casheflag&#34;: xx, #如果是999说明命中缓存 &#34;total&#34;:xx, #总条数 } 注意： 只有post是分页的, 第一页是带标题的， 后面页不带标题 由于post方式会使用缓存进行分页,如命中缓存传参不会生效，小数据量请使用get方式请求 不要请求大数据量，大量数据请采用limit, offset传参方式进行分页" />
+<meta property="og:description" content="SmartChart的数据集功能, 可以非常方便的实现数据对外微服务 # 权限设定 # 帐号访问权限 # 超级管理员可以在首页右上角用户图标的菜单中, 找到&quot;服务配置&quot;打开 比如需要调用API的用户名为test 和 test2，用户名需要是在你的用户设定中存在的,内容如下: { &#34;test&#34;: { &#34;token&#34;: &#34;smartchart&#34; }, &#34;test2&#34;: { &#34;token&#34;: &#34;smartchartxxx&#34;, &#34;host&#34;: [&#34;10.10.10.10&#34;,&#34;10.10.10.23&#34;], &#34;limit&#34;: 60, &#34;log&#34;:1, &#34;cors&#34;: 1 } } 可选设定参考test2 host:API白名单配置，limit:一分钟内可调用次数, log:日志记录方式. cors:永许跨域访问
+数据集权限 # 在数据集权限管理中, 将你需要开放的数据集的权限, 设定给对应的用户 请求方式 # 加密接口请求方式（推荐） # 下文提到的&quot;秘钥&quot;即上文设定中的&quot;token&quot;, 注意上文的token非下文提到的token
+GET 请求 # #接口请求格式: url= &#39;/echart/dataset_api/?visitor=xxx&amp;token=xxx&amp;type=xxx&amp;stamp=xxxxx&amp;param={&#34;xx&#34;:&#34;xxx&#34;,&#34;xx&#34;:&#34;xxxx&#34;}&#39; # 参数说明 visitor: 用户名 type: 接口数据集ID stamp: 时间戳(1970年1月1日到生成时间的毫秒数) token: 采用sha1加密, token=SHA1(秘钥 &#43; stamp &#43; visitor &#43; type) param: 数据集查询参数清单(可选), 格式json字符串, 如: &#39;{&#34;参数A&#34;:&#34;xxxx&#34;, &#34;参数B&#34;:&#34;xxxx&#34;}&#39; # 接口返回格式Json: { &#34;data&#34;:[[]], &#34;result&#34;:&#34;success&#34;, &#34;maxpg&#34;:1, &#34;pg&#34;:1 } # 返回值说明: data : 二维数组, 第一行为表头, 样列数据如下 [[&#34;heroname&#34;, &#34;qty&#34;],[&#34;镜&#34;,658],[&#34;猪八戒&#34;,591]] result : success 或 error maxpg/pg : GET请求固定为1不分页 POST请求(适用于后台定时同步数据，查询请用GET请求方法) # #接口请求格式: url: /echart/dataset_api/ # 请求参数data: { &#34;visitor&#34;:&#34;xxx&#34;, &#34;token&#34;:&#34;xxx&#34;, &#34;stamp&#34;:xxxxx, &#34;type&#34;:&#34;xxx&#34;, &#34;pagesize&#34;:&#34;xxx&#34;, &#34;pg&#34;:&#34;xxx&#34;, &#34;param&#34;:&#39;{&#34;xxx&#34;:&#34;xxxx&#34;}&#39; } # data参数说明 visitor: 用户名 type: 接口数据集ID stamp: 时间戳(1970年1月1日到生成时间的毫秒数) token: 采用sha1加密, token=SHA1(秘钥 &#43; stamp &#43; visitor &#43; type) Pagesize: 采用分页, 每页的数据量大小 pg: 返回第几页 param: 数据集查询参数清单(可单), 拼接成json字符串, 如: &#39;{&#34;参数A&#34;:&#34;xxxx&#34;, &#34;参数B&#34;:&#34;xxxx&#34;}&#39; #接口返回格式Json: { &#34;data&#34;:[[]], &#34;result&#34;:&#34;success&#34;, &#34;maxpg&#34;:xxx, #最大页数 &#34;pg&#34;:xx, #当前页数 &#34;casheflag&#34;: xx, #如果是999说明命中缓存 &#34;total&#34;:xx, #总条数 } 注意： 只有post是分页的, 第一页是带标题的， 后面页不带标题 由于post方式会使用缓存进行分页,如命中缓存传参不会生效，小数据量请使用get方式请求 不要请求大数据量，大量数据请采用limit, offset传参方式进行分页" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1API/" /><meta property="article:section" content="docs" />
+<meta property="og:url" content="https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1API/" /><meta property="article:section" content="docs" />
 
 
 
@@ -19,7 +21,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.eff5ead249bdb00bf7e8cf7706b90ecda1171dbc4487c7815e22ae0914f925a2.js" integrity="sha256-7/Xq0km9sAv36M93BrkOzaEXHbxEh8eBXiKuCRT5JaI=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.2303c3b073dd2c74e111bf72840f2b5118ffa228235011e8e7a7bb09478696a2.js" integrity="sha256-IwPDsHPdLHThEb9yhA8rURj/oigjUBHo56e7CUeGlqI=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -155,6 +157,32 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%8D%E6%9D%82%E6%8A%A5%E8%A1%A8/" class="">第一个复杂报表</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA3D%E5%9C%BA%E6%99%AF/" class="">第一个3D场景</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E4%B8%8A%E7%BA%BF%E6%95%B0%E6%8D%AE%E9%9B%86/" class="">第一个上线数据集</a>
   
 
         </li>
@@ -360,81 +388,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E5%85%B1%E4%BA%AB%E6%95%B0%E6%8D%AE%E9%9B%86/" class="">共享数据集</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
     <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E6%95%B0%E6%8D%AE%E5%88%B7%E6%96%B0/" class="">数据集数据刷新</a>
   
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E6%87%92%E5%8A%A0%E8%BD%BD/" class="">数据集懒加载</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-9297282a5313a9b54d7163ab91c1089a" class="toggle"  />
-    <label for="section-9297282a5313a9b54d7163ab91c1089a" class="flex justify-between">
-      <a role="button" class="">Excel数据</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/EXCEL%E6%95%B0%E6%8D%AE/%E4%BB%8EEXCEL%E7%B2%98%E8%B4%B4%E6%95%B0%E6%8D%AE/" class="">从 Excel粘贴数据</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/EXCEL%E6%95%B0%E6%8D%AE/%E6%95%B0%E6%8D%AE%E4%B8%8A%E4%BC%A0/" class="">数据上传</a>
-  
-
-        </li>
-      
-    
-  </ul>
 
         </li>
       
@@ -475,6 +430,19 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/%E4%BD%BF%E7%94%A8EXCEL%E6%95%B0%E6%8D%AE/" class="">使用 Excel数据</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
     <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/Python%E6%95%B0%E6%8D%AE%E9%9B%86/" class="">Python数据集</a>
   
 
@@ -489,6 +457,19 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE%E6%BA%90/" class="">自定义数据源</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/webSocket%E6%96%B9%E5%BC%8F/" class="">Web Socket方式</a>
   
 
         </li>
@@ -553,6 +534,19 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/promitheus%E6%95%B0%E6%8D%AE%E6%BA%90/" class="">Promitheus数据源</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
     <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/Redis%E6%95%B0%E6%8D%AE%E6%BA%90/" class="">Redis数据源</a>
   
 
@@ -567,6 +561,53 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/sqlalchemy%E8%BF%9E%E6%8E%A5/" class="">Sqlalchemy连接</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b696a5333fb0b6aa0ada2335e5fe864c" class="toggle"  />
+    <label for="section-b696a5333fb0b6aa0ada2335e5fe864c" class="flex justify-between">
+      <a role="button" class="">数据集形态</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E5%BD%A2%E6%80%81/%E5%85%B1%E4%BA%AB%E6%95%B0%E6%8D%AE%E9%9B%86/" class="">共享数据集</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E5%BD%A2%E6%80%81/%E6%95%B0%E6%8D%AE%E9%9B%86%E6%87%92%E5%8A%A0%E8%BD%BD/" class="">数据集懒加载</a>
   
 
         </li>
@@ -877,53 +918,6 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
     
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-e562f2d46bae3fd1d44d386234399fae" class="toggle"  />
-    <label for="section-e562f2d46bae3fd1d44d386234399fae" class="flex justify-between">
-      <a role="button" class="">不常用</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/4.%E5%B8%83%E5%B1%80%E8%AF%B4%E6%98%8E/%E4%B8%8D%E5%B8%B8%E7%94%A8/%E4%BB%A3%E7%A0%81%E8%BD%AC%E5%8C%96%E5%B8%83%E5%B1%80/" class="">代码转化布局</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/4.%E5%B8%83%E5%B1%80%E8%AF%B4%E6%98%8E/%E4%B8%8D%E5%B8%B8%E7%94%A8/%E5%AE%B9%E5%99%A8%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2/" class="">容器管理界面</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
   </ul>
 
         </li>
@@ -1150,7 +1144,23 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%AE%9E%E6%88%98%E5%A4%A7%E5%B1%8F%E6%A8%A1%E6%9D%BF%E8%BD%AC%E5%8C%96/" class="">实战大屏模板转化</a>
+    <input type="checkbox" id="section-2b5b070b11b526d911f2143b53347842" class="toggle" checked />
+    <label for="section-2b5b070b11b526d911f2143b53347842" class="flex justify-between">
+      <a role="button" class="">数据服务</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1API/" class="active">数据服务 API</a>
   
 
         </li>
@@ -1163,7 +1173,51 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1API/" class="active">数据服务 API</a>
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD/" class="">数据下载</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E5%A1%AB%E6%8A%A5/" class="">数据填报</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E5%90%8E%E5%8F%B0API%E5%88%B7%E6%96%B0/" class="">后台 Api刷新</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%AE%9E%E6%88%98%E5%A4%A7%E5%B1%8F%E6%A8%A1%E6%9D%BF%E8%BD%AC%E5%8C%96/" class="">实战大屏模板转化</a>
   
 
         </li>
@@ -1189,59 +1243,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD/" class="">数据下载</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E5%A1%AB%E6%8A%A5/" class="">数据填报</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
     <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A6%96%E9%A1%B5/" class="">自定义首页</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%90%8E%E5%8F%B0API%E5%88%B7%E6%96%B0/" class="">后台 Api刷新</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/webSocket%E6%96%B9%E5%BC%8F/" class="">Web Socket方式</a>
   
 
         </li>
@@ -1622,10 +1624,12 @@ https://github.com/alex-shpak/hugo-book
   权限设定
   <a class="anchor" href="#%e6%9d%83%e9%99%90%e8%ae%be%e5%ae%9a">#</a>
 </h3>
+<h5 id="帐号访问权限">
+  帐号访问权限
+  <a class="anchor" href="#%e5%b8%90%e5%8f%b7%e8%ae%bf%e9%97%ae%e6%9d%83%e9%99%90">#</a>
+</h5>
 <ul>
-<li>如果你使用的是自已搭建的django项目, 你需要在项目的根目录下新建一个JSON文件,
-如果是使用smartchart启动的, 配置文件在项目的安装目录下可以找到
-名为apiconfig.json,</li>
+<li>超级管理员可以在首页右上角用户图标的菜单中, 找到&quot;服务配置&quot;打开</li>
 <li>比如需要调用API的用户名为test 和 test2，用户名需要是在你的用户设定中存在的,内容如下:</li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
@@ -1635,9 +1639,9 @@ https://github.com/alex-shpak/hugo-book
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;test2&#34;</span>: {
 </span></span><span style="display:flex;"><span>   <span style="color:#f92672">&#34;token&#34;</span>: <span style="color:#e6db74">&#34;smartchartxxx&#34;</span>,
 </span></span><span style="display:flex;"><span>   <span style="color:#f92672">&#34;host&#34;</span>: [<span style="color:#e6db74">&#34;10.10.10.10&#34;</span>,<span style="color:#e6db74">&#34;10.10.10.23&#34;</span>],
-</span></span><span style="display:flex;"><span>   <span style="color:#f92672">&#34;limit&#39;: 60,
-</span></span></span><span style="display:flex;"><span><span style="color:#f92672">   &#34;</span><span style="color:#960050;background-color:#1e0010">log</span><span style="color:#e6db74">&#34;:1,
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">   &#34;</span><span style="color:#960050;background-color:#1e0010">cors&#34;</span>: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">&#34;limit&#34;</span>: <span style="color:#ae81ff">60</span>,
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">&#34;log&#34;</span>:<span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">&#34;cors&#34;</span>: <span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span> }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><blockquote>
@@ -1645,8 +1649,12 @@ https://github.com/alex-shpak/hugo-book
 host:API白名单配置，limit:一分钟内可调用次数, log:日志记录方式.
 cors:永许跨域访问</p>
 </blockquote>
+<h4 id="数据集权限">
+  数据集权限
+  <a class="anchor" href="#%e6%95%b0%e6%8d%ae%e9%9b%86%e6%9d%83%e9%99%90">#</a>
+</h4>
 <ul>
-<li>然后你只需要将你的数据集中的权限设定给对应的用户即可</li>
+<li>在数据集权限管理中, 将你需要开放的数据集的权限, 设定给对应的用户</li>
 </ul>
 <h3 id="请求方式">
   请求方式
@@ -1656,28 +1664,30 @@ cors:永许跨域访问</p>
   加密接口请求方式（推荐）
   <a class="anchor" href="#%e5%8a%a0%e5%af%86%e6%8e%a5%e5%8f%a3%e8%af%b7%e6%b1%82%e6%96%b9%e5%bc%8f%e6%8e%a8%e8%8d%90">#</a>
 </h4>
+<blockquote>
+<p>下文提到的&quot;秘钥&quot;即上文设定中的&quot;token&quot;, 注意上文的token非下文提到的token</p>
+</blockquote>
 <h4 id="get-请求">
   GET 请求
   <a class="anchor" href="#get-%e8%af%b7%e6%b1%82">#</a>
 </h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#接口请求格式: </span>
-</span></span><span style="display:flex;"><span>url: <span style="color:#f92672">/</span>echart<span style="color:#f92672">/</span>dataset_api<span style="color:#f92672">/</span><span style="color:#960050;background-color:#1e0010">?</span>visitor<span style="color:#f92672">=</span>xxx<span style="color:#f92672">&amp;</span>token<span style="color:#f92672">=</span>xxx<span style="color:#f92672">&amp;</span>type<span style="color:#f92672">=</span>xxx<span style="color:#f92672">&amp;</span>stamp<span style="color:#f92672">=</span>xxxxx<span style="color:#f92672">&amp;</span>param<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;xx&#34;</span>:<span style="color:#e6db74">&#34;xxx&#34;</span>,<span style="color:#e6db74">&#34;xx&#34;</span>:<span style="color:#e6db74">&#34;xxxx&#34;</span>}
+</span></span><span style="display:flex;"><span>url<span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;/echart/dataset_api/?visitor=xxx&amp;token=xxx&amp;type=xxx&amp;stamp=xxxxx&amp;param={&#34;xx&#34;:&#34;xxx&#34;,&#34;xx&#34;:&#34;xxxx&#34;}&#39;</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># 参数说明</span>
 </span></span><span style="display:flex;"><span>visitor: 用户名
 </span></span><span style="display:flex;"><span>type: 接口数据集ID
 </span></span><span style="display:flex;"><span>stamp: 时间戳(<span style="color:#ae81ff">1970</span>年1月1日到生成时间的毫秒数)
-</span></span><span style="display:flex;"><span>token: 采用sha1加密, token<span style="color:#f92672">=</span>SHA1(秘钥 <span style="color:#f92672">+</span> stamp <span style="color:#f92672">+</span> Visitor <span style="color:#f92672">+</span> Type)
-</span></span><span style="display:flex;"><span>param: 传入的参数值(可选)<span style="color:#960050;background-color:#1e0010">，</span>格式json字符串<span style="color:#960050;background-color:#1e0010">，</span>如多个参数: <span style="color:#e6db74">&#39;{&#34;参数A&#34;:&#34;xxxx&#34;, &#34;参数B&#34;:&#34;xxxx&#34;}&#39;</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 接口返回格式</span>
-</span></span><span style="display:flex;"><span>Json: 
+</span></span><span style="display:flex;"><span>token: 采用sha1加密, token<span style="color:#f92672">=</span>SHA1(秘钥 <span style="color:#f92672">+</span> stamp <span style="color:#f92672">+</span> visitor <span style="color:#f92672">+</span> type)
+</span></span><span style="display:flex;"><span>param: 数据集查询参数清单(可选), 格式json字符串, 如: <span style="color:#e6db74">&#39;{&#34;参数A&#34;:&#34;xxxx&#34;, &#34;参数B&#34;:&#34;xxxx&#34;}&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 接口返回格式Json:</span>
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;data&#34;</span>:[[]],
 </span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;result&#34;</span>:<span style="color:#e6db74">&#34;success&#34;</span>,
 </span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;maxpg&#34;</span>:<span style="color:#ae81ff">1</span>,
 </span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;pg&#34;</span>:<span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>返回值说明<span style="color:#960050;background-color:#1e0010">：</span>
-</span></span><span style="display:flex;"><span>data : 二维数组<span style="color:#960050;background-color:#1e0010">，</span>第一行为表头<span style="color:#960050;background-color:#1e0010">，</span> 样列数据
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 返回值说明:</span>
+</span></span><span style="display:flex;"><span>data : 二维数组, 第一行为表头, 样列数据如下
 </span></span><span style="display:flex;"><span>[[<span style="color:#e6db74">&#34;heroname&#34;</span>, <span style="color:#e6db74">&#34;qty&#34;</span>],[<span style="color:#e6db74">&#34;镜&#34;</span>,<span style="color:#ae81ff">658</span>],[<span style="color:#e6db74">&#34;猪八戒&#34;</span>,<span style="color:#ae81ff">591</span>]]
 </span></span><span style="display:flex;"><span>result : success 或 error
 </span></span><span style="display:flex;"><span>maxpg<span style="color:#f92672">/</span>pg : GET请求固定为1不分页
@@ -1687,8 +1697,7 @@ cors:永许跨域访问</p>
 </h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#接口请求格式:</span>
 </span></span><span style="display:flex;"><span>url: <span style="color:#f92672">/</span>echart<span style="color:#f92672">/</span>dataset_api<span style="color:#f92672">/</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 请求参数说明</span>
-</span></span><span style="display:flex;"><span>data: 
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 请求参数data: </span>
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;visitor&#34;</span>:<span style="color:#e6db74">&#34;xxx&#34;</span>,
 </span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;token&#34;</span>:<span style="color:#e6db74">&#34;xxx&#34;</span>,
@@ -1698,19 +1707,18 @@ cors:永许跨域访问</p>
 </span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;pg&#34;</span>:<span style="color:#e6db74">&#34;xxx&#34;</span>,       
 </span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;param&#34;</span>:<span style="color:#e6db74">&#39;{&#34;xxx&#34;:&#34;xxxx&#34;}&#39;</span>  
 </span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 参数说明</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># data参数说明</span>
 </span></span><span style="display:flex;"><span>visitor: 用户名
 </span></span><span style="display:flex;"><span>type: 接口数据集ID
 </span></span><span style="display:flex;"><span>stamp: 时间戳(<span style="color:#ae81ff">1970</span>年1月1日到生成时间的毫秒数)
-</span></span><span style="display:flex;"><span>token: 采用sha1加密, token<span style="color:#f92672">=</span>SHA1(秘钥 <span style="color:#f92672">+</span> stamp <span style="color:#f92672">+</span> Visitor <span style="color:#f92672">+</span> Type)
-</span></span><span style="display:flex;"><span>Pagesize: 采用分页<span style="color:#960050;background-color:#1e0010">，</span>每页的数据量大小
+</span></span><span style="display:flex;"><span>token: 采用sha1加密, token<span style="color:#f92672">=</span>SHA1(秘钥 <span style="color:#f92672">+</span> stamp <span style="color:#f92672">+</span> visitor <span style="color:#f92672">+</span> type)
+</span></span><span style="display:flex;"><span>Pagesize: 采用分页, 每页的数据量大小
 </span></span><span style="display:flex;"><span>pg: 返回第几页
-</span></span><span style="display:flex;"><span>param: 传入的参数值<span style="color:#960050;background-color:#1e0010">，</span>格式json字符串<span style="color:#960050;background-color:#1e0010">，</span>如多个参数
+</span></span><span style="display:flex;"><span>param: 数据集查询参数清单(可单), 拼接成json字符串, 如:
 </span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;{&#34;参数A&#34;:&#34;xxxx&#34;, &#34;参数B&#34;:&#34;xxxx&#34;}&#39;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#接口返回格式</span>
-</span></span><span style="display:flex;"><span>Json: 
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#接口返回格式Json: </span>
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;data&#34;</span>:[[]],
 </span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;result&#34;</span>:<span style="color:#e6db74">&#34;success&#34;</span>,
@@ -1729,45 +1737,43 @@ cors:永许跨域访问</p>
   不加密请求方式(简单但不安全）
   <a class="anchor" href="#%e4%b8%8d%e5%8a%a0%e5%af%86%e8%af%b7%e6%b1%82%e6%96%b9%e5%bc%8f%e7%ae%80%e5%8d%95%e4%bd%86%e4%b8%8d%e5%ae%89%e5%85%a8">#</a>
 </h4>
-<pre tabindex="0"><code>GET 请求
-#接口请求格式: 
-url: /echart/dataset_api/?visitor=xxx&amp;token=xxx&amp;type=xxx 数据集名或id名
-#接口返回格式
-Json: 
-{
-&#34;data&#34;:[[]],
-&#34;result&#34;:&#34;success&#34;,
-&#34;maxpg&#34;:1,
-&#34;pg&#34;:1
-}
-
-POST请求
-#接口请求格式:
-url: /echart/dataset_api/
-data: 
-{
-&#34;visitor&#34;:&#34;xxx&#34;,
-&#34;token&#34;:&#34;xxx&#34;,
-&#34;type&#34;:&#34;xxx&#34;,      #数据集名或id名
-&#34;pagesize&#34;:&#34;xxx&#34;,  #每页数据条数
-&#34;pg&#34;:&#34;xxx&#34;,        #返回第几页
-&#34;param&#34;:&#39;{&#34;xxx&#34;:&#34;xxxx&#34;}&#39;  #参数可选
-}
-#接口返回格式
-Json: 
-{
-&#34;data&#34;:[[]],
-&#34;result&#34;:&#34;success&#34;,
-&#34;maxpg&#34;:xxx,  #最大页数
-&#34;pg&#34;:xx,  #当前页数
-&#34;casheflag&#34;: xx,  #如果是999说明命中缓存
-&#34;total&#34;:xx,   #总条数
-}
-
-注意：
-只有post是分页的, 第一页是带标题的， 后面页不带标题
-由于post方式会使用缓存, 小数据量建议你使用get方式请求
-</code></pre></article>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>GET 请求
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#接口请求格式: </span>
+</span></span><span style="display:flex;"><span>url<span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;/echart/dataset_api/?visitor=xxx&amp;token=xxx&amp;type=数据集名或id&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#接口返回格式Json: </span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;data&#34;</span>:[[]],
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;result&#34;</span>:<span style="color:#e6db74">&#34;success&#34;</span>,
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;maxpg&#34;</span>:<span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;pg&#34;</span>:<span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>POST请求
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#接口请求格式:</span>
+</span></span><span style="display:flex;"><span>url: <span style="color:#f92672">/</span>echart<span style="color:#f92672">/</span>dataset_api<span style="color:#f92672">/</span>
+</span></span><span style="display:flex;"><span>data: 
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;visitor&#34;</span>:<span style="color:#e6db74">&#34;xxx&#34;</span>,
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;token&#34;</span>:<span style="color:#e6db74">&#34;xxx&#34;</span>,
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;type&#34;</span>:<span style="color:#e6db74">&#34;xxx&#34;</span>,      <span style="color:#75715e">#数据集名或id名</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;pagesize&#34;</span>:<span style="color:#e6db74">&#34;xxx&#34;</span>,  <span style="color:#75715e">#每页数据条数</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;pg&#34;</span>:<span style="color:#e6db74">&#34;xxx&#34;</span>,        <span style="color:#75715e">#返回第几页</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;param&#34;</span>:<span style="color:#e6db74">&#39;{&#34;xxx&#34;:&#34;xxxx&#34;}&#39;</span>  <span style="color:#75715e">#参数可选</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#接口返回格式Json: </span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;data&#34;</span>:[[]],
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;result&#34;</span>:<span style="color:#e6db74">&#34;success&#34;</span>,
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;maxpg&#34;</span>:xxx,  <span style="color:#75715e">#最大页数</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;pg&#34;</span>:xx,  <span style="color:#75715e">#当前页数</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;casheflag&#34;</span>: xx,  <span style="color:#75715e">#如果是999说明命中缓存</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;total&#34;</span>:xx,   <span style="color:#75715e">#总条数</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>注意:
+</span></span><span style="display:flex;"><span>只有post是分页的, 第一页是带标题的, 后面页不带标题
+</span></span><span style="display:flex;"><span>由于post方式会使用缓存, 小数据量建议你使用get方式请求
+</span></span></code></pre></div></article>
  
       
 
@@ -1779,7 +1785,7 @@ Json:
 
 
   <div>
-    <a class="flex align-center" href="https://gitee.com/smartchart/smartchart/docs/content/docs/6.%e8%bf%9b%e9%98%b6%e5%bc%80%e5%8f%91PRO/%e6%95%b0%e6%8d%ae%e6%9c%8d%e5%8a%a1API.md" target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://gitee.com/smartchart/smartchart/docs/content/docs/6.%e8%bf%9b%e9%98%b6%e5%bc%80%e5%8f%91PRO/%e6%95%b0%e6%8d%ae%e6%9c%8d%e5%8a%a1/%e6%95%b0%e6%8d%ae%e6%9c%8d%e5%8a%a1API.md" target="_blank" rel="noopener">
       <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>

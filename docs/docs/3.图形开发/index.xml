@@ -11,7 +11,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/%E5%9F%BA%E7%A1%80%E5%9B%BE%E5%BD%A2/</guid>
-      <description> 快速应用基础图形组件 # 你可使用如下方式选择常规的图形一键进行应用(我们只放了基础图形,因为你可以通过简单修改配置转化为各种图形,如线性面积图, 柱形堆叠图..) 你也可以在图形商店中找到更多已转化好的Smartchart图形 配置项完全和Echarts原生一样 注意事项 # 对于一些特殊图形如地图js在图形编辑中需要进行动态加载, 如果你使用了非常规图形, 你可在图形编辑器使用ds_loadjs(&amp;lsquo;smt_china’)加载中国地图, 同理我们有 &amp;lsquo;smt_wordcloud&amp;rsquo;, &amp;lsquo;smt_world&amp;rsquo;, &amp;lsquo;smt_ecStat&amp;rsquo;, ‘smt_liquidfill’ 有些图形可能同时需要在模板中加载, 更多特殊图形加载说明参考 特殊图形模板加载 </description>
+      <description>快速应用基础图形组件 # 你可使用如下方式选择&amp;quot;图形&amp;quot;&amp;ndash;&amp;gt;&amp;ldquo;基础图形&amp;rdquo; 点击即可一键进行应用 可以在图形商店中找到更多已转化好的Smartchart图形 我们只放了基础图形,因为你可以通过简单修改配置转化为各种图形,如线性面积图, 柱形堆叠图.. 理解ECharts基础概念 # 只需要围绕option进行定制设定。echarts使用 option 来描述其对图表的各种需求，包括：有什么数据、要画什么图表、图表长什么样子、含有什么组件、组件能操作什么事情等等。简而言之，option 表述了：数据、数据如何映射成图形、交互行为。
+系列（series） # 组件（component） # 在系列之上，echarts 中各种内容，被抽象为“组件”。例如，echarts 中至少有这些组件：xAxis（直角坐标系 X 轴）、yAxis（直角坐标系 Y 轴）、grid（直角坐标系底板）、angleAxis（极坐标系角度轴）、radiusAxis（极坐标系半径轴）、polar（极坐标系底板）、geo（地理坐标系）、dataZoom（数据区缩放组件）、visualMap（视觉映射组件）、tooltip（提示框组件）、toolbox（工具栏组件）、series（系列）、&amp;hellip; 组件的定位 # 多数组件和系列，都能够基于top / right / down / left / width / height 绝对定位(坐标基于echarts容器)。
+其中，他们每个值都可以是： 绝对数值（例如 bottom: 54 表示：距离 echarts 容器底边界 54 像素）。 或者基于 echarts 容器高宽的百分比（例如 right: &amp;lsquo;20%&amp;rsquo; 表示：距离 echarts 容器右边界的距离是 echarts 容器宽度的 20%）。 如下图的例子，对 grid 组件（也就是直角坐标系的底板）设置 left、right、height、bottom 达到的效果。 坐标系 # 如下图, 不同系列映射到不同的坐标系 快速应用配置项 # 在您理解了echarts的配置方法后,你可以在&amp;quot;参考&amp;quot;的菜单中找到对应的常用参考项 Echarts的配置项目非常多, 如果需要更多配置, 您可以参考 速查手册</description>
     </item>
     
     <item>
@@ -20,7 +22,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/%E7%AE%A1%E7%90%86%E5%9B%BE%E5%BD%A2/</guid>
-      <description> 应用场景 # 如何快速复用已开发好的组件
+      <description> 应用场景 # 可以快速复用已开发好的图形组件
 本地管理自定义组件 # 如下图,点击图形编辑器中的菜单,即可管理和查看自定义图形列表 点击&amp;quot;加入样列&amp;quot;即可把当前图形加入到样列清单, 点击&amp;quot;取消样列&amp;quot;即可将所选样列移除样列清单 云管理,在图形商店中保存你的图形 # 这样你就可以在图形商店看到你的图形进行重复利用 </description>
     </item>
     
@@ -30,10 +32,10 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/Echarts%E7%BB%84%E4%BB%B6/</guid>
-      <description>应用场景 # Smartchart提供了很多通用的图形,你可以在商店中直接使用 如果要个性化需要你进行自定义, 比如你可能需要在同一个图上展示柱形图和线性图
+      <description>应用场景 # Smartchart提供了很多通用的图形,你可以在商店中直接使用 如果要个性化,需要你进行自定义,比如你可能需要在同一个图上展示柱形图和线性图
 开发前建意先观看视屏, 了解基础说明, 视屏有点老和现在界面不一样, 目前很多功能已经做成可视化配置, 理解过程即可, 具体以文档为准
 Smartchart数据库与图形的对话 Smartchart图形开发一 Smartchart图形开发二 获取原生echarts图形 # 首先我们在ECHART官网可能找一个你喜欢的图形, 如下简单柱形图链接: 打开我们可以看对应的option:
-option = { xAxis: { type: &amp;#39;category&amp;#39;, data: [&amp;#39;Mon&amp;#39;, &amp;#39;Tue&amp;#39;, &amp;#39;Wed&amp;#39;, &amp;#39;Thu&amp;#39;, &amp;#39;Fri&amp;#39;, &amp;#39;Sat&amp;#39;, &amp;#39;Sun&amp;#39;] }, yAxis: { type: &amp;#39;value&amp;#39; }, series: [{ data: [120, 200, 150, 80, 70, 110, 130], type: &amp;#39;bar&amp;#39; }] }; 转化为smartchart图形 # 复制到Smartchart图形编辑器， 点击&amp;quot;刀叉“ 图标(目前是魔法梆)， 会自动进行初步转化 接下来我们就进行下改造, 请注意对比, 你只需照着复制即可
+option = { xAxis: { type: &amp;#39;category&amp;#39;, data: [&amp;#39;Mon&amp;#39;, &amp;#39;Tue&amp;#39;, &amp;#39;Wed&amp;#39;, &amp;#39;Thu&amp;#39;, &amp;#39;Fri&amp;#39;, &amp;#39;Sat&amp;#39;, &amp;#39;Sun&amp;#39;] }, yAxis: { type: &amp;#39;value&amp;#39; }, series: [{ data: [120, 200, 150, 80, 70, 110, 130], type: &amp;#39;bar&amp;#39; }] }; 转化为smartchart图形 # 复制到Smartchart图形编辑器， 点击菜单工具&amp;ndash;&amp;gt;转化为smartchart， 会自动进行初步转化 接下来我们就进行下改造, 请注意对比, 你只需照着复制即可
 let dataset = __dataset__ //传入dataset let legend_label = ds_rowname(dataset) //可选, 自动获取legend let xlabel = dataset[0].</description>
     </item>
     
@@ -56,7 +58,7 @@ let dataset=__dataset__; let table = &amp;#39;&amp;#39;; for (let i=1;i&amp;lt;d
       
       <guid>https://help.smartchart.cn/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/%E8%B0%83%E8%AF%95%E6%97%A5%E5%BF%97/</guid>
       <description> 关于页面日志查看 # 大家可能比较熟悉使用F12来查看网页日志, 但有的同学会觉得这不够方便, 所以 smartchart加入了可以页面直接显示日志的功能
-在仪表盘中显示 # 你只需要点击如下菜单, 即可切换是否显示日志 当在刷新页面或执行时, 日志将直接显示在右上角中, 而且还能显示出对应出错的图表序号 在图形中显示 # smartchart基于python的使用习惯, 重定义的专用的日志打印函数print 你可以在图形编辑器中使用些函数即可打印日志 比如看看鼠标放在echarts图上params, 在编辑界面和console中都能看到日志, 方便你进行调试 更多应用 # 不仅仅这些, 你可能会想写太多打印日志, 上线了不好 smartchart已为你想到这些, 如果你在仪表盘中没有开启日志显示, print函数是不会打印任何日志
+在仪表盘中显示 # 你只需要点击如下菜单, 即可切换是否显示日志 当在刷新页面或执行时, 日志将直接显示在右下角中, 而且还能显示出对应出错的图表序号 在图形中显示 # smartchart基于python的使用习惯, 重定义的专用的日志打印函数print 你可以在图形编辑器中使用些函数即可打印日志 比如看看鼠标放在echarts图上params, 在编辑界面和console中都能看到日志, 方便你进行调试 更多应用 # 不仅仅这些, 你可能会想写太多打印日志, 上线了不好 smartchart已为你想到这些, 如果你在仪表盘中没有开启日志显示, print函数是不会打印任何日志
 有了仪表盘日志显示, 我们还能做更多的事情, 比如实时显示你拖拽的坐标, 让你精确定位 </description>
     </item>
     

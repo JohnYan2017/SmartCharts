@@ -12,7 +12,7 @@
       
       <guid>https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91/%E6%A8%A1%E6%9D%BF%E5%BC%80%E5%8F%91%E7%95%8C%E9%9D%A2/</guid>
       <description> 低代码化开发 # smartchart的标准模板为了标准化的原因,对于引用JS,编写CSS等有一定不方便性, 但有时候你可能需要放飞自由, 随意定制 你甚至可能想引用一些其它的UI组件, 所以smartchart给你一个原汗原味的开发空间
-开启方式 # 在高级中,设定template为diy 主菜单中会多出来一个 模板 的功能 进入模板编辑界面 </description>
+开启方式 # 在高级设定中开启模板 主菜单中会多出来一个 模板 的功能 进入模板编辑界面 </description>
     </item>
     
     <item>
@@ -23,8 +23,7 @@
       <guid>https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91/%E5%BF%AB%E6%8D%B7%E5%BC%80%E5%8F%91/</guid>
       <description>应用场景 # 专业化开发, 可将仪表盘显示和模板开发分屏开发 当你熟悉smartchart的基础开发后, 你可能会喜欢上现在这种方式 把你的可视化页面移动的显示器上吧, 进入&amp;quot;模板&amp;quot; 开发页面(上节介绍如何进入)
 方式一: 自动化DIV # 此方式当你新增数据集图形时会自动识别, 无需手动在模板在添加 采用此方式请不要采用点击模板上方菜单的图形新增 如需编辑图形或数据集可按如下方式: 方式二: 自由DIV # 你可以模板中按照常规的H5页面编辑, 只是在需要插入图形的地方插入即可(建意通过模板上方的图形新增) 开始畅快的开发
-点击图形即可新增一个图形,你甚至可以指定图表的位置, 完全和写html一样, 使用{{div_list.图表顺序号}} warning 注意请尽量避免删除DIV, 如果你中途有删除过div, 序号会不一样, 你可以在&amp;quot;布局&amp;quot;中重排序保持一致, 保持数据集编号从0开始
-如果使用自由布局, 请删除自动化DIV这一段代码 选中生成的图形代码段, 点击菜单栏的 数据集, 图形, 布局开发， 即可进入开发界面, 如果没有数据集, 会自动帮你新建 可以观看视屏, 视屏比较老和现在不太一样, 仅参考即可 自由开发模式视屏</description>
+点击图形即可新增一个图形,你甚至可以指定图表的位置, 完全和写html一样, 图形代码段:{{div_list.图表顺序号}} 注意自由DIV模式下的新增图形, 是不自带容器的, 如有需要,可选中&amp;quot;图形代码&amp;quot;,点击菜单的容器包裹上容器 如果使用自由布局, 请删除自动化DIV这一段代码 选中生成的图形代码段, 点击菜单栏的 数据集, 图形, 布局开发或使用CTRL+Q， 即可进入开发界面, 如果没有数据集, 会自动帮你新建 可以观看视屏, 视屏比较老和现在不太一样, 仅参考即可 自由开发模式视屏</description>
     </item>
     
     <item>
@@ -63,7 +62,7 @@ CSS的几种引入方式 行内样式 行内式是在标记的style属性中设�
 &amp;lt;p style=&amp;#34;color: red&amp;#34;&amp;gt;Hello world.&amp;lt;/p&amp;gt; 内部样式 嵌入式是将CSS样式集中写在网页的标签对的标签对中。格式如下：
 &amp;lt;head&amp;gt; &amp;lt;style&amp;gt; p{ background-color: #2b99ff; } &amp;lt;/style&amp;gt; &amp;lt;/head&amp;gt; 外部样式 外部样式就是将css写在一个单独的文件中
 &amp;lt;link href=&amp;#34;mystyle.css&amp;#34; rel=&amp;#34;stylesheet&amp;#34; type=&amp;#34;text/css&amp;#34;/&amp;gt; CSS选择器 # 基本选择器
-元素选择器 p {color: &amp;#34;red&amp;#34;;} ID选择器 #i1 { background-color: red; } 类选择器 .c1 { font-size: 14px; } p .c1 { color: red; } 注意： 样式类名不要用数字开头（有的浏览器不认）。 标签中的class属性如果有多个，要用空格分隔。</description>
+/*元素选择器*/ p {color: &amp;#34;red&amp;#34;;} /*ID选择器*/ #i1 { background-color: red; } /*类选择器*/ .c1 { font-size: 14px; } p .c1 { color: red; } 注意： 样式类名不要用数字开头（有的浏览器不认）。 标签中的class属性如果有多个，要用空格分隔。</description>
     </item>
     
     <item>
@@ -72,9 +71,11 @@ CSS的几种引入方式 行内样式 行内式是在标记的style属性中设�
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91/IDE%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F/</guid>
-      <description>应用场景 # 如果您是一个资深的前端开发者 可能不需要使用smartchart组件,仅需使用到数据集 你希望在IDE(如VS code)中开发然后打包发布 非专用人士,请不要尝试这种方式 开发方式 # 在模板中使用basesimple 此时smartchart不会引用任何echarts, vue组件, 完全由您自已控制引入 , 你可以直接采用以下代码替换模板中的代码
-{% extends &amp;#34;echart/basesimple.html&amp;#34; %}{% block head %} &amp;lt;!--head区域的引用或代码--&amp;gt; {% endblock %}{% block body %} &amp;lt;!--在此区间粘入body相关代码--&amp;gt; {% endblock %}{% block javascript %} &amp;lt;!--粘入js相关引用或代码--&amp;gt; {% endblock %}{% block footer %}{% endblock %} 如何使用数据集接口 # 按照自由开发模式中, 新增一个图形, 然后修改数据集为通用且懒加载数据集 修改对应图形编辑器, 使数据赋值给一个全局变量或vue 在IDE中开发 # 由于你在开发中仅需要用到filter_param及ds_refresh, 建意新建一个js文件, 文件内容:
-//下面定义全局变量, 发布时需放入smartchart模板的script标签中 var mypublicdata1 = xxxx; ..... //以下为辅助方法, 发布时, 无需放入smartchart模板中 var filter_param = {}; function ds_refresh(num){ if(num === 0){你对应的图形中赋值代码,调试代码} if(num === 1){.</description>
+      <description> 应用场景 # 如果您是一个资深的前端开发者 可能不需要使用smartchart组件,仅需使用到数据集 你希望在IDE(如VS code)中开发然后打包发布 非专用人士,请不要尝试这种方式 开发方式 # 在模板中使用basesimple 此时smartchart不会引用任何echarts, vue组件, 完全由您自已控制引入
+如何使用数据集接口 # 在仪表中新增懒加载数据集 修改对应图形编辑器, 使数据赋值给一个全局变量或vue 在IDE中开发 # 由于你在开发中仅需要用到filter_param及ds_refresh, 建意新建一个js文件, 文件内容:
+//以下为辅助方法, 发布时, 无需放入smartchart模板中 var filter_param = {}; function ds_refresh(num){ if(num === 0){你对应的图形中赋值代码,调试代码} if(num === 1){....} ...... } 然后将这个js文件在你的项目中引用调试使用
+如何部署到smartchart # 打包完成后会有相应的css, js 和index.html文件, 将index.html中的代码复制贴粘到对应的模板区域中即可
+上传css,js 修改css,js 相关引用路径 去除之前定义的js辅助开发文件引用, 如果有定义全局变量, 将全局变量定义复制到模板js区域 </description>
     </item>
     
     <item>
@@ -95,7 +96,7 @@ CSS的几种引入方式 行内样式 行内式是在标记的style属性中设�
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91/%E7%BC%96%E8%BE%91%E5%99%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
-      <description> 功能 WIN MAC 说明 显示菜单 CTRL-, Command-, 折叠其它 Alt-0 Command-Option-0 查找替换 Ctrl-F Command-F 重复选中 Ctrl-D Command-D 5.6以前的版本是删除所选 注释选中 Ctrl-/ Command-/ 取消修改 Ctrl-z Command-z 重新执行 Ctrl-y Command-y 选中大写 Ctrl-U Ctrl-U 选中小写 SHIFT-Ctrl-U SHIFT-Ctrl-U </description>
+      <description> 功能 WIN MAC 说明 显示菜单 CTRL-, Command-, 折叠其它 Alt-0 Command-Option-0 查找替换 Ctrl-F Command-F 重复选中 Ctrl-D Command-D 注释选中 Ctrl-/ Command-/ 取消修改 Ctrl-z Command-z 重新执行 Ctrl-y Command-y 数据集编辑 Ctrl-Q Ctrl-Q 选中大写 Ctrl-U Ctrl-U 选中小写 SHIFT-Ctrl-U SHIFT-Ctrl-U </description>
     </item>
     
   </channel>

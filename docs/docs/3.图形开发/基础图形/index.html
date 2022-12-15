@@ -3,10 +3,14 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content=" 快速应用基础图形组件 # 你可使用如下方式选择常规的图形一键进行应用(我们只放了基础图形,因为你可以通过简单修改配置转化为各种图形,如线性面积图, 柱形堆叠图..) 你也可以在图形商店中找到更多已转化好的Smartchart图形 配置项完全和Echarts原生一样 注意事项 # 对于一些特殊图形如地图js在图形编辑中需要进行动态加载, 如果你使用了非常规图形, 你可在图形编辑器使用ds_loadjs(&lsquo;smt_china’)加载中国地图, 同理我们有 &lsquo;smt_wordcloud&rsquo;, &lsquo;smt_world&rsquo;, &lsquo;smt_ecStat&rsquo;, ‘smt_liquidfill’ 有些图形可能同时需要在模板中加载, 更多特殊图形加载说明参考 特殊图形模板加载 ">
+<meta name="description" content="快速应用基础图形组件 # 你可使用如下方式选择&quot;图形&quot;&ndash;&gt;&ldquo;基础图形&rdquo; 点击即可一键进行应用 可以在图形商店中找到更多已转化好的Smartchart图形 我们只放了基础图形,因为你可以通过简单修改配置转化为各种图形,如线性面积图, 柱形堆叠图.. 理解ECharts基础概念 # 只需要围绕option进行定制设定。echarts使用 option 来描述其对图表的各种需求，包括：有什么数据、要画什么图表、图表长什么样子、含有什么组件、组件能操作什么事情等等。简而言之，option 表述了：数据、数据如何映射成图形、交互行为。
+系列（series） # 组件（component） # 在系列之上，echarts 中各种内容，被抽象为“组件”。例如，echarts 中至少有这些组件：xAxis（直角坐标系 X 轴）、yAxis（直角坐标系 Y 轴）、grid（直角坐标系底板）、angleAxis（极坐标系角度轴）、radiusAxis（极坐标系半径轴）、polar（极坐标系底板）、geo（地理坐标系）、dataZoom（数据区缩放组件）、visualMap（视觉映射组件）、tooltip（提示框组件）、toolbox（工具栏组件）、series（系列）、&hellip; 组件的定位 # 多数组件和系列，都能够基于top / right / down / left / width / height 绝对定位(坐标基于echarts容器)。
+其中，他们每个值都可以是： 绝对数值（例如 bottom: 54 表示：距离 echarts 容器底边界 54 像素）。 或者基于 echarts 容器高宽的百分比（例如 right: &lsquo;20%&rsquo; 表示：距离 echarts 容器右边界的距离是 echarts 容器宽度的 20%）。 如下图的例子，对 grid 组件（也就是直角坐标系的底板）设置 left、right、height、bottom 达到的效果。 坐标系 # 如下图, 不同系列映射到不同的坐标系 快速应用配置项 # 在您理解了echarts的配置方法后,你可以在&quot;参考&quot;的菜单中找到对应的常用参考项 Echarts的配置项目非常多, 如果需要更多配置, 您可以参考 速查手册">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
-<meta property="og:description" content=" 快速应用基础图形组件 # 你可使用如下方式选择常规的图形一键进行应用(我们只放了基础图形,因为你可以通过简单修改配置转化为各种图形,如线性面积图, 柱形堆叠图..) 你也可以在图形商店中找到更多已转化好的Smartchart图形 配置项完全和Echarts原生一样 注意事项 # 对于一些特殊图形如地图js在图形编辑中需要进行动态加载, 如果你使用了非常规图形, 你可在图形编辑器使用ds_loadjs(&lsquo;smt_china’)加载中国地图, 同理我们有 &lsquo;smt_wordcloud&rsquo;, &lsquo;smt_world&rsquo;, &lsquo;smt_ecStat&rsquo;, ‘smt_liquidfill’ 有些图形可能同时需要在模板中加载, 更多特殊图形加载说明参考 特殊图形模板加载 " />
+<meta property="og:description" content="快速应用基础图形组件 # 你可使用如下方式选择&quot;图形&quot;&ndash;&gt;&ldquo;基础图形&rdquo; 点击即可一键进行应用 可以在图形商店中找到更多已转化好的Smartchart图形 我们只放了基础图形,因为你可以通过简单修改配置转化为各种图形,如线性面积图, 柱形堆叠图.. 理解ECharts基础概念 # 只需要围绕option进行定制设定。echarts使用 option 来描述其对图表的各种需求，包括：有什么数据、要画什么图表、图表长什么样子、含有什么组件、组件能操作什么事情等等。简而言之，option 表述了：数据、数据如何映射成图形、交互行为。
+系列（series） # 组件（component） # 在系列之上，echarts 中各种内容，被抽象为“组件”。例如，echarts 中至少有这些组件：xAxis（直角坐标系 X 轴）、yAxis（直角坐标系 Y 轴）、grid（直角坐标系底板）、angleAxis（极坐标系角度轴）、radiusAxis（极坐标系半径轴）、polar（极坐标系底板）、geo（地理坐标系）、dataZoom（数据区缩放组件）、visualMap（视觉映射组件）、tooltip（提示框组件）、toolbox（工具栏组件）、series（系列）、&hellip; 组件的定位 # 多数组件和系列，都能够基于top / right / down / left / width / height 绝对定位(坐标基于echarts容器)。
+其中，他们每个值都可以是： 绝对数值（例如 bottom: 54 表示：距离 echarts 容器底边界 54 像素）。 或者基于 echarts 容器高宽的百分比（例如 right: &lsquo;20%&rsquo; 表示：距离 echarts 容器右边界的距离是 echarts 容器宽度的 20%）。 如下图的例子，对 grid 组件（也就是直角坐标系的底板）设置 left、right、height、bottom 达到的效果。 坐标系 # 如下图, 不同系列映射到不同的坐标系 快速应用配置项 # 在您理解了echarts的配置方法后,你可以在&quot;参考&quot;的菜单中找到对应的常用参考项 Echarts的配置项目非常多, 如果需要更多配置, 您可以参考 速查手册" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://help.smartchart.cn/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/%E5%9F%BA%E7%A1%80%E5%9B%BE%E5%BD%A2/" /><meta property="article:section" content="docs" />
 
@@ -17,7 +21,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.eff5ead249bdb00bf7e8cf7706b90ecda1171dbc4487c7815e22ae0914f925a2.js" integrity="sha256-7/Xq0km9sAv36M93BrkOzaEXHbxEh8eBXiKuCRT5JaI=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.2303c3b073dd2c74e111bf72840f2b5118ffa228235011e8e7a7bb09478696a2.js" integrity="sha256-IwPDsHPdLHThEb9yhA8rURj/oigjUBHo56e7CUeGlqI=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -153,6 +157,32 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%8D%E6%9D%82%E6%8A%A5%E8%A1%A8/" class="">第一个复杂报表</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA3D%E5%9C%BA%E6%99%AF/" class="">第一个3D场景</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E4%B8%8A%E7%BA%BF%E6%95%B0%E6%8D%AE%E9%9B%86/" class="">第一个上线数据集</a>
   
 
         </li>
@@ -358,81 +388,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E5%85%B1%E4%BA%AB%E6%95%B0%E6%8D%AE%E9%9B%86/" class="">共享数据集</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
     <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E6%95%B0%E6%8D%AE%E5%88%B7%E6%96%B0/" class="">数据集数据刷新</a>
   
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E6%87%92%E5%8A%A0%E8%BD%BD/" class="">数据集懒加载</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-9297282a5313a9b54d7163ab91c1089a" class="toggle"  />
-    <label for="section-9297282a5313a9b54d7163ab91c1089a" class="flex justify-between">
-      <a role="button" class="">Excel数据</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/EXCEL%E6%95%B0%E6%8D%AE/%E4%BB%8EEXCEL%E7%B2%98%E8%B4%B4%E6%95%B0%E6%8D%AE/" class="">从 Excel粘贴数据</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/EXCEL%E6%95%B0%E6%8D%AE/%E6%95%B0%E6%8D%AE%E4%B8%8A%E4%BC%A0/" class="">数据上传</a>
-  
-
-        </li>
-      
-    
-  </ul>
 
         </li>
       
@@ -473,6 +430,19 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/%E4%BD%BF%E7%94%A8EXCEL%E6%95%B0%E6%8D%AE/" class="">使用 Excel数据</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
     <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/Python%E6%95%B0%E6%8D%AE%E9%9B%86/" class="">Python数据集</a>
   
 
@@ -487,6 +457,19 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE%E6%BA%90/" class="">自定义数据源</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/webSocket%E6%96%B9%E5%BC%8F/" class="">Web Socket方式</a>
   
 
         </li>
@@ -551,6 +534,19 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/promitheus%E6%95%B0%E6%8D%AE%E6%BA%90/" class="">Promitheus数据源</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
     <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/Redis%E6%95%B0%E6%8D%AE%E6%BA%90/" class="">Redis数据源</a>
   
 
@@ -565,6 +561,53 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/sqlalchemy%E8%BF%9E%E6%8E%A5/" class="">Sqlalchemy连接</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b696a5333fb0b6aa0ada2335e5fe864c" class="toggle"  />
+    <label for="section-b696a5333fb0b6aa0ada2335e5fe864c" class="flex justify-between">
+      <a role="button" class="">数据集形态</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E5%BD%A2%E6%80%81/%E5%85%B1%E4%BA%AB%E6%95%B0%E6%8D%AE%E9%9B%86/" class="">共享数据集</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E5%BD%A2%E6%80%81/%E6%95%B0%E6%8D%AE%E9%9B%86%E6%87%92%E5%8A%A0%E8%BD%BD/" class="">数据集懒加载</a>
   
 
         </li>
@@ -875,53 +918,6 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
     
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-e562f2d46bae3fd1d44d386234399fae" class="toggle"  />
-    <label for="section-e562f2d46bae3fd1d44d386234399fae" class="flex justify-between">
-      <a role="button" class="">不常用</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/4.%E5%B8%83%E5%B1%80%E8%AF%B4%E6%98%8E/%E4%B8%8D%E5%B8%B8%E7%94%A8/%E4%BB%A3%E7%A0%81%E8%BD%AC%E5%8C%96%E5%B8%83%E5%B1%80/" class="">代码转化布局</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/4.%E5%B8%83%E5%B1%80%E8%AF%B4%E6%98%8E/%E4%B8%8D%E5%B8%B8%E7%94%A8/%E5%AE%B9%E5%99%A8%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2/" class="">容器管理界面</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
   </ul>
 
         </li>
@@ -1148,7 +1144,23 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%AE%9E%E6%88%98%E5%A4%A7%E5%B1%8F%E6%A8%A1%E6%9D%BF%E8%BD%AC%E5%8C%96/" class="">实战大屏模板转化</a>
+    <input type="checkbox" id="section-2b5b070b11b526d911f2143b53347842" class="toggle"  />
+    <label for="section-2b5b070b11b526d911f2143b53347842" class="flex justify-between">
+      <a role="button" class="">数据服务</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1API/" class="">数据服务 API</a>
   
 
         </li>
@@ -1161,7 +1173,51 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1API/" class="">数据服务 API</a>
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD/" class="">数据下载</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E5%A1%AB%E6%8A%A5/" class="">数据填报</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E5%90%8E%E5%8F%B0API%E5%88%B7%E6%96%B0/" class="">后台 Api刷新</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%AE%9E%E6%88%98%E5%A4%A7%E5%B1%8F%E6%A8%A1%E6%9D%BF%E8%BD%AC%E5%8C%96/" class="">实战大屏模板转化</a>
   
 
         </li>
@@ -1187,59 +1243,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD/" class="">数据下载</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E5%A1%AB%E6%8A%A5/" class="">数据填报</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
     <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A6%96%E9%A1%B5/" class="">自定义首页</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%90%8E%E5%8F%B0API%E5%88%B7%E6%96%B0/" class="">后台 Api刷新</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/webSocket%E6%96%B9%E5%BC%8F/" class="">Web Socket方式</a>
   
 
         </li>
@@ -1594,6 +1598,8 @@ https://github.com/alex-shpak/hugo-book
         <li>
           <ul>
             <li><a href="#快速应用基础图形组件">快速应用基础图形组件</a></li>
+            <li><a href="#理解echarts基础概念">理解ECharts基础概念</a></li>
+            <li><a href="#快速应用配置项">快速应用配置项</a></li>
             <li><a href="#注意事项">注意事项</a></li>
           </ul>
         </li>
@@ -1616,21 +1622,70 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#%e5%bf%ab%e9%80%9f%e5%ba%94%e7%94%a8%e5%9f%ba%e7%a1%80%e5%9b%be%e5%bd%a2%e7%bb%84%e4%bb%b6">#</a>
 </h3>
 <ul>
-<li>你可使用如下方式选择常规的图形一键进行应用(我们只放了基础图形,因为你可以通过简单修改配置转化为各种图形,如线性面积图, 柱形堆叠图..)</li>
-<li>你也可以在图形商店中找到更多已转化好的Smartchart图形</li>
-<li>配置项完全和Echarts原生一样</li>
+<li>你可使用如下方式选择&quot;图形&quot;&ndash;&gt;&ldquo;基础图形&rdquo;</li>
+<li>点击即可一键进行应用</li>
+<li>可以在图形商店中找到更多已转化好的Smartchart图形</li>
+<li>我们只放了基础图形,因为你可以通过简单修改配置转化为各种图形,如线性面积图, 柱形堆叠图..</li>
 </ul>
 <p>
-  <img referrerpolicy="no-referrer" src="https://foruda.gitee.com/images/1660268831102600019/%e5%b1%8f%e5%b9%95%e6%88%aa%e5%9b%be.png" alt="输入图片说明" title="屏幕截图.png"/></p>
+  <img referrerpolicy="no-referrer" src="https://foruda.gitee.com/images/1669430349247348908/16b9f410_5500438.png" alt="输入图片说明" title="屏幕截图"/></p>
+<h3 id="理解echarts基础概念">
+  理解ECharts基础概念
+  <a class="anchor" href="#%e7%90%86%e8%a7%a3echarts%e5%9f%ba%e7%a1%80%e6%a6%82%e5%bf%b5">#</a>
+</h3>
+<p>只需要围绕option进行定制设定。echarts使用 option 来描述其对图表的各种需求，包括：有什么数据、要画什么图表、图表长什么样子、含有什么组件、组件能操作什么事情等等。简而言之，option 表述了：数据、数据如何映射成图形、交互行为。</p>
+<h4 id="系列series">
+  系列（series）
+  <a class="anchor" href="#%e7%b3%bb%e5%88%97series">#</a>
+</h4>
+<p>
+  <img referrerpolicy="no-referrer" src="https://www.smartchart.cn/media/editor/series-all-a_20201015210852450995.jpg" alt="" /></p>
+<h4 id="组件component">
+  组件（component）
+  <a class="anchor" href="#%e7%bb%84%e4%bb%b6component">#</a>
+</h4>
+<p>在系列之上，echarts 中各种内容，被抽象为“组件”。例如，echarts 中至少有这些组件：xAxis（直角坐标系 X 轴）、yAxis（直角坐标系 Y 轴）、grid（直角坐标系底板）、angleAxis（极坐标系角度轴）、radiusAxis（极坐标系半径轴）、polar（极坐标系底板）、geo（地理坐标系）、dataZoom（数据区缩放组件）、visualMap（视觉映射组件）、tooltip（提示框组件）、toolbox（工具栏组件）、series（系列）、&hellip;
+
+  <img referrerpolicy="no-referrer" src="https://www.smartchart.cn/media/editor/components_20201015210832440300.jpg" alt="" /></p>
+<h4 id="组件的定位">
+  组件的定位
+  <a class="anchor" href="#%e7%bb%84%e4%bb%b6%e7%9a%84%e5%ae%9a%e4%bd%8d">#</a>
+</h4>
+<p>多数组件和系列，都能够基于top / right / down / left / width / height 绝对定位(坐标基于echarts容器)。</p>
+<p>其中，他们每个值都可以是：
+绝对数值（例如 bottom: 54 表示：距离 echarts 容器底边界 54 像素）。
+或者基于 echarts 容器高宽的百分比（例如 right: &lsquo;20%&rsquo; 表示：距离 echarts 容器右边界的距离是 echarts 容器宽度的 20%）。
+如下图的例子，对 grid 组件（也就是直角坐标系的底板）设置 left、right、height、bottom 达到的效果。
+
+  <img referrerpolicy="no-referrer" src="https://www.smartchart.cn/media/editor/locate_20201015210820099789.jpg" alt="" /></p>
+<h4 id="坐标系">
+  坐标系
+  <a class="anchor" href="#%e5%9d%90%e6%a0%87%e7%b3%bb">#</a>
+</h4>
+<p>如下图, 不同系列映射到不同的坐标系
+
+  <img referrerpolicy="no-referrer" src="https://www.smartchart.cn/media/editor/coord-sys-1_20201015210805630865.jpg" alt="" /></p>
+<h3 id="快速应用配置项">
+  快速应用配置项
+  <a class="anchor" href="#%e5%bf%ab%e9%80%9f%e5%ba%94%e7%94%a8%e9%85%8d%e7%bd%ae%e9%a1%b9">#</a>
+</h3>
+<p>在您理解了echarts的配置方法后,你可以在&quot;参考&quot;的菜单中找到对应的常用参考项
+
+  <img referrerpolicy="no-referrer" src="https://foruda.gitee.com/images/1671085912862289446/3e8163a1_5500438.png" alt="输入图片说明" title="屏幕截图"/>
+Echarts的配置项目非常多, 如果需要更多配置, 您可以参考
+  <a href="https://echarts.apache.org/zh/cheat-sheet.html">速查手册</a></p>
 <h3 id="注意事项">
   注意事项
   <a class="anchor" href="#%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9">#</a>
 </h3>
 <ul>
-<li>对于一些特殊图形如地图js在图形编辑中需要进行动态加载, 如果你使用了非常规图形,</li>
-<li>你可在图形编辑器使用ds_loadjs(&lsquo;smt_china’)加载中国地图, 同理我们有 &lsquo;smt_wordcloud&rsquo;, &lsquo;smt_world&rsquo;, &lsquo;smt_ecStat&rsquo;, ‘smt_liquidfill’
-
-  <img referrerpolicy="no-referrer" src="https://images.gitee.com/uploads/images/2022/0114/173407_210747ca_5500438.png" alt="输入图片说明" title="屏幕截图.png"/></li>
+<li>对于一些特殊图形,如地图, 在图形编辑中,需要进行动态加载</li>
+<li>你可在图形编辑器使用ds_loadjs(&lsquo;smt_china’)加载中国地图</li>
+<li>同理我们有 &lsquo;smt_wordcloud&rsquo;, &lsquo;smt_world&rsquo;, &lsquo;smt_ecStat&rsquo;, ‘smt_liquidfill’</li>
+</ul>
+<p>
+  <img referrerpolicy="no-referrer" src="https://images.gitee.com/uploads/images/2022/0114/173407_210747ca_5500438.png" alt="输入图片说明" title="屏幕截图.png"/></p>
+<ul>
 <li>有些图形可能同时需要在模板中加载, 更多特殊图形加载说明参考 
   <a href="/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/%E7%89%B9%E6%AE%8A%E5%9B%BE%E5%BD%A2/%E7%89%B9%E6%AE%8A%E5%9B%BE%E5%BD%A2%E5%8A%A0%E8%BD%BD/">特殊图形模板加载</a></li>
 </ul>
@@ -1687,6 +1742,8 @@ https://github.com/alex-shpak/hugo-book
         <li>
           <ul>
             <li><a href="#快速应用基础图形组件">快速应用基础图形组件</a></li>
+            <li><a href="#理解echarts基础概念">理解ECharts基础概念</a></li>
+            <li><a href="#快速应用配置项">快速应用配置项</a></li>
             <li><a href="#注意事项">注意事项</a></li>
           </ul>
         </li>

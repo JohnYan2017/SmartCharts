@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="使用场景 # 需要使用图表联动效果 数据服务接口开发 使用魔法方法(smartchart独创,拒绝抄袭) # 基础原理 # - $参数名, 当有传递参数时将替换相关的值 - /* ... $参数 ... */, 当参数写在这个区间时, 如果外部没有传入参数, 会自动忽略这一段代码 - -- 标识之后单行的代码会被忽略 常见组合应用 # 理解以下样列后, 可录活使用组合出各种可能的需求
+<meta name="description" content="使用场景 # 需要使用图表联动效果 数据服务接口开发 使用魔法方法(smartchart独创,拒绝抄袭) # 基础原理 # 1. $参数名 : 当有传递参数时将替换相关的值 2. /* ... $参数名 ... */ : 当参数写在这个区间时, 如果外部没有传入参数, 会自动忽略这一段代码 3. -- : 标识之后单行的代码会被忽略 常见组合应用 # 理解以下样列后, 可录活使用组合出各种可能的需求
 默认参数: 实现在不传参数时默认参数是当前月份 select xx from tablename where calmonth =/*&#39;$calmonth&#39; -- */ to_char(sysdate,&#39;YYYYMM&#39;) 多个参数: 注意使用1=1及and的位置 select xx from tablename where 1=1 /* and city = &#39;$city&#39; */ /* and calmonth =&#39;$calmonth&#39;*/ 维度变化: 将字段当成参数 select /*$calmonth,*/ city, count(1) as qty from tablename group by /*$calmonth,*/ city 维度变化: 当传入月份条件时, 按城市,月份的数据, 不传参数时只看按城市的总数 select /*月份, -- $Month */ 城市, sum(度量) from tablename where 1=1 /* and 月份 &gt; &#39;$Month&#39; */ group by 城市 /*,月份 -- $Month*/ 高级开关应用 # 以上应用可以通过参数是否有传递来实现开关代码段的效果, 有些场景可能还希望通过参数值来进行代码段的开关 如下代码可以实现当传递参数type=1 或 type=2 时执行不同的代码段 使用 &ldquo;$参数__值&rdquo; 的方式做为开关">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
-<meta property="og:description" content="使用场景 # 需要使用图表联动效果 数据服务接口开发 使用魔法方法(smartchart独创,拒绝抄袭) # 基础原理 # - $参数名, 当有传递参数时将替换相关的值 - /* ... $参数 ... */, 当参数写在这个区间时, 如果外部没有传入参数, 会自动忽略这一段代码 - -- 标识之后单行的代码会被忽略 常见组合应用 # 理解以下样列后, 可录活使用组合出各种可能的需求
+<meta property="og:description" content="使用场景 # 需要使用图表联动效果 数据服务接口开发 使用魔法方法(smartchart独创,拒绝抄袭) # 基础原理 # 1. $参数名 : 当有传递参数时将替换相关的值 2. /* ... $参数名 ... */ : 当参数写在这个区间时, 如果外部没有传入参数, 会自动忽略这一段代码 3. -- : 标识之后单行的代码会被忽略 常见组合应用 # 理解以下样列后, 可录活使用组合出各种可能的需求
 默认参数: 实现在不传参数时默认参数是当前月份 select xx from tablename where calmonth =/*&#39;$calmonth&#39; -- */ to_char(sysdate,&#39;YYYYMM&#39;) 多个参数: 注意使用1=1及and的位置 select xx from tablename where 1=1 /* and city = &#39;$city&#39; */ /* and calmonth =&#39;$calmonth&#39;*/ 维度变化: 将字段当成参数 select /*$calmonth,*/ city, count(1) as qty from tablename group by /*$calmonth,*/ city 维度变化: 当传入月份条件时, 按城市,月份的数据, 不传参数时只看按城市的总数 select /*月份, -- $Month */ 城市, sum(度量) from tablename where 1=1 /* and 月份 &gt; &#39;$Month&#39; */ group by 城市 /*,月份 -- $Month*/ 高级开关应用 # 以上应用可以通过参数是否有传递来实现开关代码段的效果, 有些场景可能还希望通过参数值来进行代码段的开关 如下代码可以实现当传递参数type=1 或 type=2 时执行不同的代码段 使用 &ldquo;$参数__值&rdquo; 的方式做为开关" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://help.smartchart.cn/docs/5.%E5%8F%82%E6%95%B0%E5%8F%8A%E8%81%94%E5%8A%A8%E9%92%BB%E5%8F%96/%E5%8F%82%E6%95%B0%E7%BC%96%E5%86%99%E6%96%B9%E6%B3%95/" /><meta property="article:section" content="docs" />
@@ -19,7 +19,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.eff5ead249bdb00bf7e8cf7706b90ecda1171dbc4487c7815e22ae0914f925a2.js" integrity="sha256-7/Xq0km9sAv36M93BrkOzaEXHbxEh8eBXiKuCRT5JaI=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.2303c3b073dd2c74e111bf72840f2b5118ffa228235011e8e7a7bb09478696a2.js" integrity="sha256-IwPDsHPdLHThEb9yhA8rURj/oigjUBHo56e7CUeGlqI=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -155,6 +155,32 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%8D%E6%9D%82%E6%8A%A5%E8%A1%A8/" class="">第一个复杂报表</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA3D%E5%9C%BA%E6%99%AF/" class="">第一个3D场景</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E4%B8%8A%E7%BA%BF%E6%95%B0%E6%8D%AE%E9%9B%86/" class="">第一个上线数据集</a>
   
 
         </li>
@@ -360,81 +386,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E5%85%B1%E4%BA%AB%E6%95%B0%E6%8D%AE%E9%9B%86/" class="">共享数据集</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
     <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E6%95%B0%E6%8D%AE%E5%88%B7%E6%96%B0/" class="">数据集数据刷新</a>
   
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E6%87%92%E5%8A%A0%E8%BD%BD/" class="">数据集懒加载</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-9297282a5313a9b54d7163ab91c1089a" class="toggle"  />
-    <label for="section-9297282a5313a9b54d7163ab91c1089a" class="flex justify-between">
-      <a role="button" class="">Excel数据</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/EXCEL%E6%95%B0%E6%8D%AE/%E4%BB%8EEXCEL%E7%B2%98%E8%B4%B4%E6%95%B0%E6%8D%AE/" class="">从 Excel粘贴数据</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/EXCEL%E6%95%B0%E6%8D%AE/%E6%95%B0%E6%8D%AE%E4%B8%8A%E4%BC%A0/" class="">数据上传</a>
-  
-
-        </li>
-      
-    
-  </ul>
 
         </li>
       
@@ -475,6 +428,19 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/%E4%BD%BF%E7%94%A8EXCEL%E6%95%B0%E6%8D%AE/" class="">使用 Excel数据</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
     <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/Python%E6%95%B0%E6%8D%AE%E9%9B%86/" class="">Python数据集</a>
   
 
@@ -489,6 +455,19 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE%E6%BA%90/" class="">自定义数据源</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/webSocket%E6%96%B9%E5%BC%8F/" class="">Web Socket方式</a>
   
 
         </li>
@@ -553,6 +532,19 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/promitheus%E6%95%B0%E6%8D%AE%E6%BA%90/" class="">Promitheus数据源</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
     <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/Redis%E6%95%B0%E6%8D%AE%E6%BA%90/" class="">Redis数据源</a>
   
 
@@ -567,6 +559,53 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/sqlalchemy%E8%BF%9E%E6%8E%A5/" class="">Sqlalchemy连接</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-b696a5333fb0b6aa0ada2335e5fe864c" class="toggle"  />
+    <label for="section-b696a5333fb0b6aa0ada2335e5fe864c" class="flex justify-between">
+      <a role="button" class="">数据集形态</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E5%BD%A2%E6%80%81/%E5%85%B1%E4%BA%AB%E6%95%B0%E6%8D%AE%E9%9B%86/" class="">共享数据集</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E5%BD%A2%E6%80%81/%E6%95%B0%E6%8D%AE%E9%9B%86%E6%87%92%E5%8A%A0%E8%BD%BD/" class="">数据集懒加载</a>
   
 
         </li>
@@ -877,53 +916,6 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
     
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-e562f2d46bae3fd1d44d386234399fae" class="toggle"  />
-    <label for="section-e562f2d46bae3fd1d44d386234399fae" class="flex justify-between">
-      <a role="button" class="">不常用</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/4.%E5%B8%83%E5%B1%80%E8%AF%B4%E6%98%8E/%E4%B8%8D%E5%B8%B8%E7%94%A8/%E4%BB%A3%E7%A0%81%E8%BD%AC%E5%8C%96%E5%B8%83%E5%B1%80/" class="">代码转化布局</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/4.%E5%B8%83%E5%B1%80%E8%AF%B4%E6%98%8E/%E4%B8%8D%E5%B8%B8%E7%94%A8/%E5%AE%B9%E5%99%A8%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2/" class="">容器管理界面</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
   </ul>
 
         </li>
@@ -1150,7 +1142,23 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%AE%9E%E6%88%98%E5%A4%A7%E5%B1%8F%E6%A8%A1%E6%9D%BF%E8%BD%AC%E5%8C%96/" class="">实战大屏模板转化</a>
+    <input type="checkbox" id="section-2b5b070b11b526d911f2143b53347842" class="toggle"  />
+    <label for="section-2b5b070b11b526d911f2143b53347842" class="flex justify-between">
+      <a role="button" class="">数据服务</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1API/" class="">数据服务 API</a>
   
 
         </li>
@@ -1163,7 +1171,51 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1API/" class="">数据服务 API</a>
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD/" class="">数据下载</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E5%A1%AB%E6%8A%A5/" class="">数据填报</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E5%90%8E%E5%8F%B0API%E5%88%B7%E6%96%B0/" class="">后台 Api刷新</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%AE%9E%E6%88%98%E5%A4%A7%E5%B1%8F%E6%A8%A1%E6%9D%BF%E8%BD%AC%E5%8C%96/" class="">实战大屏模板转化</a>
   
 
         </li>
@@ -1189,59 +1241,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD/" class="">数据下载</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E5%A1%AB%E6%8A%A5/" class="">数据填报</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
     <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A6%96%E9%A1%B5/" class="">自定义首页</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%90%8E%E5%8F%B0API%E5%88%B7%E6%96%B0/" class="">后台 Api刷新</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/webSocket%E6%96%B9%E5%BC%8F/" class="">Web Socket方式</a>
   
 
         </li>
@@ -1632,9 +1632,9 @@ https://github.com/alex-shpak/hugo-book
   基础原理
   <a class="anchor" href="#%e5%9f%ba%e7%a1%80%e5%8e%9f%e7%90%86">#</a>
 </h4>
-<pre tabindex="0"><code>-  $参数名, 当有传递参数时将替换相关的值
--  /* ... $参数 ... */, 当参数写在这个区间时, 如果外部没有传入参数, 会自动忽略这一段代码
--  -- 标识之后单行的代码会被忽略
+<pre tabindex="0"><code> 1. $参数名 : 当有传递参数时将替换相关的值
+ 2. /* ... $参数名 ... */ : 当参数写在这个区间时, 如果外部没有传入参数, 会自动忽略这一段代码
+ 3. -- : 标识之后单行的代码会被忽略
 </code></pre><h4 id="常见组合应用">
   常见组合应用
   <a class="anchor" href="#%e5%b8%b8%e8%a7%81%e7%bb%84%e5%90%88%e5%ba%94%e7%94%a8">#</a>
@@ -1643,58 +1643,58 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li>默认参数: 实现在不传参数时默认参数是当前月份</li>
 </ul>
-<pre tabindex="0"><code>select xx from tablename where
-calmonth =/*&#39;$calmonth&#39; -- */ to_char(sysdate,&#39;YYYYMM&#39;)
-</code></pre><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">select</span> xx <span style="color:#66d9ef">from</span> tablename <span style="color:#66d9ef">where</span>
+</span></span><span style="display:flex;"><span>calmonth <span style="color:#f92672">=</span><span style="color:#75715e">/*&#39;$calmonth&#39; -- */</span> to_char(sysdate,<span style="color:#e6db74">&#39;YYYYMM&#39;</span>)
+</span></span></code></pre></div><ul>
 <li>多个参数: 注意使用1=1及and的位置</li>
 </ul>
-<pre tabindex="0"><code>select xx from tablename where 1=1 /* and city = &#39;$city&#39; */ 
-/* and calmonth =&#39;$calmonth&#39;*/
-</code></pre><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">select</span> xx <span style="color:#66d9ef">from</span> tablename <span style="color:#66d9ef">where</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> <span style="color:#75715e">/* and city = &#39;$city&#39; */</span> 
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* and calmonth =&#39;$calmonth&#39;*/</span>
+</span></span></code></pre></div><ul>
 <li>维度变化: 将字段当成参数</li>
 </ul>
-<pre tabindex="0"><code>select /*$calmonth,*/ city, count(1) as qty from tablename 
-group by /*$calmonth,*/ city
-</code></pre><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">select</span> <span style="color:#75715e">/*$calmonth,*/</span> city, <span style="color:#66d9ef">count</span>(<span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">as</span> qty <span style="color:#66d9ef">from</span> tablename 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">group</span> <span style="color:#66d9ef">by</span> <span style="color:#75715e">/*$calmonth,*/</span> city
+</span></span></code></pre></div><ul>
 <li>维度变化: 当传入月份条件时, 按城市,月份的数据, 不传参数时只看按城市的总数</li>
 </ul>
-<pre tabindex="0"><code>select /*月份, -- $Month */  
-城市, sum(度量) from tablename 
-where 1=1
-/* and 月份 &gt; &#39;$Month&#39; */
-group by 城市  
-/*,月份 -- $Month*/
-</code></pre><h4 id="高级开关应用">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">select</span> <span style="color:#75715e">/*月份, -- $Month */</span>  
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">城市</span>, <span style="color:#66d9ef">sum</span>(<span style="color:#960050;background-color:#1e0010">度量</span>) <span style="color:#66d9ef">from</span> tablename 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">where</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* and 月份 &gt; &#39;$Month&#39; */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">group</span> <span style="color:#66d9ef">by</span> <span style="color:#960050;background-color:#1e0010">城市</span>  
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/*,月份 -- $Month*/</span>
+</span></span></code></pre></div><h4 id="高级开关应用">
   高级开关应用
   <a class="anchor" href="#%e9%ab%98%e7%ba%a7%e5%bc%80%e5%85%b3%e5%ba%94%e7%94%a8">#</a>
 </h4>
 <p>以上应用可以通过参数是否有传递来实现开关代码段的效果, 有些场景可能还希望通过参数值来进行代码段的开关
 如下代码可以实现当传递参数type=1 或 type=2 时执行不同的代码段
 使用 &ldquo;$参数__值&rdquo; 的方式做为开关</p>
-<pre tabindex="0"><code>/* select count(1) as qty from tablename1  $type__1*/
-/* select count(1) as qty from tablename2  $type__2*/
-</code></pre><p>再比如
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">/* select count(1) as qty from tablename1  $type__1*/</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* select count(1) as qty from tablename2  $type__2*/</span>
+</span></span></code></pre></div><p>再比如
 当参数D传值为&quot;月份&quot;时是统计2022年按月的统计,
 传&quot;日期&quot;时统计的是2022年10月按天的统计</p>
-<pre tabindex="0"><code>select $D, count(1) as qty from tablename
-where 1 = 1
-/* and year=&#39;2022&#39;    -- $D__日期  $D__月份 */
-/* and month=&#39;10&#39;      $D__日期 */
-group by
-$D
-</code></pre><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">select</span> <span style="color:#960050;background-color:#1e0010">$</span>D, <span style="color:#66d9ef">count</span>(<span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">as</span> qty <span style="color:#66d9ef">from</span> tablename
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">where</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* and year=&#39;2022&#39;    -- $D__日期  $D__月份 */</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* and month=&#39;10&#39;     -- $D__日期 */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">group</span> <span style="color:#66d9ef">by</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span>D
+</span></span></code></pre></div><blockquote>
 <p>加了&quot;&ndash;&ldquo;是为了避免语法错误</p>
 </blockquote>
 <h3 id="数据集开发调试参数方法">
   数据集开发调试参数方法
   <a class="anchor" href="#%e6%95%b0%e6%8d%ae%e9%9b%86%e5%bc%80%e5%8f%91%e8%b0%83%e8%af%95%e5%8f%82%e6%95%b0%e6%96%b9%e6%b3%95">#</a>
 </h3>
-<pre tabindex="0"><code>对于开发人员来说, 带参数的SQL调试不方便, 所以支持你在sql中写入默认参数
-方法如下格式, 你可以在sql编辑器的最上方写上 /* {xxxxxx} */, 
-会默认在开发调试模式下取这些参数, 在用户模式下会忽略
-/* {&#34;月份&#34;:&#34;202009&#34;,&#34;城市&#34;:&#34;中山&#34;} */
-select xxx from table xxx
-</code></pre><h3 id="数据权限行级别控制">
+<p>对于开发人员来说, 带参数的SQL调试不方便, 所以支持你在sql中写入默认参数
+方法如下格式, 你可以在sql编辑器的最上方写上 /* {xxxxxx} */,
+会默认在开发调试模式下取这些参数, 在用户模式下会忽略</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">/* {&#34;月份&#34;:&#34;202009&#34;,&#34;城市&#34;:&#34;中山&#34;} */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">select</span> xxx <span style="color:#66d9ef">from</span> <span style="color:#66d9ef">table</span> xxx
+</span></span></code></pre></div><h3 id="数据权限行级别控制">
   数据权限行级别控制
   <a class="anchor" href="#%e6%95%b0%e6%8d%ae%e6%9d%83%e9%99%90%e8%a1%8c%e7%ba%a7%e5%88%ab%e6%8e%a7%e5%88%b6">#</a>
 </h3>

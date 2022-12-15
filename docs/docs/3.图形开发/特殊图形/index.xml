@@ -31,11 +31,10 @@ ds_loadcss(&amp;#39;smt_LineUp&amp;#39;); ds_loadjs(&amp;#39;smt_LineUp&amp;#39;
       
       <guid>https://help.smartchart.cn/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/%E7%89%B9%E6%AE%8A%E5%9B%BE%E5%BD%A2/%E6%97%A0%E7%BC%9D%E6%BB%9A%E5%8A%A8/</guid>
       <description>通用滚动 # 例如你的html如下
-&amp;lt;div id=&amp;#34;smtid&amp;#34; style=&amp;#34;height:100%&amp;#34;&amp;gt; &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt;smartchart&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;bigdata&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;echarts&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;make it great&amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/div&amp;gt; 你只需要使用以下函数, 即可实现在无缝滚动 由于smtid是ID, 则使用 ds_liMarquee(&amp;rsquo;#smtid&amp;rsquo;) 即可开启自动滚动 如果 class=&amp;ldquo;smtclass&amp;rdquo;, 那么也可以使用类选择器 ds_liMarquee(&amp;rsquo;.smtclass&#39;)
-我们也可以使用更多的配置方法
-marconfig={ playtime: 3000, //滚动3秒 pausetime: 3000, //停3秒 config:{ direction: &amp;#39;up&amp;#39;,//向上滚动 runshort: false,//内容不足时不滚动 scrollamount: 20//速度 } } 可以使用 ds_liMarquee(&amp;rsquo;#smtid&amp;rsquo;, marconfig) 传入配置
-更多config说明:
-名称 类型 默认值 说明 direction 字符串 left 滚动方向，可选 left / right / up / down loop 整数 -1 循环次数，-1 为无限循环 scrolldelay 整数 0 每次重复之前的延迟 scrollamount 整数 50 滚动速度，越大越快 circular 布尔值 true 无缝滚动，如果为 false，则和 marquee 效果一样 drag 布尔值 true 鼠标可拖动 runshort 布尔值 true 内容不足是否滚动 hoverstop 布尔值 true 鼠标悬停暂停 xml 布尔值 false 加载xml 文件 inverthover 布尔值 false 反向，即默认不滚动，鼠标悬停滚动 内置滚动表格 # smartchart内置了滚动表格, 可以一键生成 如果你需要修改表格的样式, 如字体,颜色等, 你可以在模板中重定义样式 具体样式的写法, 参考 样式快速入门</description>
+&amp;lt;div id=&amp;#34;smtid&amp;#34; style=&amp;#34;height:100%&amp;#34;&amp;gt; &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt;smartchart&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;bigdata&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;echarts&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;make it great&amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;/div&amp;gt; 你只需要在图形中使用以下函数, 即可实现在无缝滚动
+//smtid是滚动容器的ID ds_liMarquee(&amp;#39;#smtid&amp;#39;) //如果 class=&amp;#34;smtclass&amp;#34;, 那么也可以使用类选择器 ds_liMarquee(&amp;#39;.smtclass&amp;#39;) 我们也可以使用更多的配置方法
+marconfig={ playtime: 3000, //滚动3秒 pausetime: 3000, //停3秒 config:{ direction: &amp;#39;up&amp;#39;,//向上滚动 runshort: false,//内容不足时不滚动 scrollamount: 20//速度 } } //传入自定义配置 ds_liMarquee(&amp;#39;#smtid&amp;#39;, marconfig) 更多config说明:
+名称 类型 默认值 说明 direction 字符串 left 滚动方向，可选 left / right / up / down loop 整数 -1 循环次数，-1 为无限循环 scrolldelay 整数 0 每次重复之前的延迟 scrollamount 整数 50 滚动速度，越大越快 circular 布尔值 true 无缝滚动，如果为 false，则和 marquee 效果一样 drag 布尔值 true 鼠标可拖动 runshort 布尔值 true 内容不足是否滚动 hoverstop 布尔值 true 鼠标悬停暂停 xml 布尔值 false 加载xml 文件 inverthover 布尔值 false 反向，即默认不滚动，鼠标悬停滚动 内置滚动表格 # smartchart内置了滚动表格, 可以一键生成</description>
     </item>
     
     <item>
@@ -44,7 +43,7 @@ marconfig={ playtime: 3000, //滚动3秒 pausetime: 3000, //停3秒 config:{ dir
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/%E7%89%B9%E6%AE%8A%E5%9B%BE%E5%BD%A2/%E7%89%B9%E6%AE%8A%E5%9B%BE%E5%BD%A2%E5%8A%A0%E8%BD%BD/</guid>
-      <description>smartchart默认只会引echarts的基础图形 如果你需要使用到更多图形, 你可以自行引用,可以写在模板的javascript标签中
+      <description>smartchart默认只会引echarts的基础图形, 如需使用更多图形,可在模板javascript标签中自行引用
 中国地图 &amp;lt;script src=&amp;#34;/static/smartchart/opt/smt_china.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; 世界地图 &amp;lt;script src=&amp;#34;/static/smartchart/opt/smt_world.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; 统计图 &amp;lt;script src=&amp;#34;/static/smartchart/opt/smt_ecStat.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; 水球图 &amp;lt;script src=&amp;#34;/static/smartchart/opt/smt_liquidfill.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; 词云 &amp;lt;script src=&amp;#34;/static/smartchart/opt/smt_wordcloud.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; 百度地图 &amp;lt;script type=&amp;#34;text/javascript&amp;#34; src=&amp;#34;https://fastly.jsdelivr.net/npm/echarts@5/dist/extension/bmap.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; </description>
     </item>
     
