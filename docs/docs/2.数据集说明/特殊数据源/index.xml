@@ -112,9 +112,11 @@ let dataset=ds_mapToList(__dataset__); 参数说明： # 除table，其它都为
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/promitheus%E6%95%B0%E6%8D%AE%E6%BA%90/</guid>
-      <description> 数据源配置方法 # 驱动: prometheus 连接地址: http://ip:9090
+      <description>数据源配置方法 # 驱动: prometheus 连接地址: http://ip:9090
 查询方法 # 输入常规查询命令即可 返回值为prometheus标准json, 你需要在图形编辑器中使用js处理数据
-let dataset=__dataset__; //获取返回值列表中的第一值 dataset = dataset.data.result[0].value; print(dataset) 同样支持多段查询, 使用分号(;)分隔查询 </description>
+let dataset=__dataset__; //获取返回值列表中的第一值 dataset = dataset.data.result[0].value; print(dataset) 处理数据样列 # 如获得的数据
+{ &amp;#34;status&amp;#34;:&amp;#34;success&amp;#34;, &amp;#34;data&amp;#34;:{ &amp;#34;resultType&amp;#34;:&amp;#34;vector&amp;#34;, &amp;#34;result&amp;#34;:[ {&amp;#34;metric&amp;#34;:{&amp;#34;__name__&amp;#34;:&amp;#34;starrocks_fe_routine_load_jobs&amp;#34;,&amp;#34;group&amp;#34;:&amp;#34;fe&amp;#34;,&amp;#34;instance&amp;#34;:&amp;#34;xxx:8030&amp;#34;,&amp;#34;job&amp;#34;:&amp;#34;StarRocks_Cluster01&amp;#34;,&amp;#34;state&amp;#34;:&amp;#34;CANCELLED&amp;#34;}, &amp;#34;value&amp;#34;:[1671188429.573,&amp;#34;0&amp;#34;] }, {&amp;#34;metric&amp;#34;:{&amp;#34;__name__&amp;#34;:&amp;#34;starrocks_fe_routine_load_jobs&amp;#34;,&amp;#34;group&amp;#34;:&amp;#34;fe&amp;#34;,&amp;#34;instance&amp;#34;:&amp;#34;xxx:8030&amp;#34;,&amp;#34;job&amp;#34;:&amp;#34;StarRocks_Cluster01&amp;#34;,&amp;#34;state&amp;#34;:&amp;#34;NEED_SCHEDULE&amp;#34;}, &amp;#34;value&amp;#34;:[1671188429.573,&amp;#34;2&amp;#34;]} ... ] } } 图形中处理成smartchart标准格式
+//处理prometheus let df = __dataset__; let result = df.data.result; let dataset = [[&amp;#39;instance&amp;#39;,&amp;#39;state&amp;#39;,&amp;#39;qty&amp;#39;]]; //二维表头 for(let item of result){ let pmetric = item.metric; let pvalue = item.value; dataset.push([pmetric.instance,pmetric.state,pvalue[1]]); } dataset = ds_pivot(dataset); //列转行 如果带时序的, 数据处理参考</description>
     </item>
     
     <item>

@@ -16,7 +16,7 @@
 激活方式 # 您在初次安装Smartchart后会自动免费激活10天的专业版本, 之后专业版本功能会限制使用 请务必仔细阅读免费版本与专业版本的区别, 避免带来的不便 后续如果您还需要继续体验专业版本， 点击查看激活试用方式， 如果您是企业用途，建意使用专业版，获取更快的开发效率，可视化效果, 可靠性的保障及极速的查询体验
 针对个人独立开发者,你可以采用廉价的专业版仪表盘激活方案, 可满足小项目的可视化要求 如果需要永久激活专业版，可关注公众号与客服联系,或扫码联系微信客服了解, 非诚勿扰
 微信客服不提供技术咨询, 如有使用方法的疑惑,建意加QQ群:476715246 进行沟通
-免费版本与专业版本对比: # 功能 免费版 专业版 中台版 栅格布局 V V V DATAV V V V 拖拽布局 V V 自由开发 V V 切换图表主题 V V 主题自由设计 V V 引入JS V V 引入CSS V V 上传静态资源 V V 使用VUE V V V 数据集开发 V V V 所有数据源 V V V 图形开发 V V V 图形商店 V V V 普通模板应用 V V V 专业模板应用 V V 复制仪表盘 V V V 钻取 V V V 联动 V V V 筛选 V V V 单点登录 V V V 嵌入认证 V V LDAP认证 V V Juypter V V V 快捷存档 V V 数据加速 V V 数据API服务 V V 后台API刷新 V V 仪表盘同步 V V 仪表盘版本管理 V V 数据填报 V V 报表Portal V V 多级项目菜单 V 商业授权 V V 优先咨询 V V 专业边框背景 V V 3D场景 V V 中国式报表 V V 生产部署文档 V V 个性化修改 V V 授权书 V V 低代码ETL V 调度平台 V 智慧BI V 数据资产 V 数据血缘 V 租户管理 V </description>
+免费版本与专业版本对比: # 功能 免费版 专业版 中台版 栅格布局 V V V DATAV V V V 拖拽布局 V V 自由开发 V V 切换图表主题 V V 主题自由设计 V V 引入JS V V 引入CSS V V 上传静态资源 V V 使用VUE V V V 数据集开发 V V V 所有数据源 V V V 图形开发 V V V 图形商店 V V V 普通模板应用 V V V 专业模板应用 V V 复制仪表盘 V V V 钻取 V V V 联动 V V V 筛选 V V V 单点登录 V V V 嵌入认证 V V LDAP认证 V V Juypter V V V 快捷存档 V V 数据加速 V V 数据API服务 V V 后台API刷新 V V 仪表盘同步 V V 仪表盘版本管理 V V 数据填报 V V 报表Portal V V 多级项目菜单 V 商业授权 V V 优先咨询 V V 专业边框背景 V V 3D场景 V V 中国式报表 V V 零代码数据集 V V 生产部署文档 V V 个性化修改 V V 授权书 V V 低代码ETL V 调度平台 V 智慧BI V 数据资产 V 数据质量 V 数据血缘 V 租户管理 V </description>
     </item>
     
     <item>
@@ -25,7 +25,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/</guid>
-      <description>开发前你可以先观看操作方面的 操作视屏教程 5.0变更操作视屏教程 开发系列合集,关注作者持续更新 由于版本的变更, 一些图标可能会有一些变化, 但位置无太大的变化
+      <description>开发前视屏 # 6.0介绍视屏 4.0操作视屏教程 5.0变更操作视屏教程 开发系列合集,关注作者持续更新 由于版本的变更, 一些图标可能会有一些变化, 但位置无太大的变化
 安装Python环境 # 环境准备: 官方 最新Python下载链接,可以到 淘宝镜象下载,也可以下载 WINDOWS64位安装版, MAC电脑安装版 Window平台安装视屏介绍,注意: Windows安装Python时需选中&amp;quot;Add to Path&amp;quot; Linux安装可参考文档下方的部署说明, Linux安装说明 安装SmartChart # 在Shell或CMD命令行执行
 pip3 install smartchart 如果安装过程慢,建意使用 pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple smartchart -U 升级方法: pip3 install smartchart -U 启动smartchart # 本地命令行启动: smartchart 如果你是服务器部署,远程访问,服务端启动方式: smartchart runserver 0.0.0.0:8000 --insecure --noreload 如果出现套接字，端口被占用， 可修改端口号启动， 如 smartchart runserver 0.0.0.0:8001 --insecure --noreload 一般本地启动后访问： http://127.0.0.1:8000 管理员帐号密码: admin/admin, 请及时更改密码
 如果忘记密码, 可以使用此命令重置 smartchart changepassword 用户名 查看demo # 尝试熟悉编辑菜单 尝试点开数据集查看SQL写法， 图形编辑器， 容器等 仪表盘菜单 # 功能项 子项 使用说明 菜单栏 - 点击可展开隐藏, 可移动位置 设定 常规设定 权限管理,水印,模板应用,版本控制.</description>

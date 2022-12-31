@@ -169,7 +169,7 @@ TEMPLATES = [ { &amp;#39;BACKEND&amp;#39;: &amp;#39;django.template.backends.dja
 激活方式 # 您在初次安装Smartchart后会自动免费激活10天的专业版本, 之后专业版本功能会限制使用 请务必仔细阅读免费版本与专业版本的区别, 避免带来的不便 后续如果您还需要继续体验专业版本， 点击查看激活试用方式， 如果您是企业用途，建意使用专业版，获取更快的开发效率，可视化效果, 可靠性的保障及极速的查询体验
 针对个人独立开发者,你可以采用廉价的专业版仪表盘激活方案, 可满足小项目的可视化要求 如果需要永久激活专业版，可关注公众号与客服联系,或扫码联系微信客服了解, 非诚勿扰
 微信客服不提供技术咨询, 如有使用方法的疑惑,建意加QQ群:476715246 进行沟通
-免费版本与专业版本对比: # 功能 免费版 专业版 中台版 栅格布局 V V V DATAV V V V 拖拽布局 V V 自由开发 V V 切换图表主题 V V 主题自由设计 V V 引入JS V V 引入CSS V V 上传静态资源 V V 使用VUE V V V 数据集开发 V V V 所有数据源 V V V 图形开发 V V V 图形商店 V V V 普通模板应用 V V V 专业模板应用 V V 复制仪表盘 V V V 钻取 V V V 联动 V V V 筛选 V V V 单点登录 V V V 嵌入认证 V V LDAP认证 V V Juypter V V V 快捷存档 V V 数据加速 V V 数据API服务 V V 后台API刷新 V V 仪表盘同步 V V 仪表盘版本管理 V V 数据填报 V V 报表Portal V V 多级项目菜单 V 商业授权 V V 优先咨询 V V 专业边框背景 V V 3D场景 V V 中国式报表 V V 生产部署文档 V V 个性化修改 V V 授权书 V V 低代码ETL V 调度平台 V 智慧BI V 数据资产 V 数据血缘 V 租户管理 V </description>
+免费版本与专业版本对比: # 功能 免费版 专业版 中台版 栅格布局 V V V DATAV V V V 拖拽布局 V V 自由开发 V V 切换图表主题 V V 主题自由设计 V V 引入JS V V 引入CSS V V 上传静态资源 V V 使用VUE V V V 数据集开发 V V V 所有数据源 V V V 图形开发 V V V 图形商店 V V V 普通模板应用 V V V 专业模板应用 V V 复制仪表盘 V V V 钻取 V V V 联动 V V V 筛选 V V V 单点登录 V V V 嵌入认证 V V LDAP认证 V V Juypter V V V 快捷存档 V V 数据加速 V V 数据API服务 V V 后台API刷新 V V 仪表盘同步 V V 仪表盘版本管理 V V 数据填报 V V 报表Portal V V 多级项目菜单 V 商业授权 V V 优先咨询 V V 专业边框背景 V V 3D场景 V V 中国式报表 V V 零代码数据集 V V 生产部署文档 V V 个性化修改 V V 授权书 V V 低代码ETL V 调度平台 V 智慧BI V 数据资产 V 数据质量 V 数据血缘 V 租户管理 V </description>
     </item>
     
     <item>
@@ -313,7 +313,7 @@ python3 manage.py collectstatic </description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/%E8%AE%BE%E8%AE%A1%E7%90%86%E5%BF%B5/</guid>
-      <description>Smartchart6.0 预计2022年底发布, 带来全新的功能与体验, 请关注
+      <description>Smartchart6.0 已发布, 带来全新的功能与体验
 设计哲学: # 她是基于真实应用场景的敏捷数据中台而设计的产品,已成熟在多个大型企业应用多年,不仅是一个可视化低代码开发平台, 也是数据接口低代码, 甚至是业务系统低代码开发平台 支持多种混合布局, 对于普通报表可以使用响应式布局同时满足大屏, 电脑, 平板, 手机端的页面, 对于大屏也可使用拖拽辅助布局来配合自由开发模式(专业版) 她是面向开发者, 如果需要设计出来非常漂亮有个性的数据展现形式, 我们发现如果要达到这个目的, 不管用什么开发工具, 最终还是需要用户了解一些基础的html, css, echarts的配置, 如果去学习某个平台中要在那些地方点点点的界面上进行配置, 那么为什么不去学习使用原生的呢, 这样反而更简单, 用户可以找到的参考资源更全面, 甚至可以从社区的代码中直接复制过来, 所以我们设计理念是不自定义开发语言, 而是帮大家建立数据与图形的高速公路, 定义交通规则 和提供服务区 smartchart有很多隐藏功能, 所以初入smartchart的同学会一脸迷惑, 无从下手, 因为我们讲究 精减设计 和 可扩展性 , 如果有些功能只用一次, 就不会让他在界面显示, 我们不推荐不看文档和视屏就直接上手开发的模式, 给你门槛是为了将来使用得不会太累 她重在数据处理的便捷, 联动/刷新机制设计一气呵成, 无缝的原生图形开发工具, 没有拖泥带水的让用户去找设定开关, 你甚至可以使用你喜欢的IDE进行开发, 给开发者充分发挥的自由 smartchart是一个企业级解决方案, 不是一个玩具, 她不喜欢浮躁, 需要你沉下心, 慢慢体验, 属于慢热型, 就好比是做菜, smartchart是给你提供了已经切好的菜和菜谱说明, 你可以按自已喜欢加火放调料就行, 你甚至可以增加新的调料(如css, js引用) 或更换调料. 相比有些产品就是给你准备的是已做好的菜品, 如果你觉得它盐放得太多, 你得清洗下, 再重新回锅, 对于我们开发人员来说, 这是不可忍受的 类似于养成类游戏, 你可以在开发过程中积累图形, 模板等等, 在后面的项目中可以直接用复制粘贴的方式进行复用, 而不需要再界面上重新进行配置调整.</description>
     </item>
     
@@ -323,7 +323,7 @@ python3 manage.py collectstatic </description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/</guid>
-      <description>开发前你可以先观看操作方面的 操作视屏教程 5.0变更操作视屏教程 开发系列合集,关注作者持续更新 由于版本的变更, 一些图标可能会有一些变化, 但位置无太大的变化
+      <description>开发前视屏 # 6.0介绍视屏 4.0操作视屏教程 5.0变更操作视屏教程 开发系列合集,关注作者持续更新 由于版本的变更, 一些图标可能会有一些变化, 但位置无太大的变化
 安装Python环境 # 环境准备: 官方 最新Python下载链接,可以到 淘宝镜象下载,也可以下载 WINDOWS64位安装版, MAC电脑安装版 Window平台安装视屏介绍,注意: Windows安装Python时需选中&amp;quot;Add to Path&amp;quot; Linux安装可参考文档下方的部署说明, Linux安装说明 安装SmartChart # 在Shell或CMD命令行执行
 pip3 install smartchart 如果安装过程慢,建意使用 pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple smartchart -U 升级方法: pip3 install smartchart -U 启动smartchart # 本地命令行启动: smartchart 如果你是服务器部署,远程访问,服务端启动方式: smartchart runserver 0.0.0.0:8000 --insecure --noreload 如果出现套接字，端口被占用， 可修改端口号启动， 如 smartchart runserver 0.0.0.0:8001 --insecure --noreload 一般本地启动后访问： http://127.0.0.1:8000 管理员帐号密码: admin/admin, 请及时更改密码
 如果忘记密码, 可以使用此命令重置 smartchart changepassword 用户名 查看demo # 尝试熟悉编辑菜单 尝试点开数据集查看SQL写法， 图形编辑器， 容器等 仪表盘菜单 # 功能项 子项 使用说明 菜单栏 - 点击可展开隐藏, 可移动位置 设定 常规设定 权限管理,水印,模板应用,版本控制.</description>
@@ -801,9 +801,11 @@ let dataset=ds_mapToList(__dataset__); 参数说明： # 除table，其它都为
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/promitheus%E6%95%B0%E6%8D%AE%E6%BA%90/</guid>
-      <description> 数据源配置方法 # 驱动: prometheus 连接地址: http://ip:9090
+      <description>数据源配置方法 # 驱动: prometheus 连接地址: http://ip:9090
 查询方法 # 输入常规查询命令即可 返回值为prometheus标准json, 你需要在图形编辑器中使用js处理数据
-let dataset=__dataset__; //获取返回值列表中的第一值 dataset = dataset.data.result[0].value; print(dataset) 同样支持多段查询, 使用分号(;)分隔查询 </description>
+let dataset=__dataset__; //获取返回值列表中的第一值 dataset = dataset.data.result[0].value; print(dataset) 处理数据样列 # 如获得的数据
+{ &amp;#34;status&amp;#34;:&amp;#34;success&amp;#34;, &amp;#34;data&amp;#34;:{ &amp;#34;resultType&amp;#34;:&amp;#34;vector&amp;#34;, &amp;#34;result&amp;#34;:[ {&amp;#34;metric&amp;#34;:{&amp;#34;__name__&amp;#34;:&amp;#34;starrocks_fe_routine_load_jobs&amp;#34;,&amp;#34;group&amp;#34;:&amp;#34;fe&amp;#34;,&amp;#34;instance&amp;#34;:&amp;#34;xxx:8030&amp;#34;,&amp;#34;job&amp;#34;:&amp;#34;StarRocks_Cluster01&amp;#34;,&amp;#34;state&amp;#34;:&amp;#34;CANCELLED&amp;#34;}, &amp;#34;value&amp;#34;:[1671188429.573,&amp;#34;0&amp;#34;] }, {&amp;#34;metric&amp;#34;:{&amp;#34;__name__&amp;#34;:&amp;#34;starrocks_fe_routine_load_jobs&amp;#34;,&amp;#34;group&amp;#34;:&amp;#34;fe&amp;#34;,&amp;#34;instance&amp;#34;:&amp;#34;xxx:8030&amp;#34;,&amp;#34;job&amp;#34;:&amp;#34;StarRocks_Cluster01&amp;#34;,&amp;#34;state&amp;#34;:&amp;#34;NEED_SCHEDULE&amp;#34;}, &amp;#34;value&amp;#34;:[1671188429.573,&amp;#34;2&amp;#34;]} ... ] } } 图形中处理成smartchart标准格式
+//处理prometheus let df = __dataset__; let result = df.data.result; let dataset = [[&amp;#39;instance&amp;#39;,&amp;#39;state&amp;#39;,&amp;#39;qty&amp;#39;]]; //二维表头 for(let item of result){ let pmetric = item.metric; let pvalue = item.value; dataset.push([pmetric.instance,pmetric.state,pvalue[1]]); } dataset = ds_pivot(dataset); //列转行 如果带时序的, 数据处理参考</description>
     </item>
     
     <item>

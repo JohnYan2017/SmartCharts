@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-    <img src="https://img.shields.io/badge/Release-V5.7-green.svg" alt="Downloads">
+    <img src="https://img.shields.io/badge/Release-V6.0-green.svg" alt="Downloads">
 	<a target="_blank" href="https://www.python.org/downloads/release/python-390/">
 		<img src="https://img.shields.io/badge/Python-3.6+-green.svg" />
 	</a>
@@ -54,6 +54,8 @@
 - 支持websocket, 数据填报设计,前端埋点, 数据服务API低代码开发
 - 支持仪表盘备份恢复快照等, 满足企业级的版本控制开发上线流程要求
 - 没有重复学习成本, 高度可定制化, 注意是高度可定制化!!
+
+具体功能预览可观看视屏了解, [6.0介绍视屏](https://www.bilibili.com/video/BV1Md4y1h7iq) 
 
 ![大数据](https://www.smartchart.cn/media/editor/微信截图_20211202163316_20211202163647765791.png)
 ![smartchart](http://smartchart.cn/media/editor/smartvoice_20201224085323156045.png)
@@ -267,6 +269,25 @@ v5.7
 - 登录界面动画柔和化
 - 仪表盘备份增加interval
 - 修复_id问题
+v6.0
+- 新增复杂报表开发
+- 新增3D场景开发
+- 新增上线数据集零代码使用
+- 新增界面化高级设定
+- 新增背景切换
+- 新增移动端适配支持
+- 开发界面新增了隐藏容器
+- 通用数据集/懒加载数据集使用更顺畅
+- 新增apiconfig配制界面化
+- 开发工具栏更清晰顺畅
+- 数据集开发新增表及字段联想
+- 新增Prometheus/influxdb连接
+- 数据集序号自动化
+- 全面优化了数据集数据预览
+- 全面优化了拖拽体验
+- 全面优化了开发界面
+- 移除了body设定
+
 ```
 
 
