@@ -16,7 +16,7 @@
 激活方式 # 您在初次安装Smartchart后会自动免费激活10天的专业版本, 之后专业版本功能会限制使用 请务必仔细阅读免费版本与专业版本的区别, 避免带来的不便 后续如果您还需要继续体验专业版本， 点击查看激活试用方式， 如果您是企业用途，建意使用专业版，获取更快的开发效率，可视化效果, 可靠性的保障及极速的查询体验
 针对个人独立开发者,你可以采用廉价的专业版仪表盘激活方案, 可满足小项目的可视化要求 如果需要永久激活专业版，可关注公众号与客服联系,或扫码联系微信客服了解, 非诚勿扰
 微信客服不提供技术咨询, 如有使用方法的疑惑,建意加QQ群:476715246 进行沟通
-免费版本与专业版本对比: # 功能 免费版 专业版 中台版 栅格布局 V V V DATAV V V V 拖拽布局 V V 自由开发 V V 切换图表主题 V V 主题自由设计 V V 引入JS V V 引入CSS V V 上传静态资源 V V 使用VUE V V V 数据集开发 V V V 所有数据源 V V V 图形开发 V V V 图形商店 V V V 普通模板应用 V V V 专业模板应用 V V 复制仪表盘 V V V 钻取 V V V 联动 V V V 筛选 V V V 单点登录 V V V 嵌入认证 V V LDAP认证 V V Juypter V V V 快捷存档 V V 数据加速 V V 数据API服务 V V 后台API刷新 V V 仪表盘同步 V V 仪表盘版本管理 V V 数据填报 V V 报表Portal V V 多级项目菜单 V 商业授权 V V 优先咨询 V V 专业边框背景 V V 3D场景 V V 中国式报表 V V 零代码数据集 V V 生产部署文档 V V 个性化修改 V V 授权书 V V 低代码ETL V 调度平台 V 智慧BI V 数据资产 V 数据质量 V 数据血缘 V 租户管理 V </description>
+免费版本与专业版本对比: # 功能 免费版 专业版 中台版 个人版 栅格布局 V V V V DATAV V V V V 拖拽布局 V V V 自由开发 V V V 切换图表主题 V V V 主题自由设计 V V V 引入JS V V V 引入CSS V V V 上传静态资源 V V V 使用VUE V V V V 数据集开发 V V V V 所有数据源 V V V V 图形开发 V V V V 图形商店 V V V V 普通模板应用 V V V V 专业模板应用 V V V 复制仪表盘 V V V V 钻取 V V V V 联动 V V V V 筛选 V V V V 单点登录 V V V V 嵌入认证 V V V LDAP认证 V V V Juypter V V V V 快捷存档 V V V 数据加速 V V V 数据API服务 V V V 后台API刷新 V V V 仪表盘同步 V V V 仪表盘版本管理 V V V 数据填报 V V V 报表Portal V V V 多级项目菜单 V 商业授权 V V 优先咨询 V V 专业边框背景 V V 3D场景 V V V 中国式报表 V V V 零代码数据集 V V V 生产部署文档 V V 个性化修改 V V 授权书 V V 低代码ETL V 调度平台 V 智慧BI V 数据资产 V 数据质量 V 数据血缘 V 租户管理 V </description>
     </item>
     
     <item>

@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-    <img src="https://img.shields.io/badge/Release-V6.0-green.svg" alt="Downloads">
+    <img src="https://img.shields.io/badge/Release-V6.1-green.svg" alt="Downloads">
 	<a target="_blank" href="https://www.python.org/downloads/release/python-390/">
 		<img src="https://img.shields.io/badge/Python-3.6+-green.svg" />
 	</a>
@@ -287,7 +287,16 @@ v6.0
 - 全面优化了拖拽体验
 - 全面优化了开发界面
 - 移除了body设定
-
+v6.1
+- 增加ds_loadpivot透视表组件
+- 增加smtmail连接
+- 增加仪表盘数据集模式
+- 增强仪表盘开发页编辑框拖拽体验
+- 数据集开发增加表,字段联想功能
+- 升级并轻量化elementui
+- 优化图形配置提示
+- 优化数据集预览表格
+- 优化图标
 ```
 
 

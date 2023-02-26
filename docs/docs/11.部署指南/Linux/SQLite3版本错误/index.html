@@ -12,7 +12,9 @@ tar zxvf sqlite-autoconf-3290000.tar.gz 3、进行解压后的目录
 cd sqlite-autoconf-3290000 4、配置安装目录
 ./configure --prefix=$HOME/opt/sqlite 5、编译安装
 make &amp;&amp; make install 6、指定环境变量
-export PATH=$HOME/opt/sqlite/bin:$PATH export LD_LIBRARY_PATH=$HOME/opt/sqlite/lib export LD_RUN_PATH=$HOME/opt/sqlite/lib 完成之后可以运行sqlite3 &ndash;version 命令来查看当前的SQLite3版本。">
+export PATH=$HOME/opt/sqlite/bin:$PATH export LD_LIBRARY_PATH=$HOME/opt/sqlite/lib export LD_RUN_PATH=$HOME/opt/sqlite/lib 完成之后可以运行sqlite3 &ndash;version 命令来查看当前的SQLite3版本。
+如果还是不行, 报错如下: 可如下方式处理
+# 安装 pip3 install pysqlite3 pip3 install pysqlite3-binary # 编辑django的文件, 路径参考报错 vi xxxxxx/lib/python3.9/site-packages/django/db/backends/sqlite3/base.py # 修改内容 # from sqlite3 import dbapi2 as Database # 注释掉这里 from pysqlite3 import dbapi2 as Database # 然后保存退出就可以了 :wq!">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
 <meta property="og:description" content="SQLite3版本错误 在部分操作系统下（比如CentOS 7）使用SQLite3数据库运行会出现如下的错误提示：
@@ -24,7 +26,9 @@ tar zxvf sqlite-autoconf-3290000.tar.gz 3、进行解压后的目录
 cd sqlite-autoconf-3290000 4、配置安装目录
 ./configure --prefix=$HOME/opt/sqlite 5、编译安装
 make &amp;&amp; make install 6、指定环境变量
-export PATH=$HOME/opt/sqlite/bin:$PATH export LD_LIBRARY_PATH=$HOME/opt/sqlite/lib export LD_RUN_PATH=$HOME/opt/sqlite/lib 完成之后可以运行sqlite3 &ndash;version 命令来查看当前的SQLite3版本。" />
+export PATH=$HOME/opt/sqlite/bin:$PATH export LD_LIBRARY_PATH=$HOME/opt/sqlite/lib export LD_RUN_PATH=$HOME/opt/sqlite/lib 完成之后可以运行sqlite3 &ndash;version 命令来查看当前的SQLite3版本。
+如果还是不行, 报错如下: 可如下方式处理
+# 安装 pip3 install pysqlite3 pip3 install pysqlite3-binary # 编辑django的文件, 路径参考报错 vi xxxxxx/lib/python3.9/site-packages/django/db/backends/sqlite3/base.py # 修改内容 # from sqlite3 import dbapi2 as Database # 注释掉这里 from pysqlite3 import dbapi2 as Database # 然后保存退出就可以了 :wq!" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://help.smartchart.cn/docs/11.%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/Linux/SQLite3%E7%89%88%E6%9C%AC%E9%94%99%E8%AF%AF/" /><meta property="article:section" content="docs" />
 
@@ -35,7 +39,7 @@ export PATH=$HOME/opt/sqlite/bin:$PATH export LD_LIBRARY_PATH=$HOME/opt/sqlite/l
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.1ccb98145bb3fdcc53c1644cf31bf89b8c12703ca046029398384c85723cf5ee.js" integrity="sha256-HMuYFFuz/cxTwWRM8xv4m4wScDygRgKTmDhMhXI89e4=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.0cafae4d190a479ae3c320e16c447a1550cfbdf76a9a12df12857cb80633ead6.js" integrity="sha256-DK&#43;uTRkKR5rjwyDhbER6FVDPvfdqmhLfEoV8uAYz6tY=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -1636,7 +1640,24 @@ https://github.com/alex-shpak/hugo-book
 export LD_LIBRARY_PATH=$HOME/opt/sqlite/lib
 export LD_RUN_PATH=$HOME/opt/sqlite/lib
 </code></pre><p>完成之后可以运行sqlite3 &ndash;version 命令来查看当前的SQLite3版本。</p>
-</article>
+<blockquote>
+<p>如果还是不行, 报错如下:
+
+  <img referrerpolicy="no-referrer" src="https://foruda.gitee.com/images/1672997506889694401/e900ec5c_5500438.png" alt="输入图片说明" title="屏幕截图"/>
+可如下方式处理</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 安装</span>
+</span></span><span style="display:flex;"><span>pip3 install pysqlite3
+</span></span><span style="display:flex;"><span>pip3 install pysqlite3-binary
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 编辑django的文件, 路径参考报错</span>
+</span></span><span style="display:flex;"><span>vi xxxxxx/lib/python3.9/site-packages/django/db/backends/sqlite3/base.py
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 修改内容</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># from sqlite3 import dbapi2 as Database # 注释掉这里</span>
+</span></span><span style="display:flex;"><span>from pysqlite3 import dbapi2 as Database
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 然后保存退出就可以了  :wq!</span>
+</span></span></code></pre></div></article>
  
       
 

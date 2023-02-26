@@ -29,7 +29,9 @@ tar zxvf sqlite-autoconf-3290000.tar.gz 3、进行解压后的目录
 cd sqlite-autoconf-3290000 4、配置安装目录
 ./configure --prefix=$HOME/opt/sqlite 5、编译安装
 make &amp;amp;&amp;amp; make install 6、指定环境变量
-export PATH=$HOME/opt/sqlite/bin:$PATH export LD_LIBRARY_PATH=$HOME/opt/sqlite/lib export LD_RUN_PATH=$HOME/opt/sqlite/lib 完成之后可以运行sqlite3 &amp;ndash;version 命令来查看当前的SQLite3版本。</description>
+export PATH=$HOME/opt/sqlite/bin:$PATH export LD_LIBRARY_PATH=$HOME/opt/sqlite/lib export LD_RUN_PATH=$HOME/opt/sqlite/lib 完成之后可以运行sqlite3 &amp;ndash;version 命令来查看当前的SQLite3版本。
+如果还是不行, 报错如下: 可如下方式处理
+# 安装 pip3 install pysqlite3 pip3 install pysqlite3-binary # 编辑django的文件, 路径参考报错 vi xxxxxx/lib/python3.9/site-packages/django/db/backends/sqlite3/base.py # 修改内容 # from sqlite3 import dbapi2 as Database # 注释掉这里 from pysqlite3 import dbapi2 as Database # 然后保存退出就可以了 :wq!</description>
     </item>
     
     <item>

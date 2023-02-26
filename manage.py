@@ -5,15 +5,12 @@ import sys
 
 
 def main():
-    SMARTCHART = '''
-         _____       ___  ___       ___   _____    _____   _____   _   _       ___   _____    _____
-        /  ___/     /   |/   |     /   | |  _  \  |_   _| /  ___| | | | |     /   | |  _  \  |_   _|
-        | |___     / /|   /| |    / /| | | |_| |    | |   | |     | |_| |    / /| | | |_| |    | |
-        \___  \   / / |__/ | |   / / | | |  _  /    | |   | |     |  _  |   / / | | |  _  /    | |
-         ___| |  / /       | |  / /  | | | | \ \    | |   | |___  | | | |  / /  | | | | \ \    | |
-        /_____/ /_/        |_| /_/   |_| |_|  \_\   |_|   \_____| |_| |_| /_/   |_| |_|  \_\   |_|
-        www.smartchart.cn   version: 5.2
-    '''
+    try:
+        from smart_chart.echart import get_version
+    except Exception as e:
+        print('you need pip install smartchart')
+        return
+    SMARTCHART = f'''======powered by smartchart   version: {get_version()}====='''
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'smartcharts.settings')
     try:
