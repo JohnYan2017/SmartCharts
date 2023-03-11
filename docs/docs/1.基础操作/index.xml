@@ -48,7 +48,8 @@ pip3 install smartchart 如果安装过程慢,建意使用 pip3 install -i https
       
       <guid>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%8D%E6%9D%82%E6%8A%A5%E8%A1%A8/</guid>
       <description>新建仪表盘 # 在开发模式下，滑动“开发管理” -&amp;gt;&amp;ldquo;仪表盘&amp;rdquo;-&amp;gt; &amp;ldquo;新增Dashboard&amp;rdquo; 填写相应信息后点击“保存” 点击进入仪表盘开发, 注意点击 &amp;ldquo;E&amp;rdquo; 字!! 点击新增&amp;ndash;&amp;gt;复杂报表 数据集编辑 # 点开“数据集” 输入以下SQL后，点击“保存并刷新”, 关闭数据集编辑界面 select H1 as 英雄名称, sum(qty) as 英雄1出场数 from smartdemo2 group by H1 order by sum(qty) desc; select count(1) as 总出场数 from smartdemo2 报表页面开发 # 和excel一样, 编辑相应表格 点击&amp;quot;数据集图标&amp;quot;(再次点击隐藏), 显示数据集字段名, 选中单元格, 单击字段名填入 点击&amp;quot;获取数据&amp;quot;, 可对真实数据调整样式 点击&amp;quot;保存&amp;quot; 点击&amp;quot;预览&amp;quot;, 可查看最终效果 导入EXCEL/WPS开发的模板 # 你也可直接导入excel或wps开发好的模板, 点击左下方的上传即可
-当然我们还有更多可定制的功能, 自行探索吧 也可购买专业版本解锁高级用法</description>
+关于自动填充方式 # 填充方向 # 默认的填充方向, 是按列方向向下填充 如果需要按行方向向右填充, 可在单元格字段标识后面加上__, 如下:
+#df0.英雄名称__ 格式填充 # 默认不会填充格式, 采用单元格自身的格式 如果需要自动采用&amp;quot;单元格字段标识&amp;quot;的格式, 可在单元格字段标识后面加上!</description>
     </item>
     
     <item>

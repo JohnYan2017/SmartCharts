@@ -8,7 +8,7 @@
 常规方法 # 比如你需要点击0号图形, 指定其它图形联动 你只需要打开0号图形的数据集编辑页面, 点击标题的位置 然后输入相关的参数即可, 以下为sample 参数值设定的方法, 你可以先留空, 然后保存, F12打开浏览器调试方法 点击0号图形你需要点击的动作, 你可以在调试窗口的console看到输入的log 比如我们需要传递的参数值是&quot;廉颇&quot;, 那么取数据的方法就是data.name, 你把这个填入即可 这样就实现按所选数据或所选系列钻取/联动了, 重新点击当前所选, 恢复原来的
 TIPS: 在图形编辑器中, 可以使用函数 ds_param(&lsquo;参数名&rsquo;) 来获取传入的参数值
 高级定制方法 # 如有更多个性化需求,可在需要点击的图形的编辑器中加入以下代码,仅需修改的是序号和参数名
-//比如传入多个参数进行联动 myChart__name__.on(&#39;click&#39;, function(params){ let myparam = params.seriesName; //获取点击的值 ds_setParam(&#39;参数名&#39;, myparam); //填写你的数据集的SQL设定中对应的参数名 ds_setParam(&#39;参数名2&#39;, myparam2); //你可以赋值给多个参数 ds_refresh(3); //3 为你要刷新图形序号 }); //函数方法说明 ds_setParam(&#39;参数名&#39;, 参数值) 此方法将自动判断当参数值为空时, 删除参数回到初始未传参状态 你还可以实现钻取到另外一个报表">
+//比如传入多个参数进行联动 myChart__name__.on(&#39;click&#39;, function(params){ let myparam = params.seriesName; //获取点击的值 ds_setParam(&#39;参数名&#39;, myparam); //填写你的数据集的SQL设定中对应的参数名 ds_setParam(&#39;参数名2&#39;, myparam2); //你可以赋值给多个参数 ds_refresh(3); //3 为你要刷新图形序号 }); //函数方法说明 ds_setParam(&#39;参数名&#39;, 参数值) 此方法将自动判断当参数值为空,null或0时, 删除参数回到初始未传参状态 所以请注意此方法无法传递参数空,null及0, 如需传递请将0转化成字符 你还可以实现钻取到另外一个报表">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
 <meta property="og:description" content="数据集准备 # 首先在需要进行联动的数据集中SQL的写法如下, 比如对应2号图形:
@@ -16,7 +16,7 @@ TIPS: 在图形编辑器中, 可以使用函数 ds_param(&lsquo;参数名&rsquo;
 常规方法 # 比如你需要点击0号图形, 指定其它图形联动 你只需要打开0号图形的数据集编辑页面, 点击标题的位置 然后输入相关的参数即可, 以下为sample 参数值设定的方法, 你可以先留空, 然后保存, F12打开浏览器调试方法 点击0号图形你需要点击的动作, 你可以在调试窗口的console看到输入的log 比如我们需要传递的参数值是&quot;廉颇&quot;, 那么取数据的方法就是data.name, 你把这个填入即可 这样就实现按所选数据或所选系列钻取/联动了, 重新点击当前所选, 恢复原来的
 TIPS: 在图形编辑器中, 可以使用函数 ds_param(&lsquo;参数名&rsquo;) 来获取传入的参数值
 高级定制方法 # 如有更多个性化需求,可在需要点击的图形的编辑器中加入以下代码,仅需修改的是序号和参数名
-//比如传入多个参数进行联动 myChart__name__.on(&#39;click&#39;, function(params){ let myparam = params.seriesName; //获取点击的值 ds_setParam(&#39;参数名&#39;, myparam); //填写你的数据集的SQL设定中对应的参数名 ds_setParam(&#39;参数名2&#39;, myparam2); //你可以赋值给多个参数 ds_refresh(3); //3 为你要刷新图形序号 }); //函数方法说明 ds_setParam(&#39;参数名&#39;, 参数值) 此方法将自动判断当参数值为空时, 删除参数回到初始未传参状态 你还可以实现钻取到另外一个报表" />
+//比如传入多个参数进行联动 myChart__name__.on(&#39;click&#39;, function(params){ let myparam = params.seriesName; //获取点击的值 ds_setParam(&#39;参数名&#39;, myparam); //填写你的数据集的SQL设定中对应的参数名 ds_setParam(&#39;参数名2&#39;, myparam2); //你可以赋值给多个参数 ds_refresh(3); //3 为你要刷新图形序号 }); //函数方法说明 ds_setParam(&#39;参数名&#39;, 参数值) 此方法将自动判断当参数值为空,null或0时, 删除参数回到初始未传参状态 所以请注意此方法无法传递参数空,null及0, 如需传递请将0转化成字符 你还可以实现钻取到另外一个报表" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://help.smartchart.cn/docs/5.%E5%8F%82%E6%95%B0%E5%8F%8A%E8%81%94%E5%8A%A8%E9%92%BB%E5%8F%96/%E5%9B%BE%E5%BD%A2%E8%81%94%E5%8A%A8%E9%92%BB%E5%8F%96/" /><meta property="article:section" content="docs" />
 
@@ -27,7 +27,7 @@ TIPS: 在图形编辑器中, 可以使用函数 ds_param(&lsquo;参数名&rsquo;
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.0cafae4d190a479ae3c320e16c447a1550cfbdf76a9a12df12857cb80633ead6.js" integrity="sha256-DK&#43;uTRkKR5rjwyDhbER6FVDPvfdqmhLfEoV8uAYz6tY=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.0cd0a5a6c5c00c4df8510e577016e7c22b3b43cfba14681803425f7dfb33a19e.js" integrity="sha256-DNClpsXADE34UQ5XcBbnwis7Q8&#43;6FGgYA0JfffszoZ4=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -1669,7 +1669,8 @@ select xxx,xxx,xxx from tablename /* where xxxx = &#39;$参数名&#39; */ ....
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>});
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">//函数方法说明
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">ds_setParam</span>(<span style="color:#e6db74">&#39;参数名&#39;</span>, <span style="color:#a6e22e">参数值</span>)
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">此方法将自动判断当参数值为空时</span>, <span style="color:#a6e22e">删除参数回到初始未传参状态</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">此方法将自动判断当参数值为空</span>,<span style="color:#a6e22e">null或0时</span>, <span style="color:#a6e22e">删除参数回到初始未传参状态</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">所以请注意此方法无法传递参数空</span>,<span style="color:#a6e22e">null及0</span>, <span style="color:#a6e22e">如需传递请将0转化成字符</span>
 </span></span></code></pre></div><p>你还可以实现钻取到另外一个报表</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">myChart__name__</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;click&#39;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">params</span>) {
 </span></span><span style="display:flex;"><span> <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">myparam</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`&amp;param={&#34;参数名&#34;: &#34;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">seriesName</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;}`</span>;

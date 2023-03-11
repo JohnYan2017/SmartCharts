@@ -51,9 +51,11 @@ Smartchart数据集与图形 从仪表盘界面中进入简易开发界面 # </d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/API%E6%95%B0%E6%8D%AE%E9%9B%86/</guid>
-      <description>对接外部API取数, 注意返回一定要是JSON格式 你只需要在数据集编辑框中如下输入
-//GET 方法: dataset= { &amp;#34;url&amp;#34;:&amp;#34;https://www.smartchart.cn/smartdata/api/?i=loaddataset1&amp;amp;j=1&amp;#34; } //POST 方法: dataset= { &amp;#34;url&amp;#34;:&amp;#34;https://www.smartchart.cn/smartdata/api&amp;#34;, &amp;#34;method&amp;#34;:&amp;#34;POST&amp;#34;, &amp;#34;data&amp;#34;:{&amp;#34;i&amp;#34;:&amp;#34;loaddataset1&amp;#34;, &amp;#34;j&amp;#34;:&amp;#34;1&amp;#34;} ... } 例如你可以传入参数做出联动效果
-dataset= { &amp;#34;url&amp;#34;:&amp;#34;https://www.smartchart.cn/smartdata/api&amp;#34;, &amp;#34;method&amp;#34;:&amp;#34;POST&amp;#34;, &amp;#34;data&amp;#34;:{&amp;#34;i&amp;#34;:&amp;#34;loaddataset1&amp;#34;, &amp;#34;j&amp;#34;:&amp;#34;/*$参数名*/&amp;#34;} ... } 你也可以增加header等认证方式
+      <description> API接口要求 # 接口返回一定要是JSON格式
+数据源配置方法 # 你可选择任意数据连接
+使用方法 # 以下是简单的get及post方法样列
+//GET 方法: dataset= { &amp;#34;url&amp;#34;:&amp;#34;https://www.smartchart.cn/smartdata/api/?i=loaddataset1&amp;amp;j=1&amp;#34; } //POST 方法: dataset= { &amp;#34;url&amp;#34;:&amp;#34;https://www.smartchart.cn/smartdata/api&amp;#34;, &amp;#34;method&amp;#34;:&amp;#34;POST&amp;#34;, &amp;#34;data&amp;#34;:{&amp;#34;i&amp;#34;:&amp;#34;loaddataset1&amp;#34;, &amp;#34;j&amp;#34;:&amp;#34;1&amp;#34;} ... } 可以传入参数做出联动效果
+dataset= { &amp;#34;url&amp;#34;:&amp;#34;https://www.smartchart.cn/smartdata/api&amp;#34;, &amp;#34;method&amp;#34;:&amp;#34;POST&amp;#34;, &amp;#34;data&amp;#34;:{&amp;#34;i&amp;#34;:&amp;#34;loaddataset1&amp;#34;, &amp;#34;j&amp;#34;:&amp;#34;/*$参数名*/&amp;#34;} ... } 可以增加header等认证方式
 dataset= { &amp;#34;url&amp;#34;:&amp;#34;https://www.smartchart.cn/smartdata/api&amp;#34;, &amp;#34;method&amp;#34;:&amp;#34;GET&amp;#34;, &amp;#34;headers&amp;#34;:{&amp;#34;Cookie&amp;#34;:&amp;#34;xxxxxxx&amp;#34;} ... } </description>
     </item>
     
@@ -262,7 +264,7 @@ parent() 获取元素的直接父元素 $(&amp;#34;span&amp;#34;).parent().css({
 常规方法 # 比如你需要点击0号图形, 指定其它图形联动 你只需要打开0号图形的数据集编辑页面, 点击标题的位置 然后输入相关的参数即可, 以下为sample 参数值设定的方法, 你可以先留空, 然后保存, F12打开浏览器调试方法 点击0号图形你需要点击的动作, 你可以在调试窗口的console看到输入的log 比如我们需要传递的参数值是&amp;quot;廉颇&amp;quot;, 那么取数据的方法就是data.name, 你把这个填入即可 这样就实现按所选数据或所选系列钻取/联动了, 重新点击当前所选, 恢复原来的
 TIPS: 在图形编辑器中, 可以使用函数 ds_param(&amp;lsquo;参数名&amp;rsquo;) 来获取传入的参数值
 高级定制方法 # 如有更多个性化需求,可在需要点击的图形的编辑器中加入以下代码,仅需修改的是序号和参数名
-//比如传入多个参数进行联动 myChart__name__.on(&amp;#39;click&amp;#39;, function(params){ let myparam = params.seriesName; //获取点击的值 ds_setParam(&amp;#39;参数名&amp;#39;, myparam); //填写你的数据集的SQL设定中对应的参数名 ds_setParam(&amp;#39;参数名2&amp;#39;, myparam2); //你可以赋值给多个参数 ds_refresh(3); //3 为你要刷新图形序号 }); //函数方法说明 ds_setParam(&amp;#39;参数名&amp;#39;, 参数值) 此方法将自动判断当参数值为空时, 删除参数回到初始未传参状态 你还可以实现钻取到另外一个报表</description>
+//比如传入多个参数进行联动 myChart__name__.on(&amp;#39;click&amp;#39;, function(params){ let myparam = params.seriesName; //获取点击的值 ds_setParam(&amp;#39;参数名&amp;#39;, myparam); //填写你的数据集的SQL设定中对应的参数名 ds_setParam(&amp;#39;参数名2&amp;#39;, myparam2); //你可以赋值给多个参数 ds_refresh(3); //3 为你要刷新图形序号 }); //函数方法说明 ds_setParam(&amp;#39;参数名&amp;#39;, 参数值) 此方法将自动判断当参数值为空,null或0时, 删除参数回到初始未传参状态 所以请注意此方法无法传递参数空,null及0, 如需传递请将0转化成字符 你还可以实现钻取到另外一个报表</description>
     </item>
     
     <item>
@@ -458,12 +460,12 @@ import time import hashlib import os SMART_CHART_URL = &amp;#39;http://127.0.0.1
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E5%BD%A2%E6%80%81/%E6%95%B0%E6%8D%AE%E9%9B%86%E6%87%92%E5%8A%A0%E8%BD%BD/</guid>
-      <description>应用场景 # 类似于前后端开发, 后端会提供一些接口给前端, 但前端不一定需要在一打开页面就进行查询接口, 而是当有需要时再查询, 比如数据下载, 只有当用户有下载需求时再加载, 再比如有些与后台的数据联动, 我们只需要第一次加载时只显示第一层级, 点击时再加载其它层级
-开启数据集懒加载 # 在仪表盘&amp;quot;新增&amp;quot;&amp;ndash;&amp;gt;&amp;ldquo;懒加载数据集&amp;rdquo; 这时当打开仪表盘时, 此数据集不会被加载
-应用 # 一般懒加载数据集主要是用来做数据查询的, 所以并不太需要显示图形, 所以我们主要是用于在图形中进行赋值操作 比如先在模板中定义一个全局变量: 然后修改图形编辑中的代码: 即刷新数据集时会进行变量赋值
-如果您使用VUE, 使用会更方便, 你可以直接使用vapp.变量名 = dataset进行赋值给到vue的变量空间
-查询数据 # 你可以随时手动触发数据集的刷新, 比如懒加载的数据集序号为0 你可以在你需要触发刷新的地方调用ds_refresh(0)即可刷新0号数据集并执行0号数据集中的JS代码
-TIPS 当没有修改过懒加载数据集的图形时, 默认的全局变量为 &amp;ldquo;data序号&amp;rdquo; 如懒加载数据集序号为0, 可使用data0获取数据集刷新后的数据</description>
+      <description> 应用场景 # 类似于前后端开发, 后端会提供一些接口给前端, 但前端不一定需要在一打开页面就进行查询接口, 而是当有需要时再查询, 比如数据下载, 只有当用户有下载需求时再刷新数据 再比如有些与后台的数据联动, 我们只需要第一次加载时只显示第一层级, 点击时再加载其它层级 开启数据集懒加载 # 在仪表盘&amp;quot;新增&amp;quot;&amp;ndash;&amp;gt;&amp;ldquo;懒加载数据集&amp;rdquo; 当打开仪表盘时, 此数据集不会被加载
+应用 # 刷新数据 # 你可以随时手动触发数据集的刷新, 比如懒加载的数据集序号为0, 你可在需要触发刷新的JS代码段调用ds_refresh(0), 即可刷新0号数据集并执行0号数据集图形中的JS代码
+使用数据 # 当没有修改过懒加载数据集的图形时,默认的全局变量为&amp;quot;data序号&amp;quot;, 例如懒加载数据集序号为0, 你可在任意数据集的图形或模板中使用data0来获取数据集刷新后的数据
+数据处理 # 在有些场景, 你可能需要对懒加载的数据进行一些处理, 你可以在懒加载的图形中自定义处理逻辑, 比如我们需要把数据转化成vue常用的格式, 然后给vue的变量赋值:
+let dataset = __dataset__; dataset = ds_createMap_all(dataset); vapp.ds1 = dataset; //赋值给vue 参数传递 # 在有一些场景,需要在前端获取参数, 之后触发数据查询, 比如筛选项. 你可以使用ds_setParam(&amp;lsquo;参数名&amp;rsquo;, 参数值)设定参数, 比如刷新1号数据集
+ds_setParam(&amp;#39;city&amp;#39;, &amp;#39;顺德&amp;#39;); ds_setParam(&amp;#39;province&amp;#39;, &amp;#39;广东&amp;#39;); ds_refresh(1); </description>
     </item>
     
     <item>
@@ -535,7 +537,8 @@ $(&amp;#39;#id_down1&amp;#39;).click(()=&amp;gt;{ ds_download(&amp;#39;报表数
       
       <guid>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%8D%E6%9D%82%E6%8A%A5%E8%A1%A8/</guid>
       <description>新建仪表盘 # 在开发模式下，滑动“开发管理” -&amp;gt;&amp;ldquo;仪表盘&amp;rdquo;-&amp;gt; &amp;ldquo;新增Dashboard&amp;rdquo; 填写相应信息后点击“保存” 点击进入仪表盘开发, 注意点击 &amp;ldquo;E&amp;rdquo; 字!! 点击新增&amp;ndash;&amp;gt;复杂报表 数据集编辑 # 点开“数据集” 输入以下SQL后，点击“保存并刷新”, 关闭数据集编辑界面 select H1 as 英雄名称, sum(qty) as 英雄1出场数 from smartdemo2 group by H1 order by sum(qty) desc; select count(1) as 总出场数 from smartdemo2 报表页面开发 # 和excel一样, 编辑相应表格 点击&amp;quot;数据集图标&amp;quot;(再次点击隐藏), 显示数据集字段名, 选中单元格, 单击字段名填入 点击&amp;quot;获取数据&amp;quot;, 可对真实数据调整样式 点击&amp;quot;保存&amp;quot; 点击&amp;quot;预览&amp;quot;, 可查看最终效果 导入EXCEL/WPS开发的模板 # 你也可直接导入excel或wps开发好的模板, 点击左下方的上传即可
-当然我们还有更多可定制的功能, 自行探索吧 也可购买专业版本解锁高级用法</description>
+关于自动填充方式 # 填充方向 # 默认的填充方向, 是按列方向向下填充 如果需要按行方向向右填充, 可在单元格字段标识后面加上__, 如下:
+#df0.英雄名称__ 格式填充 # 默认不会填充格式, 采用单元格自身的格式 如果需要自动采用&amp;quot;单元格字段标识&amp;quot;的格式, 可在单元格字段标识后面加上!</description>
     </item>
     
     <item>

@@ -11,9 +11,11 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/API%E6%95%B0%E6%8D%AE%E9%9B%86/</guid>
-      <description>对接外部API取数, 注意返回一定要是JSON格式 你只需要在数据集编辑框中如下输入
-//GET 方法: dataset= { &amp;#34;url&amp;#34;:&amp;#34;https://www.smartchart.cn/smartdata/api/?i=loaddataset1&amp;amp;j=1&amp;#34; } //POST 方法: dataset= { &amp;#34;url&amp;#34;:&amp;#34;https://www.smartchart.cn/smartdata/api&amp;#34;, &amp;#34;method&amp;#34;:&amp;#34;POST&amp;#34;, &amp;#34;data&amp;#34;:{&amp;#34;i&amp;#34;:&amp;#34;loaddataset1&amp;#34;, &amp;#34;j&amp;#34;:&amp;#34;1&amp;#34;} ... } 例如你可以传入参数做出联动效果
-dataset= { &amp;#34;url&amp;#34;:&amp;#34;https://www.smartchart.cn/smartdata/api&amp;#34;, &amp;#34;method&amp;#34;:&amp;#34;POST&amp;#34;, &amp;#34;data&amp;#34;:{&amp;#34;i&amp;#34;:&amp;#34;loaddataset1&amp;#34;, &amp;#34;j&amp;#34;:&amp;#34;/*$参数名*/&amp;#34;} ... } 你也可以增加header等认证方式
+      <description> API接口要求 # 接口返回一定要是JSON格式
+数据源配置方法 # 你可选择任意数据连接
+使用方法 # 以下是简单的get及post方法样列
+//GET 方法: dataset= { &amp;#34;url&amp;#34;:&amp;#34;https://www.smartchart.cn/smartdata/api/?i=loaddataset1&amp;amp;j=1&amp;#34; } //POST 方法: dataset= { &amp;#34;url&amp;#34;:&amp;#34;https://www.smartchart.cn/smartdata/api&amp;#34;, &amp;#34;method&amp;#34;:&amp;#34;POST&amp;#34;, &amp;#34;data&amp;#34;:{&amp;#34;i&amp;#34;:&amp;#34;loaddataset1&amp;#34;, &amp;#34;j&amp;#34;:&amp;#34;1&amp;#34;} ... } 可以传入参数做出联动效果
+dataset= { &amp;#34;url&amp;#34;:&amp;#34;https://www.smartchart.cn/smartdata/api&amp;#34;, &amp;#34;method&amp;#34;:&amp;#34;POST&amp;#34;, &amp;#34;data&amp;#34;:{&amp;#34;i&amp;#34;:&amp;#34;loaddataset1&amp;#34;, &amp;#34;j&amp;#34;:&amp;#34;/*$参数名*/&amp;#34;} ... } 可以增加header等认证方式
 dataset= { &amp;#34;url&amp;#34;:&amp;#34;https://www.smartchart.cn/smartdata/api&amp;#34;, &amp;#34;method&amp;#34;:&amp;#34;GET&amp;#34;, &amp;#34;headers&amp;#34;:{&amp;#34;Cookie&amp;#34;:&amp;#34;xxxxxxx&amp;#34;} ... } </description>
     </item>
     

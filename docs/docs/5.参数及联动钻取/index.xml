@@ -26,7 +26,7 @@
 常规方法 # 比如你需要点击0号图形, 指定其它图形联动 你只需要打开0号图形的数据集编辑页面, 点击标题的位置 然后输入相关的参数即可, 以下为sample 参数值设定的方法, 你可以先留空, 然后保存, F12打开浏览器调试方法 点击0号图形你需要点击的动作, 你可以在调试窗口的console看到输入的log 比如我们需要传递的参数值是&amp;quot;廉颇&amp;quot;, 那么取数据的方法就是data.name, 你把这个填入即可 这样就实现按所选数据或所选系列钻取/联动了, 重新点击当前所选, 恢复原来的
 TIPS: 在图形编辑器中, 可以使用函数 ds_param(&amp;lsquo;参数名&amp;rsquo;) 来获取传入的参数值
 高级定制方法 # 如有更多个性化需求,可在需要点击的图形的编辑器中加入以下代码,仅需修改的是序号和参数名
-//比如传入多个参数进行联动 myChart__name__.on(&amp;#39;click&amp;#39;, function(params){ let myparam = params.seriesName; //获取点击的值 ds_setParam(&amp;#39;参数名&amp;#39;, myparam); //填写你的数据集的SQL设定中对应的参数名 ds_setParam(&amp;#39;参数名2&amp;#39;, myparam2); //你可以赋值给多个参数 ds_refresh(3); //3 为你要刷新图形序号 }); //函数方法说明 ds_setParam(&amp;#39;参数名&amp;#39;, 参数值) 此方法将自动判断当参数值为空时, 删除参数回到初始未传参状态 你还可以实现钻取到另外一个报表</description>
+//比如传入多个参数进行联动 myChart__name__.on(&amp;#39;click&amp;#39;, function(params){ let myparam = params.seriesName; //获取点击的值 ds_setParam(&amp;#39;参数名&amp;#39;, myparam); //填写你的数据集的SQL设定中对应的参数名 ds_setParam(&amp;#39;参数名2&amp;#39;, myparam2); //你可以赋值给多个参数 ds_refresh(3); //3 为你要刷新图形序号 }); //函数方法说明 ds_setParam(&amp;#39;参数名&amp;#39;, 参数值) 此方法将自动判断当参数值为空,null或0时, 删除参数回到初始未传参状态 所以请注意此方法无法传递参数空,null及0, 如需传递请将0转化成字符 你还可以实现钻取到另外一个报表</description>
     </item>
     
     <item>

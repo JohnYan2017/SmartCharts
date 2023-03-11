@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-    <img src="https://img.shields.io/badge/Release-V6.1-green.svg" alt="Downloads">
+    <img src="https://img.shields.io/badge/Release-V6.2-green.svg" alt="Downloads">
 	<a target="_blank" href="https://www.python.org/downloads/release/python-390/">
 		<img src="https://img.shields.io/badge/Python-3.6+-green.svg" />
 	</a>
@@ -47,12 +47,15 @@
 - 简单, 敏捷, 高效, 通用化, 高度可定制化, 让你的项目瞬间档次提升
 - 完全真正打通前后端, 支持图形数据联动,筛选,钻取, 支持几乎常见的所有数据库
 - 积木式拖拽开发模式, 开箱即用, 安装简单, 依赖少, 适应各种平台
-- 支持Django插件方式应用, 支持数据分析Jupyter方式应用
 - 支持中国式报表类EXCEL开发, 支持3D场景大屏
 - 内存加速技术, 让你的数据快人一步, 大幅减少数据库压力
-- 所见即所得的拖拽开发模式, 无需在画布上设计
-- 支持websocket, 数据填报设计,前端埋点, 数据服务API低代码开发
+- 真所见即所得的拖拽开发模式, 且无需在画布上设计
+- 支持数据填报设计,数据下载,前端埋点,问卷开发
+- 数据集即服务, 采用低代码快速实现数据服务API开发
 - 支持仪表盘备份恢复快照等, 满足企业级的版本控制开发上线流程要求
+- 支持用户/组功能权限控制,支持行级别/字段级别数据权限控制
+- 支持Django插件方式应用,可无限扩展,打造你专属的个性化应用
+- 支持在Jupyter notebook中的数据开发方式应用
 - 没有重复学习成本, 高度可定制化, 注意是高度可定制化!!
 
 具体功能预览可观看视屏了解, [6.0介绍视屏](https://www.bilibili.com/video/BV1Md4y1h7iq) 
@@ -297,6 +300,13 @@ v6.1
 - 优化图形配置提示
 - 优化数据集预览表格
 - 优化图标
+v6.2
+- 新增数据集预览时下载功能
+- 新增复杂报表填充方向及格式功能
+- 新增仪表盘缩略图设定
+- 优化sql执行日志
+- 优化sql commit
+- 修复登录后仪表盘url无参数
 ```
 
 

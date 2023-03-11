@@ -4,11 +4,13 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="新建仪表盘 # 在开发模式下，滑动“开发管理” -&gt;&ldquo;仪表盘&rdquo;-&gt; &ldquo;新增Dashboard&rdquo; 填写相应信息后点击“保存” 点击进入仪表盘开发, 注意点击 &ldquo;E&rdquo; 字!! 点击新增&ndash;&gt;复杂报表 数据集编辑 # 点开“数据集” 输入以下SQL后，点击“保存并刷新”, 关闭数据集编辑界面 select H1 as 英雄名称, sum(qty) as 英雄1出场数 from smartdemo2 group by H1 order by sum(qty) desc; select count(1) as 总出场数 from smartdemo2 报表页面开发 # 和excel一样, 编辑相应表格 点击&quot;数据集图标&quot;(再次点击隐藏), 显示数据集字段名, 选中单元格, 单击字段名填入 点击&quot;获取数据&quot;, 可对真实数据调整样式 点击&quot;保存&quot; 点击&quot;预览&quot;, 可查看最终效果 导入EXCEL/WPS开发的模板 # 你也可直接导入excel或wps开发好的模板, 点击左下方的上传即可
-当然我们还有更多可定制的功能, 自行探索吧 也可购买专业版本解锁高级用法">
+关于自动填充方式 # 填充方向 # 默认的填充方向, 是按列方向向下填充 如果需要按行方向向右填充, 可在单元格字段标识后面加上__, 如下:
+#df0.英雄名称__ 格式填充 # 默认不会填充格式, 采用单元格自身的格式 如果需要自动采用&quot;单元格字段标识&quot;的格式, 可在单元格字段标识后面加上!">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="第一个复杂报表" />
 <meta property="og:description" content="新建仪表盘 # 在开发模式下，滑动“开发管理” -&gt;&ldquo;仪表盘&rdquo;-&gt; &ldquo;新增Dashboard&rdquo; 填写相应信息后点击“保存” 点击进入仪表盘开发, 注意点击 &ldquo;E&rdquo; 字!! 点击新增&ndash;&gt;复杂报表 数据集编辑 # 点开“数据集” 输入以下SQL后，点击“保存并刷新”, 关闭数据集编辑界面 select H1 as 英雄名称, sum(qty) as 英雄1出场数 from smartdemo2 group by H1 order by sum(qty) desc; select count(1) as 总出场数 from smartdemo2 报表页面开发 # 和excel一样, 编辑相应表格 点击&quot;数据集图标&quot;(再次点击隐藏), 显示数据集字段名, 选中单元格, 单击字段名填入 点击&quot;获取数据&quot;, 可对真实数据调整样式 点击&quot;保存&quot; 点击&quot;预览&quot;, 可查看最终效果 导入EXCEL/WPS开发的模板 # 你也可直接导入excel或wps开发好的模板, 点击左下方的上传即可
-当然我们还有更多可定制的功能, 自行探索吧 也可购买专业版本解锁高级用法" />
+关于自动填充方式 # 填充方向 # 默认的填充方向, 是按列方向向下填充 如果需要按行方向向右填充, 可在单元格字段标识后面加上__, 如下:
+#df0.英雄名称__ 格式填充 # 默认不会填充格式, 采用单元格自身的格式 如果需要自动采用&quot;单元格字段标识&quot;的格式, 可在单元格字段标识后面加上!" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%8D%E6%9D%82%E6%8A%A5%E8%A1%A8/" /><meta property="article:section" content="docs" />
 
@@ -19,7 +21,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.0cafae4d190a479ae3c320e16c447a1550cfbdf76a9a12df12857cb80633ead6.js" integrity="sha256-DK&#43;uTRkKR5rjwyDhbER6FVDPvfdqmhLfEoV8uAYz6tY=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.0cd0a5a6c5c00c4df8510e577016e7c22b3b43cfba14681803425f7dfb33a19e.js" integrity="sha256-DNClpsXADE34UQ5XcBbnwis7Q8&#43;6FGgYA0JfffszoZ4=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -1599,6 +1601,7 @@ https://github.com/alex-shpak/hugo-book
             <li><a href="#数据集编辑">数据集编辑</a></li>
             <li><a href="#报表页面开发">报表页面开发</a></li>
             <li><a href="#导入excelwps开发的模板">导入EXCEL/WPS开发的模板</a></li>
+            <li><a href="#关于自动填充方式">关于自动填充方式</a></li>
           </ul>
         </li>
       </ul>
@@ -1668,7 +1671,30 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#%e5%af%bc%e5%85%a5excelwps%e5%bc%80%e5%8f%91%e7%9a%84%e6%a8%a1%e6%9d%bf">#</a>
 </h3>
 <p>你也可直接导入excel或wps开发好的模板, 点击左下方的上传即可</p>
-<p>当然我们还有更多可定制的功能, 自行探索吧
+<h3 id="关于自动填充方式">
+  关于自动填充方式
+  <a class="anchor" href="#%e5%85%b3%e4%ba%8e%e8%87%aa%e5%8a%a8%e5%a1%ab%e5%85%85%e6%96%b9%e5%bc%8f">#</a>
+</h3>
+<h4 id="填充方向">
+  填充方向
+  <a class="anchor" href="#%e5%a1%ab%e5%85%85%e6%96%b9%e5%90%91">#</a>
+</h4>
+<p>默认的填充方向, 是按列方向向下填充
+如果需要按行方向向右填充, 可在单元格字段标识后面加上__, 如下:</p>
+<pre tabindex="0"><code>#df0.英雄名称__
+</code></pre><h4 id="格式填充">
+  格式填充
+  <a class="anchor" href="#%e6%a0%bc%e5%bc%8f%e5%a1%ab%e5%85%85">#</a>
+</h4>
+<p>默认不会填充格式, 采用单元格自身的格式
+如果需要自动采用&quot;单元格字段标识&quot;的格式, 可在单元格字段标识后面加上!, 如下:</p>
+<pre tabindex="0"><code>#df0.英雄名称!
+</code></pre><blockquote>
+<p>格式填充在数据预览不会生效, 仅在报表预览及用户模式下生效</p>
+</blockquote>
+<p>如果需要同时修改填充方向, 可标识如下:</p>
+<pre tabindex="0"><code>#df0.英雄名称!__
+</code></pre><p>当然我们还有更多可定制的功能, 自行探索吧
 也可购买专业版本解锁高级用法</p>
 </article>
  
@@ -1726,6 +1752,7 @@ https://github.com/alex-shpak/hugo-book
             <li><a href="#数据集编辑">数据集编辑</a></li>
             <li><a href="#报表页面开发">报表页面开发</a></li>
             <li><a href="#导入excelwps开发的模板">导入EXCEL/WPS开发的模板</a></li>
+            <li><a href="#关于自动填充方式">关于自动填充方式</a></li>
           </ul>
         </li>
       </ul>
