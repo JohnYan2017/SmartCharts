@@ -19,7 +19,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.0cd0a5a6c5c00c4df8510e577016e7c22b3b43cfba14681803425f7dfb33a19e.js" integrity="sha256-DNClpsXADE34UQ5XcBbnwis7Q8&#43;6FGgYA0JfffszoZ4=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.91c705dd5fec520547517ab2995e9a01fb5099a75bf7d8c3845c48e8e87af5eb.js" integrity="sha256-kccF3V/sUgVHUXqymV6aAftQmadb99jDhFxI6Oh69es=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -559,6 +559,19 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/sqlalchemy%E8%BF%9E%E6%8E%A5/" class="">Sqlalchemy连接</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/%E9%82%AE%E4%BB%B6%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE%E6%BA%90/" class="">邮件发送数据源</a>
   
 
         </li>
@@ -1247,6 +1260,19 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
     
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E9%9B%86%E6%88%90AI%E7%94%9F%E6%88%90/" class="">集成 Ai生成</a>
+  
+
+        </li>
+      
+    
   </ul>
 
         </li>
@@ -1688,6 +1714,13 @@ https://github.com/alex-shpak/hugo-book
 </span></span></code></pre></div><p>mongodb写入方式</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">ds_save</span>(<span style="color:#ae81ff">0</span>, {<span style="color:#e6db74">&#34;h1&#34;</span><span style="color:#f92672">:</span><span style="color:#ae81ff">123</span>, <span style="color:#e6db74">&#34;h2&#34;</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34;bb&#34;</span>});
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">ds_save</span>(<span style="color:#ae81ff">0</span>, [[],{<span style="color:#e6db74">&#34;h1&#34;</span><span style="color:#f92672">:</span><span style="color:#ae81ff">123</span>, <span style="color:#e6db74">&#34;h2&#34;</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34;aa&#34;</span>},{<span style="color:#e6db74">&#34;h1&#34;</span><span style="color:#f92672">:</span><span style="color:#ae81ff">1234</span>, <span style="color:#e6db74">&#34;h2&#34;</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34;dd&#34;</span>}]);
+</span></span></code></pre></div><p>复杂表格开发的填报
+
+  <a href="https://www.ixigua.com/7081979465198207500">具体可参考视屏</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">fillCells</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;D4&#39;</span>, <span style="color:#e6db74">&#39;D5&#39;</span>];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">dataset</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ds_excel_value</span>(<span style="color:#a6e22e">fillCells</span>,<span style="color:#a6e22e">clear</span><span style="color:#f92672">=</span><span style="color:#66d9ef">true</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">dataset</span>.<span style="color:#a6e22e">unshift</span>(<span style="color:#e6db74">&#39;$username&#39;</span>);  <span style="color:#75715e">//如果需要加入用户名
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">print</span>(<span style="color:#a6e22e">ds_save</span>(<span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">dataset</span>));
 </span></span></code></pre></div></article>
  
       

@@ -147,5 +147,17 @@ let dataset=__dataset__; //获取返回值列表中的第一值 dataset = datase
 可选参数。一个标准的链接URL是这样的： dialect+driver://username:password@host:port/database dialect，是数据库类型，大概包括：sqlite, mysql, postgresql, oracle, or mssql. driver，是使用的数据库API，驱动，连接包，随便叫什么吧。 username，用户名 password，密码 host，网络地址，可以用ip，域名，计算机名，当然是你能访问到的。 port，数据库端口。 databas，数据库名。 其实这些也就dialect和dirver需要解释。 二：连接sqlite3 1，驱动 sqlite3是个文件数据库，不需要什么驱动，或者说python内置了驱动。 2，标准连接参数 # sqlite://&amp;lt;nohostname&amp;gt;/&amp;lt;path&amp;gt; 没有hostname 3，各种链接参数 # 相对路径，就是这个python文件同目录下foo.db engine = create_engine(&amp;#39;sqlite:///foo.db&amp;#39;) #绝对路径 #Unix/Mac下用四条////表示 engine = create_engine(&amp;#39;sqlite:////absolute/path/to/foo.db&amp;#39;) #Windows下用三条///加盘符路径用两条\\ engine = create_engine(&amp;#39;sqlite:///C:\\path\\to\\foo.db&amp;#39;) #Windows 也可以这么用三条///加盘符路径用一条\ engine = create_engine(r&amp;#39;sqlite:///C:\path\to\foo.db&amp;#39;) #数据库建在内存里。URI保持为空即可 engine = create_engine(&amp;#39;sqlite://&amp;#39;) 三：连接mysql（mariadb） sqlalchemy默认使用mysql-python作为链接驱动，既default模式 选哪种驱动，就装哪个包。 1，default默认链接方式 engine = create_engine(&amp;#39;mysql://scott:tiger@localhost/foo&amp;#39;) 2，# mysql-python，声明使用mysql-python驱动 engine = create_engine(&amp;#39;mysql+mysqldb://scott:tiger@localhost/foo&amp;#39;) 3，MySQL-connector-python 声明使用MySQL-connector-python驱动（推荐使用） engine = create_engine(&amp;#39;mysql+mysqlconnector://scott:tiger@localhost/foo&amp;#39;) 4，OurSQL 声明使用OurSQL驱动 engine = create_engine(&amp;#39;mysql+oursql://scott:tiger@localhost/foo&amp;#39;) 四：连接Microsoft SQL Server sqlalchemy默认使用 pyodbc作为链接驱动。 1，pyodbc engine = create_engine(&amp;#39;mssql+pyodbc://scott:tiger@mydsn&amp;#39;) 2，pymssql engine = create_engine(&amp;#39;mssql+pymssql://scott:tiger@hostname:port/dbname&amp;#39;) 五：连接PostgreSQL PostgreSQL默认使用 psycopg2作为链接驱动，既default模式 1， default engine = create_engine(&amp;#39;postgresql://scott:tiger@localhost/mydatabase&amp;#39;) 2，psycopg2 engine = create_engine(&amp;#39;postgresql+psycopg2://scott:tiger@localhost/mydatabase&amp;#39;) 3， pg8000 engine = create_engine(&amp;#39;postgresql+pg8000://scott:tiger@localhost/mydatabase&amp;#39;) 六：连接Oracle Oracle可能只有 cx_oracle一个驱动包，既default模式和声明模式一样。 1，default engine = create_engine(&amp;#39;oracle://scott:tiger@127.</description>
     </item>
     
+    <item>
+      <title></title>
+      <link>https://help.smartchart.cn/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/%E9%82%AE%E4%BB%B6%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE%E6%BA%90/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://help.smartchart.cn/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/%E9%82%AE%E4%BB%B6%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE%E6%BA%90/</guid>
+      <description> 数据源配置方法 # 驱动: smtpmail 连接地址: smtp.xxx 库名:为空采用SMTP, 非空采用SMTP_SSL
+查询方法 # 在数据集编辑器加直接输入
+{ &amp;#34;tolist&amp;#34;:&amp;#34;xx@qq.com&amp;#34;, &amp;#34;sub&amp;#34;:&amp;#34;测试&amp;#34;, &amp;#34;content&amp;#34;:&amp;#34;&amp;lt;测试一下&amp;#34; } tolist:邮件清单, 可以使用逗号分隔 sub:邮件标题 返回值为prometheus标准json, 你需要在图形编辑器中使用js处理数据
+let dataset=__dataset__; //获取返回值列表中的第一值 dataset = dataset.data.result[0].value; print(dataset) </description>
+    </item>
+    
   </channel>
 </rss>

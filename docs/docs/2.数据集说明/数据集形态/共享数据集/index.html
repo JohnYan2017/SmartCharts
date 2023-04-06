@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content=" 应用场景 # 优化查询, 可一个数据集查询完所有数据进行分发 减少重复查询的浪费, 同一个数据只查询一次 使用方法 # 在仪表盘开发界面, &ldquo;新增&rdquo; &ndash;&gt; &ldquo;共享数据&rdquo; 在&quot;设定&quot; &ndash;&gt; ”高级“ &ndash;&gt;&ldquo;高级设定&rdquo; 中配置 这样3，4号图形都映射到了共享数据集(2号)的数据 当然你也可以任意JS中使用&quot;data序号&quot;这个全局变量, 如上就是data2
-你也可以在数据集中写多个SQL查询 -- 英雄1 select H1, count(1) as qty1 from smartdemo2 group by H1 limit 10; -- 英雄2 select H2, count(1) as qty2 from smartdemo2 group by H2 limit 10 然后在&quot;设定&quot; &ndash;&gt; ”高级“ &ndash;&gt;&ldquo;高级设定&rdquo; 中配置进行数据映射 ">
+<meta name="description" content="应用场景 # 优化查询, 可一个数据集查询完所有数据进行分发 减少重复查询的浪费, 同一个数据只查询一次 使用方法 # 在仪表盘开发界面, &ldquo;新增&rdquo; &ndash;&gt; &ldquo;共享数据&rdquo; 在&quot;设定&quot; &ndash;&gt; ”高级“ &ndash;&gt;&ldquo;高级设定&rdquo; 中配置 这样3，4号图形都映射到了共享数据集(2号)的数据 当然你也可以任意JS中使用&quot;data序号&quot;这个全局变量, 如上就是data2
+你也可以在数据集中写多个SQL查询 -- 英雄1 select H1, count(1) as qty1 from smartdemo2 group by H1 limit 10; -- 英雄2 select H2, count(1) as qty2 from smartdemo2 group by H2 limit 10 然后在&quot;设定&quot; &ndash;&gt; ”高级“ &ndash;&gt;&ldquo;高级设定&rdquo; 中配置进行数据映射 注意: 在V6.3版本之前通用数据集的序号必须小于需要引用的数据集, 如通用数据为3, 那么2号数据集是不可以引用3">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
-<meta property="og:description" content=" 应用场景 # 优化查询, 可一个数据集查询完所有数据进行分发 减少重复查询的浪费, 同一个数据只查询一次 使用方法 # 在仪表盘开发界面, &ldquo;新增&rdquo; &ndash;&gt; &ldquo;共享数据&rdquo; 在&quot;设定&quot; &ndash;&gt; ”高级“ &ndash;&gt;&ldquo;高级设定&rdquo; 中配置 这样3，4号图形都映射到了共享数据集(2号)的数据 当然你也可以任意JS中使用&quot;data序号&quot;这个全局变量, 如上就是data2
-你也可以在数据集中写多个SQL查询 -- 英雄1 select H1, count(1) as qty1 from smartdemo2 group by H1 limit 10; -- 英雄2 select H2, count(1) as qty2 from smartdemo2 group by H2 limit 10 然后在&quot;设定&quot; &ndash;&gt; ”高级“ &ndash;&gt;&ldquo;高级设定&rdquo; 中配置进行数据映射 " />
+<meta property="og:description" content="应用场景 # 优化查询, 可一个数据集查询完所有数据进行分发 减少重复查询的浪费, 同一个数据只查询一次 使用方法 # 在仪表盘开发界面, &ldquo;新增&rdquo; &ndash;&gt; &ldquo;共享数据&rdquo; 在&quot;设定&quot; &ndash;&gt; ”高级“ &ndash;&gt;&ldquo;高级设定&rdquo; 中配置 这样3，4号图形都映射到了共享数据集(2号)的数据 当然你也可以任意JS中使用&quot;data序号&quot;这个全局变量, 如上就是data2
+你也可以在数据集中写多个SQL查询 -- 英雄1 select H1, count(1) as qty1 from smartdemo2 group by H1 limit 10; -- 英雄2 select H2, count(1) as qty2 from smartdemo2 group by H2 limit 10 然后在&quot;设定&quot; &ndash;&gt; ”高级“ &ndash;&gt;&ldquo;高级设定&rdquo; 中配置进行数据映射 注意: 在V6.3版本之前通用数据集的序号必须小于需要引用的数据集, 如通用数据为3, 那么2号数据集是不可以引用3" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://help.smartchart.cn/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E5%BD%A2%E6%80%81/%E5%85%B1%E4%BA%AB%E6%95%B0%E6%8D%AE%E9%9B%86/" /><meta property="article:section" content="docs" />
 
@@ -19,7 +19,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.0cd0a5a6c5c00c4df8510e577016e7c22b3b43cfba14681803425f7dfb33a19e.js" integrity="sha256-DNClpsXADE34UQ5XcBbnwis7Q8&#43;6FGgYA0JfffszoZ4=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.91c705dd5fec520547517ab2995e9a01fb5099a75bf7d8c3845c48e8e87af5eb.js" integrity="sha256-kccF3V/sUgVHUXqymV6aAftQmadb99jDhFxI6Oh69es=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -559,6 +559,19 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/sqlalchemy%E8%BF%9E%E6%8E%A5/" class="">Sqlalchemy连接</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/%E9%82%AE%E4%BB%B6%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE%E6%BA%90/" class="">邮件发送数据源</a>
   
 
         </li>
@@ -1247,6 +1260,19 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
     
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E9%9B%86%E6%88%90AI%E7%94%9F%E6%88%90/" class="">集成 Ai生成</a>
+  
+
+        </li>
+      
+    
   </ul>
 
         </li>
@@ -1655,6 +1681,9 @@ https://github.com/alex-shpak/hugo-book
 </ul>
 <p>
   <img referrerpolicy="no-referrer" src="https://foruda.gitee.com/images/1669713182777028211/448affda_5500438.png" alt="输入图片说明" title="屏幕截图"/></p>
+<blockquote>
+<p>注意: 在V6.3版本之前通用数据集的序号必须小于需要引用的数据集, 如通用数据为3, 那么2号数据集是不可以引用3</p>
+</blockquote>
 </article>
  
       

@@ -56,9 +56,10 @@
 - 支持用户/组功能权限控制,支持行级别/字段级别数据权限控制
 - 支持Django插件方式应用,可无限扩展,打造你专属的个性化应用
 - 支持在Jupyter notebook中的数据开发方式应用
+- 支持集成chatGPT, 文心一言等大模型AI生成
 - 没有重复学习成本, 高度可定制化, 注意是高度可定制化!!
 
-具体功能预览可观看视屏了解, [6.0介绍视屏](https://www.bilibili.com/video/BV1Md4y1h7iq) 
+具体功能预览可观看视屏了解, [6.0介绍视屏](https://www.bilibili.com/video/BV1Md4y1h7iq)  [ChatGPT](https://www.bilibili.com/video/BV1Xs4y1E7c7/) 
 
 ![大数据](https://www.smartchart.cn/media/editor/微信截图_20211202163316_20211202163647765791.png)
 ![smartchart](http://smartchart.cn/media/editor/smartvoice_20201224085323156045.png)
@@ -307,6 +308,17 @@ v6.2
 - 优化sql执行日志
 - 优化sql commit
 - 修复登录后仪表盘url无参数
+v6.4
+- 修复数据集模式下, 序号不连续可能导致的问题
+- 修复定时刷新在联动时的问题
+- 修复数据集恢复图形问题
+- 修复在模板中序号不连续时编辑的bug
+- 修复复制数据集的图形问题
+- 优化通数据集开发体验
+- 优化刷新resize
+- 取消图形中需写chartpush
+- 优化拖拽性能
+- 增加集成chatGPT, 文心一言等大模型AI生成
 ```
 
 

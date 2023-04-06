@@ -38,5 +38,15 @@
       <description>应用场景 # 需要用户打开首页时直接查看相应报表 自定义人性化的首页显示 使用方法 # 如果已经有开发好的仪表盘页面, 可以找到它的访问url, 如:/echart/?type=2 设置系统环境变量 SMC_HOME_PAGE=/echart/?type=2 如果你使用django部署, 也可以采用在setting.py中加入配置: SMC_HOME_PAGE=&amp;#39;/echart/?type=2&amp;#39; 这样就可以在首页直接显示设定好的页面了</description>
     </item>
     
+    <item>
+      <title></title>
+      <link>https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E9%9B%86%E6%88%90AI%E7%94%9F%E6%88%90/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E9%9B%86%E6%88%90AI%E7%94%9F%E6%88%90/</guid>
+      <description>应用场景 # 集成chatgpt, 文心一言等大模型技术 未来可以支持smartchart专有AI生成 使用方法 # 当前smartchart已内置了小型生成模型供大家尝试, 仅用于测试用途 如果你有chatgpt,或其它大模型的接口, 你也可以直接接入, 接入方法见下方 在模板/数据集开发/容器开发/图形开发中都可以找到如下图标, 输入你的问题, 选中后点即可生成, 注意测试用途较慢, 请耐心 接入商业大模型 # 首先新建一个文件gptconn.py 写入python脚本,下面以openAI的chatGPT为例,
+def chartgpt(request): import openai openai.api_key = &amp;#39;输入你的api_key&amp;#39; prompt = request.POST.get(&amp;#39;text&amp;#39;) response = openai.Completion.create( model=&amp;#34;text-davinci-003&amp;#34;, prompt=prompt, temperature=0.5, max_tokens=1024, n=1, stop=None ) message = response.choices[0].text return message 在任意仪表盘开发界面&amp;ndash;&amp;gt; 模板 &amp;ndash;&amp;gt; 工具 &amp;ndash;&amp;gt; 文件上传 菜单中将此文件上传即可 之后AI生成服务将采用你自定义的服务</description>
+    </item>
+    
   </channel>
 </rss>

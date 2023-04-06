@@ -11,8 +11,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E5%BD%A2%E6%80%81/%E5%85%B1%E4%BA%AB%E6%95%B0%E6%8D%AE%E9%9B%86/</guid>
-      <description> 应用场景 # 优化查询, 可一个数据集查询完所有数据进行分发 减少重复查询的浪费, 同一个数据只查询一次 使用方法 # 在仪表盘开发界面, &amp;ldquo;新增&amp;rdquo; &amp;ndash;&amp;gt; &amp;ldquo;共享数据&amp;rdquo; 在&amp;quot;设定&amp;quot; &amp;ndash;&amp;gt; ”高级“ &amp;ndash;&amp;gt;&amp;ldquo;高级设定&amp;rdquo; 中配置 这样3，4号图形都映射到了共享数据集(2号)的数据 当然你也可以任意JS中使用&amp;quot;data序号&amp;quot;这个全局变量, 如上就是data2
-你也可以在数据集中写多个SQL查询 -- 英雄1 select H1, count(1) as qty1 from smartdemo2 group by H1 limit 10; -- 英雄2 select H2, count(1) as qty2 from smartdemo2 group by H2 limit 10 然后在&amp;quot;设定&amp;quot; &amp;ndash;&amp;gt; ”高级“ &amp;ndash;&amp;gt;&amp;ldquo;高级设定&amp;rdquo; 中配置进行数据映射 </description>
+      <description>应用场景 # 优化查询, 可一个数据集查询完所有数据进行分发 减少重复查询的浪费, 同一个数据只查询一次 使用方法 # 在仪表盘开发界面, &amp;ldquo;新增&amp;rdquo; &amp;ndash;&amp;gt; &amp;ldquo;共享数据&amp;rdquo; 在&amp;quot;设定&amp;quot; &amp;ndash;&amp;gt; ”高级“ &amp;ndash;&amp;gt;&amp;ldquo;高级设定&amp;rdquo; 中配置 这样3，4号图形都映射到了共享数据集(2号)的数据 当然你也可以任意JS中使用&amp;quot;data序号&amp;quot;这个全局变量, 如上就是data2
+你也可以在数据集中写多个SQL查询 -- 英雄1 select H1, count(1) as qty1 from smartdemo2 group by H1 limit 10; -- 英雄2 select H2, count(1) as qty2 from smartdemo2 group by H2 limit 10 然后在&amp;quot;设定&amp;quot; &amp;ndash;&amp;gt; ”高级“ &amp;ndash;&amp;gt;&amp;ldquo;高级设定&amp;rdquo; 中配置进行数据映射 注意: 在V6.3版本之前通用数据集的序号必须小于需要引用的数据集, 如通用数据为3, 那么2号数据集是不可以引用3</description>
     </item>
     
     <item>
