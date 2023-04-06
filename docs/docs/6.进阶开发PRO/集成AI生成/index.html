@@ -1665,7 +1665,7 @@ https://github.com/alex-shpak/hugo-book
 </h3>
 <p>首先新建一个文件gptconn.py
 写入python脚本,下面以openAI的chatGPT为例,</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">chartgpt</span>(request):
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">dataset</span>(request):
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">import</span> openai
 </span></span><span style="display:flex;"><span>    openai<span style="color:#f92672">.</span>api_key <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;输入你的api_key&#39;</span>
 </span></span><span style="display:flex;"><span>    prompt <span style="color:#f92672">=</span> request<span style="color:#f92672">.</span>POST<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;text&#39;</span>)
