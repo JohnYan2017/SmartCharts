@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="应用场景 # 你可以在你的django项目中直接使用smartchart做为插件的方式 你可以查看相关视屏
-使用方法 # 在你的setting.py的INSTALL_APPS中加入&rsquo;smart_chart.echart&#39; 如果你需要simpleui, 你可以在最上行加入我们适配好的&rsquo;smart_chart.smartui&rsquo; INSTALLED_APPS = [ &#39;smart_chart.smartui&#39;, .... .... &#39;smart_chart.echart&#39; ] MIDDLEWARE 中注释掉XFrameOptionsMiddleware
+<meta name="description" content="应用场景 # 可以在你的django项目中直接使用smartchart做为应用插件 你可以查看相关视屏
+使用方法 # 在你的setting.py的INSTALL_APPS中加入&rsquo;smart_chart.echart&#39; INSTALLED_APPS = [ &#39;smart_chart.smartui&#39;, .... .... &#39;smart_chart.echart&#39; ] MIDDLEWARE 中注释掉XFrameOptionsMiddleware
 检查确保在Templates的设定处有DIRS的相关设定
-TEMPLATES = [ { &#39;BACKEND&#39;: &#39;django.template.backends.django.DjangoTemplates&#39;, &#39;DIRS&#39;: [BASE_DIR / &#39;templates&#39;], #此处需要有 &#39;APP_DIRS&#39;: True, #也要有 ..... }, ] setting.py中设定为中国时区, 支持中文基础平台建设! LANGUAGE_CODE = &#39;zh-hans&#39; TIME_ZONE = &#39;Asia/Shanghai&#39; USE_I18N = True USE_L10N = True USE_TZ = False # 此处必须为False 在你的url.py中加入引用 from django.conf.urls import include from django.views.generic import RedirectView url.py的urlpatterns中加入路由 path(&#39;echart/&#39;, include(&#39;smart_chart.echart.urls&#39;)), path(&#39;&#39;, RedirectView.">
+TEMPLATES = [ { &#39;BACKEND&#39;: &#39;django.template.backends.django.DjangoTemplates&#39;, &#39;DIRS&#39;: [BASE_DIR / &#39;templates&#39;], #此处需要有 &#39;APP_DIRS&#39;: True, #也要有 ..... }, ] setting.py中设定为中国时区, 支持中文基础平台建设! LANGUAGE_CODE = &#39;zh-hans&#39; TIME_ZONE = &#39;Asia/Shanghai&#39; USE_I18N = True USE_L10N = True USE_TZ = False # 此处必须为False 在你的url.py中加入引用 from django.conf.urls import include from django.views.generic import RedirectView url.py的urlpatterns中加入路由 path(&#39;echart/&#39;, include(&#39;smart_chart.echart.urls&#39;)), path(&#39;&#39;, RedirectView.as_view(url=&#39;echart/index/&#39;)), #首页,可自定义路由 初始化DB, 命令行输入: python manage.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
-<meta property="og:description" content="应用场景 # 你可以在你的django项目中直接使用smartchart做为插件的方式 你可以查看相关视屏
-使用方法 # 在你的setting.py的INSTALL_APPS中加入&rsquo;smart_chart.echart&#39; 如果你需要simpleui, 你可以在最上行加入我们适配好的&rsquo;smart_chart.smartui&rsquo; INSTALLED_APPS = [ &#39;smart_chart.smartui&#39;, .... .... &#39;smart_chart.echart&#39; ] MIDDLEWARE 中注释掉XFrameOptionsMiddleware
+<meta property="og:description" content="应用场景 # 可以在你的django项目中直接使用smartchart做为应用插件 你可以查看相关视屏
+使用方法 # 在你的setting.py的INSTALL_APPS中加入&rsquo;smart_chart.echart&#39; INSTALLED_APPS = [ &#39;smart_chart.smartui&#39;, .... .... &#39;smart_chart.echart&#39; ] MIDDLEWARE 中注释掉XFrameOptionsMiddleware
 检查确保在Templates的设定处有DIRS的相关设定
-TEMPLATES = [ { &#39;BACKEND&#39;: &#39;django.template.backends.django.DjangoTemplates&#39;, &#39;DIRS&#39;: [BASE_DIR / &#39;templates&#39;], #此处需要有 &#39;APP_DIRS&#39;: True, #也要有 ..... }, ] setting.py中设定为中国时区, 支持中文基础平台建设! LANGUAGE_CODE = &#39;zh-hans&#39; TIME_ZONE = &#39;Asia/Shanghai&#39; USE_I18N = True USE_L10N = True USE_TZ = False # 此处必须为False 在你的url.py中加入引用 from django.conf.urls import include from django.views.generic import RedirectView url.py的urlpatterns中加入路由 path(&#39;echart/&#39;, include(&#39;smart_chart.echart.urls&#39;)), path(&#39;&#39;, RedirectView." />
+TEMPLATES = [ { &#39;BACKEND&#39;: &#39;django.template.backends.django.DjangoTemplates&#39;, &#39;DIRS&#39;: [BASE_DIR / &#39;templates&#39;], #此处需要有 &#39;APP_DIRS&#39;: True, #也要有 ..... }, ] setting.py中设定为中国时区, 支持中文基础平台建设! LANGUAGE_CODE = &#39;zh-hans&#39; TIME_ZONE = &#39;Asia/Shanghai&#39; USE_I18N = True USE_L10N = True USE_TZ = False # 此处必须为False 在你的url.py中加入引用 from django.conf.urls import include from django.views.generic import RedirectView url.py的urlpatterns中加入路由 path(&#39;echart/&#39;, include(&#39;smart_chart.echart.urls&#39;)), path(&#39;&#39;, RedirectView.as_view(url=&#39;echart/index/&#39;)), #首页,可自定义路由 初始化DB, 命令行输入: python manage." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://help.smartchart.cn/docs/8.Django%E5%BA%94%E7%94%A8/%E5%B5%8C%E5%85%A5Django-Apps/" /><meta property="article:section" content="docs" />
 
@@ -23,7 +23,7 @@ TEMPLATES = [ { &#39;BACKEND&#39;: &#39;django.template.backends.django.DjangoTe
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.91c705dd5fec520547517ab2995e9a01fb5099a75bf7d8c3845c48e8e87af5eb.js" integrity="sha256-kccF3V/sUgVHUXqymV6aAftQmadb99jDhFxI6Oh69es=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.ba2874ca2d634efe85c9b5912b9a5f8fa8d39fcfeff3d08ca8779eb1b2f08104.js" integrity="sha256-uih0yi1jTv6FybWRK5pfj6jTn8/v89CMqHeesbLwgQQ=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -1648,7 +1648,7 @@ https://github.com/alex-shpak/hugo-book
   应用场景
   <a class="anchor" href="#%e5%ba%94%e7%94%a8%e5%9c%ba%e6%99%af">#</a>
 </h3>
-<p>你可以在你的django项目中直接使用smartchart做为插件的方式
+<p>可以在你的django项目中直接使用smartchart做为应用插件
 
   <a href="https://www.bilibili.com/video/BV1wr4y1i7rM">你可以查看相关视屏</a></p>
 <h3 id="使用方法">
@@ -1656,8 +1656,7 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#%e4%bd%bf%e7%94%a8%e6%96%b9%e6%b3%95">#</a>
 </h3>
 <ol>
-<li>在你的setting.py的INSTALL_APPS中加入&rsquo;smart_chart.echart'
-如果你需要simpleui,  <strong>你可以在最上行加入我们适配好的&rsquo;smart_chart.smartui&rsquo;</strong></li>
+<li>在你的setting.py的INSTALL_APPS中加入&rsquo;smart_chart.echart'</li>
 </ol>
 <pre tabindex="0"><code>INSTALLED_APPS = [
     &#39;smart_chart.smartui&#39;,
@@ -1705,7 +1704,7 @@ https://github.com/alex-shpak/hugo-book
 <pre tabindex="0"><code>    python manage.py makemigrations
     python manage.py migrate
 </code></pre><ol start="8">
-<li>建立管理员帐号, 如果已有可忽略</li>
+<li>建立管理员账号, 如果已有可忽略</li>
 </ol>
 <pre tabindex="0"><code>   python manage.py createsuperuser
 </code></pre><ol start="9">
@@ -1732,7 +1731,7 @@ https://github.com/alex-shpak/hugo-book
 
 
   <div>
-    <a class="flex align-center" href="https://gitee.com/smartchart/smartchart/docs/content/docs/8.Django%e5%ba%94%e7%94%a8/%e5%b5%8c%e5%85%a5Django%20Apps.md" target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://gitee.com/smartchart/smartchartDoc/edit/master/content/docs/8.Django%e5%ba%94%e7%94%a8/%e5%b5%8c%e5%85%a5Django%20Apps.md" target="_blank" rel="noopener">
       <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>

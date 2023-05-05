@@ -11,7 +11,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%AE%9E%E6%88%98%E5%A4%A7%E5%B1%8F%E6%A8%A1%E6%9D%BF%E8%BD%AC%E5%8C%96/</guid>
-      <description>应用场景 # 已有开发好的非smartchart静态大屏模板(这种模板非常多, 不要上当) 对js, css及smartchart已有初始了解 业务需求展示有合适的模板, 变化不大 如何使用 # 请观看系列视屏, 相信人人都会 头条视屏: 大屏模板转化系列 B站视屏: 大屏模板转化系列</description>
+      <description> 应用场景 # 已有开发好的非smartchart静态大屏模板 如果你已购买专业版本, 可联系客服提供100+静态大屏模板 对js, css及smartchart使用方法已有初步了解 业务需求展示有合适的模板, 变化可能性不大 如何使用 # 请观看系列视屏, 相信人人都会
+头条视屏: 大屏模板转化系列 B站视屏: 大屏模板转化系列 </description>
     </item>
     
     <item>
@@ -22,8 +23,8 @@
       <guid>https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%A4%87%E4%BB%BD%E6%81%A2%E5%A4%8D%E5%8F%8A%E7%89%88%E6%9C%AC/</guid>
       <description>应用场景 # 本地仪表盘的备份恢复，版本管理 开发测试生产机之间的同步 具体使用方法请观看视屏 版本控制使用说明视屏
 使用方法 # 快速备份 # 可以在模板-&amp;gt;点击如下图标， 完成快速备份（注意会覆盖历史）， 备份号统一为：SNAPSHOT 指定备份 # 你也可以在设定-&amp;gt;备份恢复 中进行按版本备份 查询备份 # 当不输入KEY值， 点击 本地备份时，可以查询此仪表盘已有的备份 备份恢复 # 备份可以在任意的仪表盘中进行恢复，如果是当前仪表盘， 仅输入KEY即可，比如：V01, 如果是跨仪表盘恢复， KEY需要带上仪表盘的编号如13_V01
-备份恢复参数说明 # 可以支持多种恢复模式, 只需要在KEY前面加上前缀即可， 如FORCEV01, FORCE13_V01.. FORCE: 删除自身所有数据集及高级设定，模板等，完全恢复备份 DATASET：只更新数据集及图形,模板，适用于测试上线正式 CHART: 只更新图形及模板，适用于前端变更上线
-跨服务器间同步 # 具体方法购买专业版本后提供
+备份恢复参数说明 # 可以支持多种恢复模式, 只需要在KEY前面加上前缀即可， 如FORCEV01, FORCE13_V01..
+FORCE: 删除自身所有数据集及高级设定，模板等，完全恢复备份 DATASET：只更新数据集及图形,模板，适用于测试上线正式 CHART: 只更新图形及模板，适用于前端变更上线 跨服务器间同步 # 具体方法购买专业版本后提供
 企业如何在使用最少资源做出最专业的可视化项目 # 前提条件: # 公司内部有技术人员(熟悉数据, 会写SQL) 服务器安装smartchart专业版 开发流程: # 由于公司内部人员是对业务最熟悉, 一般也都是后台数据管理相关的人员, 一般不太会有专职的前端开发和UI 所以数据开发人员可以使用smartchart开发仪表盘数据集, 并使用拖拽功能完成一个粗糙一点的框架和图形设计 一般情况下已经可以满足数据可视化的需求
 如果需要达到更专业的可视化效果, 可以外包前端/UI或在smartchart社区咨询, 由于需求变得非常简单 而前端开发又是一个通用技能, 可以使用非常廉价的费用获得最大的效果
 专业的事情专业来做, 才能达到效益最大化, 这是smartchart的设计理念 不管用什么工具, 在同等资源的投入下, 数据分析人员开发的可视化效果很难达到专业前端UI的效果 另外BI/数据开发人员的费用可是比前端高的, 也更稀缺</description>
@@ -45,7 +46,7 @@
       
       <guid>https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E9%9B%86%E6%88%90AI%E7%94%9F%E6%88%90/</guid>
       <description>应用场景 # 集成chatgpt, 文心一言等大模型技术 未来可以支持smartchart专有AI生成 使用方法 # 当前smartchart已内置了小型生成模型供大家尝试, 仅用于测试用途 如果你有chatgpt,或其它大模型的接口, 你也可以直接接入, 接入方法见下方 在模板/数据集开发/容器开发/图形开发中都可以找到如下图标, 输入你的问题, 选中后点即可生成, 注意测试用途较慢, 请耐心 接入商业大模型 # 首先新建一个文件gptconn.py 写入python脚本,下面以openAI的chatGPT为例,
-def chartgpt(request): import openai openai.api_key = &amp;#39;输入你的api_key&amp;#39; prompt = request.POST.get(&amp;#39;text&amp;#39;) response = openai.Completion.create( model=&amp;#34;text-davinci-003&amp;#34;, prompt=prompt, temperature=0.5, max_tokens=1024, n=1, stop=None ) message = response.choices[0].text return message 在任意仪表盘开发界面&amp;ndash;&amp;gt; 模板 &amp;ndash;&amp;gt; 工具 &amp;ndash;&amp;gt; 文件上传 菜单中将此文件上传即可 之后AI生成服务将采用你自定义的服务</description>
+def dataset(request): import openai openai.api_key = &amp;#39;输入你的api_key&amp;#39; prompt = request.POST.get(&amp;#39;text&amp;#39;) response = openai.Completion.create( model=&amp;#34;text-davinci-003&amp;#34;, prompt=prompt, temperature=0.5, max_tokens=1024, n=1, stop=None ) message = response.choices[0].text return message 在任意仪表盘开发界面&amp;ndash;&amp;gt; 模板 &amp;ndash;&amp;gt; 工具 &amp;ndash;&amp;gt; 文件上传 菜单中将此文件上传即可 之后AI生成服务将采用你自定义的服务</description>
     </item>
     
   </channel>

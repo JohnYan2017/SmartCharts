@@ -11,7 +11,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/VUE%E7%9B%B8%E5%85%B3/%E4%BD%BF%E7%94%A8VUE/</guid>
-      <description>使用场景 # 报表中涉及交互场景较多, 需要数据与页面绑定 开发者熟悉vue 常见绑定 # //显示变量message &amp;lt;p&amp;gt;{[ message ]}&amp;lt;/p&amp;gt; //循环产生li,变量sites &amp;lt;ol&amp;gt; &amp;lt;li v-for=&amp;#34;site in sites&amp;#34;&amp;gt; {[ site.name ]} &amp;lt;/li&amp;gt; &amp;lt;/ol&amp;gt; //绑定输入值变量use &amp;lt;input type=&amp;#34;checkbox&amp;#34; v-model=&amp;#34;use&amp;#34;&amp;gt; //显示控制 &amp;lt;p v-if=&amp;#34;seen&amp;#34;&amp;gt;现在你看到我了&amp;lt;/p&amp;gt; &amp;lt;p v-show=&amp;#34;seen&amp;#34;&amp;gt;现在你看到我了&amp;lt;/p&amp;gt; //绑定属性 &amp;lt;a :href=&amp;#34;url&amp;#34;&amp;gt;&amp;lt;/a&amp;gt; &amp;lt;div :style=&amp;#34;{ color: activeColor, fontSize: fontSize + &amp;#39;px&amp;#39; }&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;div :class=&amp;#34;[errorClass ,isActive ? activeClass : &amp;#39;&amp;#39;]&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; //绑定点击方法 &amp;lt;a @click=&amp;#34;doSomething&amp;#34;&amp;gt;&amp;lt;/a&amp;gt; 开启VUE # 需要在设定&amp;ndash;&amp;gt;高级设定中可开启vue模式
+      <description>使用场景 # 报表中涉及交互场景较多, 需要数据与页面绑定 开发者熟悉vue 常见绑定 # &amp;lt;!--显示变量message--&amp;gt; &amp;lt;p&amp;gt;{[ message ]}&amp;lt;/p&amp;gt; &amp;lt;!--循环产生li,变量sites--&amp;gt; &amp;lt;ol&amp;gt; &amp;lt;li v-for=&amp;#34;site in sites&amp;#34;&amp;gt; {[ site.name ]} &amp;lt;/li&amp;gt; &amp;lt;/ol&amp;gt; &amp;lt;!--绑定输入值变量use--&amp;gt; &amp;lt;input type=&amp;#34;checkbox&amp;#34; v-model=&amp;#34;use&amp;#34;&amp;gt; &amp;lt;!--显示控制--&amp;gt; &amp;lt;p v-if=&amp;#34;seen&amp;#34;&amp;gt;现在你看到我了&amp;lt;/p&amp;gt; &amp;lt;p v-show=&amp;#34;seen&amp;#34;&amp;gt;现在你看到我了&amp;lt;/p&amp;gt; &amp;lt;!--绑定属性--&amp;gt; &amp;lt;a :href=&amp;#34;url&amp;#34;&amp;gt;&amp;lt;/a&amp;gt; &amp;lt;div :style=&amp;#34;{ color: activeColor, fontSize: fontSize + &amp;#39;px&amp;#39; }&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;div :class=&amp;#34;[errorClass ,isActive ? activeClass : &amp;#39;&amp;#39;]&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;!--绑定点击方法--&amp;gt; &amp;lt;a @click=&amp;#34;doSomething&amp;#34;&amp;gt;&amp;lt;/a&amp;gt; 开启VUE # 需要在设定&amp;ndash;&amp;gt;高级设定中可开启vue模式
 简单赋值应用 # 系统默认为初始vue及内置vue的data有17个变量(从d0, d1&amp;hellip; d16) 你可以在图形编辑器中给vue的变量赋值, 赋值方式:
 vapp.d0 = xxxx 你可以将d0赋值为字典, 如:
 vapp.d0 = { &amp;#39;index1&amp;#39;: 100, &amp;#39;index2&amp;#39;: 300} 注意,我们修改了vue在模板中变量的默认引用方式, 你需要采用如下方法引用: {[d0.</description>
@@ -112,7 +112,7 @@ dataset = [[&amp;#39;category&amp;#39;,&amp;#39;C1&amp;#39;,&amp;#39;C2&amp;#39;
       
       <guid>https://help.smartchart.cn/docs/5.%E5%8F%82%E6%95%B0%E5%8F%8A%E8%81%94%E5%8A%A8%E9%92%BB%E5%8F%96/%E5%8F%82%E6%95%B0%E7%BC%96%E5%86%99%E6%96%B9%E6%B3%95/</guid>
       <description>使用场景 # 需要使用图表联动效果 数据服务接口开发 使用魔法方法(smartchart独创,拒绝抄袭) # 基础原理 # 1. $参数名 : 当有传递参数时将替换相关的值 2. /* ... $参数名 ... */ : 当参数写在这个区间时, 如果外部没有传入参数, 会自动忽略这一段代码 3. -- : 标识之后单行的代码会被忽略 常见组合应用 # 理解以下样列后, 可录活使用组合出各种可能的需求
-默认参数: 实现在不传参数时默认参数是当前月份 select xx from tablename where calmonth =/*&amp;#39;$calmonth&amp;#39; -- */ to_char(sysdate,&amp;#39;YYYYMM&amp;#39;) 多个参数: 注意使用1=1及and的位置 select xx from tablename where 1=1 /* and city = &amp;#39;$city&amp;#39; */ /* and calmonth =&amp;#39;$calmonth&amp;#39;*/ 维度变化: 将字段当成参数 select /*$calmonth,*/ city, count(1) as qty from tablename group by /*$calmonth,*/ city 维度变化: 当传入月份条件时, 按城市,月份的数据, 不传参数时只看按城市的总数 select /*月份, -- $Month */ 城市, sum(度量) from tablename where 1=1 /* and 月份 &amp;gt; &amp;#39;$Month&amp;#39; */ group by 城市 /*,月份 -- $Month*/ 高级开关应用 # 以上应用可以通过参数是否有传递来实现开关代码段的效果, 有些场景可能还希望通过参数值来进行代码段的开关 如下代码可以实现当传递参数type=1 或 type=2 时执行不同的代码段 使用 &amp;ldquo;$参数__值&amp;rdquo; 的方式做为开关</description>
+常规用法 select xx from table_name where calmonth = &amp;#39;$month&amp;#39; 默认参数: 实现在不传参数时默认参数是当前月份 select xx from tablename where calmonth =/*&amp;#39;$calmonth&amp;#39; -- */ to_char(sysdate,&amp;#39;YYYYMM&amp;#39;) 假设没有传递参数, 那么/* .. */将会消失, 即真正的查询是: select xx from tablename where calmonth = to_char(sysdate,&amp;#39;YYYYMM&amp;#39;) 假设有传递参数, 比如calmonth=202305, 那/* .. */打开, 查询会是这样 select xx from tablename where calmonth = &amp;#39;202305&amp;#39; -- to_char(sysdate,&amp;#39;YYYYMM&amp;#39;) 由于&amp;#34;--&amp;#34; 会忽略掉之后整行的代码, 所以真正的查询就是 select xx from tablename where calmonth = &amp;#39;202305&amp;#39; 多个参数: 注意使用1=1及and的位置 select xx from tablename where 1=1 /* and city = &amp;#39;$city&amp;#39; */ /* and calmonth =&amp;#39;$calmonth&amp;#39;*/ 维度变化: 将字段当成参数 select /*$calmonth,*/ city, count(1) as qty from tablename group by /*$calmonth,*/ city 维度变化: 当传入月份条件时, 按城市,月份的数据, 不传参数时只看按城市的总数 select /*月份, -- $Month */ 城市, sum(度量) from tablename where 1=1 /* and 月份 &amp;gt; &amp;#39;$Month&amp;#39; */ group by 城市 /*,月份 -- $Month*/ 高级开关应用 # 以上应用可以通过参数是否有传递,来实现开关代码段的效果, 有些场景可能还希望通过参数值来进行代码段的开关 如下代码可以实现当传递参数type=1 或 type=2 时执行不同的代码段 使用 &amp;ldquo;$参数__值&amp;rdquo; 的方式做为开关</description>
     </item>
     
     <item>
@@ -132,7 +132,7 @@ dataset = [[&amp;#39;category&amp;#39;,&amp;#39;C1&amp;#39;,&amp;#39;C2&amp;#39;
       
       <guid>https://help.smartchart.cn/docs/7.%E6%8A%A5%E8%A1%A8%E5%B5%8C%E5%85%A5/%E7%AE%80%E5%8D%95%E5%B5%8C%E5%85%A5/</guid>
       <description>你可能需要把Smartchart生成的图形嵌入到其它系统 首先，所有smartchart设计出来的仪表盘都有一个访问url 你可以直接访问：
-http://localhost:8000/echart?type=仪表盘名称 如：http://localhost:8000/echart?type=demo 但是smartchart默认是有权限管理的，所以如果你需要嵌入你自已的系统又不考虑权限，你可以在“设定” &amp;ndash;&amp;gt; 公开 然后在你的网页就可以直接iframe了
+http://localhost:8000/echart?type=仪表盘名称 如：http://localhost:8000/echart?type=demo 但是smartchart默认是有权限管理的，所以如果你需要嵌入你自己的系统又不考虑权限，你可以在“设定” &amp;ndash;&amp;gt; 公开 然后在你的网页就可以直接iframe了
 &amp;lt;iframe src=&amp;#34;http://localhost:8000/echart?type=demo&amp;#34; style=&amp;#34;width:100%;height:100%&amp;#34;&amp;gt;&amp;lt;/iframe&amp;gt; </description>
     </item>
     
@@ -142,10 +142,10 @@ http://localhost:8000/echart?type=仪表盘名称 如：http://localhost:8000/ec
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/8.Django%E5%BA%94%E7%94%A8/%E5%B5%8C%E5%85%A5Django-Apps/</guid>
-      <description>应用场景 # 你可以在你的django项目中直接使用smartchart做为插件的方式 你可以查看相关视屏
-使用方法 # 在你的setting.py的INSTALL_APPS中加入&amp;rsquo;smart_chart.echart&#39; 如果你需要simpleui, 你可以在最上行加入我们适配好的&amp;rsquo;smart_chart.smartui&amp;rsquo; INSTALLED_APPS = [ &amp;#39;smart_chart.smartui&amp;#39;, .... .... &amp;#39;smart_chart.echart&amp;#39; ] MIDDLEWARE 中注释掉XFrameOptionsMiddleware
+      <description>应用场景 # 可以在你的django项目中直接使用smartchart做为应用插件 你可以查看相关视屏
+使用方法 # 在你的setting.py的INSTALL_APPS中加入&amp;rsquo;smart_chart.echart&#39; INSTALLED_APPS = [ &amp;#39;smart_chart.smartui&amp;#39;, .... .... &amp;#39;smart_chart.echart&amp;#39; ] MIDDLEWARE 中注释掉XFrameOptionsMiddleware
 检查确保在Templates的设定处有DIRS的相关设定
-TEMPLATES = [ { &amp;#39;BACKEND&amp;#39;: &amp;#39;django.template.backends.django.DjangoTemplates&amp;#39;, &amp;#39;DIRS&amp;#39;: [BASE_DIR / &amp;#39;templates&amp;#39;], #此处需要有 &amp;#39;APP_DIRS&amp;#39;: True, #也要有 ..... }, ] setting.py中设定为中国时区, 支持中文基础平台建设! LANGUAGE_CODE = &amp;#39;zh-hans&amp;#39; TIME_ZONE = &amp;#39;Asia/Shanghai&amp;#39; USE_I18N = True USE_L10N = True USE_TZ = False # 此处必须为False 在你的url.py中加入引用 from django.conf.urls import include from django.views.generic import RedirectView url.py的urlpatterns中加入路由 path(&amp;#39;echart/&amp;#39;, include(&amp;#39;smart_chart.echart.urls&amp;#39;)), path(&amp;#39;&amp;#39;, RedirectView.</description>
+TEMPLATES = [ { &amp;#39;BACKEND&amp;#39;: &amp;#39;django.template.backends.django.DjangoTemplates&amp;#39;, &amp;#39;DIRS&amp;#39;: [BASE_DIR / &amp;#39;templates&amp;#39;], #此处需要有 &amp;#39;APP_DIRS&amp;#39;: True, #也要有 ..... }, ] setting.py中设定为中国时区, 支持中文基础平台建设! LANGUAGE_CODE = &amp;#39;zh-hans&amp;#39; TIME_ZONE = &amp;#39;Asia/Shanghai&amp;#39; USE_I18N = True USE_L10N = True USE_TZ = False # 此处必须为False 在你的url.py中加入引用 from django.conf.urls import include from django.views.generic import RedirectView url.py的urlpatterns中加入路由 path(&amp;#39;echart/&amp;#39;, include(&amp;#39;smart_chart.echart.urls&amp;#39;)), path(&amp;#39;&amp;#39;, RedirectView.as_view(url=&amp;#39;echart/index/&amp;#39;)), #首页,可自定义路由 初始化DB, 命令行输入: python manage.</description>
     </item>
     
     <item>
@@ -155,9 +155,7 @@ TEMPLATES = [ { &amp;#39;BACKEND&amp;#39;: &amp;#39;django.template.backends.dja
       
       <guid>https://help.smartchart.cn/docs/%E5%85%B3%E4%BA%8E%E6%88%91%E4%BB%AC/</guid>
       <description> 我们的目标 # 打造全生态的数据应用数据管理的平台，解决中小企业上中台难,上中台贵,见效慢的问题. 平台与时俱进，不断完善与优化中 可以通过视屏了解我们的架构设计 企业数字化与smartchart的一站式解决方案
-我们不提供数据存储与计算引擎, ETL工具, BI工具. 因为已有更优秀的产品，我们只为数据开发人员提供更敏捷的工具与平台，致力于数据服务中台建设，边缘可视化与数据管道产品, 站在巨人的肩上, 让数据更有个性，更灵活与可定制化，由于他的通用性，功能的扩展变得也是非常的Smart
-产品定位 # 实现全生态的数据服务平台(数据收集, 数据加工, 数据分享，数据管理，数据应用)
-产品模块 # 统一的数据处理调度平台、数据管道, 是基于Apache顶级项目Airflow上的二次开发产品,让数据处理的任务调度开发与管理微代码化，我们的设计理念是让开发者更方便的同时，不丧失灵活和高度可自定义，如果你使用过smartchat，你可以想象他会带来的便捷性， 产品名为smartpip, 为啥不叫smartpipe, 因为能省我们就要省&amp;hellip; 统一的可视化管理平台, 为微信等第三方应用, 提供powerbi,tableau,finebi&amp;hellip;的嵌入式及功能扩展服务，数据集即服务，一切为数据集 统一的数据上传平台, 实现线下数据的收集需求, 并提供专业的手工上传数据产品, 支持excel本地(安装与免安装版本), 支持WEB端 统一的数据分享平台与smartchart集成，可做为数据服务中台, 实现业务对数据下载的需要及为第三方提供获取数据的API接口 SmartChart可视化平台, 新一代的数据可视化产品, 解决传统BI各种痛点问题,真正面向开发人员的平台产品 元数据管理平台及数据治理，让数据的来源更清晰, 让数据应用更方便，具备自动化，可视化的数据血缘分析 新一代极速数据仓库技术, 极简架构即可实现在大数据应用的全场景需求 </description>
+产品定位 # 实现全生态的数据服务平台(数据采集, 数据加工, 数据分享，数据管理，数据应用) 产品模块 # 统一的数据处理调度平台、数据管道, 是基于Apache顶级项目Airflow上的二次开发产品,让数据处理的任务调度开发与管理微代码化，我们的设计理念是让开发者更方便的同时，不丧失灵活和高度可自定义，如果你使用过smartchat，你可以想象他会带来的便捷性， 产品名为smartpip, 为啥不叫smartpipe, 因为能省我们就要省&amp;hellip; 统一的可视化管理平台, 为第三方业务系统应用, 提供可视化嵌入及功能扩展服务，数据集即服务，一切为数据集 统一的数据上传平台, 实现线下数据的收集需求, 并提供专业的手工上传数据产品, 支持excel本地(安装与免安装版本), 支持WEB端 统一的数据分享平台与smartchart集成，可做为数据服务中台, 实现业务对数据下载的需要及为第三方系统提供数据API接口 SmartChart可视化平台, 新一代的数据可视化产品, 解决传统BI各种痛点问题,真正面向开发人员的平台产品 元数据管理平台及数据治理，让数据的来源更清晰, 让数据应用更方便，具备自动化，可视化的数据血缘分析 新一代极速数据仓库技术, 极简架构即可实现在大数据应用的全场景需求 </description>
     </item>
     
     <item>
@@ -166,12 +164,9 @@ TEMPLATES = [ { &amp;#39;BACKEND&amp;#39;: &amp;#39;django.template.backends.dja
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E4%B8%93%E4%B8%9A%E7%89%88%E8%AF%B4%E6%98%8E/</guid>
-      <description> 版权声明 # 为项目能持续维护，并保持稳定的模式，按照社区投票的意见, 开始区分免费版本和专业版本 目前免费版本无需激活， 你可以使用到常用的功能，我们也会保持持续的更新 为保持项目的健康发展，如需进行商用，您需提供使用方并知会作者进行授权
-免费版使用者必须保留SmartChart相关版权标识及LOGO，禁止对其进行修改和删除 如果违反，将保留对侵权者追究责任的权利
-激活方式 # 您在初次安装Smartchart后会自动免费激活10天的专业版本, 之后专业版本功能会限制使用 请务必仔细阅读免费版本与专业版本的区别, 避免带来的不便 后续如果您还需要继续体验专业版本， 点击查看激活试用方式， 如果您是企业用途，建意使用专业版，获取更快的开发效率，可视化效果, 可靠性的保障及极速的查询体验
-针对个人独立开发者,你可以采用廉价的专业版仪表盘激活方案, 可满足小项目的可视化要求 如果需要永久激活专业版，可关注公众号与客服联系,或扫码联系微信客服了解, 非诚勿扰
-微信客服不提供技术咨询, 如有使用方法的疑惑,建意加QQ群:476715246 进行沟通
-免费版本与专业版本对比: # 功能 免费版 专业版 中台版 个人版 栅格布局 V V V V DATAV V V V V 拖拽布局 V V V 自由开发 V V V 切换图表主题 V V V 主题自由设计 V V V 引入JS V V V 引入CSS V V V 上传静态资源 V V V 使用VUE V V V V 数据集开发 V V V V 所有数据源 V V V V 图形开发 V V V V 图形商店 V V V V 普通模板应用 V V V V 专业模板应用 V V V 复制仪表盘 V V V V 钻取 V V V V 联动 V V V V 筛选 V V V V 单点登录 V V V V 嵌入认证 V V V LDAP认证 V V V Juypter V V V V 快捷存档 V V V 数据加速 V V V 数据API服务 V V V 后台API刷新 V V V 仪表盘同步 V V V 仪表盘版本管理 V V V 数据填报 V V V 报表Portal V V V 多级项目菜单 V 商业授权 V V 优先咨询 V V 专业边框背景 V V 3D场景 V V V 中国式报表 V V V 零代码数据集 V V V 生产部署文档 V V 个性化修改 V V 授权书 V V 低代码ETL V 调度平台 V 智慧BI V 数据资产 V 数据质量 V 数据血缘 V 租户管理 V </description>
+      <description> 版权声明 # 为项目能持续维护，并保持稳定的模式，按照社区投票的意见, 开始区分免费版本和专业版本 目前免费版本无需激活， 你可以使用到常用的功能，我们也会保持持续的更新 为保持项目的健康发展，如需进行商用，您需提供使用方并知会作者进行授权 免费版使用者必须保留SmartChart相关版权标识及LOGO，禁止对其进行修改和删除 如果违反，将保留对侵权者追究责任的权利
+激活方式 # 您在初次安装Smartchart后会自动免费激活10天的专业版本, 之后专业版本功能会限制使用 请务必仔细阅读免费版本与专业版本的区别, 避免带来的不便 后续如果您还需要继续体验专业版本， 点击查看激活试用方式， 如果您是企业用途，建意使用专业版，获取更快的开发效率，可视化效果, 可靠性的保障及极速的查询体验 针对个人独立开发者,你可以采用廉价的专业版仪表盘激活方案, 可满足小项目的可视化要求 如果需要永久激活专业版，可关注公众号与客服联系,或扫码联系微信客服了解, 非诚勿扰 微信客服不提供技术咨询, 如有使用方法的疑惑,建意加QQ群:476715246 进行沟通
+免费版本与专业版本对比: # 功能 免费版 专业版 中台版 个人版 栅格布局 V V V V DATAV V V V V 拖拽布局 V V V 自由开发 V V V 切换图表主题 V V V 主题自由设计 V V V 引入JS V V V 引入CSS V V V 上传静态资源 V V V 使用VUE V V V V 数据集开发 V V V V 所有数据源 V V V V 图形开发 V V V V 图形商店 V V V V 普通模板应用 V V V V 专业模板应用 V V V 复制仪表盘 V V V V 钻取 V V V V 联动 V V V V 筛选 V V V V 单点登录 V V V V 嵌入认证 V V V LDAP认证 V V V Juypter V V V V 快捷存档 V V V 数据加速 V V V 数据API服务 V V V 后台API刷新 V V V 仪表盘同步 V V V 仪表盘版本管理 V V V 数据填报 V V V 报表Portal V V V 多级项目菜单 V 3D场景 V V V 中国式报表 V V V 零代码数据集 V V V 生产部署文档 V V 个性化修改 V V 授权书 V V 商业授权 V V 优先咨询 V V 专业边框背景 V V 3K+图形样列 V V 100+大屏模板 V V 低代码ETL V 调度平台 V 智慧BI V 数据资产 V 数据质量 V 数据血缘 V 租户管理 V </description>
     </item>
     
     <item>
@@ -180,12 +175,12 @@ TEMPLATES = [ { &amp;#39;BACKEND&amp;#39;: &amp;#39;django.template.backends.dja
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/VUE%E7%9B%B8%E5%85%B3/ElementUI/</guid>
-      <description> 应用场景 # 非大屏场景应用 有较多交互场景的报表, 如筛选,表格,分页,下载等 使用方法 # 如下图, base.html 改为 basevue.html 将自动开启加载vue和elementui 注意vue的变量引用在 模板编辑界面中, 写法变更为 {[ ]}
-ElementUI组件说明 视屏参考
-参考样列 # 新增一个数据集(点击金色的新增按钮, 这样会新增一个可拖拽的数据集) 修改相应的数据集及图形 数据集端
+      <description> 应用场景 # 非大屏场景应用 有较多交互场景的报表, 如筛选,表格,分页,下载等 使用方法 # 将base.html 改为 basevue.html, 将自动开启加载vue和elementui 注意vue的变量引用在 模板编辑界面中, 写法变更为 {[ ]}
+ElementUI组件说明 视屏参考 参考样列 # 新增一个拖拽图形,然后修改相应的数据集及图形
+数据集端
 select H1, H2, qty, rate from smartdemo2 limit 100 图形端
-let dataset = __dataset__; let tableData = ds_createMap_all(dataset); vapp.d0={ tableData: tableData } 模板Body区端
-&amp;lt;div class=&amp;#34;smtdrag&amp;#34; id=&amp;#34;id_1639824145817&amp;#34;&amp;gt; &amp;lt;template&amp;gt; &amp;lt;el-table stripe border height=&amp;#34;100%&amp;#34; :data=&amp;#34;d0.tableData&amp;#34; style=&amp;#34;width: 100%&amp;#34;&amp;gt; &amp;lt;el-table-column label=&amp;#34;hero&amp;#34;&amp;gt; &amp;lt;el-table-column prop=&amp;#34;H1&amp;#34; label=&amp;#34;H1&amp;#34; fixed :default-sort = &amp;#34;{prop: &amp;#39;H2&amp;#39;, order: &amp;#39;descending&amp;#39;}&amp;#34; width=&amp;#34;180&amp;#34;&amp;gt; &amp;lt;/el-table-column&amp;gt; &amp;lt;el-table-column prop=&amp;#34;H2&amp;#34; label=&amp;#34;H2&amp;#34; sortable width=&amp;#34;180&amp;#34;&amp;gt; &amp;lt;/el-table-column&amp;gt; &amp;lt;/el-table-column&amp;gt; &amp;lt;el-table-column sortable prop=&amp;#34;qty&amp;#34; label=&amp;#34;qty&amp;#34;&amp;gt; &amp;lt;/el-table-column&amp;gt; &amp;lt;el-table-column prop=&amp;#34;rate&amp;#34; label=&amp;#34;rate&amp;#34;&amp;gt; &amp;lt;/el-table-column&amp;gt; &amp;lt;/el-table&amp;gt; &amp;lt;/template&amp;gt; &amp;lt;/div&amp;gt; </description>
+let dataset = __dataset__; let tableData = ds_createMap_all(dataset); vapp.d0={ tableData: tableData } 模板Body区域加入element组件el-table,并用拖拽容器进行包裹
+&amp;lt;div class=&amp;#34;smtdrag&amp;#34; id=&amp;#34;id_1639824145817&amp;#34;&amp;gt; &amp;lt;el-table :data=&amp;#34;d0.tableData&amp;#34; stripe border height=&amp;#34;100%&amp;#34; style=&amp;#34;width: 100%&amp;#34;&amp;gt; &amp;lt;el-table-column label=&amp;#34;hero&amp;#34;&amp;gt; &amp;lt;el-table-column fixed width=&amp;#34;180&amp;#34; prop=&amp;#34;H1&amp;#34; label=&amp;#34;H1&amp;#34; :default-sort = &amp;#34;{prop:&amp;#39;H2&amp;#39;,order:&amp;#39;descending&amp;#39;}&amp;#34;&amp;gt;&amp;lt;/el-table-column&amp;gt; &amp;lt;el-table-column sortable width=&amp;#34;180&amp;#34; prop=&amp;#34;H2&amp;#34; label=&amp;#34;H2&amp;#34;&amp;gt;&amp;lt;/el-table-column&amp;gt; &amp;lt;/el-table-column&amp;gt; &amp;lt;el-table-column sortable prop=&amp;#34;qty&amp;#34; label=&amp;#34;qty&amp;#34;&amp;gt;&amp;lt;/el-table-column&amp;gt; &amp;lt;el-table-column prop=&amp;#34;rate&amp;#34; label=&amp;#34;rate&amp;#34;&amp;gt;&amp;lt;/el-table-column&amp;gt; &amp;lt;/el-table&amp;gt; &amp;lt;/div&amp;gt; </description>
     </item>
     
     <item>
@@ -195,7 +190,7 @@ let dataset = __dataset__; let tableData = ds_createMap_all(dataset); vapp.d0={ 
       
       <guid>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E4%B8%8D%E5%A4%AA%E9%87%8D%E8%A6%81/%E5%A4%8D%E5%88%B6%E4%BB%AA%E8%A1%A8%E7%9B%98/</guid>
       <description> 复制仪表盘 # 好不容易开发好了一个仪表盘, 想再做一个类似的, 或者想要一个测试用, 还需要一个个数据集, 图形复制粘贴么, 不, 你仅仅只需要点击下, 将给你复制出一个全新的仪表盘 注意: 复制出来的仪表盘, 数据集是与原仪表盘公用的！！
-如果你想将数据集独立出来, 可以按下图操作, 进入数据集设定, 点击磁铁, 将为你自动创建一个全新的数据集 </description>
+如果你想将数据集独立出来, 可以按下图操作, 进入数据集设定, 点击复制图标, 将为你自动创建一个全新的数据集 </description>
     </item>
     
     <item>
@@ -204,7 +199,13 @@ let dataset = __dataset__; let tableData = ds_createMap_all(dataset); vapp.d0={ 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/SQL%E6%95%B0%E6%8D%AE%E9%9B%86/</guid>
-      <description>前言 # 使用最广泛的数据集一般都是SQL数据集 SmartChart标准数据集你可以想象为一个EXCEL的二维表, 有行和列 你直接在数据集开发界面填写SQL即可 更多数据集说明查看&amp;quot;特殊数据源&amp;quot; 动态传参数据集查看&amp;quot;参数及联动&amp;quot;章节 标准图形的数据表类型 # A类数据源 # # 比如你的原始数据库中表的格式如下, 表名tb_name: 城市 户型 数量 长沙 A 12 长沙 A 23 上海 B 19 # 查询的sql: select 城市,户型,sum(数量) AS 数量 from tb_name group by 城市,户型 # 正常的查询的结果为: [[&amp;#39;城市&amp;#39;,&amp;#39;户型&amp;#39;,&amp;#39;数量&amp;#39;], [&amp;#39;长沙&amp;#39;,&amp;#39;A&amp;#39;,35], [&amp;#39;上海&amp;#39;,&amp;#39;B &amp;#39;,19]] # 由于生成的数据格式第二行是 [字符,字符,数值], 后台会自动进行转列动作, # 生成图表更容易使用格式: [[&amp;#39;Categroy&amp;#39;,&amp;#39;A&amp;#39;,&amp;#39;B&amp;#39;], [&amp;#39;长沙&amp;#39;, 35, 0], [&amp;#39;上海&amp;#39;, 0, 19]] B类数据源 # # 再比如我们有一个表的数据格式, 指标是展开的: 城市 A B 长沙 10 12 上海 11 19 长沙 9 10 # 我们可以写的sql是: select 城市, sum(A) as A, sum(B) as B from tb_name group by 城市 # 这样得到的结果是: [[&amp;#39;城市&amp;#39;,&amp;#39;A&amp;#39;,&amp;#39;B&amp;#39;], [&amp;#39;长沙&amp;#39;, 19, 22], [&amp;#39;上海&amp;#39;, 11, 19]] 这样和我们的标准格式也是一样的 SQL多段查询 # 有时你一个数据集可能只用一个SQL查询还不够，比如你需要一个清单数据，同时你需要一个汇总数据做为说明在图形中显示，这样你就需要使用多条SQL语句，在数据集中的写法你只需要用分号隔开，如：</description>
+      <description>前言 # 使用最广泛的数据集一般都是SQL数据集 标准数据集可以想象为类EXCEL的二维表,有行和列 直接在数据集开发界面填写SQL即可 更多数据集说明查看&amp;quot;特殊数据源&amp;quot; 动态传参数据集查看&amp;quot;参数及联动&amp;quot;章节 标准图形的数据集格式 # A类数据源 # 如果你的原始数据库中表的格式如下, 表名tb_name
+城市 户型 数量 长沙 A 12 长沙 A 23 上海 B 19 查询的sql:
+select 城市,户型,sum(数量) AS 数量 from tb_name group by 城市,户型 正常查询的结果为
+[[&amp;#39;城市&amp;#39;,&amp;#39;户型&amp;#39;,&amp;#39;数量&amp;#39;], [&amp;#39;长沙&amp;#39;,&amp;#39;A&amp;#39;,35], [&amp;#39;上海&amp;#39;,&amp;#39;B &amp;#39;,19]] 由于生成的数据格式第二行是[字符,字符,数值],后台会智能进行转列动作, 生成图表更容易使用格式:
+[[&amp;#39;Categroy&amp;#39;,&amp;#39;A&amp;#39;,&amp;#39;B&amp;#39;], [&amp;#39;长沙&amp;#39;, 35, 0], [&amp;#39;上海&amp;#39;, 0, 19]] 注意: 在数据集预览可能会看到是第一种查询结果, 但到图形中其实是第二种智能转化过的了
+B类数据源 # 再比如表的数据格式, 指标是展开的:
+城市 A B 长沙 10 12 上海 11 19 长沙 9 10 我们可以写的sql是</description>
     </item>
     
     <item>
@@ -213,12 +214,10 @@ let dataset = __dataset__; let tableData = ds_createMap_all(dataset); vapp.d0={ 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/Python%E6%95%B0%E6%8D%AE%E9%9B%86/</guid>
-      <description>应用场景 # 当SQL查询无法满足你的需求, 你需要对查询后的结果进行处理, 或者你需要使用Excel的数据源, 甚至你需要对不同系统的数据进行查询, Python连接器可以帮到你 我们又称他为万能数据集， 你可以使用任何python语法， 需要把数据集的结果赋值给ds变量!!
-首先你需要新建python连接器, 由于安全控制只允许超级管理员建立 # 内置函数说明 ds_get(id) #输入目标数据集的id名, 可以获取目标数据集 ds_df(id) #输入目标数据集的id名, 转化成pandas的df对象 ds_sql(conn_name, sql_str) #输入连接池中的名称, SQL语句, 获取数据集 ds_list(df) #将pandas的df对象转化成数据集 使用方法样列说明 # 读取Excel数据处理, 如需上传页面可参考&amp;quot;数据上传&amp;quot;说明
-import pandas as pd df = pd.read_excel(&amp;#39;文件路径&amp;#39;, &amp;#39;表名&amp;#39;) df = df.groupby(&amp;#39;c3&amp;#39;).agg({&amp;#39;qty&amp;#39;:&amp;#39;sum&amp;#39;}).reset_index() ds = ds_list(df) 从数据集获取数据后进行处理
-ds=ds_get(12) ds=ds[:15] 从数据集获取数据转化成pandas对象处理
-df = ds_df(12) df = df.sort_values(by=&amp;#34;出场数&amp;#34;, ascending=False) ds = ds_list(df) 生成字典格式的数据集供多个图形使用
-import pandas as pd df = pd.read_excel(&amp;#39;/Users/../smartdemo.xlsx&amp;#39;, &amp;#39;demo&amp;#39;) df0 = df.</description>
+      <description>应用场景 # 当SQL查询无法满足你的需求, 你需要对查询后的结果进行处理, 需要使用Excel的数据源, 甚至你需要对不同系统的数据进行查询, 我们又称他为万能数据集，可以使用任何python语法 其实你并不需要熟悉python即可使用 首先你需要新建python连接器, 由于安全控制只允许超级管理员建立
+# 变量说明 一般使用ds来表达数据集类型的变量, 如ds1,ds2 一般使用df来表达pandas对象, 如df1,df2 # 内置函数说明 ds_get(id) #获取目标ds数据集[不常用] ds_sql(conn_name, sql) #通过数据源连接的名称及SQL语句获取ds数据集 ds_df(ds) #将ds数据集转化成pandas的df对象 ds_list(df) #将pandas的df对象转化成ds数据集 使用方法样列说明 # 读取Excel数据处理, 如需上传页面可参考&amp;quot;数据上传&amp;quot;说明
+import pandas as pd # 读取excel文件给df对象 df = pd.read_excel(&amp;#39;文件路径&amp;#39;, &amp;#39;表名&amp;#39;) # 按照省份列统计数量列的加总 df = df.groupby(&amp;#39;省份&amp;#39;).agg({&amp;#39;数量&amp;#39;:&amp;#39;sum&amp;#39;}).reset_index() # 将df对象转化为ds输出 ds = ds_list(df) 生成字典格式的数据集供多个图形使用
+import pandas as pd df = pd.read_excel(&amp;#39;/Users/../smartdemo.xlsx&amp;#39;, &amp;#39;demo&amp;#39;) # 生成0号df df0 = df.groupby(&amp;#39;c3&amp;#39;).agg({&amp;#39;qty&amp;#39;:&amp;#39;sum&amp;#39;}).reset_index() # 生成1号df df1 = df.</description>
     </item>
     
     <item>
@@ -315,8 +314,7 @@ python3 manage.py collectstatic </description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/%E8%AE%BE%E8%AE%A1%E7%90%86%E5%BF%B5/</guid>
-      <description>Smartchart6.0 已发布, 带来全新的功能与体验
-设计哲学: # 她是基于真实应用场景的敏捷数据中台而设计的产品,已成熟在多个大型企业应用多年,不仅是一个可视化低代码开发平台, 也是数据接口低代码, 甚至是业务系统低代码开发平台 支持多种混合布局, 对于普通报表可以使用响应式布局同时满足大屏, 电脑, 平板, 手机端的页面, 对于大屏也可使用拖拽辅助布局来配合自由开发模式(专业版) 她是面向开发者, 如果需要设计出来非常漂亮有个性的数据展现形式, 我们发现如果要达到这个目的, 不管用什么开发工具, 最终还是需要用户了解一些基础的html, css, echarts的配置, 如果去学习某个平台中要在那些地方点点点的界面上进行配置, 那么为什么不去学习使用原生的呢, 这样反而更简单, 用户可以找到的参考资源更全面, 甚至可以从社区的代码中直接复制过来, 所以我们设计理念是不自定义开发语言, 而是帮大家建立数据与图形的高速公路, 定义交通规则 和提供服务区 smartchart有很多隐藏功能, 所以初入smartchart的同学会一脸迷惑, 无从下手, 因为我们讲究 精减设计 和 可扩展性 , 如果有些功能只用一次, 就不会让他在界面显示, 我们不推荐不看文档和视屏就直接上手开发的模式, 给你门槛是为了将来使用得不会太累 她重在数据处理的便捷, 联动/刷新机制设计一气呵成, 无缝的原生图形开发工具, 没有拖泥带水的让用户去找设定开关, 你甚至可以使用你喜欢的IDE进行开发, 给开发者充分发挥的自由 smartchart是一个企业级解决方案, 不是一个玩具, 她不喜欢浮躁, 需要你沉下心, 慢慢体验, 属于慢热型, 就好比是做菜, smartchart是给你提供了已经切好的菜和菜谱说明, 你可以按自已喜欢加火放调料就行, 你甚至可以增加新的调料(如css, js引用) 或更换调料. 相比有些产品就是给你准备的是已做好的菜品, 如果你觉得它盐放得太多, 你得清洗下, 再重新回锅, 对于我们开发人员来说, 这是不可忍受的 类似于养成类游戏, 你可以在开发过程中积累图形, 模板等等, 在后面的项目中可以直接用复制粘贴的方式进行复用, 而不需要再界面上重新进行配置调整.</description>
+      <description> 设计哲学: # 她是基于真实应用场景的敏捷数据中台而设计的产品,已成熟在多个大型企业应用多年,不仅是一个可视化低代码开发平台, 也是数据接口低代码, 甚至是业务系统低代码开发平台 支持多种混合布局, 对于普通报表可以使用响应式布局同时满足大屏, 电脑, 平板, 手机端的页面, 对于大屏也可使用拖拽辅助布局来配合自由开发模式(专业版) 她是面向开发者, 如果需要设计出来非常漂亮有个性的数据展现形式, 我们发现如果要达到这个目的, 不管用什么开发工具, 最终还是需要用户了解一些基础的html/css/echarts的配置, 用户可以找到的参考资源更全面, 甚至可以从社区的代码中直接复制过来, 所以我们设计理念是不自定义开发语言, 而是帮大家建立数据与图形的高速公路, 定义交通规则和提供服务区 smartchart有很多隐藏功能, 所以初入smartchart的同学会一脸迷惑, 无从下手, 因为我们讲究 精减设计 和 可扩展性 , 如果有些功能只用一次, 就不会让他在界面显示, 我们不推荐不看文档和视屏就直接上手开发的模式, 给你门槛是为了将来使用得不会太累 她重在数据处理的便捷, 联动/刷新机制设计一气呵成, 无缝的原生图形开发工具, 没有拖泥带水的让用户去找设定开关, 你甚至可以使用你喜欢的IDE进行开发, 给开发者充分发挥的自由 smartchart是一个企业级解决方案, 不是一个玩具, 她不喜欢浮躁, 需要你沉下心, 慢慢体验, 属于慢热型, 就好比是做菜, smartchart是给你提供了已经切好的菜和菜谱说明, 你可以按自已喜欢加火放调料就行, 你甚至可以增加新的调料(如css/js引用) 或更换调料. 相比有些产品就是给你准备的是已做好的菜品, 如果你觉得它盐放得太多, 你得清洗下, 再重新回锅, 对于我们开发人员来说, 这是不可忍受的 类似于养成类游戏, 你可以在开发过程中积累图形, 模板等等, 在后面的项目中可以直接用复制粘贴的方式进行快速复用, 而不需要再界面上重新进行配置调整. 你也可以和其它开发者(厨师)交流, 互通有无, 快速提升自已的等级, 比如购买模板就是最快的方法 与传统BI的区别 # 传统BI面向非技术人员, 更注重于开发的过程无代码化,所以最终实现的可视化效果较差, 可定制化程度低, 访问速度慢,对硬件要求高, 应用场景局限性比较大 smartchart是面向技术人员的可视化产品, 更注重于最终效果, 采用的是低代码技术, 对技术人员更友好, 可定制化高, 可视化效果更好, 访问速度快, 更灵活,对硬件要求低, 应用范围广 与开源大屏设计器区别 # 大屏设计器只关注内置的一些边框, 图形效果等前端效果, 不注重于数据的开发, 华而不实 smartchart是真正意思上的全场景解决方案, 从数据开发, 可视化, 到版本上线管理, 嵌入等工程化场景全覆盖 </description>
     </item>
     
     <item>
@@ -338,8 +336,8 @@ pip3 install smartchart 如果安装过程慢,建意使用 pip3 install -i https
       
       <guid>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/VUE%E7%9B%B8%E5%85%B3/DataV%E5%BA%94%E7%94%A8/</guid>
       <description>需要在高级中可开启datav模式
-参考视屏 1. DataV基础应用 2. DataV翻盘器
-DataV配置方法文档: 图表</description>
+参考视屏
+1. DataV基础应用 2. DataV翻盘器 DataV配置方法文档: 图表</description>
     </item>
     
     <item>
@@ -428,7 +426,8 @@ select xx, xx, xx from tablename /* where xx = &amp;#39;$pcity&amp;#39; */ 现�
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%AE%9E%E6%88%98%E5%A4%A7%E5%B1%8F%E6%A8%A1%E6%9D%BF%E8%BD%AC%E5%8C%96/</guid>
-      <description>应用场景 # 已有开发好的非smartchart静态大屏模板(这种模板非常多, 不要上当) 对js, css及smartchart已有初始了解 业务需求展示有合适的模板, 变化不大 如何使用 # 请观看系列视屏, 相信人人都会 头条视屏: 大屏模板转化系列 B站视屏: 大屏模板转化系列</description>
+      <description> 应用场景 # 已有开发好的非smartchart静态大屏模板 如果你已购买专业版本, 可联系客服提供100+静态大屏模板 对js, css及smartchart使用方法已有初步了解 业务需求展示有合适的模板, 变化可能性不大 如何使用 # 请观看系列视屏, 相信人人都会
+头条视屏: 大屏模板转化系列 B站视屏: 大屏模板转化系列 </description>
     </item>
     
     <item>
@@ -451,7 +450,7 @@ import time import hashlib import os SMART_CHART_URL = &amp;#39;http://127.0.0.1
       
       <guid>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E4%BB%AA%E8%A1%A8%E7%9B%98/</guid>
       <description>由于版本的变更, 一些图标可能会有一些变化, 但位置无太大的变化
-新建仪表盘 # 在开发模式下，滑动“开发管理” -&amp;gt;&amp;ldquo;仪表盘&amp;rdquo;-&amp;gt; &amp;ldquo;新增Dashboard&amp;rdquo; 填写相应信息后点击“保存” 点击进入仪表盘开发, 注意点击 &amp;ldquo;E&amp;rdquo; 字!! 点击新增(注意拖拽布局功能为PRO版本, 后续免费版本中将无法使用), 如果你坚持使用免费版本功能, 请使用新增栅格组件, 具体布局方式参考 数据集编辑 # 点开“数据集” - 输入以下SQL后，点击“保存并刷新”, 关闭数据集编辑界面 select H1 as heroname, sum(qty) as 出场数 from smartdemo2 group by H1 order by sum(qty) desc 图形编辑 # 点开“图形编辑” 点击“图形”，可以选择基础图形, 也可以使用图形商店,第一次使用可能要你进行登记，按提示操作即可， 在商店中找到合适的图形点击，会自动复制到剪贴板 贴粘到图形编辑器后，点击保存， 关闭图形编辑框 拖拽布局 # 重复以上步骤，再新增一个， 你可以使用拖拽的方式, 移动到不同的地方 </description>
+新建仪表盘 # 在开发模式下，滑动“开发管理” -&amp;gt;&amp;ldquo;仪表盘&amp;rdquo;-&amp;gt; &amp;ldquo;新增Dashboard&amp;rdquo; 填写相应信息后点击“保存” 点击进入仪表盘开发, 注意点击 &amp;ldquo;E&amp;rdquo; 字!! 点击新增(注意拖拽布局功能为PRO版本, 后续免费版本中将无法使用), 如果你坚持使用免费版本功能, 请使用新增栅格组件, 具体布局方式参考 数据集编辑 # 点开“数据集” - 输入以下SQL后，点击“保存并刷新”, 关闭数据集编辑界面 select H1 as heroname, sum(qty) as 出场数 from smartdemo2 group by H1 order by sum(qty) desc 图形编辑 # 点开“图形编辑” 点击“图形”，可以选择基础图形, 也可以使用图形商店,第一次使用可能要你进行登记，按提示操作即可， 在商店中找到合适的图形点击，会自动复制到剪贴板 贴粘到图形编辑器后，点击保存， 关闭图形编辑框 拖拽布局 # 重复以上步骤，再新增一个， 你可以使用拖拽的方式, 移动到不同的地方 当你熟悉smartchart的基础操作后, 可以学习使用第6章节&amp;quot;进阶开发&amp;quot;中的&amp;quot;低代码开发&amp;quot;方式</description>
     </item>
     
     <item>
@@ -511,8 +510,8 @@ select distinct H1 as heroname from smartdemo2 limit 10 第三步，编辑此数
       <guid>https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%A4%87%E4%BB%BD%E6%81%A2%E5%A4%8D%E5%8F%8A%E7%89%88%E6%9C%AC/</guid>
       <description>应用场景 # 本地仪表盘的备份恢复，版本管理 开发测试生产机之间的同步 具体使用方法请观看视屏 版本控制使用说明视屏
 使用方法 # 快速备份 # 可以在模板-&amp;gt;点击如下图标， 完成快速备份（注意会覆盖历史）， 备份号统一为：SNAPSHOT 指定备份 # 你也可以在设定-&amp;gt;备份恢复 中进行按版本备份 查询备份 # 当不输入KEY值， 点击 本地备份时，可以查询此仪表盘已有的备份 备份恢复 # 备份可以在任意的仪表盘中进行恢复，如果是当前仪表盘， 仅输入KEY即可，比如：V01, 如果是跨仪表盘恢复， KEY需要带上仪表盘的编号如13_V01
-备份恢复参数说明 # 可以支持多种恢复模式, 只需要在KEY前面加上前缀即可， 如FORCEV01, FORCE13_V01.. FORCE: 删除自身所有数据集及高级设定，模板等，完全恢复备份 DATASET：只更新数据集及图形,模板，适用于测试上线正式 CHART: 只更新图形及模板，适用于前端变更上线
-跨服务器间同步 # 具体方法购买专业版本后提供
+备份恢复参数说明 # 可以支持多种恢复模式, 只需要在KEY前面加上前缀即可， 如FORCEV01, FORCE13_V01..
+FORCE: 删除自身所有数据集及高级设定，模板等，完全恢复备份 DATASET：只更新数据集及图形,模板，适用于测试上线正式 CHART: 只更新图形及模板，适用于前端变更上线 跨服务器间同步 # 具体方法购买专业版本后提供
 企业如何在使用最少资源做出最专业的可视化项目 # 前提条件: # 公司内部有技术人员(熟悉数据, 会写SQL) 服务器安装smartchart专业版 开发流程: # 由于公司内部人员是对业务最熟悉, 一般也都是后台数据管理相关的人员, 一般不太会有专职的前端开发和UI 所以数据开发人员可以使用smartchart开发仪表盘数据集, 并使用拖拽功能完成一个粗糙一点的框架和图形设计 一般情况下已经可以满足数据可视化的需求
 如果需要达到更专业的可视化效果, 可以外包前端/UI或在smartchart社区咨询, 由于需求变得非常简单 而前端开发又是一个通用技能, 可以使用非常廉价的费用获得最大的效果
 专业的事情专业来做, 才能达到效益最大化, 这是smartchart的设计理念 不管用什么工具, 在同等资源的投入下, 数据分析人员开发的可视化效果很难达到专业前端UI的效果 另外BI/数据开发人员的费用可是比前端高的, 也更稀缺</description>
@@ -526,7 +525,7 @@ select distinct H1 as heroname from smartdemo2 limit 10 第三步，编辑此数
       <guid>https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD/</guid>
       <description>应用场景: # 需要要下载数据集的数据到本地
 使用方法 # 仅需要录活使用ds_download这个函数, 你可以开发出非常个性化的下载功能
-ds_download(name, dataset) 参数说明: name: 文件名称 dataset: 可以是二维数组也可以是字符串 样例: # 可在&amp;quot;模板&amp;quot; 中新建一个下载按钮, 并指定一个ID,如id_down1, 拖拽到你需要的位置 在任意一个图形开发或js代码段中加入以下代码即可
+ds_download(name, dataset) 参数说明: name: 文件名称 dataset: 可以是二维数组也可以是字符串 样例: # 可在&amp;quot;模板&amp;quot; 中新建一个下载按钮并包裹拖拽容器, 指定button的ID,如id_down1, 拖拽到你需要的位置 在任意一个图形开发或js代码段中加入以下代码即可
 $(&amp;#39;#id_down1&amp;#39;).click(()=&amp;gt;{ ds_download(&amp;#39;报表数据.csv&amp;#39;, dataset); }); 这样就可以实现点击按钮下载数据了</description>
     </item>
     
@@ -577,7 +576,7 @@ CSS的几种引入方式 行内样式 行内式是在标记的style属性中设�
       
       <guid>https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E5%A1%AB%E6%8A%A5/</guid>
       <description>应用场景 # 收集用户端录入的数据 前端处理好的数据回写到任意系统 制做问卷系统 埋点应用 使用方法 # 新建一个懒加载数据集,填写内容格式如下: # 如果需将数据保存到对应的表名 dataset={ &amp;#34;table&amp;#34;:&amp;#34;表名&amp;#34; } 如需指定字段, 可如下方式填写 dataset={ &amp;#34;table&amp;#34;:&amp;#34;表名(字段1, 字段2)&amp;#34; } 在&amp;quot;模板&amp;quot;中编写录入组件代码, # 具体可参考视屏
-&amp;lt;h1 class=&amp;#34;smtdrag&amp;#34; id=&amp;#34;id_1648895680659&amp;#34;&amp;gt;数据填报&amp;lt;/h1&amp;gt; &amp;lt;div class=&amp;#34;smtdrag&amp;#34; id=&amp;#34;id_1648895855760&amp;#34;&amp;gt; &amp;lt;label&amp;gt;用户&amp;lt;/label&amp;gt;&amp;lt;input id=&amp;#34;id_visitor&amp;#34;&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div class=&amp;#34;smtdrag&amp;#34; id=&amp;#34;id_1648895859160&amp;#34;&amp;gt; &amp;lt;label&amp;gt;动作&amp;lt;/label&amp;gt;&amp;lt;input id=&amp;#34;id_action&amp;#34;&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div class=&amp;#34;smtdrag&amp;#34; id=&amp;#34;id_1648895956207&amp;#34;&amp;gt; &amp;lt;button id=&amp;#34;idbtn01&amp;#34;&amp;gt;提交&amp;lt;/button&amp;gt; &amp;lt;/div&amp;gt; 在&amp;quot;模板&amp;quot; 中编写JS代码 $(&amp;#39;#idbtn01&amp;#39;).click(function(){ //获取填写的数据 let visitor = $(&amp;#39;#id_visitor&amp;#39;).val(); let action = $(&amp;#39;#id_action&amp;#39;).val(); //拼接一个填写好的数组 let dataset = [visitor, action]; //上传填写的数据 //0:为上文新建的数据集序号, dataset:要写入的数据 print(ds_save(0, dataset)); }) 更多关于写入数据库的数据集格式说明 # //只写入一行数据, 样列如下: dataset = [&amp;#39;a&amp;#39;,&amp;#39;b&amp;#39;] //同时写入多行数据: dataset = [[], [&amp;#39;a1&amp;#39;,&amp;#39;b1&amp;#39;],[&amp;#39;a2&amp;#39;, &amp;#39;b2&amp;#39;]] //如果需要自动记录写入者用户名: dataset = [&amp;#39;$username&amp;#39;, &amp;#39;b&amp;#39;] mongodb写入方式</description>
+&amp;lt;h1 class=&amp;#34;smtdrag&amp;#34; id=&amp;#34;id_1648895680659&amp;#34;&amp;gt;数据填报&amp;lt;/h1&amp;gt; &amp;lt;div class=&amp;#34;smtdrag&amp;#34; id=&amp;#34;id_1648895855760&amp;#34;&amp;gt; &amp;lt;label&amp;gt;用户&amp;lt;/label&amp;gt;&amp;lt;input id=&amp;#34;id_visitor&amp;#34;&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div class=&amp;#34;smtdrag&amp;#34; id=&amp;#34;id_1648895859160&amp;#34;&amp;gt; &amp;lt;label&amp;gt;动作&amp;lt;/label&amp;gt;&amp;lt;input id=&amp;#34;id_action&amp;#34;&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div class=&amp;#34;smtdrag&amp;#34; id=&amp;#34;id_1648895956207&amp;#34;&amp;gt; &amp;lt;button id=&amp;#34;idbtn01&amp;#34;&amp;gt;提交&amp;lt;/button&amp;gt; &amp;lt;/div&amp;gt; 在&amp;quot;模板&amp;quot; 中编写JS代码 $(&amp;#39;#idbtn01&amp;#39;).click(function(){ //获取填写的数据 let visitor = $(&amp;#39;#id_visitor&amp;#39;).val(); let action = $(&amp;#39;#id_action&amp;#39;).val(); //拼接一个填写好的数组 let dataset = [visitor, action]; //上传填写的数据 //0:为上文新建的数据集序号, dataset:要写入的数据 print(ds_save(0, dataset)); }) 复杂表格开发的填报 # 具体可参考视屏</description>
     </item>
     
     <item>
@@ -634,7 +633,7 @@ curl -k --insecure &amp;#34;https://www.baidu.com” 修改为可执行文件 ch
       
       <guid>https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E9%9B%86%E6%88%90AI%E7%94%9F%E6%88%90/</guid>
       <description>应用场景 # 集成chatgpt, 文心一言等大模型技术 未来可以支持smartchart专有AI生成 使用方法 # 当前smartchart已内置了小型生成模型供大家尝试, 仅用于测试用途 如果你有chatgpt,或其它大模型的接口, 你也可以直接接入, 接入方法见下方 在模板/数据集开发/容器开发/图形开发中都可以找到如下图标, 输入你的问题, 选中后点即可生成, 注意测试用途较慢, 请耐心 接入商业大模型 # 首先新建一个文件gptconn.py 写入python脚本,下面以openAI的chatGPT为例,
-def chartgpt(request): import openai openai.api_key = &amp;#39;输入你的api_key&amp;#39; prompt = request.POST.get(&amp;#39;text&amp;#39;) response = openai.Completion.create( model=&amp;#34;text-davinci-003&amp;#34;, prompt=prompt, temperature=0.5, max_tokens=1024, n=1, stop=None ) message = response.choices[0].text return message 在任意仪表盘开发界面&amp;ndash;&amp;gt; 模板 &amp;ndash;&amp;gt; 工具 &amp;ndash;&amp;gt; 文件上传 菜单中将此文件上传即可 之后AI生成服务将采用你自定义的服务</description>
+def dataset(request): import openai openai.api_key = &amp;#39;输入你的api_key&amp;#39; prompt = request.POST.get(&amp;#39;text&amp;#39;) response = openai.Completion.create( model=&amp;#34;text-davinci-003&amp;#34;, prompt=prompt, temperature=0.5, max_tokens=1024, n=1, stop=None ) message = response.choices[0].text return message 在任意仪表盘开发界面&amp;ndash;&amp;gt; 模板 &amp;ndash;&amp;gt; 工具 &amp;ndash;&amp;gt; 文件上传 菜单中将此文件上传即可 之后AI生成服务将采用你自定义的服务</description>
     </item>
     
     <item>
@@ -857,8 +856,7 @@ let dataset=__dataset__; //获取返回值列表中的第一值 dataset = datase
       <guid>https://help.smartchart.cn/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/%E9%82%AE%E4%BB%B6%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE%E6%BA%90/</guid>
       <description> 数据源配置方法 # 驱动: smtpmail 连接地址: smtp.xxx 库名:为空采用SMTP, 非空采用SMTP_SSL
 查询方法 # 在数据集编辑器加直接输入
-{ &amp;#34;tolist&amp;#34;:&amp;#34;xx@qq.com&amp;#34;, &amp;#34;sub&amp;#34;:&amp;#34;测试&amp;#34;, &amp;#34;content&amp;#34;:&amp;#34;&amp;lt;测试一下&amp;#34; } tolist:邮件清单, 可以使用逗号分隔 sub:邮件标题 返回值为prometheus标准json, 你需要在图形编辑器中使用js处理数据
-let dataset=__dataset__; //获取返回值列表中的第一值 dataset = dataset.data.result[0].value; print(dataset) </description>
+{ &amp;#34;tolist&amp;#34;:&amp;#34;xx@qq.com&amp;#34;, &amp;#34;sub&amp;#34;:&amp;#34;测试&amp;#34;, &amp;#34;content&amp;#34;:&amp;#34;&amp;lt;h3&amp;gt;测试一下&amp;lt;/h3&amp;gt;&amp;#34; } tolist:邮件清单, 可以使用逗号分隔 sub:邮件标题 content: 支持html格式的邮件内容 </description>
     </item>
     
     <item>
@@ -918,13 +916,9 @@ marconfig={ playtime: 3000, //滚动3秒 pausetime: 3000, //停3秒 config:{ dir
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/9.Jupyter%E5%BA%94%E7%94%A8/Jupyter%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%8C%87%E5%BC%95/</guid>
-      <description>应用场景 # 你需要在jupyter中通过smartchart分享的数据集获取数据进行分析 你有很多线下数据需要进行个性化分析, 然后制做仪表盘 在Jupyter的数据分析过程中, 你需要快速生成图形 大屏或报表有部分数据集是需要能过复杂的分析生成的
-Smartchart支持像pyecharts, Matplotlib 等python绘图工具一样在Jupyter中使用, 但她更加方便, 更加炫酷 和 通用化, 不仅仅是一个绘图工具, 而且是一个平台
-我们有什么特色:
-使用上手非常简单, 仅仅只有两个命令, get and set, 配置项采用原生的Echarts配置, 无重复学习成本, 使用顺滑 支持Echarts所有功能, 可定制化程度高, 显示效果好, 可嵌入也可以弹出窗口显示, 也可以dashboard中显示 数据可以固化存储, 采用smartchart Portal可以直接拼接炫酷大屏
-Smartchart与Pandas Smartchart与Jupyter SmartChart大屏新思路
-安装使用方法 # 你需要在jupyter相同的python环境中安装smartchart客户端 pip install smartchart 或pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple smartchart 如果你只是需要连接已部署好的smartchart服务端, 本地无需启动smartchart 快速开始 # 初始化认证: 第一次使用时, 打开jupyter后, 需要设定默认用户和smartchart服务端url 同一个环境, 只需初始化一次, 后面无需再设定
-from smart_chart import Smart Smart().set_auth(&amp;#39;用户名&amp;#39;, &amp;#39;密码&amp;#39;,url = &amp;#39;http://xxxxx&amp;#39;) 如果smartchart服务端在本地, 可以省略url</description>
+      <description>应用场景 # 需要在jupyter中通过smartchart分享的数据集获取数据进行分析 有很多线下数据需要进行个性化分析, 然后制做仪表盘 在Jupyter的数据分析过程中, 你需要快速生成图形 大屏或报表有部分数据集是需要能过复杂的分析生成的 Smartchart支持像pyecharts, Matplotlib 等python绘图工具一样在Jupyter中使用, 但她更加方便, 更加炫酷 和 通用化, 不仅仅是一个绘图工具, 而且是一个平台
+我们有什么特色 # 使用上手非常简单, 仅仅只有两个命令[get,set], 配置项采用原生的Echarts配置, 无重复学习成本, 使用顺滑 支持Echarts所有功能, 可定制化程度高, 显示效果好, 可嵌入也可弹出窗口显示, 也可在dashboard中显示 数据可固化存储, 采用smartchart Portal可以直接拼接炫酷大屏 相关视屏参考 # Smartchart与Pandas Smartchart与Jupyter SmartChart大屏新思路 安装使用方法 # 你需要在jupyter相同的python环境中安装smartchart客户端
+pip install smartchart 或 pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple smartchart 快速开始 # 初始化认证: # 第一次使用时, 需要设定默认用户和smartchart服务端url 同一个环境, 只需初始化执行一次, 后面无需再设定 from smart_chart import Smart Smart().set_auth(&amp;#39;用户名&amp;#39;,&amp;#39;密码&amp;#39;,url = &amp;#39;http://xxxxx&amp;#39;) 如果smartchart服务端在本地, 可以省略url Smart().set_auth(&amp;#39;用户名&amp;#39;,&amp;#39;密码&amp;#39;) 使用方法: # from smart_chart import Smart mysmart = Smart() dataset = [[&amp;#39;A&amp;#39;,&amp;#39;B&amp;#39;,&amp;#39;C&amp;#39;],[12,34,23],[22,33,37]] #把数据写入临时数据集并显示图形 mysmart.</description>
     </item>
     
   </channel>

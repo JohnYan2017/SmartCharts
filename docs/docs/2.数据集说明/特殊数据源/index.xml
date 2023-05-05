@@ -37,12 +37,10 @@ dataset= { &amp;#34;url&amp;#34;:&amp;#34;https://www.smartchart.cn/smartdata/ap
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/Python%E6%95%B0%E6%8D%AE%E9%9B%86/</guid>
-      <description>应用场景 # 当SQL查询无法满足你的需求, 你需要对查询后的结果进行处理, 或者你需要使用Excel的数据源, 甚至你需要对不同系统的数据进行查询, Python连接器可以帮到你 我们又称他为万能数据集， 你可以使用任何python语法， 需要把数据集的结果赋值给ds变量!!
-首先你需要新建python连接器, 由于安全控制只允许超级管理员建立 # 内置函数说明 ds_get(id) #输入目标数据集的id名, 可以获取目标数据集 ds_df(id) #输入目标数据集的id名, 转化成pandas的df对象 ds_sql(conn_name, sql_str) #输入连接池中的名称, SQL语句, 获取数据集 ds_list(df) #将pandas的df对象转化成数据集 使用方法样列说明 # 读取Excel数据处理, 如需上传页面可参考&amp;quot;数据上传&amp;quot;说明
-import pandas as pd df = pd.read_excel(&amp;#39;文件路径&amp;#39;, &amp;#39;表名&amp;#39;) df = df.groupby(&amp;#39;c3&amp;#39;).agg({&amp;#39;qty&amp;#39;:&amp;#39;sum&amp;#39;}).reset_index() ds = ds_list(df) 从数据集获取数据后进行处理
-ds=ds_get(12) ds=ds[:15] 从数据集获取数据转化成pandas对象处理
-df = ds_df(12) df = df.sort_values(by=&amp;#34;出场数&amp;#34;, ascending=False) ds = ds_list(df) 生成字典格式的数据集供多个图形使用
-import pandas as pd df = pd.read_excel(&amp;#39;/Users/../smartdemo.xlsx&amp;#39;, &amp;#39;demo&amp;#39;) df0 = df.</description>
+      <description>应用场景 # 当SQL查询无法满足你的需求, 你需要对查询后的结果进行处理, 需要使用Excel的数据源, 甚至你需要对不同系统的数据进行查询, 我们又称他为万能数据集，可以使用任何python语法 其实你并不需要熟悉python即可使用 首先你需要新建python连接器, 由于安全控制只允许超级管理员建立
+# 变量说明 一般使用ds来表达数据集类型的变量, 如ds1,ds2 一般使用df来表达pandas对象, 如df1,df2 # 内置函数说明 ds_get(id) #获取目标ds数据集[不常用] ds_sql(conn_name, sql) #通过数据源连接的名称及SQL语句获取ds数据集 ds_df(ds) #将ds数据集转化成pandas的df对象 ds_list(df) #将pandas的df对象转化成ds数据集 使用方法样列说明 # 读取Excel数据处理, 如需上传页面可参考&amp;quot;数据上传&amp;quot;说明
+import pandas as pd # 读取excel文件给df对象 df = pd.read_excel(&amp;#39;文件路径&amp;#39;, &amp;#39;表名&amp;#39;) # 按照省份列统计数量列的加总 df = df.groupby(&amp;#39;省份&amp;#39;).agg({&amp;#39;数量&amp;#39;:&amp;#39;sum&amp;#39;}).reset_index() # 将df对象转化为ds输出 ds = ds_list(df) 生成字典格式的数据集供多个图形使用
+import pandas as pd df = pd.read_excel(&amp;#39;/Users/../smartdemo.xlsx&amp;#39;, &amp;#39;demo&amp;#39;) # 生成0号df df0 = df.groupby(&amp;#39;c3&amp;#39;).agg({&amp;#39;qty&amp;#39;:&amp;#39;sum&amp;#39;}).reset_index() # 生成1号df df1 = df.</description>
     </item>
     
     <item>
@@ -155,8 +153,7 @@ let dataset=__dataset__; //获取返回值列表中的第一值 dataset = datase
       <guid>https://help.smartchart.cn/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/%E9%82%AE%E4%BB%B6%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE%E6%BA%90/</guid>
       <description> 数据源配置方法 # 驱动: smtpmail 连接地址: smtp.xxx 库名:为空采用SMTP, 非空采用SMTP_SSL
 查询方法 # 在数据集编辑器加直接输入
-{ &amp;#34;tolist&amp;#34;:&amp;#34;xx@qq.com&amp;#34;, &amp;#34;sub&amp;#34;:&amp;#34;测试&amp;#34;, &amp;#34;content&amp;#34;:&amp;#34;&amp;lt;测试一下&amp;#34; } tolist:邮件清单, 可以使用逗号分隔 sub:邮件标题 返回值为prometheus标准json, 你需要在图形编辑器中使用js处理数据
-let dataset=__dataset__; //获取返回值列表中的第一值 dataset = dataset.data.result[0].value; print(dataset) </description>
+{ &amp;#34;tolist&amp;#34;:&amp;#34;xx@qq.com&amp;#34;, &amp;#34;sub&amp;#34;:&amp;#34;测试&amp;#34;, &amp;#34;content&amp;#34;:&amp;#34;&amp;lt;h3&amp;gt;测试一下&amp;lt;/h3&amp;gt;&amp;#34; } tolist:邮件清单, 可以使用逗号分隔 sub:邮件标题 content: 支持html格式的邮件内容 </description>
     </item>
     
   </channel>

@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-    <img src="https://img.shields.io/badge/Release-V6.2-green.svg" alt="Downloads">
+    <img src="https://img.shields.io/badge/Release-V6.5-green.svg" alt="Downloads">
 	<a target="_blank" href="https://www.python.org/downloads/release/python-390/">
 		<img src="https://img.shields.io/badge/Python-3.6+-green.svg" />
 	</a>
@@ -319,6 +319,15 @@ v6.4
 - 取消图形中需写chartpush
 - 优化拖拽性能
 - 增加集成chatGPT, 文心一言等大模型AI生成
+v6.5
+- 拖拽布局增加网格辅助定位
+- 数据集开发增加横向区域调整
+- 编辑器增加编辑器菜单并移除编辑器主题选择
+- API连接器增加timeout设定
+- 移除不必要的处理,优化查询性能
+- 修复图形ES6代码压缩后异常
+- 增加数据源图标显示
+- 增强ds_df的功能,可将ds数据转为df
 ```
 
 

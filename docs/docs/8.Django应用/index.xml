@@ -11,10 +11,10 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/8.Django%E5%BA%94%E7%94%A8/%E5%B5%8C%E5%85%A5Django-Apps/</guid>
-      <description>应用场景 # 你可以在你的django项目中直接使用smartchart做为插件的方式 你可以查看相关视屏
-使用方法 # 在你的setting.py的INSTALL_APPS中加入&amp;rsquo;smart_chart.echart&#39; 如果你需要simpleui, 你可以在最上行加入我们适配好的&amp;rsquo;smart_chart.smartui&amp;rsquo; INSTALLED_APPS = [ &amp;#39;smart_chart.smartui&amp;#39;, .... .... &amp;#39;smart_chart.echart&amp;#39; ] MIDDLEWARE 中注释掉XFrameOptionsMiddleware
+      <description>应用场景 # 可以在你的django项目中直接使用smartchart做为应用插件 你可以查看相关视屏
+使用方法 # 在你的setting.py的INSTALL_APPS中加入&amp;rsquo;smart_chart.echart&#39; INSTALLED_APPS = [ &amp;#39;smart_chart.smartui&amp;#39;, .... .... &amp;#39;smart_chart.echart&amp;#39; ] MIDDLEWARE 中注释掉XFrameOptionsMiddleware
 检查确保在Templates的设定处有DIRS的相关设定
-TEMPLATES = [ { &amp;#39;BACKEND&amp;#39;: &amp;#39;django.template.backends.django.DjangoTemplates&amp;#39;, &amp;#39;DIRS&amp;#39;: [BASE_DIR / &amp;#39;templates&amp;#39;], #此处需要有 &amp;#39;APP_DIRS&amp;#39;: True, #也要有 ..... }, ] setting.py中设定为中国时区, 支持中文基础平台建设! LANGUAGE_CODE = &amp;#39;zh-hans&amp;#39; TIME_ZONE = &amp;#39;Asia/Shanghai&amp;#39; USE_I18N = True USE_L10N = True USE_TZ = False # 此处必须为False 在你的url.py中加入引用 from django.conf.urls import include from django.views.generic import RedirectView url.py的urlpatterns中加入路由 path(&amp;#39;echart/&amp;#39;, include(&amp;#39;smart_chart.echart.urls&amp;#39;)), path(&amp;#39;&amp;#39;, RedirectView.</description>
+TEMPLATES = [ { &amp;#39;BACKEND&amp;#39;: &amp;#39;django.template.backends.django.DjangoTemplates&amp;#39;, &amp;#39;DIRS&amp;#39;: [BASE_DIR / &amp;#39;templates&amp;#39;], #此处需要有 &amp;#39;APP_DIRS&amp;#39;: True, #也要有 ..... }, ] setting.py中设定为中国时区, 支持中文基础平台建设! LANGUAGE_CODE = &amp;#39;zh-hans&amp;#39; TIME_ZONE = &amp;#39;Asia/Shanghai&amp;#39; USE_I18N = True USE_L10N = True USE_TZ = False # 此处必须为False 在你的url.py中加入引用 from django.conf.urls import include from django.views.generic import RedirectView url.py的urlpatterns中加入路由 path(&amp;#39;echart/&amp;#39;, include(&amp;#39;smart_chart.echart.urls&amp;#39;)), path(&amp;#39;&amp;#39;, RedirectView.as_view(url=&amp;#39;echart/index/&amp;#39;)), #首页,可自定义路由 初始化DB, 命令行输入: python manage.</description>
     </item>
     
     <item>

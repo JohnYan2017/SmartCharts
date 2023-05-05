@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="使用场景 # 需要使用图表联动效果 数据服务接口开发 使用魔法方法(smartchart独创,拒绝抄袭) # 基础原理 # 1. $参数名 : 当有传递参数时将替换相关的值 2. /* ... $参数名 ... */ : 当参数写在这个区间时, 如果外部没有传入参数, 会自动忽略这一段代码 3. -- : 标识之后单行的代码会被忽略 常见组合应用 # 理解以下样列后, 可录活使用组合出各种可能的需求
-默认参数: 实现在不传参数时默认参数是当前月份 select xx from tablename where calmonth =/*&#39;$calmonth&#39; -- */ to_char(sysdate,&#39;YYYYMM&#39;) 多个参数: 注意使用1=1及and的位置 select xx from tablename where 1=1 /* and city = &#39;$city&#39; */ /* and calmonth =&#39;$calmonth&#39;*/ 维度变化: 将字段当成参数 select /*$calmonth,*/ city, count(1) as qty from tablename group by /*$calmonth,*/ city 维度变化: 当传入月份条件时, 按城市,月份的数据, 不传参数时只看按城市的总数 select /*月份, -- $Month */ 城市, sum(度量) from tablename where 1=1 /* and 月份 &gt; &#39;$Month&#39; */ group by 城市 /*,月份 -- $Month*/ 高级开关应用 # 以上应用可以通过参数是否有传递来实现开关代码段的效果, 有些场景可能还希望通过参数值来进行代码段的开关 如下代码可以实现当传递参数type=1 或 type=2 时执行不同的代码段 使用 &ldquo;$参数__值&rdquo; 的方式做为开关">
+常规用法 select xx from table_name where calmonth = &#39;$month&#39; 默认参数: 实现在不传参数时默认参数是当前月份 select xx from tablename where calmonth =/*&#39;$calmonth&#39; -- */ to_char(sysdate,&#39;YYYYMM&#39;) 假设没有传递参数, 那么/* .. */将会消失, 即真正的查询是: select xx from tablename where calmonth = to_char(sysdate,&#39;YYYYMM&#39;) 假设有传递参数, 比如calmonth=202305, 那/* .. */打开, 查询会是这样 select xx from tablename where calmonth = &#39;202305&#39; -- to_char(sysdate,&#39;YYYYMM&#39;) 由于&#34;--&#34; 会忽略掉之后整行的代码, 所以真正的查询就是 select xx from tablename where calmonth = &#39;202305&#39; 多个参数: 注意使用1=1及and的位置 select xx from tablename where 1=1 /* and city = &#39;$city&#39; */ /* and calmonth =&#39;$calmonth&#39;*/ 维度变化: 将字段当成参数 select /*$calmonth,*/ city, count(1) as qty from tablename group by /*$calmonth,*/ city 维度变化: 当传入月份条件时, 按城市,月份的数据, 不传参数时只看按城市的总数 select /*月份, -- $Month */ 城市, sum(度量) from tablename where 1=1 /* and 月份 &gt; &#39;$Month&#39; */ group by 城市 /*,月份 -- $Month*/ 高级开关应用 # 以上应用可以通过参数是否有传递,来实现开关代码段的效果, 有些场景可能还希望通过参数值来进行代码段的开关 如下代码可以实现当传递参数type=1 或 type=2 时执行不同的代码段 使用 &ldquo;$参数__值&rdquo; 的方式做为开关">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
 <meta property="og:description" content="使用场景 # 需要使用图表联动效果 数据服务接口开发 使用魔法方法(smartchart独创,拒绝抄袭) # 基础原理 # 1. $参数名 : 当有传递参数时将替换相关的值 2. /* ... $参数名 ... */ : 当参数写在这个区间时, 如果外部没有传入参数, 会自动忽略这一段代码 3. -- : 标识之后单行的代码会被忽略 常见组合应用 # 理解以下样列后, 可录活使用组合出各种可能的需求
-默认参数: 实现在不传参数时默认参数是当前月份 select xx from tablename where calmonth =/*&#39;$calmonth&#39; -- */ to_char(sysdate,&#39;YYYYMM&#39;) 多个参数: 注意使用1=1及and的位置 select xx from tablename where 1=1 /* and city = &#39;$city&#39; */ /* and calmonth =&#39;$calmonth&#39;*/ 维度变化: 将字段当成参数 select /*$calmonth,*/ city, count(1) as qty from tablename group by /*$calmonth,*/ city 维度变化: 当传入月份条件时, 按城市,月份的数据, 不传参数时只看按城市的总数 select /*月份, -- $Month */ 城市, sum(度量) from tablename where 1=1 /* and 月份 &gt; &#39;$Month&#39; */ group by 城市 /*,月份 -- $Month*/ 高级开关应用 # 以上应用可以通过参数是否有传递来实现开关代码段的效果, 有些场景可能还希望通过参数值来进行代码段的开关 如下代码可以实现当传递参数type=1 或 type=2 时执行不同的代码段 使用 &ldquo;$参数__值&rdquo; 的方式做为开关" />
+常规用法 select xx from table_name where calmonth = &#39;$month&#39; 默认参数: 实现在不传参数时默认参数是当前月份 select xx from tablename where calmonth =/*&#39;$calmonth&#39; -- */ to_char(sysdate,&#39;YYYYMM&#39;) 假设没有传递参数, 那么/* .. */将会消失, 即真正的查询是: select xx from tablename where calmonth = to_char(sysdate,&#39;YYYYMM&#39;) 假设有传递参数, 比如calmonth=202305, 那/* .. */打开, 查询会是这样 select xx from tablename where calmonth = &#39;202305&#39; -- to_char(sysdate,&#39;YYYYMM&#39;) 由于&#34;--&#34; 会忽略掉之后整行的代码, 所以真正的查询就是 select xx from tablename where calmonth = &#39;202305&#39; 多个参数: 注意使用1=1及and的位置 select xx from tablename where 1=1 /* and city = &#39;$city&#39; */ /* and calmonth =&#39;$calmonth&#39;*/ 维度变化: 将字段当成参数 select /*$calmonth,*/ city, count(1) as qty from tablename group by /*$calmonth,*/ city 维度变化: 当传入月份条件时, 按城市,月份的数据, 不传参数时只看按城市的总数 select /*月份, -- $Month */ 城市, sum(度量) from tablename where 1=1 /* and 月份 &gt; &#39;$Month&#39; */ group by 城市 /*,月份 -- $Month*/ 高级开关应用 # 以上应用可以通过参数是否有传递,来实现开关代码段的效果, 有些场景可能还希望通过参数值来进行代码段的开关 如下代码可以实现当传递参数type=1 或 type=2 时执行不同的代码段 使用 &ldquo;$参数__值&rdquo; 的方式做为开关" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://help.smartchart.cn/docs/5.%E5%8F%82%E6%95%B0%E5%8F%8A%E8%81%94%E5%8A%A8%E9%92%BB%E5%8F%96/%E5%8F%82%E6%95%B0%E7%BC%96%E5%86%99%E6%96%B9%E6%B3%95/" /><meta property="article:section" content="docs" />
 
@@ -19,7 +19,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.91c705dd5fec520547517ab2995e9a01fb5099a75bf7d8c3845c48e8e87af5eb.js" integrity="sha256-kccF3V/sUgVHUXqymV6aAftQmadb99jDhFxI6Oh69es=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.ba2874ca2d634efe85c9b5912b9a5f8fa8d39fcfeff3d08ca8779eb1b2f08104.js" integrity="sha256-uih0yi1jTv6FybWRK5pfj6jTn8/v89CMqHeesbLwgQQ=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -1667,10 +1667,24 @@ https://github.com/alex-shpak/hugo-book
 </h4>
 <p>理解以下样列后, 可录活使用组合出各种可能的需求</p>
 <ul>
+<li>常规用法</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">select</span> xx <span style="color:#66d9ef">from</span> <span style="color:#66d9ef">table_name</span> <span style="color:#66d9ef">where</span> calmonth <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;$month&#39;</span>
+</span></span></code></pre></div><ul>
 <li>默认参数: 实现在不传参数时默认参数是当前月份</li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">select</span> xx <span style="color:#66d9ef">from</span> tablename <span style="color:#66d9ef">where</span>
 </span></span><span style="display:flex;"><span>calmonth <span style="color:#f92672">=</span><span style="color:#75715e">/*&#39;$calmonth&#39; -- */</span> to_char(sysdate,<span style="color:#e6db74">&#39;YYYYMM&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">假设没有传递参数</span>, <span style="color:#960050;background-color:#1e0010">那么</span><span style="color:#75715e">/* .. */</span><span style="color:#960050;background-color:#1e0010">将会消失</span>, <span style="color:#960050;background-color:#1e0010">即真正的查询是</span>:
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">select</span> xx <span style="color:#66d9ef">from</span> tablename <span style="color:#66d9ef">where</span>
+</span></span><span style="display:flex;"><span>calmonth <span style="color:#f92672">=</span> to_char(sysdate,<span style="color:#e6db74">&#39;YYYYMM&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">假设有传递参数</span>, <span style="color:#960050;background-color:#1e0010">比如</span>calmonth<span style="color:#f92672">=</span><span style="color:#ae81ff">202305</span>, <span style="color:#960050;background-color:#1e0010">那</span><span style="color:#75715e">/* .. */</span><span style="color:#960050;background-color:#1e0010">打开</span>, <span style="color:#960050;background-color:#1e0010">查询会是这样</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">select</span> xx <span style="color:#66d9ef">from</span> tablename <span style="color:#66d9ef">where</span>
+</span></span><span style="display:flex;"><span>calmonth <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;202305&#39;</span> <span style="color:#75715e">-- to_char(sysdate,&#39;YYYYMM&#39;)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#960050;background-color:#1e0010">由于</span><span style="color:#e6db74">&#34;--&#34;</span> <span style="color:#960050;background-color:#1e0010">会忽略掉之后整行的代码</span>, <span style="color:#960050;background-color:#1e0010">所以真正的查询就是</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">select</span> xx <span style="color:#66d9ef">from</span> tablename <span style="color:#66d9ef">where</span>
+</span></span><span style="display:flex;"><span>calmonth <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;202305&#39;</span>
 </span></span></code></pre></div><ul>
 <li>多个参数: 注意使用1=1及and的位置</li>
 </ul>
@@ -1685,7 +1699,7 @@ https://github.com/alex-shpak/hugo-book
 <li>维度变化: 当传入月份条件时, 按城市,月份的数据, 不传参数时只看按城市的总数</li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">select</span> <span style="color:#75715e">/*月份, -- $Month */</span>  
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">城市</span>, <span style="color:#66d9ef">sum</span>(<span style="color:#960050;background-color:#1e0010">度量</span>) <span style="color:#66d9ef">from</span> tablename 
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">城市</span>, <span style="color:#66d9ef">sum</span>(<span style="color:#960050;background-color:#1e0010">度量</span>) <span style="color:#66d9ef">from</span> tablename
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">where</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">/* and 月份 &gt; &#39;$Month&#39; */</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">group</span> <span style="color:#66d9ef">by</span> <span style="color:#960050;background-color:#1e0010">城市</span>  
@@ -1694,11 +1708,11 @@ https://github.com/alex-shpak/hugo-book
   高级开关应用
   <a class="anchor" href="#%e9%ab%98%e7%ba%a7%e5%bc%80%e5%85%b3%e5%ba%94%e7%94%a8">#</a>
 </h4>
-<p>以上应用可以通过参数是否有传递来实现开关代码段的效果, 有些场景可能还希望通过参数值来进行代码段的开关
+<p>以上应用可以通过参数是否有传递,来实现开关代码段的效果, 有些场景可能还希望通过参数值来进行代码段的开关
 如下代码可以实现当传递参数type=1 或 type=2 时执行不同的代码段
 使用 &ldquo;$参数__值&rdquo; 的方式做为开关</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">/* select count(1) as qty from tablename1  $type__1*/</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">/* select count(1) as qty from tablename2  $type__2*/</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">/* select count(1) as qty from tablename1  -- $type__1*/</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* select count(1) as qty from tablename2  -- $type__2*/</span>
 </span></span></code></pre></div><p>再比如
 当参数D传值为&quot;月份&quot;时是统计2022年按月的统计,
 传&quot;日期&quot;时统计的是2022年10月按天的统计</p>
@@ -1754,7 +1768,7 @@ https://github.com/alex-shpak/hugo-book
 
 
   <div>
-    <a class="flex align-center" href="https://gitee.com/smartchart/smartchart/docs/content/docs/5.%e5%8f%82%e6%95%b0%e5%8f%8a%e8%81%94%e5%8a%a8%e9%92%bb%e5%8f%96/%e5%8f%82%e6%95%b0%e7%bc%96%e5%86%99%e6%96%b9%e6%b3%95.md" target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://gitee.com/smartchart/smartchartDoc/edit/master/content/docs/5.%e5%8f%82%e6%95%b0%e5%8f%8a%e8%81%94%e5%8a%a8%e9%92%bb%e5%8f%96/%e5%8f%82%e6%95%b0%e7%bc%96%e5%86%99%e6%96%b9%e6%b3%95.md" target="_blank" rel="noopener">
       <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>

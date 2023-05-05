@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="使用场景 # 报表中涉及交互场景较多, 需要数据与页面绑定 开发者熟悉vue 常见绑定 # //显示变量message &lt;p&gt;{[ message ]}&lt;/p&gt; //循环产生li,变量sites &lt;ol&gt; &lt;li v-for=&#34;site in sites&#34;&gt; {[ site.name ]} &lt;/li&gt; &lt;/ol&gt; //绑定输入值变量use &lt;input type=&#34;checkbox&#34; v-model=&#34;use&#34;&gt; //显示控制 &lt;p v-if=&#34;seen&#34;&gt;现在你看到我了&lt;/p&gt; &lt;p v-show=&#34;seen&#34;&gt;现在你看到我了&lt;/p&gt; //绑定属性 &lt;a :href=&#34;url&#34;&gt;&lt;/a&gt; &lt;div :style=&#34;{ color: activeColor, fontSize: fontSize &#43; &#39;px&#39; }&#34;&gt;&lt;/div&gt; &lt;div :class=&#34;[errorClass ,isActive ? activeClass : &#39;&#39;]&#34;&gt;&lt;/div&gt; //绑定点击方法 &lt;a @click=&#34;doSomething&#34;&gt;&lt;/a&gt; 开启VUE # 需要在设定&ndash;&gt;高级设定中可开启vue模式
+<meta name="description" content="使用场景 # 报表中涉及交互场景较多, 需要数据与页面绑定 开发者熟悉vue 常见绑定 # &lt;!--显示变量message--&gt; &lt;p&gt;{[ message ]}&lt;/p&gt; &lt;!--循环产生li,变量sites--&gt; &lt;ol&gt; &lt;li v-for=&#34;site in sites&#34;&gt; {[ site.name ]} &lt;/li&gt; &lt;/ol&gt; &lt;!--绑定输入值变量use--&gt; &lt;input type=&#34;checkbox&#34; v-model=&#34;use&#34;&gt; &lt;!--显示控制--&gt; &lt;p v-if=&#34;seen&#34;&gt;现在你看到我了&lt;/p&gt; &lt;p v-show=&#34;seen&#34;&gt;现在你看到我了&lt;/p&gt; &lt;!--绑定属性--&gt; &lt;a :href=&#34;url&#34;&gt;&lt;/a&gt; &lt;div :style=&#34;{ color: activeColor, fontSize: fontSize &#43; &#39;px&#39; }&#34;&gt;&lt;/div&gt; &lt;div :class=&#34;[errorClass ,isActive ? activeClass : &#39;&#39;]&#34;&gt;&lt;/div&gt; &lt;!--绑定点击方法--&gt; &lt;a @click=&#34;doSomething&#34;&gt;&lt;/a&gt; 开启VUE # 需要在设定&ndash;&gt;高级设定中可开启vue模式
 简单赋值应用 # 系统默认为初始vue及内置vue的data有17个变量(从d0, d1&hellip; d16) 你可以在图形编辑器中给vue的变量赋值, 赋值方式:
 vapp.d0 = xxxx 你可以将d0赋值为字典, 如:
 vapp.d0 = { &#39;index1&#39;: 100, &#39;index2&#39;: 300} 注意,我们修改了vue在模板中变量的默认引用方式, 你需要采用如下方法引用: {[d0.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
-<meta property="og:description" content="使用场景 # 报表中涉及交互场景较多, 需要数据与页面绑定 开发者熟悉vue 常见绑定 # //显示变量message &lt;p&gt;{[ message ]}&lt;/p&gt; //循环产生li,变量sites &lt;ol&gt; &lt;li v-for=&#34;site in sites&#34;&gt; {[ site.name ]} &lt;/li&gt; &lt;/ol&gt; //绑定输入值变量use &lt;input type=&#34;checkbox&#34; v-model=&#34;use&#34;&gt; //显示控制 &lt;p v-if=&#34;seen&#34;&gt;现在你看到我了&lt;/p&gt; &lt;p v-show=&#34;seen&#34;&gt;现在你看到我了&lt;/p&gt; //绑定属性 &lt;a :href=&#34;url&#34;&gt;&lt;/a&gt; &lt;div :style=&#34;{ color: activeColor, fontSize: fontSize &#43; &#39;px&#39; }&#34;&gt;&lt;/div&gt; &lt;div :class=&#34;[errorClass ,isActive ? activeClass : &#39;&#39;]&#34;&gt;&lt;/div&gt; //绑定点击方法 &lt;a @click=&#34;doSomething&#34;&gt;&lt;/a&gt; 开启VUE # 需要在设定&ndash;&gt;高级设定中可开启vue模式
+<meta property="og:description" content="使用场景 # 报表中涉及交互场景较多, 需要数据与页面绑定 开发者熟悉vue 常见绑定 # &lt;!--显示变量message--&gt; &lt;p&gt;{[ message ]}&lt;/p&gt; &lt;!--循环产生li,变量sites--&gt; &lt;ol&gt; &lt;li v-for=&#34;site in sites&#34;&gt; {[ site.name ]} &lt;/li&gt; &lt;/ol&gt; &lt;!--绑定输入值变量use--&gt; &lt;input type=&#34;checkbox&#34; v-model=&#34;use&#34;&gt; &lt;!--显示控制--&gt; &lt;p v-if=&#34;seen&#34;&gt;现在你看到我了&lt;/p&gt; &lt;p v-show=&#34;seen&#34;&gt;现在你看到我了&lt;/p&gt; &lt;!--绑定属性--&gt; &lt;a :href=&#34;url&#34;&gt;&lt;/a&gt; &lt;div :style=&#34;{ color: activeColor, fontSize: fontSize &#43; &#39;px&#39; }&#34;&gt;&lt;/div&gt; &lt;div :class=&#34;[errorClass ,isActive ? activeClass : &#39;&#39;]&#34;&gt;&lt;/div&gt; &lt;!--绑定点击方法--&gt; &lt;a @click=&#34;doSomething&#34;&gt;&lt;/a&gt; 开启VUE # 需要在设定&ndash;&gt;高级设定中可开启vue模式
 简单赋值应用 # 系统默认为初始vue及内置vue的data有17个变量(从d0, d1&hellip; d16) 你可以在图形编辑器中给vue的变量赋值, 赋值方式:
 vapp.d0 = xxxx 你可以将d0赋值为字典, 如:
 vapp.d0 = { &#39;index1&#39;: 100, &#39;index2&#39;: 300} 注意,我们修改了vue在模板中变量的默认引用方式, 你需要采用如下方法引用: {[d0." />
@@ -23,7 +23,7 @@ vapp.d0 = { &#39;index1&#39;: 100, &#39;index2&#39;: 300} 注意,我们修改了
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.91c705dd5fec520547517ab2995e9a01fb5099a75bf7d8c3845c48e8e87af5eb.js" integrity="sha256-kccF3V/sUgVHUXqymV6aAftQmadb99jDhFxI6Oh69es=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.ba2874ca2d634efe85c9b5912b9a5f8fa8d39fcfeff3d08ca8779eb1b2f08104.js" integrity="sha256-uih0yi1jTv6FybWRK5pfj6jTn8/v89CMqHeesbLwgQQ=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -1658,24 +1658,24 @@ https://github.com/alex-shpak/hugo-book
   常见绑定
   <a class="anchor" href="#%e5%b8%b8%e8%a7%81%e7%bb%91%e5%ae%9a">#</a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>//显示变量message
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!--显示变量message--&gt;</span>
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">p</span>&gt;{[ message ]}&lt;/<span style="color:#f92672">p</span>&gt;
-</span></span><span style="display:flex;"><span>//循环产生li,变量sites
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!--循环产生li,变量sites--&gt;</span>
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">ol</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">li</span> <span style="color:#a6e22e">v-for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;site in sites&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>  {[ site.name ]}
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">li</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">li</span> <span style="color:#a6e22e">v-for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;site in sites&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>      {[ site.name ]}
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">li</span>&gt;
 </span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">ol</span>&gt;
-</span></span><span style="display:flex;"><span>//绑定输入值变量use
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!--绑定输入值变量use--&gt;</span>
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;checkbox&#34;</span> <span style="color:#a6e22e">v-model</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;use&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>//显示控制
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!--显示控制--&gt;</span>
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">v-if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;seen&#34;</span>&gt;现在你看到我了&lt;/<span style="color:#f92672">p</span>&gt;
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">v-show</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;seen&#34;</span>&gt;现在你看到我了&lt;/<span style="color:#f92672">p</span>&gt;
-</span></span><span style="display:flex;"><span>//绑定属性
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!--绑定属性--&gt;</span>
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">:href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;url&#34;</span>&gt;&lt;/<span style="color:#f92672">a</span>&gt;
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">:style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{ color: activeColor, fontSize: fontSize + &#39;px&#39; }&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">:class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;[errorClass ,isActive ? activeClass : &#39;&#39;]&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>//绑定点击方法
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!--绑定点击方法--&gt;</span>
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">a</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">click</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;doSomething&#34;</span>&gt;&lt;/<span style="color:#f92672">a</span>&gt;
 </span></span></code></pre></div><h3 id="开启vue">
   开启VUE
@@ -1701,10 +1701,12 @@ https://github.com/alex-shpak/hugo-book
   使用模板可以更方便使用VUE
   <a class="anchor" href="#%e4%bd%bf%e7%94%a8%e6%a8%a1%e6%9d%bf%e5%8f%af%e4%bb%a5%e6%9b%b4%e6%96%b9%e4%be%bf%e4%bd%bf%e7%94%a8vue">#</a>
 </h3>
-<p>你也可以在 模板开发中 使用VUE
-开启方法, 首先你需要在高级设定中开启模板功能,
-然后你可以看到 模板 的菜单, 进入编辑器</p>
-<p>如果你需要更多自定义的方法, 例如加入方法, 你可以在模板的script中加入自定义代码</p>
+<ul>
+<li>你也可以在 模板开发中 使用VUE</li>
+<li>开启方法, 首先你需要在高级设定中开启模板功能,</li>
+<li>然后你可以看到 模板 的菜单, 进入编辑器</li>
+</ul>
+<p>你可以在模板的script中加入自定义代码来覆盖系统默认的</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">script</span><span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">vapp</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({<span style="color:#a6e22e">el</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;#vue_app&#39;</span>, <span style="color:#a6e22e">delimiters</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;{[&#39;</span>, <span style="color:#e6db74">&#39;]}&#39;</span>], 
 </span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> {
@@ -1729,7 +1731,7 @@ https://github.com/alex-shpak/hugo-book
 
 
   <div>
-    <a class="flex align-center" href="https://gitee.com/smartchart/smartchart/docs/content/docs/1.%e5%9f%ba%e7%a1%80%e6%93%8d%e4%bd%9c/VUE%e7%9b%b8%e5%85%b3/%e4%bd%bf%e7%94%a8VUE.md" target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://gitee.com/smartchart/smartchartDoc/edit/master/content/docs/1.%e5%9f%ba%e7%a1%80%e6%93%8d%e4%bd%9c/VUE%e7%9b%b8%e5%85%b3/%e4%bd%bf%e7%94%a8VUE.md" target="_blank" rel="noopener">
       <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>

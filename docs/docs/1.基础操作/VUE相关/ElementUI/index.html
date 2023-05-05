@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content=" 应用场景 # 非大屏场景应用 有较多交互场景的报表, 如筛选,表格,分页,下载等 使用方法 # 如下图, base.html 改为 basevue.html 将自动开启加载vue和elementui 注意vue的变量引用在 模板编辑界面中, 写法变更为 {[ ]}
-ElementUI组件说明 视屏参考
-参考样列 # 新增一个数据集(点击金色的新增按钮, 这样会新增一个可拖拽的数据集) 修改相应的数据集及图形 数据集端
+<meta name="description" content=" 应用场景 # 非大屏场景应用 有较多交互场景的报表, 如筛选,表格,分页,下载等 使用方法 # 将base.html 改为 basevue.html, 将自动开启加载vue和elementui 注意vue的变量引用在 模板编辑界面中, 写法变更为 {[ ]}
+ElementUI组件说明 视屏参考 参考样列 # 新增一个拖拽图形,然后修改相应的数据集及图形
+数据集端
 select H1, H2, qty, rate from smartdemo2 limit 100 图形端
-let dataset = __dataset__; let tableData = ds_createMap_all(dataset); vapp.d0={ tableData: tableData } 模板Body区端
-&lt;div class=&#34;smtdrag&#34; id=&#34;id_1639824145817&#34;&gt; &lt;template&gt; &lt;el-table stripe border height=&#34;100%&#34; :data=&#34;d0.tableData&#34; style=&#34;width: 100%&#34;&gt; &lt;el-table-column label=&#34;hero&#34;&gt; &lt;el-table-column prop=&#34;H1&#34; label=&#34;H1&#34; fixed :default-sort = &#34;{prop: &#39;H2&#39;, order: &#39;descending&#39;}&#34; width=&#34;180&#34;&gt; &lt;/el-table-column&gt; &lt;el-table-column prop=&#34;H2&#34; label=&#34;H2&#34; sortable width=&#34;180&#34;&gt; &lt;/el-table-column&gt; &lt;/el-table-column&gt; &lt;el-table-column sortable prop=&#34;qty&#34; label=&#34;qty&#34;&gt; &lt;/el-table-column&gt; &lt;el-table-column prop=&#34;rate&#34; label=&#34;rate&#34;&gt; &lt;/el-table-column&gt; &lt;/el-table&gt; &lt;/template&gt; &lt;/div&gt; ">
+let dataset = __dataset__; let tableData = ds_createMap_all(dataset); vapp.d0={ tableData: tableData } 模板Body区域加入element组件el-table,并用拖拽容器进行包裹
+&lt;div class=&#34;smtdrag&#34; id=&#34;id_1639824145817&#34;&gt; &lt;el-table :data=&#34;d0.tableData&#34; stripe border height=&#34;100%&#34; style=&#34;width: 100%&#34;&gt; &lt;el-table-column label=&#34;hero&#34;&gt; &lt;el-table-column fixed width=&#34;180&#34; prop=&#34;H1&#34; label=&#34;H1&#34; :default-sort = &#34;{prop:&#39;H2&#39;,order:&#39;descending&#39;}&#34;&gt;&lt;/el-table-column&gt; &lt;el-table-column sortable width=&#34;180&#34; prop=&#34;H2&#34; label=&#34;H2&#34;&gt;&lt;/el-table-column&gt; &lt;/el-table-column&gt; &lt;el-table-column sortable prop=&#34;qty&#34; label=&#34;qty&#34;&gt;&lt;/el-table-column&gt; &lt;el-table-column prop=&#34;rate&#34; label=&#34;rate&#34;&gt;&lt;/el-table-column&gt; &lt;/el-table&gt; &lt;/div&gt; ">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
-<meta property="og:description" content=" 应用场景 # 非大屏场景应用 有较多交互场景的报表, 如筛选,表格,分页,下载等 使用方法 # 如下图, base.html 改为 basevue.html 将自动开启加载vue和elementui 注意vue的变量引用在 模板编辑界面中, 写法变更为 {[ ]}
-ElementUI组件说明 视屏参考
-参考样列 # 新增一个数据集(点击金色的新增按钮, 这样会新增一个可拖拽的数据集) 修改相应的数据集及图形 数据集端
+<meta property="og:description" content=" 应用场景 # 非大屏场景应用 有较多交互场景的报表, 如筛选,表格,分页,下载等 使用方法 # 将base.html 改为 basevue.html, 将自动开启加载vue和elementui 注意vue的变量引用在 模板编辑界面中, 写法变更为 {[ ]}
+ElementUI组件说明 视屏参考 参考样列 # 新增一个拖拽图形,然后修改相应的数据集及图形
+数据集端
 select H1, H2, qty, rate from smartdemo2 limit 100 图形端
-let dataset = __dataset__; let tableData = ds_createMap_all(dataset); vapp.d0={ tableData: tableData } 模板Body区端
-&lt;div class=&#34;smtdrag&#34; id=&#34;id_1639824145817&#34;&gt; &lt;template&gt; &lt;el-table stripe border height=&#34;100%&#34; :data=&#34;d0.tableData&#34; style=&#34;width: 100%&#34;&gt; &lt;el-table-column label=&#34;hero&#34;&gt; &lt;el-table-column prop=&#34;H1&#34; label=&#34;H1&#34; fixed :default-sort = &#34;{prop: &#39;H2&#39;, order: &#39;descending&#39;}&#34; width=&#34;180&#34;&gt; &lt;/el-table-column&gt; &lt;el-table-column prop=&#34;H2&#34; label=&#34;H2&#34; sortable width=&#34;180&#34;&gt; &lt;/el-table-column&gt; &lt;/el-table-column&gt; &lt;el-table-column sortable prop=&#34;qty&#34; label=&#34;qty&#34;&gt; &lt;/el-table-column&gt; &lt;el-table-column prop=&#34;rate&#34; label=&#34;rate&#34;&gt; &lt;/el-table-column&gt; &lt;/el-table&gt; &lt;/template&gt; &lt;/div&gt; " />
+let dataset = __dataset__; let tableData = ds_createMap_all(dataset); vapp.d0={ tableData: tableData } 模板Body区域加入element组件el-table,并用拖拽容器进行包裹
+&lt;div class=&#34;smtdrag&#34; id=&#34;id_1639824145817&#34;&gt; &lt;el-table :data=&#34;d0.tableData&#34; stripe border height=&#34;100%&#34; style=&#34;width: 100%&#34;&gt; &lt;el-table-column label=&#34;hero&#34;&gt; &lt;el-table-column fixed width=&#34;180&#34; prop=&#34;H1&#34; label=&#34;H1&#34; :default-sort = &#34;{prop:&#39;H2&#39;,order:&#39;descending&#39;}&#34;&gt;&lt;/el-table-column&gt; &lt;el-table-column sortable width=&#34;180&#34; prop=&#34;H2&#34; label=&#34;H2&#34;&gt;&lt;/el-table-column&gt; &lt;/el-table-column&gt; &lt;el-table-column sortable prop=&#34;qty&#34; label=&#34;qty&#34;&gt;&lt;/el-table-column&gt; &lt;el-table-column prop=&#34;rate&#34; label=&#34;rate&#34;&gt;&lt;/el-table-column&gt; &lt;/el-table&gt; &lt;/div&gt; " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/VUE%E7%9B%B8%E5%85%B3/ElementUI/" /><meta property="article:section" content="docs" />
 
@@ -27,7 +27,7 @@ let dataset = __dataset__; let tableData = ds_createMap_all(dataset); vapp.d0={ 
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.91c705dd5fec520547517ab2995e9a01fb5099a75bf7d8c3845c48e8e87af5eb.js" integrity="sha256-kccF3V/sUgVHUXqymV6aAftQmadb99jDhFxI6Oh69es=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.ba2874ca2d634efe85c9b5912b9a5f8fa8d39fcfeff3d08ca8779eb1b2f08104.js" integrity="sha256-uih0yi1jTv6FybWRK5pfj6jTn8/v89CMqHeesbLwgQQ=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -1658,22 +1658,24 @@ https://github.com/alex-shpak/hugo-book
   使用方法
   <a class="anchor" href="#%e4%bd%bf%e7%94%a8%e6%96%b9%e6%b3%95">#</a>
 </h4>
-<p>如下图, base.html 改为 basevue.html
-将自动开启加载vue和elementui
+<p>将base.html 改为 basevue.html, 将自动开启加载vue和elementui
 
-  <img referrerpolicy="no-referrer" src="https://images.gitee.com/uploads/images/2022/0730/204702_84897ea2_5500438.png" alt="输入图片说明" title="屏幕截图.png"/>
-<strong>注意vue的变量引用在 模板编辑界面中, 写法变更为 {[ ]}</strong></p>
-<p>
-  <a href="https://element.eleme.cn/">ElementUI组件说明</a>
-
-  <a href="https://www.toutiao.com/video/7107842562462843395/">视屏参考</a></p>
+  <img referrerpolicy="no-referrer" src="https://images.gitee.com/uploads/images/2022/0730/204702_84897ea2_5500438.png" alt="输入图片说明" title="屏幕截图.png"/></p>
+<blockquote>
+<p>注意vue的变量引用在 模板编辑界面中, 写法变更为 {[ ]}</p>
+</blockquote>
+<ul>
+<li>
+  <a href="https://element.eleme.cn/">ElementUI组件说明</a></li>
+<li>
+  <a href="https://www.toutiao.com/video/7107842562462843395/">视屏参考</a></li>
+</ul>
 <h4 id="参考样列">
   参考样列
   <a class="anchor" href="#%e5%8f%82%e8%80%83%e6%a0%b7%e5%88%97">#</a>
 </h4>
-<p>新增一个数据集(点击金色的新增按钮, 这样会新增一个可拖拽的数据集)
-修改相应的数据集及图形
-数据集端</p>
+<p>新增一个拖拽图形,然后修改相应的数据集及图形</p>
+<p>数据集端</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">select</span>  H1, H2, qty, rate <span style="color:#66d9ef">from</span> smartdemo2 <span style="color:#66d9ef">limit</span> <span style="color:#ae81ff">100</span>
 </span></span></code></pre></div><p>图形端</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">dataset</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">__dataset__</span>;
@@ -1682,43 +1684,17 @@ https://github.com/alex-shpak/hugo-book
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">vapp</span>.<span style="color:#a6e22e">d0</span><span style="color:#f92672">=</span>{
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">tableData</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">tableData</span>
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>模板Body区端</p>
+</span></span></code></pre></div><p>模板Body区域加入element组件el-table,并用拖拽容器进行包裹</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;smtdrag&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;id_1639824145817&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">template</span>&gt;
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">el-table</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">stripe</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">border</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">height</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;100%&#34;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">:data</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;d0.tableData&#34;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width: 100%&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>     &lt;<span style="color:#f92672">el-table-column</span> <span style="color:#a6e22e">label</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hero&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">el-table-column</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">prop</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;H1&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">label</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;H1&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">fixed</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">:default-sort </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;{prop: &#39;H2&#39;, order: &#39;descending&#39;}&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">width</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;180&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">el-table-column</span>&gt;
-</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">el-table-column</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">prop</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;H2&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">label</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;H2&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">sortable</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">width</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;180&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">el-table-column</span>&gt;
-</span></span><span style="display:flex;"><span>     &lt;/<span style="color:#f92672">el-table-column</span>&gt;
-</span></span><span style="display:flex;"><span>     
-</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">el-table-column</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">sortable</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">prop</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;qty&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">label</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;qty&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">el-table-column</span>&gt;
-</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">el-table-column</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">prop</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;rate&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">label</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;rate&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">el-table-column</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">el-table</span> <span style="color:#a6e22e">:data</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;d0.tableData&#34;</span> <span style="color:#a6e22e">stripe</span> <span style="color:#a6e22e">border</span> <span style="color:#a6e22e">height</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;100%&#34;</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width: 100%&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">el-table-column</span> <span style="color:#a6e22e">label</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hero&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>          &lt;<span style="color:#f92672">el-table-column</span> <span style="color:#a6e22e">fixed</span> <span style="color:#a6e22e">width</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;180&#34;</span> <span style="color:#a6e22e">prop</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;H1&#34;</span> <span style="color:#a6e22e">label</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;H1&#34;</span> <span style="color:#a6e22e">:default-sort </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;{prop:&#39;H2&#39;,order:&#39;descending&#39;}&#34;</span>&gt;&lt;/<span style="color:#f92672">el-table-column</span>&gt;
+</span></span><span style="display:flex;"><span>          &lt;<span style="color:#f92672">el-table-column</span> <span style="color:#a6e22e">sortable</span> <span style="color:#a6e22e">width</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;180&#34;</span> <span style="color:#a6e22e">prop</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;H2&#34;</span> <span style="color:#a6e22e">label</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;H2&#34;</span>&gt;&lt;/<span style="color:#f92672">el-table-column</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#f92672">el-table-column</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">el-table-column</span> <span style="color:#a6e22e">sortable</span> <span style="color:#a6e22e">prop</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;qty&#34;</span> <span style="color:#a6e22e">label</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;qty&#34;</span>&gt;&lt;/<span style="color:#f92672">el-table-column</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">el-table-column</span> <span style="color:#a6e22e">prop</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;rate&#34;</span> <span style="color:#a6e22e">label</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;rate&#34;</span>&gt;&lt;/<span style="color:#f92672">el-table-column</span>&gt;
 </span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">el-table</span>&gt;
-</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">template</span>&gt;
-</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">div</span>&gt;
 </span></span></code></pre></div></article>
  
       
@@ -1731,7 +1707,7 @@ https://github.com/alex-shpak/hugo-book
 
 
   <div>
-    <a class="flex align-center" href="https://gitee.com/smartchart/smartchart/docs/content/docs/1.%e5%9f%ba%e7%a1%80%e6%93%8d%e4%bd%9c/VUE%e7%9b%b8%e5%85%b3/ElementUI.md" target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://gitee.com/smartchart/smartchartDoc/edit/master/content/docs/1.%e5%9f%ba%e7%a1%80%e6%93%8d%e4%bd%9c/VUE%e7%9b%b8%e5%85%b3/ElementUI.md" target="_blank" rel="noopener">
       <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>

@@ -1,23 +1,33 @@
-{% extends "echart/base.html" %}
-{% block head %}
-<style>
-.smt {text-align:center;vertical-align:middle}
-
-/*=============start_drag=============*/
-
-/*=============end_drag=============*/
+{% extends "echart/base.html" %}{% block head %}
+<style>/*=start_drag=*//*=end_drag=*/
 </style>
-{% endblock %}
-{% block body %}
+<!-- 此处引入css文件 -->
+<style>
+/*
+自定义样式参考:
+1.标签选择: body{background-color:#2b99ff;}
+2.ID选择0号容器: #container_0{color:red; }
+3.类class选择: .smt{text-align:center; }
+4.选择1号容器下H1标签: #container_1 H1{font-size:3rem; }
+*/
 
+</style>
+{% endblock %}{% block body %}
 <body>
 <vue id="vue_app">
 {% for div in div_list %}{{div}}{% endfor %}
+<!-- 以下html组件区 -->
 
 </vue>
 </body>
+{% endblock %}{% block javascript %}
+<!-- 此处引入js文件 -->
+<script>
+/*
+自定义动作参考:
+1.id_xx被点击时: $('#id_xxx').click(function(){console.log(data0};);
+2.0号容器中button点击时: $('#container_0 button').click(function(){ });
+*/
 
-{% endblock %}
-{% block javascript %}
-
-{% endblock %}
+</script>
+{% endblock %}{% block footer %}{% endblock %}

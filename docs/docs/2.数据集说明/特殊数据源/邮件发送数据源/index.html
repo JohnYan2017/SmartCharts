@@ -5,14 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content=" 数据源配置方法 # 驱动: smtpmail 连接地址: smtp.xxx 库名:为空采用SMTP, 非空采用SMTP_SSL
 查询方法 # 在数据集编辑器加直接输入
-{ &#34;tolist&#34;:&#34;xx@qq.com&#34;, &#34;sub&#34;:&#34;测试&#34;, &#34;content&#34;:&#34;&lt;测试一下&#34; } tolist:邮件清单, 可以使用逗号分隔 sub:邮件标题 返回值为prometheus标准json, 你需要在图形编辑器中使用js处理数据
-let dataset=__dataset__; //获取返回值列表中的第一值 dataset = dataset.data.result[0].value; print(dataset) ">
+{ &#34;tolist&#34;:&#34;xx@qq.com&#34;, &#34;sub&#34;:&#34;测试&#34;, &#34;content&#34;:&#34;&lt;h3&gt;测试一下&lt;/h3&gt;&#34; } tolist:邮件清单, 可以使用逗号分隔 sub:邮件标题 content: 支持html格式的邮件内容 ">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
 <meta property="og:description" content=" 数据源配置方法 # 驱动: smtpmail 连接地址: smtp.xxx 库名:为空采用SMTP, 非空采用SMTP_SSL
 查询方法 # 在数据集编辑器加直接输入
-{ &#34;tolist&#34;:&#34;xx@qq.com&#34;, &#34;sub&#34;:&#34;测试&#34;, &#34;content&#34;:&#34;&lt;测试一下&#34; } tolist:邮件清单, 可以使用逗号分隔 sub:邮件标题 返回值为prometheus标准json, 你需要在图形编辑器中使用js处理数据
-let dataset=__dataset__; //获取返回值列表中的第一值 dataset = dataset.data.result[0].value; print(dataset) " />
+{ &#34;tolist&#34;:&#34;xx@qq.com&#34;, &#34;sub&#34;:&#34;测试&#34;, &#34;content&#34;:&#34;&lt;h3&gt;测试一下&lt;/h3&gt;&#34; } tolist:邮件清单, 可以使用逗号分隔 sub:邮件标题 content: 支持html格式的邮件内容 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://help.smartchart.cn/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/%E9%82%AE%E4%BB%B6%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE%E6%BA%90/" /><meta property="article:section" content="docs" />
 
@@ -23,7 +21,7 @@ let dataset=__dataset__; //获取返回值列表中的第一值 dataset = datase
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.91c705dd5fec520547517ab2995e9a01fb5099a75bf7d8c3845c48e8e87af5eb.js" integrity="sha256-kccF3V/sUgVHUXqymV6aAftQmadb99jDhFxI6Oh69es=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.ba2874ca2d634efe85c9b5912b9a5f8fa8d39fcfeff3d08ca8779eb1b2f08104.js" integrity="sha256-uih0yi1jTv6FybWRK5pfj6jTn8/v89CMqHeesbLwgQQ=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -1658,19 +1656,14 @@ https://github.com/alex-shpak/hugo-book
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;tolist&#34;</span>:<span style="color:#e6db74">&#34;xx@qq.com&#34;</span>,
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;sub&#34;</span>:<span style="color:#e6db74">&#34;测试&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;content&#34;</span>:<span style="color:#e6db74">&#34;&lt;测试一下&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;content&#34;</span>:<span style="color:#e6db74">&#34;&lt;h3&gt;测试一下&lt;/h3&gt;&#34;</span>
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><ul>
 <li>tolist:邮件清单, 可以使用逗号分隔</li>
 <li>sub:邮件标题</li>
-<li></li>
+<li>content: 支持html格式的邮件内容</li>
 </ul>
-<p>返回值为prometheus标准json, 你需要在图形编辑器中使用js处理数据</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">dataset</span><span style="color:#f92672">=</span><span style="color:#a6e22e">__dataset__</span>;
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//获取返回值列表中的第一值
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">dataset</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">dataset</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">result</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">value</span>;
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">print</span>(<span style="color:#a6e22e">dataset</span>)
-</span></span></code></pre></div></article>
+</article>
  
       
 
@@ -1682,7 +1675,7 @@ https://github.com/alex-shpak/hugo-book
 
 
   <div>
-    <a class="flex align-center" href="https://gitee.com/smartchart/smartchart/docs/content/docs/2.%e6%95%b0%e6%8d%ae%e9%9b%86%e8%af%b4%e6%98%8e/%e7%89%b9%e6%ae%8a%e6%95%b0%e6%8d%ae%e6%ba%90/%e9%82%ae%e4%bb%b6%e5%8f%91%e9%80%81%e6%95%b0%e6%8d%ae%e6%ba%90.md" target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://gitee.com/smartchart/smartchartDoc/edit/master/content/docs/2.%e6%95%b0%e6%8d%ae%e9%9b%86%e8%af%b4%e6%98%8e/%e7%89%b9%e6%ae%8a%e6%95%b0%e6%8d%ae%e6%ba%90/%e9%82%ae%e4%bb%b6%e5%8f%91%e9%80%81%e6%95%b0%e6%8d%ae%e6%ba%90.md" target="_blank" rel="noopener">
       <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>
