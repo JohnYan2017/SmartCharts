@@ -6,13 +6,13 @@
 <meta name="description" content="应用场景 # 可以在你的django项目中直接使用smartchart做为应用插件 你可以查看相关视屏
 使用方法 # 在你的setting.py的INSTALL_APPS中加入&rsquo;smart_chart.echart&#39; INSTALLED_APPS = [ &#39;smart_chart.smartui&#39;, .... .... &#39;smart_chart.echart&#39; ] MIDDLEWARE 中注释掉XFrameOptionsMiddleware
 检查确保在Templates的设定处有DIRS的相关设定
-TEMPLATES = [ { &#39;BACKEND&#39;: &#39;django.template.backends.django.DjangoTemplates&#39;, &#39;DIRS&#39;: [BASE_DIR / &#39;templates&#39;], #此处需要有 &#39;APP_DIRS&#39;: True, #也要有 ..... }, ] setting.py中设定为中国时区, 支持中文基础平台建设! LANGUAGE_CODE = &#39;zh-hans&#39; TIME_ZONE = &#39;Asia/Shanghai&#39; USE_I18N = True USE_L10N = True USE_TZ = False # 此处必须为False 在你的url.py中加入引用 from django.conf.urls import include from django.views.generic import RedirectView url.py的urlpatterns中加入路由 path(&#39;echart/&#39;, include(&#39;smart_chart.echart.urls&#39;)), path(&#39;&#39;, RedirectView.as_view(url=&#39;echart/index/&#39;)), #首页,可自定义路由 初始化DB, 命令行输入: python manage.">
+TEMPLATES = [ { &#39;BACKEND&#39;: &#39;django.template.backends.django.DjangoTemplates&#39;, &#39;DIRS&#39;: [BASE_DIR / &#39;templates&#39;], #此处需要有 &#39;APP_DIRS&#39;: True, #也要有 ..... }, ] setting.py中设定为中国时区, 支持中文基础平台建设! LANGUAGE_CODE = &#39;zh-hans&#39; TIME_ZONE = &#39;Asia/Shanghai&#39; USE_I18N = True USE_L10N = True USE_TZ = False # 此处必须为False 在你的url.py中加入引用 from django.conf.urls import include from django.views.generic import RedirectView url.py的urlpatterns中加入路由 path(&#39;echart/&#39;, include(&#39;smart_chart.echart.urls&#39;)), path(&#39;&#39;, RedirectView.as_view(url=&#39;/echart/index/&#39;)), #首页,可自定义路由 初始化DB, 命令行输入: python manage.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
 <meta property="og:description" content="应用场景 # 可以在你的django项目中直接使用smartchart做为应用插件 你可以查看相关视屏
 使用方法 # 在你的setting.py的INSTALL_APPS中加入&rsquo;smart_chart.echart&#39; INSTALLED_APPS = [ &#39;smart_chart.smartui&#39;, .... .... &#39;smart_chart.echart&#39; ] MIDDLEWARE 中注释掉XFrameOptionsMiddleware
 检查确保在Templates的设定处有DIRS的相关设定
-TEMPLATES = [ { &#39;BACKEND&#39;: &#39;django.template.backends.django.DjangoTemplates&#39;, &#39;DIRS&#39;: [BASE_DIR / &#39;templates&#39;], #此处需要有 &#39;APP_DIRS&#39;: True, #也要有 ..... }, ] setting.py中设定为中国时区, 支持中文基础平台建设! LANGUAGE_CODE = &#39;zh-hans&#39; TIME_ZONE = &#39;Asia/Shanghai&#39; USE_I18N = True USE_L10N = True USE_TZ = False # 此处必须为False 在你的url.py中加入引用 from django.conf.urls import include from django.views.generic import RedirectView url.py的urlpatterns中加入路由 path(&#39;echart/&#39;, include(&#39;smart_chart.echart.urls&#39;)), path(&#39;&#39;, RedirectView.as_view(url=&#39;echart/index/&#39;)), #首页,可自定义路由 初始化DB, 命令行输入: python manage." />
+TEMPLATES = [ { &#39;BACKEND&#39;: &#39;django.template.backends.django.DjangoTemplates&#39;, &#39;DIRS&#39;: [BASE_DIR / &#39;templates&#39;], #此处需要有 &#39;APP_DIRS&#39;: True, #也要有 ..... }, ] setting.py中设定为中国时区, 支持中文基础平台建设! LANGUAGE_CODE = &#39;zh-hans&#39; TIME_ZONE = &#39;Asia/Shanghai&#39; USE_I18N = True USE_L10N = True USE_TZ = False # 此处必须为False 在你的url.py中加入引用 from django.conf.urls import include from django.views.generic import RedirectView url.py的urlpatterns中加入路由 path(&#39;echart/&#39;, include(&#39;smart_chart.echart.urls&#39;)), path(&#39;&#39;, RedirectView.as_view(url=&#39;/echart/index/&#39;)), #首页,可自定义路由 初始化DB, 命令行输入: python manage." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://help.smartchart.cn/docs/8.Django%E5%BA%94%E7%94%A8/%E5%B5%8C%E5%85%A5Django-Apps/" /><meta property="article:section" content="docs" />
 
@@ -23,7 +23,7 @@ TEMPLATES = [ { &#39;BACKEND&#39;: &#39;django.template.backends.django.DjangoTe
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.ba2874ca2d634efe85c9b5912b9a5f8fa8d39fcfeff3d08ca8779eb1b2f08104.js" integrity="sha256-uih0yi1jTv6FybWRK5pfj6jTn8/v89CMqHeesbLwgQQ=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.434a94c76588af150f3f16ff95526eef6dd460dea036ab853a48f798f59f3c57.js" integrity="sha256-Q0qUx2WIrxUPPxb/lVJu723UYN6gNquFOkj3mPWfPFc=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -1175,6 +1175,19 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1%E8%AE%BE%E5%AE%9A/" class="">数据服务设定</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
     <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1API/" class="">数据服务 API</a>
   
 
@@ -1470,87 +1483,6 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
     
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-1221ac066d992a43b363728eac9711d8" class="toggle"  />
-    <label for="section-1221ac066d992a43b363728eac9711d8" class="flex justify-between">
-      <a role="button" class="">11.部署指南</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-df28c15db9b442124658f06e614fc60b" class="toggle"  />
-    <label for="section-df28c15db9b442124658f06e614fc60b" class="flex justify-between">
-      <a role="button" class="">Linux</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/11.%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/Linux/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/" class="">快速开始</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/11.%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/Linux/SQLite3%E7%89%88%E6%9C%AC%E9%94%99%E8%AF%AF/" class="">Sqlite3版本错误</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/11.%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/Linux/%E7%94%9F%E4%BA%A7%E9%83%A8%E7%BD%B2/" class="">生产部署</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
   </ul>
 
 
@@ -1697,7 +1629,7 @@ https://github.com/alex-shpak/hugo-book
 <li>url.py的urlpatterns中加入路由</li>
 </ol>
 <pre tabindex="0"><code>    path(&#39;echart/&#39;, include(&#39;smart_chart.echart.urls&#39;)),
-    path(&#39;&#39;, RedirectView.as_view(url=&#39;echart/index/&#39;)),  #首页,可自定义路由
+    path(&#39;&#39;, RedirectView.as_view(url=&#39;/echart/index/&#39;)),  #首页,可自定义路由
 </code></pre><ol start="7">
 <li>初始化DB, 命令行输入:</li>
 </ol>
@@ -1711,13 +1643,14 @@ https://github.com/alex-shpak/hugo-book
 <li>启动服务</li>
 </ol>
 <pre tabindex="0"><code>   python manage.py runserver
-</code></pre><p><strong>10. 点击首页的组件升级进行初始化</strong>  :cupid:  !!!! 重要！！！
-<img src="https://images.gitee.com/uploads/images/2021/1218/130309_5b16a30f_5500438.png" width="40%"></p>
+</code></pre><p><strong>10. 点击首页的组件升级进行初始化</strong> !!!! 重要！！！
+
+  <img referrerpolicy="no-referrer" src="https://images.gitee.com/uploads/images/2021/1218/130309_5b16a30f_5500438.png" alt="组件升级" /></p>
 <h3 id="注意">
   注意
   <a class="anchor" href="#%e6%b3%a8%e6%84%8f">#</a>
 </h3>
-<p>一般来说如果你使用django遇到的问题，都不是smartchart导致的，
+<p>一般来说如果你使用django遇到的问题，都不是smartchart导致的
 作者也很难给你解答， 建议你可以进行有偿问答</p>
 </article>
  

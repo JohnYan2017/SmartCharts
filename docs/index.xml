@@ -78,8 +78,7 @@ dataset= { &amp;#34;url&amp;#34;:&amp;#34;https://www.smartchart.cn/smartdata/ap
       
       <guid>https://help.smartchart.cn/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/%E5%87%BD%E6%95%B0%E6%96%B9%E6%B3%95/%E5%9B%BE%E5%BD%A2%E7%AB%AF%E6%95%B0%E6%8D%AE%E5%87%BD%E6%95%B0/</guid>
       <description>应用场景 # 在图形开发中，我们可能需要使用js对传递过来的数据进行处理
-原始数据格式 # 假设dataset的格式是, SQL = Select 维度1,维度2,数据 from xxxx, 生成的数据集如下
-dataset = [[&amp;#39;category&amp;#39;,&amp;#39;C1&amp;#39;,&amp;#39;C2&amp;#39;], [&amp;#39;R1&amp;#39;, 12, 18], [&amp;#39;R2&amp;#39;, 10, 17] ] 常用转化函数 # 生成字典表示为key-&amp;gt;[], 常用于定制化高的图形 # result = ds_createMap(dataset) 结果 = {&amp;#34;category&amp;#34;:[&amp;#39;C1&amp;#39;,&amp;#39;C2&amp;#39;], &amp;#34;R1&amp;#34; : [12, 10], &amp;#34;R2&amp;#34; : [18, 17]} 生成非常多前端组件要求的格式 # result = ds_createMap_all(dataset) 结果 = [{&amp;#34;category&amp;#34;:&amp;#34;R1&amp;#34;, &amp;#34;C1&amp;#34;: 12, &amp;#34;C2&amp;#34;: 18}, {&amp;#34;category&amp;#34;:&amp;#34;R2&amp;#34;, &amp;#34;C1&amp;#34;: 10, &amp;#34;C2&amp;#34;: 17}] 获取列名list, 用于获取系列名 # result = ds_rowname(dataset) 结果 = [&amp;#39;R1&amp;#39;,&amp;#39;R2&amp;#39;] 将数据集行列转化, 一般用于坐标轴翻转 # result = ds_transform(dataset) 结果 = [[&amp;#39;category&amp;#39;,&amp;#39;R1&amp;#39;,&amp;#39;R2&amp;#39;], [&amp;#39;C1&amp;#39;, 12, 10], [&amp;#39;C2&amp;#39;, 18, 17]] 两个数据集左关联, 常用于将两段查询数据合并 # //假设需要关联的数据集格式： dataset2 = [[&amp;#39;category&amp;#39;,&amp;#39;C3&amp;#39;], [&amp;#39;R1&amp;#39;, 38], [&amp;#39;R6&amp;#39;, 13]] //处理后的结果： result = ds_leftjoin(dataset, dataset2) 结果 = [[&amp;#39;category&amp;#39;,&amp;#39;C1&amp;#39;,&amp;#39;C2&amp;#39;,&amp;#39;C3&amp;#39;], [&amp;#39;R1&amp;#39;, 12, 18, 38], [&amp;#39;R2&amp;#39;, 10, 17, 0] ] 数据集旋转，在excel中叫透视表 # //比如需要将dataset3的户型变成指标 dataset3 = [[&amp;#39;城市&amp;#39;,&amp;#39;户型&amp;#39;,&amp;#39;数量&amp;#39;], [&amp;#39;长沙&amp;#39;,&amp;#39;A&amp;#39;,35], [&amp;#39;上海&amp;#39;,&amp;#39;B&amp;#39;,19]] //处理后的结果： result = ds_pivot(dataset3) 结果 = [[&amp;#34;城市&amp;#34;,&amp;#34;A&amp;#34;,&amp;#34;B&amp;#34;], [&amp;#34;长沙&amp;#34;,35,0], [&amp;#34;上海&amp;#34;,0,19]] 移除数据集中的某几列 # //比如移除第1列（序号0） result=ds_remove_column(dataset,remove_list=[0]) 结果 = [[&amp;#39;R1&amp;#39;,&amp;#39;R2&amp;#39;], [12, 10], [18, 17] ] 图形中可用转化函数 # 函数名 函数说明 样列 ds_transform(dataset) 行列替换 ds_split(data,sep=&amp;rsquo;,&amp;rsquo;,head_add=[]) 将第一列拆分成多个字段,默认逗号分隔, 如果不传表头,取SQL中的字段名拆分 ds_createMap(data) data表示传入的二位数组,生成结果表示为key-&amp;gt;[], 常用于echarts指定数据 ds_createMap_all(data) data表示传入的二维数组,生成结果表示为[{A:A1,B:B1,C:C1},{A:A2,B:B2,C:C2}&amp;hellip;] ds_mapToList(data) 将createMap_all的格式还原成二维数组, 常用于将nosql(mongodb,es.</description>
+图形中可用转化函数 # 数据集转化 # 函数名 函数说明 样列 ds_transform(dataset) 行列转置 ds_createMap(dataset) 将数组生成结果表示为key-&amp;gt;[], 常用于echarts指定数据 ds_createMap_all(dataset) 将二维数组转成字典[{A:A1,B:B1,C:C1},&amp;hellip;], 常用于饼图 ds_mapToList(dataset) 将字典还原成二维数组, 常用于将nosql(mongodb,es..)数据源数据处理 ds_pivot(dataset) 将二维数组(维度,维度,值)的第二列的维度透视为行 ds_distinct(dataset) 对单个或多个二维数组去重 ds_filter(dataset, fun) fun为函数如: item=&amp;gt;item[0]==&amp;lsquo;顺德&amp;rsquo; ds_sort(dataset, index=0, asc=true) 按照列序号排序,默认升序,index参数可以是函数,如(a,b)=&amp;gt;a.qty-b.qty ds_remove_column(dataset,remove_list=[0]) 默认移除第一列, 也要移除指定的多个列 ds_split(data,sep=&amp;rsquo;,&amp;rsquo;,head_add=[]) 将第一列拆分成多个字段,默认逗号分隔, 如果不传表头,取SQL中的字段名拆分 数据集关联 # 函数名 函数说明 样列 ds_leftjoin(a,b) 按照第一列左关联两个数据集 ds_crossjoin(a,b) ds_fulljoin(a,b) ds_union(a,b) 合并两个数据集,取第一个数据集的表头 数据集刷新 # 函数名 函数说明 样列 ds_param(name) 传入参数名,获取图形点击时传递来的参数值 ds_setParam(&amp;lsquo;参数名&amp;rsquo;, 参数值) 设定全局参数, 此方法将自动判断当参数值为空时, 删除参数回到初始未传参状态 ds_refresh(序号, param=filter_param) 刷新图形,默认采取全局参数刷新,也可指定param,参数为字典{&amp;ldquo;参数名&amp;rdquo;:&amp;ldquo;值&amp;rdquo;,&amp;hellip;} 数据处理 # 函数名 函数说明 样列 ds_rowname(dataset,start_row=1,column=0) 获取指定列的数据, 常用于获取维度 ds_toThousands(num) 转逗号分隔的千分位 ds_round(num,qty=2) 小数点处理, 默认保留两位小数 Excel数据集 # 函数名 函数说明 样列 ds_excel_refresh(dataset) 刷新复杂报表, dataset格式:{df0:二维数组, df1:二维数组,.</description>
     </item>
     
     <item>
@@ -127,6 +126,16 @@ dataset = [[&amp;#39;category&amp;#39;,&amp;#39;C1&amp;#39;,&amp;#39;C2&amp;#39;
     
     <item>
       <title></title>
+      <link>https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1%E8%AE%BE%E5%AE%9A/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1%E8%AE%BE%E5%AE%9A/</guid>
+      <description>SmartChart的数据集功能, 可以非常方便的实现数据对外微服务 # 权限设定 # 账号访问权限 # 超级管理员可以在首页右上角用户图标的菜单中, 找到&amp;quot;服务配置&amp;quot;打开 比如需要调用API的用户名为test 和 test2，用户名需要是在你的用户设定中存在的,内容如下: { &amp;#34;test&amp;#34;: { &amp;#34;token&amp;#34;: &amp;#34;smartchart&amp;#34; }, &amp;#34;test2&amp;#34;: { &amp;#34;token&amp;#34;: &amp;#34;smartchartxxx&amp;#34;, &amp;#34;host&amp;#34;: [&amp;#34;10.10.10.10&amp;#34;,&amp;#34;10.10.10.23&amp;#34;], &amp;#34;limit&amp;#34;: 60, &amp;#34;log&amp;#34;:1, &amp;#34;cors&amp;#34;: 1 } } 可选设定参考test2 host:API白名单配置，limit:一分钟内可调用次数, log:日志记录方式. cors:永许跨域访问
+数据集权限 # 在数据集权限管理中, 将你需要开放的数据集的权限, 设定给对应的用户 API请求方式请参考 数据服务API</description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>https://help.smartchart.cn/docs/7.%E6%8A%A5%E8%A1%A8%E5%B5%8C%E5%85%A5/%E7%AE%80%E5%8D%95%E5%B5%8C%E5%85%A5/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -145,7 +154,7 @@ http://localhost:8000/echart?type=仪表盘名称 如：http://localhost:8000/ec
       <description>应用场景 # 可以在你的django项目中直接使用smartchart做为应用插件 你可以查看相关视屏
 使用方法 # 在你的setting.py的INSTALL_APPS中加入&amp;rsquo;smart_chart.echart&#39; INSTALLED_APPS = [ &amp;#39;smart_chart.smartui&amp;#39;, .... .... &amp;#39;smart_chart.echart&amp;#39; ] MIDDLEWARE 中注释掉XFrameOptionsMiddleware
 检查确保在Templates的设定处有DIRS的相关设定
-TEMPLATES = [ { &amp;#39;BACKEND&amp;#39;: &amp;#39;django.template.backends.django.DjangoTemplates&amp;#39;, &amp;#39;DIRS&amp;#39;: [BASE_DIR / &amp;#39;templates&amp;#39;], #此处需要有 &amp;#39;APP_DIRS&amp;#39;: True, #也要有 ..... }, ] setting.py中设定为中国时区, 支持中文基础平台建设! LANGUAGE_CODE = &amp;#39;zh-hans&amp;#39; TIME_ZONE = &amp;#39;Asia/Shanghai&amp;#39; USE_I18N = True USE_L10N = True USE_TZ = False # 此处必须为False 在你的url.py中加入引用 from django.conf.urls import include from django.views.generic import RedirectView url.py的urlpatterns中加入路由 path(&amp;#39;echart/&amp;#39;, include(&amp;#39;smart_chart.echart.urls&amp;#39;)), path(&amp;#39;&amp;#39;, RedirectView.as_view(url=&amp;#39;echart/index/&amp;#39;)), #首页,可自定义路由 初始化DB, 命令行输入: python manage.</description>
+TEMPLATES = [ { &amp;#39;BACKEND&amp;#39;: &amp;#39;django.template.backends.django.DjangoTemplates&amp;#39;, &amp;#39;DIRS&amp;#39;: [BASE_DIR / &amp;#39;templates&amp;#39;], #此处需要有 &amp;#39;APP_DIRS&amp;#39;: True, #也要有 ..... }, ] setting.py中设定为中国时区, 支持中文基础平台建设! LANGUAGE_CODE = &amp;#39;zh-hans&amp;#39; TIME_ZONE = &amp;#39;Asia/Shanghai&amp;#39; USE_I18N = True USE_L10N = True USE_TZ = False # 此处必须为False 在你的url.py中加入引用 from django.conf.urls import include from django.views.generic import RedirectView url.py的urlpatterns中加入路由 path(&amp;#39;echart/&amp;#39;, include(&amp;#39;smart_chart.echart.urls&amp;#39;)), path(&amp;#39;&amp;#39;, RedirectView.as_view(url=&amp;#39;/echart/index/&amp;#39;)), #首页,可自定义路由 初始化DB, 命令行输入: python manage.</description>
     </item>
     
     <item>
@@ -283,9 +292,14 @@ TIPS: 在图形编辑器中, 可以使用函数 ds_param(&amp;lsquo;参数名&am
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1API/</guid>
-      <description>SmartChart的数据集功能, 可以非常方便的实现数据对外微服务 # 权限设定 # 帐号访问权限 # 超级管理员可以在首页右上角用户图标的菜单中, 找到&amp;quot;服务配置&amp;quot;打开 比如需要调用API的用户名为test 和 test2，用户名需要是在你的用户设定中存在的,内容如下: { &amp;#34;test&amp;#34;: { &amp;#34;token&amp;#34;: &amp;#34;smartchart&amp;#34; }, &amp;#34;test2&amp;#34;: { &amp;#34;token&amp;#34;: &amp;#34;smartchartxxx&amp;#34;, &amp;#34;host&amp;#34;: [&amp;#34;10.10.10.10&amp;#34;,&amp;#34;10.10.10.23&amp;#34;], &amp;#34;limit&amp;#34;: 60, &amp;#34;log&amp;#34;:1, &amp;#34;cors&amp;#34;: 1 } } 可选设定参考test2 host:API白名单配置，limit:一分钟内可调用次数, log:日志记录方式. cors:永许跨域访问
-数据集权限 # 在数据集权限管理中, 将你需要开放的数据集的权限, 设定给对应的用户 请求方式 # 加密接口请求方式（推荐） # 下文提到的&amp;quot;秘钥&amp;quot;即上文设定中的&amp;quot;token&amp;quot;, 注意上文的token非下文提到的token
-GET 请求 # #接口请求格式: url= &amp;#39;/echart/dataset_api/?visitor=xxx&amp;amp;token=xxx&amp;amp;type=xxx&amp;amp;stamp=xxxxx&amp;amp;param={&amp;#34;xx&amp;#34;:&amp;#34;xxx&amp;#34;,&amp;#34;xx&amp;#34;:&amp;#34;xxxx&amp;#34;}&amp;#39; # 参数说明 visitor: 用户名 type: 接口数据集ID stamp: 时间戳(1970年1月1日到生成时间的毫秒数) token: 采用sha1加密, token=SHA1(秘钥 + stamp + visitor + type) param: 数据集查询参数清单(可选), 格式json字符串, 如: &amp;#39;{&amp;#34;参数A&amp;#34;:&amp;#34;xxxx&amp;#34;, &amp;#34;参数B&amp;#34;:&amp;#34;xxxx&amp;#34;}&amp;#39; # 接口返回格式Json: { &amp;#34;data&amp;#34;:[[]], &amp;#34;result&amp;#34;:&amp;#34;success&amp;#34;, &amp;#34;maxpg&amp;#34;:1, &amp;#34;pg&amp;#34;:1 } # 返回值说明: data : 二维数组, 第一行为表头, 样列数据如下 [[&amp;#34;heroname&amp;#34;, &amp;#34;qty&amp;#34;],[&amp;#34;镜&amp;#34;,658],[&amp;#34;猪八戒&amp;#34;,591]] result : success 或 error maxpg/pg : GET请求固定为1不分页 POST请求(适用于后台定时同步数据，查询请用GET请求方法) # #接口请求格式: url: /echart/dataset_api/ # 请求参数data: { &amp;#34;visitor&amp;#34;:&amp;#34;xxx&amp;#34;, &amp;#34;token&amp;#34;:&amp;#34;xxx&amp;#34;, &amp;#34;stamp&amp;#34;:xxxxx, &amp;#34;type&amp;#34;:&amp;#34;xxx&amp;#34;, &amp;#34;pagesize&amp;#34;:&amp;#34;xxx&amp;#34;, &amp;#34;pg&amp;#34;:&amp;#34;xxx&amp;#34;, &amp;#34;param&amp;#34;:&amp;#39;{&amp;#34;xxx&amp;#34;:&amp;#34;xxxx&amp;#34;}&amp;#39; } # data参数说明 visitor: 用户名 type: 接口数据集ID stamp: 时间戳(1970年1月1日到生成时间的毫秒数) token: 采用sha1加密, token=SHA1(秘钥 + stamp + visitor + type) Pagesize: 采用分页, 每页的数据量大小 pg: 返回第几页 param: 数据集查询参数清单(可单), 拼接成json字符串, 如: &amp;#39;{&amp;#34;参数A&amp;#34;:&amp;#34;xxxx&amp;#34;, &amp;#34;参数B&amp;#34;:&amp;#34;xxxx&amp;#34;}&amp;#39; #接口返回格式Json: { &amp;#34;data&amp;#34;:[[]], &amp;#34;result&amp;#34;:&amp;#34;success&amp;#34;, &amp;#34;maxpg&amp;#34;:xxx, #最大页数 &amp;#34;pg&amp;#34;:xx, #当前页数 &amp;#34;casheflag&amp;#34;: xx, #如果是999说明命中缓存 &amp;#34;total&amp;#34;:xx, #总条数 } 注意： 只有post是分页的, 第一页是带标题的， 后面页不带标题 由于post方式会使用缓存进行分页,如命中缓存传参不会生效，小数据量请使用get方式请求 不要请求大数据量，大量数据请采用limit, offset传参方式进行分页</description>
+      <description>加密接口请求方式（推荐） # 下文提到的&amp;quot;秘钥&amp;quot;即管理员在API服务设定中的&amp;quot;token&amp;quot;
+Content-Type为application/x-www-form-urlencoded
+GET请求 # 接口请求URL
+/echart/dataset_api/?visitor=xxx&amp;amp;token=xxx&amp;amp;type=xxx&amp;amp;stamp=xxxxx&amp;amp;param={&amp;#34;xx&amp;#34;:&amp;#34;xxx&amp;#34;,&amp;#34;xx&amp;#34;:&amp;#34;xxxx&amp;#34;} 参数说明
+visitor: 用户名 type: 接口数据集ID stamp: 时间戳(1970年1月1日到生成时间的毫秒数) token: 采用sha1加密, token=SHA1(秘钥 + stamp + visitor + type) param: 数据集查询参数清单(可选), 格式json字符串, 如: &amp;#39;{&amp;#34;参数A&amp;#34;:&amp;#34;xxxx&amp;#34;, &amp;#34;参数B&amp;#34;:&amp;#34;xxxx&amp;#34;}&amp;#39; 接口返回格式Json
+{ &amp;#34;data&amp;#34;:[[]], &amp;#34;result&amp;#34;:&amp;#34;success&amp;#34;, &amp;#34;maxpg&amp;#34;:1, &amp;#34;pg&amp;#34;:1 } 返回值说明
+data : 二维数组, 第一行为表头, 样列数据如下 [[&amp;#34;heroname&amp;#34;, &amp;#34;qty&amp;#34;],[&amp;#34;镜&amp;#34;,658],[&amp;#34;猪八戒&amp;#34;,591]] result : success 或 error maxpg/pg : GET请求固定为1不分页 POST请求 # 适用于后台定时同步数据，查询请用GET请求方法
+#接口请求格式: url: /echart/dataset_api/ #请求参数data: { &amp;#34;visitor&amp;#34;:&amp;#34;xxx&amp;#34;, &amp;#34;token&amp;#34;:&amp;#34;xxx&amp;#34;, &amp;#34;stamp&amp;#34;:xxxxx, &amp;#34;type&amp;#34;:&amp;#34;xxx&amp;#34;, &amp;#34;pagesize&amp;#34;:&amp;#34;xxx&amp;#34;, &amp;#34;pg&amp;#34;:&amp;#34;xxx&amp;#34;, &amp;#34;param&amp;#34;:&amp;#39;{&amp;#34;xxx&amp;#34;:&amp;#34;xxxx&amp;#34;}&amp;#39; } #data参数说明 visitor: 用户名 type: 接口数据集ID stamp: 时间戳(1970年1月1日到生成时间的毫秒数) token: 采用sha1加密, token=SHA1(秘钥 + stamp + visitor + type) Pagesize: 采用分页, 每页的数据量大小 pg: 返回第几页 param: 数据集查询参数清单(可单), 拼接成json字符串, 如: &amp;#39;{&amp;#34;参数A&amp;#34;:&amp;#34;xxxx&amp;#34;, &amp;#34;参数B&amp;#34;:&amp;#34;xxxx&amp;#34;}&amp;#39; #接口返回格式Json: { &amp;#34;data&amp;#34;:[[]], &amp;#34;result&amp;#34;:&amp;#34;success&amp;#34;, &amp;#34;maxpg&amp;#34;:xxx, #最大页数 &amp;#34;pg&amp;#34;:xx, #当前页数 &amp;#34;casheflag&amp;#34;: xx, #如果是999说明命中缓存 &amp;#34;total&amp;#34;:xx, #总条数 } 注意： 只有post是分页的, 第一页是带标题的， 后面页不带标题 由于post方式会使用缓存进行分页,如命中缓存传参不会生效，小数据量请使用get方式请求 不要请求大数据量，大量数据请采用limit, offset传参方式进行分页</description>
     </item>
     
     <item>
@@ -676,7 +690,7 @@ def dataset(request): import openai openai.api_key = &amp;#39;输入你的api_ke
       <guid>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E5%88%9B%E5%BB%BA%E8%BF%9E%E6%8E%A5%E6%B1%A0/</guid>
       <description>如何新增数据源 # 在开发模式下，点击“开发管理”-&amp;gt;数据源-&amp;gt;新增 配置连接池参数，注意数据库填写是备注中有写的名称 你可以通过新建一个数据集来测试连接池的连通性
 点击“保存” 后，回到数据集列表 点击如下图标&amp;quot;E&amp;quot;，进入数据集开发界面 在开发界面调试 安全控制 # 你可以在“参数”中设定安全控制，可避免用户误操作导致前后端卡死 limit: 可限定最大返回数据数量(但实际数据库查询无limit,需通过mode控制) mode: 控制用户查询行为，默认为模式1
-模式 说明 0 严格模式，每次查询向数据库都会增加limit，MPP类型数据库可能会排序失效 1 开发模式，仅调试查询数据库都会增加limit，调试时MPP类型数据库可能会排序失效，但不影响实际 2 宽松模式，查询都不带limit, 仅控制返回limit,需开发者避免大查询 支持的数据源： # 数据库 驱动填写 需安装 使用说明 Mysql mysql 默认支持 Mysql连接池 mysqlpool Sqlite sqlite 默认支持 连接地址填写绝对路径 API 任意 默认支持 参考数据集说明文档 EXCEL 任意 默认支持 参考数据集说明文档 SQL Server mssql 需安装 pip install pymssql SQL Server连接池 mssqlpool ORACLE oracle pip install cx_Oracle ORACLE连接池 oraclepool PostgreSql gp pip install psycopg2 GP gp pip install psycopg2 Impala impala pip install impyla Hive hive pip install impyla DB2 db2 pip install ibm_db 达梦 dm pip install dmPython Python python pip install pandas, openpyxl 参考数据集-&amp;gt;特殊数据源 Redis redis pip install redis 参考数据集-&amp;gt;特殊数据源 Mongodb mongodb pip install pymongo 参考数据集-&amp;gt;特殊数据源 Clickhouse clickhouse pip install clickhouse_driver Elasticsearch es pip install elasticsearch==7.</description>
+模式 说明 0 严格模式，每次查询向数据库都会增加limit，MPP类型数据库可能会排序失效 1 开发模式，仅调试查询数据库都会增加limit，调试时MPP类型数据库可能会排序失效，但不影响实际 2 宽松模式，查询都不带limit, 仅控制返回limit,需开发者避免大查询 支持的数据源： # 数据库 驱动填写 需安装 使用说明 Mysql mysql 默认支持 Mysql连接池 mysqlpool pip install DBUtils Sqlite sqlite 默认支持 连接地址填写绝对路径 API 任意 默认支持 参考数据集说明文档 EXCEL 任意 默认支持 参考数据集说明文档 SQL Server mssql pip install pymssql SQL Server连接池 mssqlpool ORACLE oracle pip install cx_Oracle ORACLE连接池 oraclepool PostgreSql gp pip install psycopg2 GP gp pip install psycopg2 Impala impala pip install impyla Hive hive pip install impyla DB2 db2 pip install ibm_db 达梦 dm pip install dmPython Python python pip install pandas, openpyxl 参考数据集-&amp;gt;特殊数据源 Redis redis pip install redis 参考数据集-&amp;gt;特殊数据源 Mongodb mongodb pip install pymongo 参考数据集-&amp;gt;特殊数据源 Clickhouse clickhouse pip install clickhouse_driver Elasticsearch es pip install elasticsearch==7.</description>
     </item>
     
     <item>
@@ -694,13 +708,13 @@ def dataset(request): import openai openai.api_key = &amp;#39;输入你的api_ke
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E5%BA%94%E7%94%A8%E6%A8%A1%E6%9D%BF/</guid>
-      <description>应用场景 # 你可以快速应用开发好的模板,极大的提高你的开发和学习效率
+      <description>应用场景 # 快速应用开发好的模板,极大地提高开发和学习效率
 应用本地模板 # 你可以快速应用本地备份的模板, 我们内置了一个 通用的数据查询和下载模板 , 你可以尝试
 新建一个全新的dashboard, 不要放任何报表, 点击保存且编辑后, 下方可以看到下载链接, 然后点击下载即可直接应用 输入&amp;quot;01_SMARTCHART&amp;quot;, 点击本地恢复即可 更多本地备份恢复参考
 应用商店模板 # 方法同上&amp;quot;应用本地模板&amp;quot;, 注意应用商店模板为收费增值服务
-你可以点击 模板查询, 查看相应的价格后在 TB购买即可获取下载密钥 如果是全新的仪表盘, 直接输入下载密钥, 点击&amp;quot; 商城下载 &amp;ldquo;即可 如果仪表盘中有数据集且不再需要, 可以在下载密钥前面加上FORCE即可自动清空已有数据集后自动下载 注意模板太廉价,购买后并没有咨询服务,请务必自行了解如何使用
-资源文件放置路径 有些资源会离线打包提供给你, 只需上传即可, 上传方法参考
-如果不清楚可以观看视屏说明 使用方法可参考视屏: 一键应用模板</description>
+你可以点击 模板查询, 查看相应的价格后在 TB购买即可获取下载密钥 按照&amp;quot;应用本地模板&amp;quot;的方法, 输入客服提供的下载密钥, 点击&amp;quot; 商城下载 &amp;ldquo;即可 如果仪表盘中有数据集且不再需要, 可以在下载密钥前面加上FORCE即可自动清空已有数据集后自动下载 注意模板太廉价,购买后并没有咨询服务,请务必自行了解如何使用 使用方法可参考视屏: 一键应用模板
+资源文件放置路径
+有些资源会离线打包提供给你, 只需上传即可, 上传方法参考</description>
     </item>
     
     <item>
@@ -720,11 +734,13 @@ def dataset(request): import openai openai.api_key = &amp;#39;输入你的api_ke
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/10.%E5%85%B6%E5%AE%83/FAQ/</guid>
-      <description>FAQ # 启动显示 以一种访问权限不允许的方式做了一个访问套接字的尝试 出现这种情况在Windows中很常见，就是端口被占用，酷狗音乐会占用8000端口 使用netstat -ano|findstr 8000 找到进程号 使用taskkill /pid 进程号 /F
+      <description> FAQ # 启动显示 以一种访问权限不允许的方式做了一个访问套接字的尝试 出现这种情况在Windows中很常见，就是端口被占用，酷狗音乐会占用8000端口 使用netstat -ano|findstr 8000 找到进程号 使用taskkill /pid 进程号 /F
 输入命令找不到smartchart 检查你是否有安装多个python环境出现环境变量冲突,请卸载一个或取消一个环境变量
 如法安装pip 请确认在安装python时,有没有加入环境变量, 可自行加入, 或卸载重装
-关于mac版本安装后的各种问题 目前来看最大的可能是，/Library/Developer/CommandLineTools这个目录下有python3，应该是在某一个版本的Xcode command line tools安装时生成的 可以先把python3全部卸载，再重新按说明安装，命令行中输入python3 和 pip3， 找不到command时才说明完全卸载成功
-sudo rm -rf /Library/Developer/CommandLineTools sudo rm -f /usr/bin/python3 如果密码忘记了怎么办 命令行输入smartchart changepassword 你的用户名</description>
+关于mac版本安装后的各种问题,目前来看最大的可能是/Library/Developer/CommandLineTools这个目录下有python3，应该是在某一个版本的Xcode command line tools安装时生成的, 可以先把python3全部卸载，再重新按说明安装，命令行中输入python3 和 pip3， 找不到command时才说明完全卸载成功
+sudo rm -rf /Library/Developer/CommandLineTools sudo rm -f /usr/bin/python3 如果密码忘记了怎么办 命令行输入smartchart changepassword 你的用户名
+由于urllib3升级可以出现以下报错, 可以通过pip install urllib3==1.26.15解决
+&amp;lt;PACKAGE&amp;gt; depends on urllib3==2.0.0 requests 2.29.0 depends on urllib3&amp;lt;1.27 and &amp;gt;=1.21.1 </description>
     </item>
     
     <item>

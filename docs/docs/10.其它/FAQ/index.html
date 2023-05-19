@@ -3,18 +3,22 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="FAQ # 启动显示 以一种访问权限不允许的方式做了一个访问套接字的尝试 出现这种情况在Windows中很常见，就是端口被占用，酷狗音乐会占用8000端口 使用netstat -ano|findstr 8000 找到进程号 使用taskkill /pid 进程号 /F
+<meta name="description" content=" FAQ # 启动显示 以一种访问权限不允许的方式做了一个访问套接字的尝试 出现这种情况在Windows中很常见，就是端口被占用，酷狗音乐会占用8000端口 使用netstat -ano|findstr 8000 找到进程号 使用taskkill /pid 进程号 /F
 输入命令找不到smartchart 检查你是否有安装多个python环境出现环境变量冲突,请卸载一个或取消一个环境变量
 如法安装pip 请确认在安装python时,有没有加入环境变量, 可自行加入, 或卸载重装
-关于mac版本安装后的各种问题 目前来看最大的可能是，/Library/Developer/CommandLineTools这个目录下有python3，应该是在某一个版本的Xcode command line tools安装时生成的 可以先把python3全部卸载，再重新按说明安装，命令行中输入python3 和 pip3， 找不到command时才说明完全卸载成功
-sudo rm -rf /Library/Developer/CommandLineTools sudo rm -f /usr/bin/python3 如果密码忘记了怎么办 命令行输入smartchart changepassword 你的用户名">
+关于mac版本安装后的各种问题,目前来看最大的可能是/Library/Developer/CommandLineTools这个目录下有python3，应该是在某一个版本的Xcode command line tools安装时生成的, 可以先把python3全部卸载，再重新按说明安装，命令行中输入python3 和 pip3， 找不到command时才说明完全卸载成功
+sudo rm -rf /Library/Developer/CommandLineTools sudo rm -f /usr/bin/python3 如果密码忘记了怎么办 命令行输入smartchart changepassword 你的用户名
+由于urllib3升级可以出现以下报错, 可以通过pip install urllib3==1.26.15解决
+&lt;PACKAGE&gt; depends on urllib3==2.0.0 requests 2.29.0 depends on urllib3&lt;1.27 and &gt;=1.21.1 ">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
-<meta property="og:description" content="FAQ # 启动显示 以一种访问权限不允许的方式做了一个访问套接字的尝试 出现这种情况在Windows中很常见，就是端口被占用，酷狗音乐会占用8000端口 使用netstat -ano|findstr 8000 找到进程号 使用taskkill /pid 进程号 /F
+<meta property="og:description" content=" FAQ # 启动显示 以一种访问权限不允许的方式做了一个访问套接字的尝试 出现这种情况在Windows中很常见，就是端口被占用，酷狗音乐会占用8000端口 使用netstat -ano|findstr 8000 找到进程号 使用taskkill /pid 进程号 /F
 输入命令找不到smartchart 检查你是否有安装多个python环境出现环境变量冲突,请卸载一个或取消一个环境变量
 如法安装pip 请确认在安装python时,有没有加入环境变量, 可自行加入, 或卸载重装
-关于mac版本安装后的各种问题 目前来看最大的可能是，/Library/Developer/CommandLineTools这个目录下有python3，应该是在某一个版本的Xcode command line tools安装时生成的 可以先把python3全部卸载，再重新按说明安装，命令行中输入python3 和 pip3， 找不到command时才说明完全卸载成功
-sudo rm -rf /Library/Developer/CommandLineTools sudo rm -f /usr/bin/python3 如果密码忘记了怎么办 命令行输入smartchart changepassword 你的用户名" />
+关于mac版本安装后的各种问题,目前来看最大的可能是/Library/Developer/CommandLineTools这个目录下有python3，应该是在某一个版本的Xcode command line tools安装时生成的, 可以先把python3全部卸载，再重新按说明安装，命令行中输入python3 和 pip3， 找不到command时才说明完全卸载成功
+sudo rm -rf /Library/Developer/CommandLineTools sudo rm -f /usr/bin/python3 如果密码忘记了怎么办 命令行输入smartchart changepassword 你的用户名
+由于urllib3升级可以出现以下报错, 可以通过pip install urllib3==1.26.15解决
+&lt;PACKAGE&gt; depends on urllib3==2.0.0 requests 2.29.0 depends on urllib3&lt;1.27 and &gt;=1.21.1 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://help.smartchart.cn/docs/10.%E5%85%B6%E5%AE%83/FAQ/" /><meta property="article:section" content="docs" />
 
@@ -25,7 +29,7 @@ sudo rm -rf /Library/Developer/CommandLineTools sudo rm -f /usr/bin/python3 如�
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.ba2874ca2d634efe85c9b5912b9a5f8fa8d39fcfeff3d08ca8779eb1b2f08104.js" integrity="sha256-uih0yi1jTv6FybWRK5pfj6jTn8/v89CMqHeesbLwgQQ=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.434a94c76588af150f3f16ff95526eef6dd460dea036ab853a48f798f59f3c57.js" integrity="sha256-Q0qUx2WIrxUPPxb/lVJu723UYN6gNquFOkj3mPWfPFc=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -1177,6 +1181,19 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1%E8%AE%BE%E5%AE%9A/" class="">数据服务设定</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
     <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1API/" class="">数据服务 API</a>
   
 
@@ -1472,87 +1489,6 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
     
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-1221ac066d992a43b363728eac9711d8" class="toggle"  />
-    <label for="section-1221ac066d992a43b363728eac9711d8" class="flex justify-between">
-      <a role="button" class="">11.部署指南</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-df28c15db9b442124658f06e614fc60b" class="toggle"  />
-    <label for="section-df28c15db9b442124658f06e614fc60b" class="flex justify-between">
-      <a role="button" class="">Linux</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/11.%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/Linux/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/" class="">快速开始</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/11.%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/Linux/SQLite3%E7%89%88%E6%9C%AC%E9%94%99%E8%AF%AF/" class="">Sqlite3版本错误</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/11.%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/Linux/%E7%94%9F%E4%BA%A7%E9%83%A8%E7%BD%B2/" class="">生产部署</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
   </ul>
 
 
@@ -1664,8 +1600,7 @@ https://github.com/alex-shpak/hugo-book
 请确认在安装python时,有没有加入环境变量, 可自行加入, 或卸载重装</p>
 </li>
 <li>
-<p>关于mac版本安装后的各种问题
-目前来看最大的可能是，/Library/Developer/CommandLineTools这个目录下有python3，应该是在某一个版本的Xcode command line tools安装时生成的
+<p>关于mac版本安装后的各种问题,目前来看最大的可能是/Library/Developer/CommandLineTools这个目录下有python3，应该是在某一个版本的Xcode command line tools安装时生成的,
 可以先把python3全部卸载，再重新按说明安装，命令行中输入python3 和 pip3， 找不到command时才说明完全卸载成功</p>
 <pre tabindex="0"><code>sudo rm -rf /Library/Developer/CommandLineTools
 sudo rm -f /usr/bin/python3
@@ -1674,6 +1609,11 @@ sudo rm -f /usr/bin/python3
 <p>如果密码忘记了怎么办
 命令行输入smartchart changepassword 你的用户名</p>
 </li>
+<li>
+<p>由于urllib3升级可以出现以下报错, 可以通过pip install urllib3==1.26.15解决</p>
+<pre tabindex="0"><code>&lt;PACKAGE&gt; depends on urllib3==2.0.0
+requests 2.29.0 depends on urllib3&lt;1.27 and &gt;=1.21.1
+</code></pre></li>
 </ul>
 </article>
  

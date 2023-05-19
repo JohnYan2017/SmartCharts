@@ -4,13 +4,11 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="应用场景 # 在图形开发中，我们可能需要使用js对传递过来的数据进行处理
-原始数据格式 # 假设dataset的格式是, SQL = Select 维度1,维度2,数据 from xxxx, 生成的数据集如下
-dataset = [[&#39;category&#39;,&#39;C1&#39;,&#39;C2&#39;], [&#39;R1&#39;, 12, 18], [&#39;R2&#39;, 10, 17] ] 常用转化函数 # 生成字典表示为key-&gt;[], 常用于定制化高的图形 # result = ds_createMap(dataset) 结果 = {&#34;category&#34;:[&#39;C1&#39;,&#39;C2&#39;], &#34;R1&#34; : [12, 10], &#34;R2&#34; : [18, 17]} 生成非常多前端组件要求的格式 # result = ds_createMap_all(dataset) 结果 = [{&#34;category&#34;:&#34;R1&#34;, &#34;C1&#34;: 12, &#34;C2&#34;: 18}, {&#34;category&#34;:&#34;R2&#34;, &#34;C1&#34;: 10, &#34;C2&#34;: 17}] 获取列名list, 用于获取系列名 # result = ds_rowname(dataset) 结果 = [&#39;R1&#39;,&#39;R2&#39;] 将数据集行列转化, 一般用于坐标轴翻转 # result = ds_transform(dataset) 结果 = [[&#39;category&#39;,&#39;R1&#39;,&#39;R2&#39;], [&#39;C1&#39;, 12, 10], [&#39;C2&#39;, 18, 17]] 两个数据集左关联, 常用于将两段查询数据合并 # //假设需要关联的数据集格式： dataset2 = [[&#39;category&#39;,&#39;C3&#39;], [&#39;R1&#39;, 38], [&#39;R6&#39;, 13]] //处理后的结果： result = ds_leftjoin(dataset, dataset2) 结果 = [[&#39;category&#39;,&#39;C1&#39;,&#39;C2&#39;,&#39;C3&#39;], [&#39;R1&#39;, 12, 18, 38], [&#39;R2&#39;, 10, 17, 0] ] 数据集旋转，在excel中叫透视表 # //比如需要将dataset3的户型变成指标 dataset3 = [[&#39;城市&#39;,&#39;户型&#39;,&#39;数量&#39;], [&#39;长沙&#39;,&#39;A&#39;,35], [&#39;上海&#39;,&#39;B&#39;,19]] //处理后的结果： result = ds_pivot(dataset3) 结果 = [[&#34;城市&#34;,&#34;A&#34;,&#34;B&#34;], [&#34;长沙&#34;,35,0], [&#34;上海&#34;,0,19]] 移除数据集中的某几列 # //比如移除第1列（序号0） result=ds_remove_column(dataset,remove_list=[0]) 结果 = [[&#39;R1&#39;,&#39;R2&#39;], [12, 10], [18, 17] ] 图形中可用转化函数 # 函数名 函数说明 样列 ds_transform(dataset) 行列替换 ds_split(data,sep=&rsquo;,&rsquo;,head_add=[]) 将第一列拆分成多个字段,默认逗号分隔, 如果不传表头,取SQL中的字段名拆分 ds_createMap(data) data表示传入的二位数组,生成结果表示为key-&gt;[], 常用于echarts指定数据 ds_createMap_all(data) data表示传入的二维数组,生成结果表示为[{A:A1,B:B1,C:C1},{A:A2,B:B2,C:C2}&hellip;] ds_mapToList(data) 将createMap_all的格式还原成二维数组, 常用于将nosql(mongodb,es.">
+图形中可用转化函数 # 数据集转化 # 函数名 函数说明 样列 ds_transform(dataset) 行列转置 ds_createMap(dataset) 将数组生成结果表示为key-&gt;[], 常用于echarts指定数据 ds_createMap_all(dataset) 将二维数组转成字典[{A:A1,B:B1,C:C1},&hellip;], 常用于饼图 ds_mapToList(dataset) 将字典还原成二维数组, 常用于将nosql(mongodb,es..)数据源数据处理 ds_pivot(dataset) 将二维数组(维度,维度,值)的第二列的维度透视为行 ds_distinct(dataset) 对单个或多个二维数组去重 ds_filter(dataset, fun) fun为函数如: item=&gt;item[0]==&lsquo;顺德&rsquo; ds_sort(dataset, index=0, asc=true) 按照列序号排序,默认升序,index参数可以是函数,如(a,b)=&gt;a.qty-b.qty ds_remove_column(dataset,remove_list=[0]) 默认移除第一列, 也要移除指定的多个列 ds_split(data,sep=&rsquo;,&rsquo;,head_add=[]) 将第一列拆分成多个字段,默认逗号分隔, 如果不传表头,取SQL中的字段名拆分 数据集关联 # 函数名 函数说明 样列 ds_leftjoin(a,b) 按照第一列左关联两个数据集 ds_crossjoin(a,b) ds_fulljoin(a,b) ds_union(a,b) 合并两个数据集,取第一个数据集的表头 数据集刷新 # 函数名 函数说明 样列 ds_param(name) 传入参数名,获取图形点击时传递来的参数值 ds_setParam(&lsquo;参数名&rsquo;, 参数值) 设定全局参数, 此方法将自动判断当参数值为空时, 删除参数回到初始未传参状态 ds_refresh(序号, param=filter_param) 刷新图形,默认采取全局参数刷新,也可指定param,参数为字典{&ldquo;参数名&rdquo;:&ldquo;值&rdquo;,&hellip;} 数据处理 # 函数名 函数说明 样列 ds_rowname(dataset,start_row=1,column=0) 获取指定列的数据, 常用于获取维度 ds_toThousands(num) 转逗号分隔的千分位 ds_round(num,qty=2) 小数点处理, 默认保留两位小数 Excel数据集 # 函数名 函数说明 样列 ds_excel_refresh(dataset) 刷新复杂报表, dataset格式:{df0:二维数组, df1:二维数组,.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
 <meta property="og:description" content="应用场景 # 在图形开发中，我们可能需要使用js对传递过来的数据进行处理
-原始数据格式 # 假设dataset的格式是, SQL = Select 维度1,维度2,数据 from xxxx, 生成的数据集如下
-dataset = [[&#39;category&#39;,&#39;C1&#39;,&#39;C2&#39;], [&#39;R1&#39;, 12, 18], [&#39;R2&#39;, 10, 17] ] 常用转化函数 # 生成字典表示为key-&gt;[], 常用于定制化高的图形 # result = ds_createMap(dataset) 结果 = {&#34;category&#34;:[&#39;C1&#39;,&#39;C2&#39;], &#34;R1&#34; : [12, 10], &#34;R2&#34; : [18, 17]} 生成非常多前端组件要求的格式 # result = ds_createMap_all(dataset) 结果 = [{&#34;category&#34;:&#34;R1&#34;, &#34;C1&#34;: 12, &#34;C2&#34;: 18}, {&#34;category&#34;:&#34;R2&#34;, &#34;C1&#34;: 10, &#34;C2&#34;: 17}] 获取列名list, 用于获取系列名 # result = ds_rowname(dataset) 结果 = [&#39;R1&#39;,&#39;R2&#39;] 将数据集行列转化, 一般用于坐标轴翻转 # result = ds_transform(dataset) 结果 = [[&#39;category&#39;,&#39;R1&#39;,&#39;R2&#39;], [&#39;C1&#39;, 12, 10], [&#39;C2&#39;, 18, 17]] 两个数据集左关联, 常用于将两段查询数据合并 # //假设需要关联的数据集格式： dataset2 = [[&#39;category&#39;,&#39;C3&#39;], [&#39;R1&#39;, 38], [&#39;R6&#39;, 13]] //处理后的结果： result = ds_leftjoin(dataset, dataset2) 结果 = [[&#39;category&#39;,&#39;C1&#39;,&#39;C2&#39;,&#39;C3&#39;], [&#39;R1&#39;, 12, 18, 38], [&#39;R2&#39;, 10, 17, 0] ] 数据集旋转，在excel中叫透视表 # //比如需要将dataset3的户型变成指标 dataset3 = [[&#39;城市&#39;,&#39;户型&#39;,&#39;数量&#39;], [&#39;长沙&#39;,&#39;A&#39;,35], [&#39;上海&#39;,&#39;B&#39;,19]] //处理后的结果： result = ds_pivot(dataset3) 结果 = [[&#34;城市&#34;,&#34;A&#34;,&#34;B&#34;], [&#34;长沙&#34;,35,0], [&#34;上海&#34;,0,19]] 移除数据集中的某几列 # //比如移除第1列（序号0） result=ds_remove_column(dataset,remove_list=[0]) 结果 = [[&#39;R1&#39;,&#39;R2&#39;], [12, 10], [18, 17] ] 图形中可用转化函数 # 函数名 函数说明 样列 ds_transform(dataset) 行列替换 ds_split(data,sep=&rsquo;,&rsquo;,head_add=[]) 将第一列拆分成多个字段,默认逗号分隔, 如果不传表头,取SQL中的字段名拆分 ds_createMap(data) data表示传入的二位数组,生成结果表示为key-&gt;[], 常用于echarts指定数据 ds_createMap_all(data) data表示传入的二维数组,生成结果表示为[{A:A1,B:B1,C:C1},{A:A2,B:B2,C:C2}&hellip;] ds_mapToList(data) 将createMap_all的格式还原成二维数组, 常用于将nosql(mongodb,es." />
+图形中可用转化函数 # 数据集转化 # 函数名 函数说明 样列 ds_transform(dataset) 行列转置 ds_createMap(dataset) 将数组生成结果表示为key-&gt;[], 常用于echarts指定数据 ds_createMap_all(dataset) 将二维数组转成字典[{A:A1,B:B1,C:C1},&hellip;], 常用于饼图 ds_mapToList(dataset) 将字典还原成二维数组, 常用于将nosql(mongodb,es..)数据源数据处理 ds_pivot(dataset) 将二维数组(维度,维度,值)的第二列的维度透视为行 ds_distinct(dataset) 对单个或多个二维数组去重 ds_filter(dataset, fun) fun为函数如: item=&gt;item[0]==&lsquo;顺德&rsquo; ds_sort(dataset, index=0, asc=true) 按照列序号排序,默认升序,index参数可以是函数,如(a,b)=&gt;a.qty-b.qty ds_remove_column(dataset,remove_list=[0]) 默认移除第一列, 也要移除指定的多个列 ds_split(data,sep=&rsquo;,&rsquo;,head_add=[]) 将第一列拆分成多个字段,默认逗号分隔, 如果不传表头,取SQL中的字段名拆分 数据集关联 # 函数名 函数说明 样列 ds_leftjoin(a,b) 按照第一列左关联两个数据集 ds_crossjoin(a,b) ds_fulljoin(a,b) ds_union(a,b) 合并两个数据集,取第一个数据集的表头 数据集刷新 # 函数名 函数说明 样列 ds_param(name) 传入参数名,获取图形点击时传递来的参数值 ds_setParam(&lsquo;参数名&rsquo;, 参数值) 设定全局参数, 此方法将自动判断当参数值为空时, 删除参数回到初始未传参状态 ds_refresh(序号, param=filter_param) 刷新图形,默认采取全局参数刷新,也可指定param,参数为字典{&ldquo;参数名&rdquo;:&ldquo;值&rdquo;,&hellip;} 数据处理 # 函数名 函数说明 样列 ds_rowname(dataset,start_row=1,column=0) 获取指定列的数据, 常用于获取维度 ds_toThousands(num) 转逗号分隔的千分位 ds_round(num,qty=2) 小数点处理, 默认保留两位小数 Excel数据集 # 函数名 函数说明 样列 ds_excel_refresh(dataset) 刷新复杂报表, dataset格式:{df0:二维数组, df1:二维数组,." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://help.smartchart.cn/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/%E5%87%BD%E6%95%B0%E6%96%B9%E6%B3%95/%E5%9B%BE%E5%BD%A2%E7%AB%AF%E6%95%B0%E6%8D%AE%E5%87%BD%E6%95%B0/" /><meta property="article:section" content="docs" />
 
@@ -21,7 +19,7 @@ dataset = [[&#39;category&#39;,&#39;C1&#39;,&#39;C2&#39;], [&#39;R1&#39;, 12, 18
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.ba2874ca2d634efe85c9b5912b9a5f8fa8d39fcfeff3d08ca8779eb1b2f08104.js" integrity="sha256-uih0yi1jTv6FybWRK5pfj6jTn8/v89CMqHeesbLwgQQ=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.434a94c76588af150f3f16ff95526eef6dd460dea036ab853a48f798f59f3c57.js" integrity="sha256-Q0qUx2WIrxUPPxb/lVJu723UYN6gNquFOkj3mPWfPFc=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -1173,6 +1171,19 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1%E8%AE%BE%E5%AE%9A/" class="">数据服务设定</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
     <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1API/" class="">数据服务 API</a>
   
 
@@ -1468,87 +1479,6 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
     
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-1221ac066d992a43b363728eac9711d8" class="toggle"  />
-    <label for="section-1221ac066d992a43b363728eac9711d8" class="flex justify-between">
-      <a role="button" class="">11.部署指南</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <input type="checkbox" id="section-df28c15db9b442124658f06e614fc60b" class="toggle"  />
-    <label for="section-df28c15db9b442124658f06e614fc60b" class="flex justify-between">
-      <a role="button" class="">Linux</a>
-    </label>
-  
-
-          
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/11.%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/Linux/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/" class="">快速开始</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/11.%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/Linux/SQLite3%E7%89%88%E6%9C%AC%E9%94%99%E8%AF%AF/" class="">Sqlite3版本错误</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/docs/11.%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/Linux/%E7%94%9F%E4%BA%A7%E9%83%A8%E7%BD%B2/" class="">生产部署</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
-  </ul>
-
-        </li>
-      
-    
   </ul>
 
 
@@ -1624,10 +1554,10 @@ https://github.com/alex-shpak/hugo-book
         <li>
           <ul>
             <li><a href="#应用场景">应用场景</a></li>
-            <li><a href="#原始数据格式">原始数据格式</a></li>
-            <li><a href="#常用转化函数">常用转化函数</a></li>
             <li><a href="#图形中可用转化函数">图形中可用转化函数</a></li>
             <li><a href="#常用js原生函数">常用JS原生函数</a></li>
+            <li><a href="#原始数据格式">原始数据格式</a></li>
+            <li><a href="#常用转化函数样列参考">常用转化函数样列参考</a></li>
             <li><a href="#其它方法">其它方法</a></li>
           </ul>
         </li>
@@ -1650,7 +1580,247 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#%e5%ba%94%e7%94%a8%e5%9c%ba%e6%99%af">#</a>
 </h3>
 <p>在图形开发中，我们可能需要使用js对传递过来的数据进行处理</p>
-<h3 id="原始数据格式">
+<h3 id="图形中可用转化函数">
+  图形中可用转化函数
+  <a class="anchor" href="#%e5%9b%be%e5%bd%a2%e4%b8%ad%e5%8f%af%e7%94%a8%e8%bd%ac%e5%8c%96%e5%87%bd%e6%95%b0">#</a>
+</h3>
+<h4 id="数据集转化">
+  数据集转化
+  <a class="anchor" href="#%e6%95%b0%e6%8d%ae%e9%9b%86%e8%bd%ac%e5%8c%96">#</a>
+</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">函数名</th>
+<th style="text-align:center">函数说明</th>
+<th style="text-align:center">样列</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ds_transform(dataset)</td>
+<td style="text-align:center">行列转置</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">ds_createMap(dataset)</td>
+<td style="text-align:center">将数组生成结果表示为key-&gt;[], 常用于echarts指定数据</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">ds_createMap_all(dataset)</td>
+<td style="text-align:center">将二维数组转成字典[{A:A1,B:B1,C:C1},&hellip;], 常用于饼图</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">ds_mapToList(dataset)</td>
+<td style="text-align:center">将字典还原成二维数组, 常用于将nosql(mongodb,es..)数据源数据处理</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">ds_pivot(dataset)</td>
+<td style="text-align:center">将二维数组(维度,维度,值)的第二列的维度透视为行</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">ds_distinct(dataset)</td>
+<td style="text-align:center">对单个或多个二维数组去重</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">ds_filter(dataset, fun)</td>
+<td style="text-align:center">fun为函数如: item=&gt;item[0]==&lsquo;顺德&rsquo;</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">ds_sort(dataset, index=0, asc=true)</td>
+<td style="text-align:center">按照列序号排序,默认升序,index参数可以是函数,如(a,b)=&gt;a.qty-b.qty</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">ds_remove_column(dataset,remove_list=[0])</td>
+<td style="text-align:center">默认移除第一列, 也要移除指定的多个列</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">ds_split(data,sep=&rsquo;,&rsquo;,head_add=[])</td>
+<td style="text-align:center">将第一列拆分成多个字段,默认逗号分隔, 如果不传表头,取SQL中的字段名拆分</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h4 id="数据集关联">
+  数据集关联
+  <a class="anchor" href="#%e6%95%b0%e6%8d%ae%e9%9b%86%e5%85%b3%e8%81%94">#</a>
+</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">函数名</th>
+<th style="text-align:center">函数说明</th>
+<th style="text-align:center">样列</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ds_leftjoin(a,b)</td>
+<td style="text-align:center">按照第一列左关联两个数据集</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">ds_crossjoin(a,b)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">ds_fulljoin(a,b)</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">ds_union(a,b)</td>
+<td style="text-align:center">合并两个数据集,取第一个数据集的表头</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h4 id="数据集刷新">
+  数据集刷新
+  <a class="anchor" href="#%e6%95%b0%e6%8d%ae%e9%9b%86%e5%88%b7%e6%96%b0">#</a>
+</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">函数名</th>
+<th style="text-align:center">函数说明</th>
+<th style="text-align:center">样列</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ds_param(name)</td>
+<td style="text-align:center">传入参数名,获取图形点击时传递来的参数值</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">ds_setParam(&lsquo;参数名&rsquo;, 参数值)</td>
+<td style="text-align:center">设定全局参数, 此方法将自动判断当参数值为空时, 删除参数回到初始未传参状态</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">ds_refresh(序号, param=filter_param)</td>
+<td style="text-align:center">刷新图形,默认采取全局参数刷新,也可指定param,参数为字典{&ldquo;参数名&rdquo;:&ldquo;值&rdquo;,&hellip;}</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h4 id="数据处理">
+  数据处理
+  <a class="anchor" href="#%e6%95%b0%e6%8d%ae%e5%a4%84%e7%90%86">#</a>
+</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">函数名</th>
+<th style="text-align:center">函数说明</th>
+<th style="text-align:center">样列</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ds_rowname(dataset,start_row=1,column=0)</td>
+<td style="text-align:center">获取指定列的数据, 常用于获取维度</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">ds_toThousands(num)</td>
+<td style="text-align:center">转逗号分隔的千分位</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">ds_round(num,qty=2)</td>
+<td style="text-align:center">小数点处理, 默认保留两位小数</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h4 id="excel数据集">
+  Excel数据集
+  <a class="anchor" href="#excel%e6%95%b0%e6%8d%ae%e9%9b%86">#</a>
+</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">函数名</th>
+<th style="text-align:center">函数说明</th>
+<th style="text-align:center">样列</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ds_excel_refresh(dataset)</td>
+<td style="text-align:center">刷新复杂报表, dataset格式:{df0:二维数组, df1:二维数组,..}</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">ds_excel_value(fillCells,clear=false)</td>
+<td style="text-align:center">指定单元格获取复杂报表中的数据, fillcells格式:[&lsquo;A1&rsquo;,&lsquo;B2&rsquo;],一般用于数据填报</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h4 id="数据上传下载">
+  数据上传下载
+  <a class="anchor" href="#%e6%95%b0%e6%8d%ae%e4%b8%8a%e4%bc%a0%e4%b8%8b%e8%bd%bd">#</a>
+</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">函数名</th>
+<th style="text-align:center">函数说明</th>
+<th style="text-align:center">样列</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ds_save(序号, contents)</td>
+<td style="text-align:center">
+  <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E5%A1%AB%E6%8A%A5/">保存数据</a></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">ds_download(文件名, dataset)</td>
+<td style="text-align:center">
+  <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1/%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD/">下载数据</a></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">ds_uploadfile(file, filename, callback=null)</td>
+<td style="text-align:center">上传文件</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="常用js原生函数">
+  常用JS原生函数
+  <a class="anchor" href="#%e5%b8%b8%e7%94%a8js%e5%8e%9f%e7%94%9f%e5%87%bd%e6%95%b0">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">//数组追加
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">dataset</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">item</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//数组前方插入
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">dataset</span>.<span style="color:#a6e22e">unshit</span>(<span style="color:#a6e22e">item</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//切片
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">dataset</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">dataset</span>.<span style="color:#a6e22e">slice</span>(<span style="color:#ae81ff">1</span>) <span style="color:#75715e">//从序号1个开始到最最后一个
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">dataset</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">dataset</span>.<span style="color:#a6e22e">slice</span>(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">10</span>) <span style="color:#75715e">//从第序号5开始截取到第10个
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">dataset</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">dataset</span>.<span style="color:#a6e22e">slice</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">3</span>) <span style="color:#75715e">//截取最后三个元素
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//循环遍历
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//for最快，但可读性比较差(smartchart推荐)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//forEach比较快，能够控制内容
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//for...in比较慢，不方便
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">dataset</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="原始数据格式">
   原始数据格式
   <a class="anchor" href="#%e5%8e%9f%e5%a7%8b%e6%95%b0%e6%8d%ae%e6%a0%bc%e5%bc%8f">#</a>
 </h3>
@@ -1658,9 +1828,9 @@ https://github.com/alex-shpak/hugo-book
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">dataset</span> <span style="color:#f92672">=</span> [[<span style="color:#e6db74">&#39;category&#39;</span>,<span style="color:#e6db74">&#39;C1&#39;</span>,<span style="color:#e6db74">&#39;C2&#39;</span>],
 </span></span><span style="display:flex;"><span>           [<span style="color:#e6db74">&#39;R1&#39;</span>,       <span style="color:#ae81ff">12</span>,  <span style="color:#ae81ff">18</span>],
 </span></span><span style="display:flex;"><span>	       [<span style="color:#e6db74">&#39;R2&#39;</span>,       <span style="color:#ae81ff">10</span>,  <span style="color:#ae81ff">17</span>] ]
-</span></span></code></pre></div><h3 id="常用转化函数">
-  常用转化函数
-  <a class="anchor" href="#%e5%b8%b8%e7%94%a8%e8%bd%ac%e5%8c%96%e5%87%bd%e6%95%b0">#</a>
+</span></span></code></pre></div><h3 id="常用转化函数样列参考">
+  常用转化函数样列参考
+  <a class="anchor" href="#%e5%b8%b8%e7%94%a8%e8%bd%ac%e5%8c%96%e5%87%bd%e6%95%b0%e6%a0%b7%e5%88%97%e5%8f%82%e8%80%83">#</a>
 </h3>
 <h4 id="生成字典表示为key--常用于定制化高的图形">
   生成字典表示为key-&gt;[], 常用于定制化高的图形
@@ -1726,145 +1896,6 @@ https://github.com/alex-shpak/hugo-book
 </span></span><span style="display:flex;"><span> <span style="color:#a6e22e">结果</span> <span style="color:#f92672">=</span>    [[<span style="color:#e6db74">&#39;R1&#39;</span>,<span style="color:#e6db74">&#39;R2&#39;</span>],
 </span></span><span style="display:flex;"><span>           [<span style="color:#ae81ff">12</span>,  <span style="color:#ae81ff">10</span>],
 </span></span><span style="display:flex;"><span>	       [<span style="color:#ae81ff">18</span>,  <span style="color:#ae81ff">17</span>] ]
-</span></span></code></pre></div><h3 id="图形中可用转化函数">
-  图形中可用转化函数
-  <a class="anchor" href="#%e5%9b%be%e5%bd%a2%e4%b8%ad%e5%8f%af%e7%94%a8%e8%bd%ac%e5%8c%96%e5%87%bd%e6%95%b0">#</a>
-</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">函数名</th>
-<th style="text-align:center">函数说明</th>
-<th style="text-align:center">样列</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">ds_transform(dataset)</td>
-<td style="text-align:center">行列替换</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:left">ds_split(data,sep=&rsquo;,&rsquo;,head_add=[])</td>
-<td style="text-align:center">将第一列拆分成多个字段,默认逗号分隔, 如果不传表头,取SQL中的字段名拆分</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:left">ds_createMap(data)</td>
-<td style="text-align:center">data表示传入的二位数组,生成结果表示为key-&gt;[], 常用于echarts指定数据</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:left">ds_createMap_all(data)</td>
-<td style="text-align:center">data表示传入的二维数组,生成结果表示为[{A:A1,B:B1,C:C1},{A:A2,B:B2,C:C2}&hellip;]</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:left">ds_mapToList(data)</td>
-<td style="text-align:center">将createMap_all的格式还原成二维数组, 常用于将nosql(mongodb,es..)数据源数据处理</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:left">ds_rowname(dataset,start_row=1,column=0)</td>
-<td style="text-align:center">获取指定列的数据, 默认取第一列从第二行(序号1)开始的数据,常用于获取维度</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:left">ds_remove_column(dataset,remove_list=[0])</td>
-<td style="text-align:center">默认移除第一列, 也要移除指定的多个列</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:left">ds_toThousands(num)</td>
-<td style="text-align:center">转逗号分隔的千分位</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:left">ds_distinct(a, b=[])</td>
-<td style="text-align:center">对单个或多个二维数组去重</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:left">ds_leftjoin(a,b,withhead=true,type=1)</td>
-<td style="text-align:center">两个数组join [[1,2,3,4],[2,3,4,5]] ,[[2,3,4]], 如果带头,合并头</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:left">ds_crossjoin(a,b,withhead=true)</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:left">ds_fulljoin(a,b,withhead=true)</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:left">ds_union(a,b,withhead=true)</td>
-<td style="text-align:center">合并两个数据集, 可选是否带头, 取第一个数据集的头, 去除第二个头</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:left">ds_pivot(arr)</td>
-<td style="text-align:center">传入二维数组(维度, 维度, 值), 将第二列的维度转为列</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:left">ds_sort(arr, index=0, asc=true)</td>
-<td style="text-align:center">指定二维数组列序号排序,默认升序,index参数也可以是函数,如(a,b)=&gt;{return a.qty - b.qty}</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:left">ds_round(num,qty=2)</td>
-<td style="text-align:center">小数点处理, 默认保留两位小数</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:left">ds_param(name)</td>
-<td style="text-align:center">传入参数名,获取图形点击时传递来的参数值</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:left">ds_setParam(&lsquo;参数名&rsquo;, 参数值)</td>
-<td style="text-align:center">设定全局参数, 此方法将自动判断当参数值为空时, 删除参数回到初始未传参状态</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:left">ds_refresh(id, param=filter_param)</td>
-<td style="text-align:center">刷新图形, id为图形序号,默认采取全局参数刷新,也可指定param,参数为字典{&ldquo;参数名&rdquo;:&ldquo;值&rdquo;,&hellip;}</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:left">ds_excel_refresh(dataset)</td>
-<td style="text-align:center">刷新复杂报表, dataset格式:{df0:二维数组, df1:二维数组,..}</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:left">ds_excel_value(fillCells,clear=false)</td>
-<td style="text-align:center">指定单元格获取复杂报表中的数据, fillcells格式:[&lsquo;A1&rsquo;,&lsquo;B2&rsquo;],一般用于数据填报</td>
-<td style="text-align:center"></td>
-</tr>
-</tbody>
-</table>
-<h3 id="常用js原生函数">
-  常用JS原生函数
-  <a class="anchor" href="#%e5%b8%b8%e7%94%a8js%e5%8e%9f%e7%94%9f%e5%87%bd%e6%95%b0">#</a>
-</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">//数组追加
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">dataset</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">item</span>)
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//数组前方插入
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">dataset</span>.<span style="color:#a6e22e">unshit</span>(<span style="color:#a6e22e">item</span>)
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//切片
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">dataset</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">dataset</span>.<span style="color:#a6e22e">slice</span>(<span style="color:#ae81ff">1</span>) <span style="color:#a6e22e">从序号1个开始到最最后一个</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">dataset</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">dataset</span>.<span style="color:#a6e22e">slice</span>(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">10</span>) <span style="color:#a6e22e">从第序号5开始截取到第10个</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">dataset</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">dataset</span>.<span style="color:#a6e22e">slice</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">3</span>) <span style="color:#a6e22e">截取最后三个元素</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//循环遍历
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//for最快，但可读性比较差(smartchart推荐)
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//forEach比较快，能够控制内容
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//for...in比较慢，不方便
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">dataset</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>){
-</span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h3 id="其它方法">
   其它方法
   <a class="anchor" href="#%e5%85%b6%e5%ae%83%e6%96%b9%e6%b3%95">#</a>
@@ -1948,10 +1979,10 @@ dataset = ds_split(dataset,&#39;,&#39;,[&#39;维度A&#39;,&#39;维度B&#39;])
         <li>
           <ul>
             <li><a href="#应用场景">应用场景</a></li>
-            <li><a href="#原始数据格式">原始数据格式</a></li>
-            <li><a href="#常用转化函数">常用转化函数</a></li>
             <li><a href="#图形中可用转化函数">图形中可用转化函数</a></li>
             <li><a href="#常用js原生函数">常用JS原生函数</a></li>
+            <li><a href="#原始数据格式">原始数据格式</a></li>
+            <li><a href="#常用转化函数样列参考">常用转化函数样列参考</a></li>
             <li><a href="#其它方法">其它方法</a></li>
           </ul>
         </li>

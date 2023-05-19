@@ -76,7 +76,7 @@ pip3 install smartchart 如果安装过程慢,建意使用 pip3 install -i https
       <guid>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E5%88%9B%E5%BB%BA%E8%BF%9E%E6%8E%A5%E6%B1%A0/</guid>
       <description>如何新增数据源 # 在开发模式下，点击“开发管理”-&amp;gt;数据源-&amp;gt;新增 配置连接池参数，注意数据库填写是备注中有写的名称 你可以通过新建一个数据集来测试连接池的连通性
 点击“保存” 后，回到数据集列表 点击如下图标&amp;quot;E&amp;quot;，进入数据集开发界面 在开发界面调试 安全控制 # 你可以在“参数”中设定安全控制，可避免用户误操作导致前后端卡死 limit: 可限定最大返回数据数量(但实际数据库查询无limit,需通过mode控制) mode: 控制用户查询行为，默认为模式1
-模式 说明 0 严格模式，每次查询向数据库都会增加limit，MPP类型数据库可能会排序失效 1 开发模式，仅调试查询数据库都会增加limit，调试时MPP类型数据库可能会排序失效，但不影响实际 2 宽松模式，查询都不带limit, 仅控制返回limit,需开发者避免大查询 支持的数据源： # 数据库 驱动填写 需安装 使用说明 Mysql mysql 默认支持 Mysql连接池 mysqlpool Sqlite sqlite 默认支持 连接地址填写绝对路径 API 任意 默认支持 参考数据集说明文档 EXCEL 任意 默认支持 参考数据集说明文档 SQL Server mssql 需安装 pip install pymssql SQL Server连接池 mssqlpool ORACLE oracle pip install cx_Oracle ORACLE连接池 oraclepool PostgreSql gp pip install psycopg2 GP gp pip install psycopg2 Impala impala pip install impyla Hive hive pip install impyla DB2 db2 pip install ibm_db 达梦 dm pip install dmPython Python python pip install pandas, openpyxl 参考数据集-&amp;gt;特殊数据源 Redis redis pip install redis 参考数据集-&amp;gt;特殊数据源 Mongodb mongodb pip install pymongo 参考数据集-&amp;gt;特殊数据源 Clickhouse clickhouse pip install clickhouse_driver Elasticsearch es pip install elasticsearch==7.</description>
+模式 说明 0 严格模式，每次查询向数据库都会增加limit，MPP类型数据库可能会排序失效 1 开发模式，仅调试查询数据库都会增加limit，调试时MPP类型数据库可能会排序失效，但不影响实际 2 宽松模式，查询都不带limit, 仅控制返回limit,需开发者避免大查询 支持的数据源： # 数据库 驱动填写 需安装 使用说明 Mysql mysql 默认支持 Mysql连接池 mysqlpool pip install DBUtils Sqlite sqlite 默认支持 连接地址填写绝对路径 API 任意 默认支持 参考数据集说明文档 EXCEL 任意 默认支持 参考数据集说明文档 SQL Server mssql pip install pymssql SQL Server连接池 mssqlpool ORACLE oracle pip install cx_Oracle ORACLE连接池 oraclepool PostgreSql gp pip install psycopg2 GP gp pip install psycopg2 Impala impala pip install impyla Hive hive pip install impyla DB2 db2 pip install ibm_db 达梦 dm pip install dmPython Python python pip install pandas, openpyxl 参考数据集-&amp;gt;特殊数据源 Redis redis pip install redis 参考数据集-&amp;gt;特殊数据源 Mongodb mongodb pip install pymongo 参考数据集-&amp;gt;特殊数据源 Clickhouse clickhouse pip install clickhouse_driver Elasticsearch es pip install elasticsearch==7.</description>
     </item>
     
     <item>
@@ -85,13 +85,13 @@ pip3 install smartchart 如果安装过程慢,建意使用 pip3 install -i https
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E5%BA%94%E7%94%A8%E6%A8%A1%E6%9D%BF/</guid>
-      <description>应用场景 # 你可以快速应用开发好的模板,极大的提高你的开发和学习效率
+      <description>应用场景 # 快速应用开发好的模板,极大地提高开发和学习效率
 应用本地模板 # 你可以快速应用本地备份的模板, 我们内置了一个 通用的数据查询和下载模板 , 你可以尝试
 新建一个全新的dashboard, 不要放任何报表, 点击保存且编辑后, 下方可以看到下载链接, 然后点击下载即可直接应用 输入&amp;quot;01_SMARTCHART&amp;quot;, 点击本地恢复即可 更多本地备份恢复参考
 应用商店模板 # 方法同上&amp;quot;应用本地模板&amp;quot;, 注意应用商店模板为收费增值服务
-你可以点击 模板查询, 查看相应的价格后在 TB购买即可获取下载密钥 如果是全新的仪表盘, 直接输入下载密钥, 点击&amp;quot; 商城下载 &amp;ldquo;即可 如果仪表盘中有数据集且不再需要, 可以在下载密钥前面加上FORCE即可自动清空已有数据集后自动下载 注意模板太廉价,购买后并没有咨询服务,请务必自行了解如何使用
-资源文件放置路径 有些资源会离线打包提供给你, 只需上传即可, 上传方法参考
-如果不清楚可以观看视屏说明 使用方法可参考视屏: 一键应用模板</description>
+你可以点击 模板查询, 查看相应的价格后在 TB购买即可获取下载密钥 按照&amp;quot;应用本地模板&amp;quot;的方法, 输入客服提供的下载密钥, 点击&amp;quot; 商城下载 &amp;ldquo;即可 如果仪表盘中有数据集且不再需要, 可以在下载密钥前面加上FORCE即可自动清空已有数据集后自动下载 注意模板太廉价,购买后并没有咨询服务,请务必自行了解如何使用 使用方法可参考视屏: 一键应用模板
+资源文件放置路径
+有些资源会离线打包提供给你, 只需上传即可, 上传方法参考</description>
     </item>
     
     <item>

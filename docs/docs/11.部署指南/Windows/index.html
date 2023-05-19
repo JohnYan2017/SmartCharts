@@ -3,22 +3,14 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="使用固定数据集 # 有一些场景, 比如已有一些固定的筛选器,或是需要测试用,或者Demo,或者其它图形需要用到一些共用的已确定好的数据 这样我们可以不需要通过查询数据库的方式, 而直接写入数据集, 支持数组和字典的格式 你只需要在数据集中起始写入 dataset= , 这样就是默认是固定数据
-如何快速的输入固定数据集, 你可以通过直接从EXCEL复制到数据集编辑器(以下图片非目前编辑器, 供参考),保存以后会自动生成: 固定数据集也支持之前提到传参数, 魔术方法, 缓存等所有数据集的功能 上传文件的方式使用 # 用户如何上传文件 # smartchart默认是不自带文件上传功能 但是smartchart是可以自已创造上传页面, 在模板商店中你可以找到相关模板进行购买 然后通过模板下载的方式下载后进行操作 这样每一个页面是可以单独使用权限控制的,就和控制报表权限一样,你还可能按需随意定制页面
-关于上传文件的路径 # 默认的上传主目录是在项目的log的文件夹下面, 你可以在setting.py(自定义django) 或 config.ini中设定UPLOAD_PATH来修改你的上传目录 比如你上传页面的报表ID是23, 那么文件将会被上传到UPLOAD_PATH/23/你的文件名
-如何使用上传的文件 # 你需要使用 python连接器, 来操作你的上传的数据, 内置了变量ds_path为你的上传目录, 所以可以更方便的读取上传的文件,如上文件 df = pd.read_excel(ds_path&#43;&rsquo;/23/文件名&#39;)">
+<meta name="description" content="Windows部署与正常部署一样">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
-<meta property="og:description" content="使用固定数据集 # 有一些场景, 比如已有一些固定的筛选器,或是需要测试用,或者Demo,或者其它图形需要用到一些共用的已确定好的数据 这样我们可以不需要通过查询数据库的方式, 而直接写入数据集, 支持数组和字典的格式 你只需要在数据集中起始写入 dataset= , 这样就是默认是固定数据
-如何快速的输入固定数据集, 你可以通过直接从EXCEL复制到数据集编辑器(以下图片非目前编辑器, 供参考),保存以后会自动生成: 固定数据集也支持之前提到传参数, 魔术方法, 缓存等所有数据集的功能 上传文件的方式使用 # 用户如何上传文件 # smartchart默认是不自带文件上传功能 但是smartchart是可以自已创造上传页面, 在模板商店中你可以找到相关模板进行购买 然后通过模板下载的方式下载后进行操作 这样每一个页面是可以单独使用权限控制的,就和控制报表权限一样,你还可能按需随意定制页面
-关于上传文件的路径 # 默认的上传主目录是在项目的log的文件夹下面, 你可以在setting.py(自定义django) 或 config.ini中设定UPLOAD_PATH来修改你的上传目录 比如你上传页面的报表ID是23, 那么文件将会被上传到UPLOAD_PATH/23/你的文件名
-如何使用上传的文件 # 你需要使用 python连接器, 来操作你的上传的数据, 内置了变量ds_path为你的上传目录, 所以可以更方便的读取上传的文件,如上文件 df = pd.read_excel(ds_path&#43;&rsquo;/23/文件名&#39;)" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://help.smartchart.cn/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/%E4%BD%BF%E7%94%A8EXCEL%E6%95%B0%E6%8D%AE/" /><meta property="article:section" content="docs" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://help.smartchart.cn/docs/11.%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/Windows/" />
 
-
-
-<title>使用 Excel数据 | Smartchart开发手册</title>
+<title>Windows | Smartchart开发手册</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
@@ -26,6 +18,7 @@
   <script defer src="/en.search.min.434a94c76588af150f3f16ff95526eef6dd460dea036ab853a48f798f59f3c57.js" integrity="sha256-Q0qUx2WIrxUPPxb/lVJu723UYN6gNquFOkj3mPWfPFc=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
+<link rel="alternate" type="application/rss+xml" href="https://help.smartchart.cn/docs/11.%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/Windows/index.xml" title="Smartchart开发手册" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -348,7 +341,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-54fee82a365f217fe67a17292f7959e5" class="toggle" checked />
+    <input type="checkbox" id="section-54fee82a365f217fe67a17292f7959e5" class="toggle"  />
     <label for="section-54fee82a365f217fe67a17292f7959e5" class="flex justify-between">
       <a role="button" class="">2.数据集说明</a>
     </label>
@@ -403,7 +396,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-17dce050c02e560c36fb8bcb52fc8432" class="toggle" checked />
+    <input type="checkbox" id="section-17dce050c02e560c36fb8bcb52fc8432" class="toggle"  />
     <label for="section-17dce050c02e560c36fb8bcb52fc8432" class="flex justify-between">
       <a role="button" class="">特殊数据源</a>
     </label>
@@ -432,7 +425,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/%E4%BD%BF%E7%94%A8EXCEL%E6%95%B0%E6%8D%AE/" class="active">使用 Excel数据</a>
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/%E4%BD%BF%E7%94%A8EXCEL%E6%95%B0%E6%8D%AE/" class="">使用 Excel数据</a>
   
 
         </li>
@@ -1537,7 +1530,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>使用 Excel数据</strong>
+  <strong>Windows</strong>
 
   <label for="toc-control">
     
@@ -1551,20 +1544,7 @@ https://github.com/alex-shpak/hugo-book
   <aside class="hidden clearfix">
     
   
-<nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li>
-          <ul>
-            <li><a href="#使用固定数据集">使用固定数据集</a></li>
-            <li><a href="#上传文件的方式使用">上传文件的方式使用</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</nav>
+<nav id="TableOfContents"></nav>
 
 
 
@@ -1575,53 +1555,7 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h3 id="使用固定数据集">
-  使用固定数据集
-  <a class="anchor" href="#%e4%bd%bf%e7%94%a8%e5%9b%ba%e5%ae%9a%e6%95%b0%e6%8d%ae%e9%9b%86">#</a>
-</h3>
-<p>有一些场景, 比如已有一些固定的筛选器,或是需要测试用,或者Demo,或者其它图形需要用到一些共用的已确定好的数据
-这样我们可以不需要通过查询数据库的方式, 而直接写入数据集, 支持数组和字典的格式
-你只需要在数据集中起始写入 dataset= , 这样就是默认是固定数据</p>
-<ul>
-<li>如何快速的输入固定数据集, 你可以通过直接从EXCEL复制到数据集编辑器(以下图片非目前编辑器, 供参考),保存以后会自动生成:</li>
-</ul>
-<p>
-  <img referrerpolicy="no-referrer" src="https://images.gitee.com/uploads/images/2021/0701/114942_4721df49_5500438.png" alt="输入图片说明" title="屏幕截图.png"/>
-
-  <img referrerpolicy="no-referrer" src="https://images.gitee.com/uploads/images/2021/0701/115007_e8d08d02_5500438.png" alt="输入图片说明" title="屏幕截图.png"/></p>
-<ul>
-<li>固定数据集也支持之前提到传参数, 魔术方法, 缓存等所有数据集的功能</li>
-</ul>
-<p>
-  <img referrerpolicy="no-referrer" src="https://images.gitee.com/uploads/images/2021/0701/115101_fd820983_5500438.png" alt="输入图片说明" title="屏幕截图.png"/></p>
-<h3 id="上传文件的方式使用">
-  上传文件的方式使用
-  <a class="anchor" href="#%e4%b8%8a%e4%bc%a0%e6%96%87%e4%bb%b6%e7%9a%84%e6%96%b9%e5%bc%8f%e4%bd%bf%e7%94%a8">#</a>
-</h3>
-<h4 id="用户如何上传文件">
-  用户如何上传文件
-  <a class="anchor" href="#%e7%94%a8%e6%88%b7%e5%a6%82%e4%bd%95%e4%b8%8a%e4%bc%a0%e6%96%87%e4%bb%b6">#</a>
-</h4>
-<p>smartchart默认是不自带文件上传功能
-但是smartchart是可以自已创造上传页面, 在模板商店中你可以找到相关模板进行购买
-然后通过模板下载的方式下载后进行操作
-这样每一个页面是可以单独使用权限控制的,就和控制报表权限一样,你还可能按需随意定制页面</p>
-<p>
-  <img referrerpolicy="no-referrer" src="https://images.gitee.com/uploads/images/2021/1206/145837_a7f8abde_5500438.png" alt="输入图片说明" title="屏幕截图.png"/></p>
-<h4 id="关于上传文件的路径">
-  关于上传文件的路径
-  <a class="anchor" href="#%e5%85%b3%e4%ba%8e%e4%b8%8a%e4%bc%a0%e6%96%87%e4%bb%b6%e7%9a%84%e8%b7%af%e5%be%84">#</a>
-</h4>
-<p>默认的上传主目录是在项目的log的文件夹下面,
-你可以在setting.py(自定义django) 或 config.ini中设定UPLOAD_PATH来修改你的上传目录
-比如你上传页面的报表ID是23, 那么文件将会被上传到UPLOAD_PATH/23/你的文件名</p>
-<h4 id="如何使用上传的文件">
-  如何使用上传的文件
-  <a class="anchor" href="#%e5%a6%82%e4%bd%95%e4%bd%bf%e7%94%a8%e4%b8%8a%e4%bc%a0%e7%9a%84%e6%96%87%e4%bb%b6">#</a>
-</h4>
-<p>你需要使用
-  <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/Python%E6%95%B0%E6%8D%AE%E9%9B%86/">python连接器</a>, 来操作你的上传的数据, 内置了变量ds_path为你的上传目录, 所以可以更方便的读取上传的文件,如上文件
-df = pd.read_excel(ds_path+&rsquo;/23/文件名')</p>
+  <article class="markdown"><p>Windows部署与正常部署一样</p>
 </article>
  
       
@@ -1634,7 +1568,7 @@ df = pd.read_excel(ds_path+&rsquo;/23/文件名')</p>
 
 
   <div>
-    <a class="flex align-center" href="https://gitee.com/smartchart/smartchartDoc/edit/master/content/docs/2.%e6%95%b0%e6%8d%ae%e9%9b%86%e8%af%b4%e6%98%8e/%e7%89%b9%e6%ae%8a%e6%95%b0%e6%8d%ae%e6%ba%90/%e4%bd%bf%e7%94%a8EXCEL%e6%95%b0%e6%8d%ae.md" target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://gitee.com/smartchart/smartchartDoc/edit/master/content/docs/11.%e9%83%a8%e7%bd%b2%e6%8c%87%e5%8d%97/Windows/_index.md" target="_blank" rel="noopener">
       <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>
@@ -1668,20 +1602,7 @@ df = pd.read_excel(ds_path+&rsquo;/23/文件名')</p>
       <div class="book-toc-content">
         
   
-<nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li>
-          <ul>
-            <li><a href="#使用固定数据集">使用固定数据集</a></li>
-            <li><a href="#上传文件的方式使用">上传文件的方式使用</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</nav>
+<nav id="TableOfContents"></nav>
 
 
  
