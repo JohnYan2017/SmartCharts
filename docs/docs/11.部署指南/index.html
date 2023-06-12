@@ -3,18 +3,14 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="用于获取kafka指定分区的最后一条记录, 用于实时场景 使用方法参考&quot;自定义数据源&quot; 以下为参考代码:
-def dataset(*args, **kwargs): &#34;&#34;&#34; 返回查询数据集 :return: 二维数组或JSON字典 &#34;&#34;&#34; from kafka import KafkaConsumer, TopicPartition import json sqlList = args[0] # 数据集编辑界面的输入已按分号拆分成数组 [sql1, sql2...] config = args[1] # 相关的配置字典{&#39;host&#39;,&#39;port&#39;,&#39;user&#39;,&#39;password&#39;,&#39;db&#39;} # 插入你的数据查询及处理代码, 生成result即可 result = {} consumer = KafkaConsumer(sasl_mechanism=&#39;PLAIN&#39;, security_protocol=&#39;SASL_PLAINTEXT&#39;, sasl_plain_username=config[&#39;user&#39;], sasl_plain_password=config[&#39;password&#39;], bootstrap_servers=config[&#39;host&#39;], auto_offset_reset=&#39;earliest&#39;, api_version=(1, 0, 0), consumer_timeout_ms=50, value_deserializer=lambda v: json.loads(v.decode(&#39;utf-8&#39;)), ) topic = sqlList[0] partition = int(config[&#39;db&#39;]) tp = TopicPartition(topic=topic, partition=partition) consumer.assign([tp]) end_offsets = consumer.end_offsets([tp]).get(tp) # 获取当前消费者最大偏移量 consumer.seek(tp, offset=end_offsets-1) for message in consumer: result = message.">
+<meta name="description" content="">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
-<meta property="og:description" content="用于获取kafka指定分区的最后一条记录, 用于实时场景 使用方法参考&quot;自定义数据源&quot; 以下为参考代码:
-def dataset(*args, **kwargs): &#34;&#34;&#34; 返回查询数据集 :return: 二维数组或JSON字典 &#34;&#34;&#34; from kafka import KafkaConsumer, TopicPartition import json sqlList = args[0] # 数据集编辑界面的输入已按分号拆分成数组 [sql1, sql2...] config = args[1] # 相关的配置字典{&#39;host&#39;,&#39;port&#39;,&#39;user&#39;,&#39;password&#39;,&#39;db&#39;} # 插入你的数据查询及处理代码, 生成result即可 result = {} consumer = KafkaConsumer(sasl_mechanism=&#39;PLAIN&#39;, security_protocol=&#39;SASL_PLAINTEXT&#39;, sasl_plain_username=config[&#39;user&#39;], sasl_plain_password=config[&#39;password&#39;], bootstrap_servers=config[&#39;host&#39;], auto_offset_reset=&#39;earliest&#39;, api_version=(1, 0, 0), consumer_timeout_ms=50, value_deserializer=lambda v: json.loads(v.decode(&#39;utf-8&#39;)), ) topic = sqlList[0] partition = int(config[&#39;db&#39;]) tp = TopicPartition(topic=topic, partition=partition) consumer.assign([tp]) end_offsets = consumer.end_offsets([tp]).get(tp) # 获取当前消费者最大偏移量 consumer.seek(tp, offset=end_offsets-1) for message in consumer: result = message." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://help.smartchart.cn/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/kafka%E6%95%B0%E6%8D%AE%E6%BA%90/" /><meta property="article:section" content="docs" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://help.smartchart.cn/docs/11.%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/" />
 
-
-
-<title>Kafka数据源 | Smartchart开发手册</title>
+<title>11.部署指南 | Smartchart开发手册</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
@@ -22,6 +18,7 @@ def dataset(*args, **kwargs): &#34;&#34;&#34; 返回查询数据集 :return: 二
   <script defer src="/en.search.min.970b4c832de9380b57f01955f7cab8a9661b6a06f54716a7bee4f7f5cbfbc88a.js" integrity="sha256-lwtMgy3pOAtX8BlV98q4qWYbagb1RxanvuT39cv7yIo=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
+<link rel="alternate" type="application/rss+xml" href="https://help.smartchart.cn/docs/11.%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/index.xml" title="Smartchart开发手册" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -357,7 +354,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-54fee82a365f217fe67a17292f7959e5" class="toggle" checked />
+    <input type="checkbox" id="section-54fee82a365f217fe67a17292f7959e5" class="toggle"  />
     <label for="section-54fee82a365f217fe67a17292f7959e5" class="flex justify-between">
       <a role="button" class="">2.数据集说明</a>
     </label>
@@ -412,7 +409,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-17dce050c02e560c36fb8bcb52fc8432" class="toggle" checked />
+    <input type="checkbox" id="section-17dce050c02e560c36fb8bcb52fc8432" class="toggle"  />
     <label for="section-17dce050c02e560c36fb8bcb52fc8432" class="flex justify-between">
       <a role="button" class="">特殊数据源</a>
     </label>
@@ -519,7 +516,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/kafka%E6%95%B0%E6%8D%AE%E6%BA%90/" class="active">Kafka数据源</a>
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/kafka%E6%95%B0%E6%8D%AE%E6%BA%90/" class="">Kafka数据源</a>
   
 
         </li>
@@ -1499,9 +1496,9 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-1221ac066d992a43b363728eac9711d8" class="toggle"  />
+    <input type="checkbox" id="section-1221ac066d992a43b363728eac9711d8" class="toggle" checked />
     <label for="section-1221ac066d992a43b363728eac9711d8" class="flex justify-between">
-      <a role="button" class="">11.部署指南</a>
+      <a role="button" class="active">11.部署指南</a>
     </label>
   
 
@@ -1648,7 +1645,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Kafka数据源</strong>
+  <strong>11.部署指南</strong>
 
   <label for="toc-control">
     
@@ -1673,62 +1670,7 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><p>用于获取kafka指定分区的最后一条记录, 用于实时场景
-使用方法参考&quot;自定义数据源&quot;
-以下为参考代码:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">dataset</span>(<span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kwargs):
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    返回查询数据集
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    :return: 二维数组或JSON字典
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">from</span> kafka <span style="color:#f92672">import</span>  KafkaConsumer, TopicPartition
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">import</span> json
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    sqlList <span style="color:#f92672">=</span> args[<span style="color:#ae81ff">0</span>]   <span style="color:#75715e"># 数据集编辑界面的输入已按分号拆分成数组 [sql1, sql2...]</span>
-</span></span><span style="display:flex;"><span>    config <span style="color:#f92672">=</span> args[<span style="color:#ae81ff">1</span>]    <span style="color:#75715e"># 相关的配置字典{&#39;host&#39;,&#39;port&#39;,&#39;user&#39;,&#39;password&#39;,&#39;db&#39;}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 插入你的数据查询及处理代码, 生成result即可</span>
-</span></span><span style="display:flex;"><span>    result <span style="color:#f92672">=</span> {}
-</span></span><span style="display:flex;"><span>    consumer <span style="color:#f92672">=</span> KafkaConsumer(sasl_mechanism<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;PLAIN&#39;</span>,
-</span></span><span style="display:flex;"><span>                             security_protocol<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;SASL_PLAINTEXT&#39;</span>,
-</span></span><span style="display:flex;"><span>                             sasl_plain_username<span style="color:#f92672">=</span>config[<span style="color:#e6db74">&#39;user&#39;</span>],
-</span></span><span style="display:flex;"><span>                             sasl_plain_password<span style="color:#f92672">=</span>config[<span style="color:#e6db74">&#39;password&#39;</span>],
-</span></span><span style="display:flex;"><span>                             bootstrap_servers<span style="color:#f92672">=</span>config[<span style="color:#e6db74">&#39;host&#39;</span>],
-</span></span><span style="display:flex;"><span>                             auto_offset_reset<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;earliest&#39;</span>,
-</span></span><span style="display:flex;"><span>                             api_version<span style="color:#f92672">=</span>(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>),
-</span></span><span style="display:flex;"><span>                             consumer_timeout_ms<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>,
-</span></span><span style="display:flex;"><span>                             value_deserializer<span style="color:#f92672">=</span><span style="color:#66d9ef">lambda</span> v: json<span style="color:#f92672">.</span>loads(v<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#39;utf-8&#39;</span>)),
-</span></span><span style="display:flex;"><span>                             )
-</span></span><span style="display:flex;"><span>    topic <span style="color:#f92672">=</span> sqlList[<span style="color:#ae81ff">0</span>]
-</span></span><span style="display:flex;"><span>    partition <span style="color:#f92672">=</span> int(config[<span style="color:#e6db74">&#39;db&#39;</span>])
-</span></span><span style="display:flex;"><span>    tp <span style="color:#f92672">=</span> TopicPartition(topic<span style="color:#f92672">=</span>topic, partition<span style="color:#f92672">=</span>partition)
-</span></span><span style="display:flex;"><span>    consumer<span style="color:#f92672">.</span>assign([tp])
-</span></span><span style="display:flex;"><span>    end_offsets <span style="color:#f92672">=</span> consumer<span style="color:#f92672">.</span>end_offsets([tp])<span style="color:#f92672">.</span>get(tp)  <span style="color:#75715e"># 获取当前消费者最大偏移量</span>
-</span></span><span style="display:flex;"><span>    consumer<span style="color:#f92672">.</span>seek(tp, offset<span style="color:#f92672">=</span>end_offsets<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> message <span style="color:#f92672">in</span> consumer:
-</span></span><span style="display:flex;"><span>        result <span style="color:#f92672">=</span> message<span style="color:#f92672">.</span>value
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">break</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> result
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">insert_dataset</span>(<span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kwargs):
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    数据填报实现
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">from</span> kafka <span style="color:#f92672">import</span> KafkaProducer
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">import</span> json
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    contents <span style="color:#f92672">=</span> args[<span style="color:#ae81ff">0</span>]  <span style="color:#75715e"># 传入的数据集二维数组格式</span>
-</span></span><span style="display:flex;"><span>    table <span style="color:#f92672">=</span> args[<span style="color:#ae81ff">1</span>]   <span style="color:#75715e"># 配置中的表名</span>
-</span></span><span style="display:flex;"><span>    config <span style="color:#f92672">=</span> args[<span style="color:#ae81ff">3</span>]  <span style="color:#75715e"># 相关的配置字典{&#39;host&#39;,&#39;port&#39;,&#39;user&#39;,&#39;password&#39;,&#39;db&#39;}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 插入你的写入数据逻辑代码</span>
-</span></span><span style="display:flex;"><span>    producer <span style="color:#f92672">=</span> KafkaProducer(sasl_mechanism<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;PLAIN&#39;</span>,
-</span></span><span style="display:flex;"><span>                             security_protocol<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;SASL_PLAINTEXT&#39;</span>,
-</span></span><span style="display:flex;"><span>                             sasl_plain_username<span style="color:#f92672">=</span>config[<span style="color:#e6db74">&#39;user&#39;</span>],
-</span></span><span style="display:flex;"><span>                             sasl_plain_password<span style="color:#f92672">=</span>config[<span style="color:#e6db74">&#39;password&#39;</span>],
-</span></span><span style="display:flex;"><span>                             bootstrap_servers<span style="color:#f92672">=</span>config[<span style="color:#e6db74">&#39;host&#39;</span>],
-</span></span><span style="display:flex;"><span>                             value_serializer<span style="color:#f92672">=</span><span style="color:#66d9ef">lambda</span> v: json<span style="color:#f92672">.</span>dumps(v)<span style="color:#f92672">.</span>encode(<span style="color:#e6db74">&#39;utf-8&#39;</span>)
-</span></span><span style="display:flex;"><span>                             )
-</span></span><span style="display:flex;"><span>    producer<span style="color:#f92672">.</span>send(table, value<span style="color:#f92672">=</span>contents, partition<span style="color:#f92672">=</span>int(config[<span style="color:#e6db74">&#39;db&#39;</span>]))
-</span></span></code></pre></div></article>
+  <article class="markdown"></article>
  
       
 
@@ -1740,7 +1682,7 @@ https://github.com/alex-shpak/hugo-book
 
 
   <div>
-    <a class="flex align-center" href="https://gitee.com/smartchart/smartchartDoc/edit/master/content/docs/2.%e6%95%b0%e6%8d%ae%e9%9b%86%e8%af%b4%e6%98%8e/%e7%89%b9%e6%ae%8a%e6%95%b0%e6%8d%ae%e6%ba%90/kafka%e6%95%b0%e6%8d%ae%e6%ba%90.md" target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://gitee.com/smartchart/smartchartDoc/edit/master/content/docs/11.%e9%83%a8%e7%bd%b2%e6%8c%87%e5%8d%97/_index.md" target="_blank" rel="noopener">
       <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>
@@ -1759,10 +1701,6 @@ https://github.com/alex-shpak/hugo-book
       </footer>
 
       
-  
-  <div class="book-comments">
-
-</div>
   
  
 

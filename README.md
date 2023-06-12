@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-    <img src="https://img.shields.io/badge/Release-V6.5-green.svg" alt="Downloads">
+    <img src="https://img.shields.io/badge/Release-V6.6-green.svg" alt="Downloads">
 	<a target="_blank" href="https://www.python.org/downloads/release/python-390/">
 		<img src="https://img.shields.io/badge/Python-3.6+-green.svg" />
 	</a>
@@ -59,7 +59,10 @@
 - 支持集成chatGPT, 文心一言, 迅飞星火等大模型AI生成
 - 没有重复学习成本, 高度可定制化, 注意是高度可定制化!!
 
-具体功能预览可观看视屏了解, [6.0介绍视屏](https://www.bilibili.com/video/BV1Md4y1h7iq)  [ChatGPT](https://www.bilibili.com/video/BV1Xs4y1E7c7/) 
+具体功能预览可观看视屏了解, 
+- [6.0介绍视屏](https://www.bilibili.com/video/BV1Md4y1h7iq) 
+- [chatgpt辅助开发](https://www.bilibili.com/video/BV1Xc411g7Lq)
+- [chatgpt业务自助探索](https://www.bilibili.com/video/BV1Bo4y1T7BU/)
 
 ![大数据](https://www.smartchart.cn/media/editor/微信截图_20211202163316_20211202163647765791.png)
 ![smartchart](http://smartchart.cn/media/editor/smartvoice_20201224085323156045.png)
@@ -328,7 +331,6 @@ v6.5
 - 修复图形ES6代码压缩后异常
 - 增加数据源图标显示
 - 增强ds_df的功能,可将ds数据转为df
-
 v6.5.5
 - 数据集开发增加库清单点击下钻到表清单
 - 数据集开发新增获取执行语句

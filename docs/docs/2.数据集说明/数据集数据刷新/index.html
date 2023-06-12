@@ -6,13 +6,15 @@
 <meta name="description" content="数据刷新设定方法 # smartchart提供非常精细的数据刷新功能,及内存加速功能 你可以在数据集开发界面的菜单中，连接图标&ndash;&gt;刷新设定，进行设定 定时刷新 # 你可以设定前端页面数据集向后端请求刷新的时间间隔，单位秒
 如果你发现定时刷新，数据并没有变化，可能原因是您数据的缓存时间设定大于定时刷新的时间
 数据集缓存加速（PRO) # smartchart专业版提供内存加速技术，对数据库仅需请求一次，之后都是毫秒级响应
-间隔时间刷新,单位分钟,如设定间隔时间为0.5, 则如果下一次访问时间超过30秒, 即触发数据刷新 固定时点刷新, 如设定间隔时间为-1, 则固定时点刷新, 即访问的时间超过固定的时点时(如上图每天12:39), 触发数据刷新 强制刷新, 访问url加上&amp;refresh=Y, 则强制刷新数据, 此刷新不会影响间隔或固定刷新的时间, 不会更新下次同步时间 后台触发强制刷新 (PRO) # 请参考文档 后台主动触发刷新">
+间隔时间刷新,单位分钟,如设定间隔时间为0.5, 则如果下一次访问时间超过30秒, 即触发数据刷新 固定时点刷新, 如设定间隔时间为-1, 则固定时点刷新, 即访问的时间超过固定的时点时(如上图每天12:39), 触发数据刷新 强制刷新, 访问url加上&amp;refresh=Y, 则强制刷新数据, 此刷新不会影响间隔或固定刷新的时间, 不会更新下次同步时间 关于数据集状态 # 数据集状态, 决定了数据集是否在页面开启时即刷新, 或刷新是同步还是异步
+状态 组 定时 手动 异步 标准图形 大于0 大于0 X V 共用数据集 -2 大于0 X X 懒加载数据集 -2 -1 V X 懒加载数据集 -2 -2 V V excel数据集 -3 大于0 X X 后台触发强制刷新 (PRO) # 请参考文档 后台主动触发刷新">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
 <meta property="og:description" content="数据刷新设定方法 # smartchart提供非常精细的数据刷新功能,及内存加速功能 你可以在数据集开发界面的菜单中，连接图标&ndash;&gt;刷新设定，进行设定 定时刷新 # 你可以设定前端页面数据集向后端请求刷新的时间间隔，单位秒
 如果你发现定时刷新，数据并没有变化，可能原因是您数据的缓存时间设定大于定时刷新的时间
 数据集缓存加速（PRO) # smartchart专业版提供内存加速技术，对数据库仅需请求一次，之后都是毫秒级响应
-间隔时间刷新,单位分钟,如设定间隔时间为0.5, 则如果下一次访问时间超过30秒, 即触发数据刷新 固定时点刷新, 如设定间隔时间为-1, 则固定时点刷新, 即访问的时间超过固定的时点时(如上图每天12:39), 触发数据刷新 强制刷新, 访问url加上&amp;refresh=Y, 则强制刷新数据, 此刷新不会影响间隔或固定刷新的时间, 不会更新下次同步时间 后台触发强制刷新 (PRO) # 请参考文档 后台主动触发刷新" />
+间隔时间刷新,单位分钟,如设定间隔时间为0.5, 则如果下一次访问时间超过30秒, 即触发数据刷新 固定时点刷新, 如设定间隔时间为-1, 则固定时点刷新, 即访问的时间超过固定的时点时(如上图每天12:39), 触发数据刷新 强制刷新, 访问url加上&amp;refresh=Y, 则强制刷新数据, 此刷新不会影响间隔或固定刷新的时间, 不会更新下次同步时间 关于数据集状态 # 数据集状态, 决定了数据集是否在页面开启时即刷新, 或刷新是同步还是异步
+状态 组 定时 手动 异步 标准图形 大于0 大于0 X V 共用数据集 -2 大于0 X X 懒加载数据集 -2 -1 V X 懒加载数据集 -2 -2 V V excel数据集 -3 大于0 X X 后台触发强制刷新 (PRO) # 请参考文档 后台主动触发刷新" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://help.smartchart.cn/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E6%95%B0%E6%8D%AE%E5%88%B7%E6%96%B0/" /><meta property="article:section" content="docs" />
 
@@ -23,7 +25,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.434a94c76588af150f3f16ff95526eef6dd460dea036ab853a48f798f59f3c57.js" integrity="sha256-Q0qUx2WIrxUPPxb/lVJu723UYN6gNquFOkj3mPWfPFc=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.970b4c832de9380b57f01955f7cab8a9661b6a06f54716a7bee4f7f5cbfbc88a.js" integrity="sha256-lwtMgy3pOAtX8BlV98q4qWYbagb1RxanvuT39cv7yIo=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -172,6 +174,19 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA3D%E5%9C%BA%E6%99%AF/" class="">第一个3D场景</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AAAI%E5%9C%BA%E6%99%AF/" class="">第一个AI场景</a>
   
 
         </li>
@@ -1483,6 +1498,108 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
     
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-1221ac066d992a43b363728eac9711d8" class="toggle"  />
+    <label for="section-1221ac066d992a43b363728eac9711d8" class="flex justify-between">
+      <a role="button" class="">11.部署指南</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-df28c15db9b442124658f06e614fc60b" class="toggle"  />
+    <label for="section-df28c15db9b442124658f06e614fc60b" class="flex justify-between">
+      <a role="button" class="">Linux</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/11.%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/Linux/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/" class="">快速开始</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/11.%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/Linux/SQLite3%E7%89%88%E6%9C%AC%E9%94%99%E8%AF%AF/" class="">Sqlite3版本错误</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/11.%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/Linux/%E7%94%9F%E4%BA%A7%E9%83%A8%E7%BD%B2/" class="">生产部署</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-1c911073b1023b05de57d665aa6300d6" class="toggle"  />
+    <label for="section-1c911073b1023b05de57d665aa6300d6" class="flex justify-between">
+      <a href="/docs/11.%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/Windows/" class="">Windows</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
   </ul>
 
 
@@ -1560,6 +1677,7 @@ https://github.com/alex-shpak/hugo-book
             <li><a href="#数据刷新设定方法">数据刷新设定方法</a></li>
             <li><a href="#定时刷新">定时刷新</a></li>
             <li><a href="#数据集缓存加速pro">数据集缓存加速（PRO)</a></li>
+            <li><a href="#关于数据集状态">关于数据集状态</a></li>
             <li><a href="#后台触发强制刷新-pro">后台触发强制刷新 (PRO)</a></li>
           </ul>
         </li>
@@ -1603,6 +1721,59 @@ https://github.com/alex-shpak/hugo-book
 <li>固定时点刷新, 如设定间隔时间为-1, 则固定时点刷新, 即访问的时间超过固定的时点时(如上图每天12:39), 触发数据刷新</li>
 <li>强制刷新, 访问url加上&amp;refresh=Y, 则强制刷新数据, 此刷新不会影响间隔或固定刷新的时间, 不会更新下次同步时间</li>
 </ul>
+<h3 id="关于数据集状态">
+  关于数据集状态
+  <a class="anchor" href="#%e5%85%b3%e4%ba%8e%e6%95%b0%e6%8d%ae%e9%9b%86%e7%8a%b6%e6%80%81">#</a>
+</h3>
+<p>数据集状态, 决定了数据集是否在页面开启时即刷新, 或刷新是同步还是异步</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">状态</th>
+<th style="text-align:center">组</th>
+<th style="text-align:center">定时</th>
+<th style="text-align:center">手动</th>
+<th style="text-align:center">异步</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">标准图形</td>
+<td style="text-align:center">大于0</td>
+<td style="text-align:center">大于0</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">V</td>
+</tr>
+<tr>
+<td style="text-align:left">共用数据集</td>
+<td style="text-align:center">-2</td>
+<td style="text-align:center">大于0</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">X</td>
+</tr>
+<tr>
+<td style="text-align:left">懒加载数据集</td>
+<td style="text-align:center">-2</td>
+<td style="text-align:center">-1</td>
+<td style="text-align:center">V</td>
+<td style="text-align:center">X</td>
+</tr>
+<tr>
+<td style="text-align:left">懒加载数据集</td>
+<td style="text-align:center">-2</td>
+<td style="text-align:center">-2</td>
+<td style="text-align:center">V</td>
+<td style="text-align:center">V</td>
+</tr>
+<tr>
+<td style="text-align:left">excel数据集</td>
+<td style="text-align:center">-3</td>
+<td style="text-align:center">大于0</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">X</td>
+</tr>
+</tbody>
+</table>
 <h3 id="后台触发强制刷新-pro">
   后台触发强制刷新 (PRO)
   <a class="anchor" href="#%e5%90%8e%e5%8f%b0%e8%a7%a6%e5%8f%91%e5%bc%ba%e5%88%b6%e5%88%b7%e6%96%b0-pro">#</a>
@@ -1664,6 +1835,7 @@ https://github.com/alex-shpak/hugo-book
             <li><a href="#数据刷新设定方法">数据刷新设定方法</a></li>
             <li><a href="#定时刷新">定时刷新</a></li>
             <li><a href="#数据集缓存加速pro">数据集缓存加速（PRO)</a></li>
+            <li><a href="#关于数据集状态">关于数据集状态</a></li>
             <li><a href="#后台触发强制刷新-pro">后台触发强制刷新 (PRO)</a></li>
           </ul>
         </li>
