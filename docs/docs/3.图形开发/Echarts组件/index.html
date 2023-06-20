@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="应用场景 # Smartchart提供了很多通用的图形,你可以在商店中直接使用 如果要个性化,需要你进行自定义,比如你可能需要在同一个图上展示柱形图和线性图
 开发前建意先观看视屏, 了解基础说明, 视屏有点老和现在界面不一样, 目前很多功能已经做成可视化配置, 理解过程即可, 具体以文档为准
-Smartchart数据库与图形的对话 Smartchart图形开发一 Smartchart图形开发二 获取原生echarts图形 # 首先我们在ECHART官网可能找一个你喜欢的图形, 如下简单柱形图链接: 打开我们可以看对应的option:
+Smartchart图形开发 Smartchart数据库与图形的对话 Smartchart图形开发一 Smartchart图形开发二 获取原生echarts图形 # 首先我们在ECHART官网可能找一个你喜欢的图形, 如下简单柱形图链接: 打开我们可以看对应的option:
 option = { xAxis: { type: &#39;category&#39;, data: [&#39;Mon&#39;, &#39;Tue&#39;, &#39;Wed&#39;, &#39;Thu&#39;, &#39;Fri&#39;, &#39;Sat&#39;, &#39;Sun&#39;] }, yAxis: { type: &#39;value&#39; }, series: [{ data: [120, 200, 150, 80, 70, 110, 130], type: &#39;bar&#39; }] }; 转化为smartchart图形 # 复制到Smartchart图形编辑器， 点击菜单工具&ndash;&gt;转化为smartchart， 会自动进行初步转化 接下来我们就进行下改造, 请注意对比, 你只需照着复制即可
 let dataset = __dataset__ //传入dataset let legend_label = ds_rowname(dataset) //可选, 自动获取legend let xlabel = dataset[0].">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
 <meta property="og:description" content="应用场景 # Smartchart提供了很多通用的图形,你可以在商店中直接使用 如果要个性化,需要你进行自定义,比如你可能需要在同一个图上展示柱形图和线性图
 开发前建意先观看视屏, 了解基础说明, 视屏有点老和现在界面不一样, 目前很多功能已经做成可视化配置, 理解过程即可, 具体以文档为准
-Smartchart数据库与图形的对话 Smartchart图形开发一 Smartchart图形开发二 获取原生echarts图形 # 首先我们在ECHART官网可能找一个你喜欢的图形, 如下简单柱形图链接: 打开我们可以看对应的option:
+Smartchart图形开发 Smartchart数据库与图形的对话 Smartchart图形开发一 Smartchart图形开发二 获取原生echarts图形 # 首先我们在ECHART官网可能找一个你喜欢的图形, 如下简单柱形图链接: 打开我们可以看对应的option:
 option = { xAxis: { type: &#39;category&#39;, data: [&#39;Mon&#39;, &#39;Tue&#39;, &#39;Wed&#39;, &#39;Thu&#39;, &#39;Fri&#39;, &#39;Sat&#39;, &#39;Sun&#39;] }, yAxis: { type: &#39;value&#39; }, series: [{ data: [120, 200, 150, 80, 70, 110, 130], type: &#39;bar&#39; }] }; 转化为smartchart图形 # 复制到Smartchart图形编辑器， 点击菜单工具&ndash;&gt;转化为smartchart， 会自动进行初步转化 接下来我们就进行下改造, 请注意对比, 你只需照着复制即可
 let dataset = __dataset__ //传入dataset let legend_label = ds_rowname(dataset) //可选, 自动获取legend let xlabel = dataset[0]." />
 <meta property="og:type" content="article" />
@@ -25,7 +25,7 @@ let dataset = __dataset__ //传入dataset let legend_label = ds_rowname(dataset)
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.970b4c832de9380b57f01955f7cab8a9661b6a06f54716a7bee4f7f5cbfbc88a.js" integrity="sha256-lwtMgy3pOAtX8BlV98q4qWYbagb1RxanvuT39cv7yIo=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.7cda922c1d5c847de20125ada8e810bd508aa6e2b3037850d749fbf644656b07.js" integrity="sha256-fNqSLB1chH3iASWtqOgQvVCKpuKzA3hQ10n79kRlawc=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -1704,7 +1704,9 @@ https://github.com/alex-shpak/hugo-book
 <strong>目前很多功能已经做成可视化配置, 理解过程即可, 具体以文档为准</strong></p>
 <ul>
 <li>
-  <a href="https://www.ixigua.com/6910413586208653837?id=6910373199603565063" title="图形开发">Smartchart数据库与图形的对话</a></li>
+  <a href="https://www.bilibili.com/video/BV1us4y117tj" title="图形开发">Smartchart图形开发</a></li>
+<li>
+  <a href="https://www.bilibili.com/video/BV1Gt4y1F7Ra" title="图形开发">Smartchart数据库与图形的对话</a></li>
 <li>
   <a href="https://www.bilibili.com/video/BV1X3411t7DQ/" title="图形开发">Smartchart图形开发一</a></li>
 <li>
@@ -1742,7 +1744,7 @@ https://github.com/alex-shpak/hugo-book
 <p>接下来我们就进行下改造, 请注意对比, 你只需照着复制即可</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">dataset</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">__dataset__</span> <span style="color:#75715e">//传入dataset
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">legend_label</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ds_rowname</span>(<span style="color:#a6e22e">dataset</span>) <span style="color:#75715e">//可选, 自动获取legend
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">xlabel</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">dataset</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">splice</span>(<span style="color:#ae81ff">1</span>) <span style="color:#75715e">//x轴的标签列
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">xlabel</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">dataset</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">slice</span>(<span style="color:#ae81ff">1</span>) <span style="color:#75715e">//x轴的标签列
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">dataset</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ds_createMap</span>(<span style="color:#a6e22e">dataset</span>) <span style="color:#75715e">//转化成KV格式
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//初始化series
@@ -1756,7 +1758,7 @@ https://github.com/alex-shpak/hugo-book
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;line&#39;</span>
 </span></span><span style="display:flex;"><span>    });
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">option__name__</span>  <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">option__name__</span><span style="color:#f92672">=</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">xAxis</span><span style="color:#f92672">:</span> {
 </span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;category&#39;</span>,
 </span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">xlabel</span> <span style="color:#75715e">//X轴的标签
@@ -1766,7 +1768,6 @@ https://github.com/alex-shpak/hugo-book
 </span></span><span style="display:flex;"><span>    },
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">series</span><span style="color:#f92672">:</span><span style="color:#a6e22e">series</span>,
 </span></span><span style="display:flex;"><span>};
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">charts</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">myChart__name__</span>);
 </span></span></code></pre></div><p>这样一个柱形+线性图就出来了</p>
 <p>
   <a href="https://www.smartchart.cn/echart/editor_min/?chartid=61" title="线柱混合图">
@@ -1797,7 +1798,7 @@ https://github.com/alex-shpak/hugo-book
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">series</span><span style="color:#f92672">:</span><span style="color:#a6e22e">series</span>,
 </span></span><span style="display:flex;"><span>};
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">//关于自动化series, 可以参考以下代码
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">series</span> <span style="color:#f92672">=</span>[];
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">series</span> <span style="color:#f92672">=</span>[];
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;<span style="color:#a6e22e">i</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">dataset</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">length</span>;<span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>){
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">series</span>.<span style="color:#a6e22e">push</span>({<span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;bar&#39;</span>})
 </span></span><span style="display:flex;"><span>}

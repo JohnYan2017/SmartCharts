@@ -34,7 +34,7 @@
       <guid>https://help.smartchart.cn/docs/3.%E5%9B%BE%E5%BD%A2%E5%BC%80%E5%8F%91/Echarts%E7%BB%84%E4%BB%B6/</guid>
       <description>应用场景 # Smartchart提供了很多通用的图形,你可以在商店中直接使用 如果要个性化,需要你进行自定义,比如你可能需要在同一个图上展示柱形图和线性图
 开发前建意先观看视屏, 了解基础说明, 视屏有点老和现在界面不一样, 目前很多功能已经做成可视化配置, 理解过程即可, 具体以文档为准
-Smartchart数据库与图形的对话 Smartchart图形开发一 Smartchart图形开发二 获取原生echarts图形 # 首先我们在ECHART官网可能找一个你喜欢的图形, 如下简单柱形图链接: 打开我们可以看对应的option:
+Smartchart图形开发 Smartchart数据库与图形的对话 Smartchart图形开发一 Smartchart图形开发二 获取原生echarts图形 # 首先我们在ECHART官网可能找一个你喜欢的图形, 如下简单柱形图链接: 打开我们可以看对应的option:
 option = { xAxis: { type: &amp;#39;category&amp;#39;, data: [&amp;#39;Mon&amp;#39;, &amp;#39;Tue&amp;#39;, &amp;#39;Wed&amp;#39;, &amp;#39;Thu&amp;#39;, &amp;#39;Fri&amp;#39;, &amp;#39;Sat&amp;#39;, &amp;#39;Sun&amp;#39;] }, yAxis: { type: &amp;#39;value&amp;#39; }, series: [{ data: [120, 200, 150, 80, 70, 110, 130], type: &amp;#39;bar&amp;#39; }] }; 转化为smartchart图形 # 复制到Smartchart图形编辑器， 点击菜单工具&amp;ndash;&amp;gt;转化为smartchart， 会自动进行初步转化 接下来我们就进行下改造, 请注意对比, 你只需照着复制即可
 let dataset = __dataset__ //传入dataset let legend_label = ds_rowname(dataset) //可选, 自动获取legend let xlabel = dataset[0].</description>
     </item>
