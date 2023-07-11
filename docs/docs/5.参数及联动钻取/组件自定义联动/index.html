@@ -3,18 +3,12 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="应用场景 # Smartchart对于单项筛选有通用的组件， 可以直接配置即可，但对于个性化的筛选，需要你进行一些简单的定制化，以下就针对多项筛选联动的需求来介绍如何定制化你的筛选联动效果 通过此例,你可以了解如何自定义任意的联动效果 样列参考 # 以我们内置的仪表盘为例，
-第一步，新建一个图形组件
-第二步，在新的数据集中编写查询
-select distinct H1 as heroname from smartdemo2 limit 10 第三步，编辑此数据集的图形，可复制以下代码
-//select distinct xx from tablename let dataset=__dataset__; let table = &#39;&#39;; for (let i=1;i&lt;dataset.length;i&#43;&#43;){ table = `${table}&lt;label&gt;&lt;input name=&#34;select__name__&#34; type=&#34;checkbox&#34; value=&#34;${dataset[i][0]}&#34; /&gt;${dataset[i][0]}&lt;/label&gt; `; } table = table &#43; &#34;&lt;button id=&#39;id_select__name__&#39;&gt;提交&lt;/button&gt;&#34;; dom__name__.innerHTML=table; $(&#39;#id_select__name__&#39;).click( function(){ let res = []; $(&#34;input[name=&#39;select__name__&#39;]:checked&#34;).each(function(i){ res.push(&#34;&#39;&#34; &#43; $(this).val() &#43; &#34;&#39;&#34;); }); ds_setParam(&#39;H1&#39;,res.toString()); //参数赋值 ds_refresh(1); //刷新1号图形 } ) 第四步，在你要联动刷新的目标数据集中增加代码">
+<meta name="description" content="应用场景 # Smartchart对于单项筛选有通用的组件， 可以直接配置即可 但对于个性化的筛选，需要你进行一些简单的定制化， 以下就针对多项筛选联动的需求来介绍如何定制化你的筛选联动效果 通过此例,你可以了解如何自定义任意的联动效果 样列参考 # 以我们内置的仪表盘为例：
+新建一个图形组件 在新的数据集中编写查询 select distinct H1 as heroname from smartdemo2 limit 10 编辑此数据集的图形，可复制以下代码 //生成html组件 let dataset=__dataset__; let table = &#39;&#39;; for (let i=1;i&lt;dataset.length;i&#43;&#43;){ table = `${table}&lt;label&gt;&lt;input name=&#34;select__name__&#34; type=&#34;checkbox&#34; value=&#34;${dataset[i][0]}&#34; /&gt;${dataset[i][0]}&lt;/label&gt; `; } table = table &#43; &#34;&lt;button id=&#39;id_select__name__&#39;&gt;提交&lt;/button&gt;&#34;; dom__name__.innerHTML=table; //button 的点击响应 $(&#39;#id_select__name__&#39;).click(()=&gt;{ let res = []; //获取所有选项并放入res列表中 $(&#34;input[name=&#39;select__name__&#39;]:checked&#34;).each(function(i){ res.push(&#34;&#39;&#34; &#43; $(this).val() &#43; &#34;&#39;&#34;); }); let H1 = res.toString(); //拼接成参数 ds_setParam(&#39;H1&#39;,H1); //参数赋值 ds_refresh(1); //刷新1号图 } ) 在你要联动刷新的目标数据集中增加代码 select H1 as heroname, sum(qty) as 出场数 from smartdemo2 where 1=1 /* and H1 in ($H1) */ group by H1 order by sum(qty) desc 这样就完成了，任何其他需求，都可以采用类似方法自定义">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
-<meta property="og:description" content="应用场景 # Smartchart对于单项筛选有通用的组件， 可以直接配置即可，但对于个性化的筛选，需要你进行一些简单的定制化，以下就针对多项筛选联动的需求来介绍如何定制化你的筛选联动效果 通过此例,你可以了解如何自定义任意的联动效果 样列参考 # 以我们内置的仪表盘为例，
-第一步，新建一个图形组件
-第二步，在新的数据集中编写查询
-select distinct H1 as heroname from smartdemo2 limit 10 第三步，编辑此数据集的图形，可复制以下代码
-//select distinct xx from tablename let dataset=__dataset__; let table = &#39;&#39;; for (let i=1;i&lt;dataset.length;i&#43;&#43;){ table = `${table}&lt;label&gt;&lt;input name=&#34;select__name__&#34; type=&#34;checkbox&#34; value=&#34;${dataset[i][0]}&#34; /&gt;${dataset[i][0]}&lt;/label&gt; `; } table = table &#43; &#34;&lt;button id=&#39;id_select__name__&#39;&gt;提交&lt;/button&gt;&#34;; dom__name__.innerHTML=table; $(&#39;#id_select__name__&#39;).click( function(){ let res = []; $(&#34;input[name=&#39;select__name__&#39;]:checked&#34;).each(function(i){ res.push(&#34;&#39;&#34; &#43; $(this).val() &#43; &#34;&#39;&#34;); }); ds_setParam(&#39;H1&#39;,res.toString()); //参数赋值 ds_refresh(1); //刷新1号图形 } ) 第四步，在你要联动刷新的目标数据集中增加代码" />
+<meta property="og:description" content="应用场景 # Smartchart对于单项筛选有通用的组件， 可以直接配置即可 但对于个性化的筛选，需要你进行一些简单的定制化， 以下就针对多项筛选联动的需求来介绍如何定制化你的筛选联动效果 通过此例,你可以了解如何自定义任意的联动效果 样列参考 # 以我们内置的仪表盘为例：
+新建一个图形组件 在新的数据集中编写查询 select distinct H1 as heroname from smartdemo2 limit 10 编辑此数据集的图形，可复制以下代码 //生成html组件 let dataset=__dataset__; let table = &#39;&#39;; for (let i=1;i&lt;dataset.length;i&#43;&#43;){ table = `${table}&lt;label&gt;&lt;input name=&#34;select__name__&#34; type=&#34;checkbox&#34; value=&#34;${dataset[i][0]}&#34; /&gt;${dataset[i][0]}&lt;/label&gt; `; } table = table &#43; &#34;&lt;button id=&#39;id_select__name__&#39;&gt;提交&lt;/button&gt;&#34;; dom__name__.innerHTML=table; //button 的点击响应 $(&#39;#id_select__name__&#39;).click(()=&gt;{ let res = []; //获取所有选项并放入res列表中 $(&#34;input[name=&#39;select__name__&#39;]:checked&#34;).each(function(i){ res.push(&#34;&#39;&#34; &#43; $(this).val() &#43; &#34;&#39;&#34;); }); let H1 = res.toString(); //拼接成参数 ds_setParam(&#39;H1&#39;,H1); //参数赋值 ds_refresh(1); //刷新1号图 } ) 在你要联动刷新的目标数据集中增加代码 select H1 as heroname, sum(qty) as 出场数 from smartdemo2 where 1=1 /* and H1 in ($H1) */ group by H1 order by sum(qty) desc 这样就完成了，任何其他需求，都可以采用类似方法自定义" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://help.smartchart.cn/docs/5.%E5%8F%82%E6%95%B0%E5%8F%8A%E8%81%94%E5%8A%A8%E9%92%BB%E5%8F%96/%E7%BB%84%E4%BB%B6%E8%87%AA%E5%AE%9A%E4%B9%89%E8%81%94%E5%8A%A8/" /><meta property="article:section" content="docs" />
 
@@ -25,7 +19,7 @@ select distinct H1 as heroname from smartdemo2 limit 10 第三步，编辑此数
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.7cda922c1d5c847de20125ada8e810bd508aa6e2b3037850d749fbf644656b07.js" integrity="sha256-fNqSLB1chH3iASWtqOgQvVCKpuKzA3hQ10n79kRlawc=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.ab069dde5ce91bbd3af2c528f16e7644e729ffde98f61e525463d6d716451ac7.js" integrity="sha256-qwad3lzpG7068sUo8W52ROcp/96Y9h5SVGPW1xZFGsc=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -200,6 +194,19 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E4%B8%8A%E7%BA%BF%E6%95%B0%E6%8D%AE%E9%9B%86/" class="">第一个上线数据集</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%A7%E5%B1%8F%E6%A8%A1%E6%9D%BF%E8%BD%AC%E5%8C%96/" class="">第一个大屏模板转化</a>
   
 
         </li>
@@ -1260,19 +1267,6 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%AE%9E%E6%88%98%E5%A4%A7%E5%B1%8F%E6%A8%A1%E6%9D%BF%E8%BD%AC%E5%8C%96/" class="">实战大屏模板转化</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
     <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%A4%87%E4%BB%BD%E6%81%A2%E5%A4%8D%E5%8F%8A%E7%89%88%E6%9C%AC/" class="">备份恢复及版本</a>
   
 
@@ -1696,50 +1690,60 @@ https://github.com/alex-shpak/hugo-book
   应用场景
   <a class="anchor" href="#%e5%ba%94%e7%94%a8%e5%9c%ba%e6%99%af">#</a>
 </h3>
-<p>Smartchart对于单项筛选有通用的组件， 可以直接配置即可，但对于个性化的筛选，需要你进行一些简单的定制化，以下就针对多项筛选联动的需求来介绍如何定制化你的筛选联动效果
-通过此例,你可以了解如何自定义任意的联动效果
+<ul>
+<li>Smartchart对于单项筛选有通用的组件， 可以直接配置即可</li>
+<li>但对于个性化的筛选，需要你进行一些简单的定制化，</li>
+<li>以下就针对多项筛选联动的需求来介绍如何定制化你的筛选联动效果</li>
+<li>通过此例,你可以了解如何自定义任意的联动效果
 
-  <img referrerpolicy="no-referrer" src="https://images.gitee.com/uploads/images/2021/0701/182910_c2b7f3ac_5500438.png" alt="输入图片说明" title="屏幕截图.png"/></p>
+  <img referrerpolicy="no-referrer" src="https://images.gitee.com/uploads/images/2021/0701/182910_c2b7f3ac_5500438.png" alt="输入图片说明" title="屏幕截图.png"/></li>
+</ul>
 <h3 id="样列参考">
   样列参考
   <a class="anchor" href="#%e6%a0%b7%e5%88%97%e5%8f%82%e8%80%83">#</a>
 </h3>
-<p>以我们内置的仪表盘为例，</p>
-<p>第一步，新建一个图形组件</p>
-<p>第二步，在新的数据集中编写查询</p>
+<p>以我们内置的仪表盘为例：</p>
+<ul>
+<li>新建一个图形组件</li>
+<li>在新的数据集中编写查询</li>
+</ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">select</span> <span style="color:#66d9ef">distinct</span> H1 <span style="color:#66d9ef">as</span> heroname  <span style="color:#66d9ef">from</span> smartdemo2 <span style="color:#66d9ef">limit</span> <span style="color:#ae81ff">10</span>
-</span></span></code></pre></div><p>第三步，编辑此数据集的图形，可复制以下代码</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">//select distinct xx  from tablename
+</span></span></code></pre></div><ul>
+<li>编辑此数据集的图形，可复制以下代码</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">//生成html组件
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">dataset</span><span style="color:#f92672">=</span><span style="color:#a6e22e">__dataset__</span>;
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">table</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;<span style="color:#a6e22e">i</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">dataset</span>.<span style="color:#a6e22e">length</span>;<span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>){
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">table</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">table</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&lt;label&gt;&lt;input name=&#34;select__name__&#34; type=&#34;checkbox&#34; value=&#34;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">dataset</span>[<span style="color:#a6e22e">i</span>][<span style="color:#ae81ff">0</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34; /&gt;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">dataset</span>[<span style="color:#a6e22e">i</span>][<span style="color:#ae81ff">0</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">&lt;/label&gt; `</span>;
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">table</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">table</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;&lt;button id=&#39;id_select__name__&#39;&gt;提交&lt;/button&gt;&#34;</span>;
-</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">dom__name__</span>.<span style="color:#a6e22e">innerHTML</span><span style="color:#f92672">=</span><span style="color:#a6e22e">table</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;#id_select__name__&#39;</span>).<span style="color:#a6e22e">click</span>(
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">function</span>(){
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">res</span> <span style="color:#f92672">=</span> [];
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;input[name=&#39;select__name__&#39;]:checked&#34;</span>).<span style="color:#a6e22e">each</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">i</span>){
-</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">push</span>(<span style="color:#e6db74">&#34;&#39;&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">$</span>(<span style="color:#66d9ef">this</span>).<span style="color:#a6e22e">val</span>() <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;&#39;&#34;</span>);
-</span></span><span style="display:flex;"><span>        });
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">ds_setParam</span>(<span style="color:#e6db74">&#39;H1&#39;</span>,<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">toString</span>());  <span style="color:#75715e">//参数赋值
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">ds_refresh</span>(<span style="color:#ae81ff">1</span>);  <span style="color:#75715e">//刷新1号图形
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//button 的点击响应
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;#id_select__name__&#39;</span>).<span style="color:#a6e22e">click</span>(()=&gt;{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">res</span> <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//获取所有选项并放入res列表中
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;input[name=&#39;select__name__&#39;]:checked&#34;</span>).<span style="color:#a6e22e">each</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">i</span>){
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">push</span>(<span style="color:#e6db74">&#34;&#39;&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">$</span>(<span style="color:#66d9ef">this</span>).<span style="color:#a6e22e">val</span>() <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;&#39;&#34;</span>);
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">H1</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">toString</span>(); <span style="color:#75715e">//拼接成参数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">ds_setParam</span>(<span style="color:#e6db74">&#39;H1&#39;</span>,<span style="color:#a6e22e">H1</span>);  <span style="color:#75715e">//参数赋值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">ds_refresh</span>(<span style="color:#ae81ff">1</span>);  <span style="color:#75715e">//刷新1号图
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> }
 </span></span><span style="display:flex;"><span>)
-</span></span></code></pre></div><p>第四步，在你要联动刷新的目标数据集中增加代码</p>
+</span></span></code></pre></div><ul>
+<li>在你要联动刷新的目标数据集中增加代码</li>
+</ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">select</span> H1 <span style="color:#66d9ef">as</span> heroname, <span style="color:#66d9ef">sum</span>(qty) <span style="color:#66d9ef">as</span> <span style="color:#960050;background-color:#1e0010">出场数</span> <span style="color:#66d9ef">from</span> smartdemo2
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">where</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">/* and H1 in ($H1) */</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">group</span> <span style="color:#66d9ef">by</span> H1
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">order</span> <span style="color:#66d9ef">by</span> <span style="color:#66d9ef">sum</span>(qty) <span style="color:#66d9ef">desc</span>
 </span></span></code></pre></div><p>这样就完成了，任何其他需求，都可以采用类似方法自定义</p>
+<p>TIPS</p>
 <blockquote>
-<p>TIPS
-如果这个点击的图形有可能被其它图形点击联动或存在定时刷新,需要加入如下unbind否则会触发多次刷新
+<p>如果这个点击的图形有可能被其它图形点击联动或存在定时刷新,需要加入如下unbind否则会触发多次刷新
 $(&rsquo;#id_select__name__&rsquo;).unbind(&lsquo;click&rsquo;).click(&hellip;..</p>
 </blockquote>
 <blockquote>

@@ -25,7 +25,7 @@ let dataset = __dataset__ //传入dataset let legend_label = ds_rowname(dataset)
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.7cda922c1d5c847de20125ada8e810bd508aa6e2b3037850d749fbf644656b07.js" integrity="sha256-fNqSLB1chH3iASWtqOgQvVCKpuKzA3hQ10n79kRlawc=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.ab069dde5ce91bbd3af2c528f16e7644e729ffde98f61e525463d6d716451ac7.js" integrity="sha256-qwad3lzpG7068sUo8W52ROcp/96Y9h5SVGPW1xZFGsc=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -200,6 +200,19 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E4%B8%8A%E7%BA%BF%E6%95%B0%E6%8D%AE%E9%9B%86/" class="">第一个上线数据集</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%A7%E5%B1%8F%E6%A8%A1%E6%9D%BF%E8%BD%AC%E5%8C%96/" class="">第一个大屏模板转化</a>
   
 
         </li>
@@ -1260,19 +1273,6 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%AE%9E%E6%88%98%E5%A4%A7%E5%B1%8F%E6%A8%A1%E6%9D%BF%E8%BD%AC%E5%8C%96/" class="">实战大屏模板转化</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
     <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%A4%87%E4%BB%BD%E6%81%A2%E5%A4%8D%E5%8F%8A%E7%89%88%E6%9C%AC/" class="">备份恢复及版本</a>
   
 
@@ -1802,17 +1802,23 @@ https://github.com/alex-shpak/hugo-book
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;<span style="color:#a6e22e">i</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">dataset</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">length</span>;<span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>){
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">series</span>.<span style="color:#a6e22e">push</span>({<span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;bar&#39;</span>})
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>是不是非常简单 <strong>Smartchart让你使用echarts没有门槛</strong></p>
+</span></span></code></pre></div><p><strong>Smartchart让你使用echarts没有门槛</strong></p>
 <h3 id="tips">
   TIPS:
   <a class="anchor" href="#tips">#</a>
 </h3>
-<blockquote>
+<h4 id="如果你在图形编辑器中可以显示图形但保存后在dashboard中无法显示">
+  如果你在图形编辑器中可以显示图形，但保存后在dashboard中无法显示
+  <a class="anchor" href="#%e5%a6%82%e6%9e%9c%e4%bd%a0%e5%9c%a8%e5%9b%be%e5%bd%a2%e7%bc%96%e8%be%91%e5%99%a8%e4%b8%ad%e5%8f%af%e4%bb%a5%e6%98%be%e7%a4%ba%e5%9b%be%e5%bd%a2%e4%bd%86%e4%bf%9d%e5%ad%98%e5%90%8e%e5%9c%a8dashboard%e4%b8%ad%e6%97%a0%e6%b3%95%e6%98%be%e7%a4%ba">#</a>
+</h4>
 <ul>
-<li>如果你在图形编辑器中可以显示图形，但是保存后在dashboard中无法，首先检查下所有的mychart, option是否都有转化成带__name__, 如果都有，可能原因是你的代码中有使用到mychart.setoption，这样你可以在代码下方加上<strong>myChart__name__.setOption(option__name__);</strong></li>
-<li>如果你在开发界面的仪表盘能看到图形显示，但预览仪表盘时，不显示图形，一般都是因为你图形代码中js结束需加<strong>分号</strong>(;)的地方没有添加导致的[v6.5以前]</li>
+<li>检查下所有的myChart, option是否都有转化成带__name__</li>
+<li>检查代码中有使用到mychart.setoption，这样你可以在代码下方加上</li>
 </ul>
-</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">myChart__name__</span>.<span style="color:#a6e22e">setOption</span>(<span style="color:#a6e22e">option__name__</span>);
+</span></span></code></pre></div><ul>
+<li>检查代码中是否有 let data = xx, 如果有改成 data =</li>
+</ul>
 </article>
  
       

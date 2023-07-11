@@ -258,7 +258,9 @@ parent() 获取元素的直接父元素 $(&amp;#34;span&amp;#34;).parent().css({
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/4.%E5%B8%83%E5%B1%80%E8%AF%B4%E6%98%8E/%E6%8B%96%E6%8B%BD%E8%87%AA%E5%8A%A8%E5%AF%B9%E9%BD%90/</guid>
-      <description>拖拽很方便, 但是精确对齐还是有些手抖, 所以smartchart增加了自动对齐的功能 你可以在&amp;quot;模板&amp;quot; &amp;ndash;&amp;gt; &amp;ldquo;转化&amp;rdquo; 中找到这个功能 首先我们随意拖拽了一些组件 然后选中拖拽代码段, 点&amp;quot;拖拽对齐&amp;quot; 后 点&amp;quot;保存&amp;quot; 就可以查看对齐后的效果了, 再进行下拖拽微调, 重复以上动作到满意 </description>
+      <description>拖拽很方便, 但是精确对齐还是有些手抖
+网格辅助 # 你可以点击仪表盘工具栏中的info 图标切换网格显示 每一格为1rem 自动对齐 # 你可以在&amp;quot;模板&amp;quot; &amp;ndash;&amp;gt; &amp;ldquo;转化&amp;rdquo; 中找到这个功能
+首先我们随意拖拽了一些组件 然后选中拖拽代码段, 点&amp;quot;拖拽对齐&amp;quot; 后 点&amp;quot;保存&amp;quot; 就可以查看对齐后的效果了, 再进行下拖拽微调, 重复以上动作到满意 </description>
     </item>
     
     <item>
@@ -267,12 +269,12 @@ parent() 获取元素的直接父元素 $(&amp;#34;span&amp;#34;).parent().css({
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/5.%E5%8F%82%E6%95%B0%E5%8F%8A%E8%81%94%E5%8A%A8%E9%92%BB%E5%8F%96/%E5%9B%BE%E5%BD%A2%E8%81%94%E5%8A%A8%E9%92%BB%E5%8F%96/</guid>
-      <description>数据集准备 # 首先在需要进行联动的数据集中SQL的写法如下, 比如对应2号图形:
-注意 /* ... */的写法, 当参数写在这个区间时, 如果外部没有传入参数, 会自动忽略这一段代码, 这样对于联动来说非常重要, 初始时全部显示, 点击其它图形时传入参数进行动态联动 select xxx,xxx,xxx from tablename /* where xxxx = &amp;#39;$参数名&amp;#39; */ .... 建意观看视屏比较容易理解: 数据联动说明
-常规方法 # 比如你需要点击0号图形, 指定其它图形联动 你只需要打开0号图形的数据集编辑页面, 点击标题的位置 然后输入相关的参数即可, 以下为sample 参数值设定的方法, 你可以先留空, 然后保存, F12打开浏览器调试方法 点击0号图形你需要点击的动作, 你可以在调试窗口的console看到输入的log 比如我们需要传递的参数值是&amp;quot;廉颇&amp;quot;, 那么取数据的方法就是data.name, 你把这个填入即可 这样就实现按所选数据或所选系列钻取/联动了, 重新点击当前所选, 恢复原来的
-TIPS: 在图形编辑器中, 可以使用函数 ds_param(&amp;lsquo;参数名&amp;rsquo;) 来获取传入的参数值
-高级定制方法 # 如有更多个性化需求,可在需要点击的图形的编辑器中加入以下代码,仅需修改的是序号和参数名
-//比如传入多个参数进行联动 myChart__name__.on(&amp;#39;click&amp;#39;, function(params){ let myparam = params.seriesName; //获取点击的值 ds_setParam(&amp;#39;参数名&amp;#39;, myparam); //填写你的数据集的SQL设定中对应的参数名 ds_setParam(&amp;#39;参数名2&amp;#39;, myparam2); //你可以赋值给多个参数 ds_refresh(3); //3 为你要刷新图形序号 }); //函数方法说明 ds_setParam(&amp;#39;参数名&amp;#39;, 参数值) 此方法将自动判断当参数值为空,null或0时, 删除参数回到初始未传参状态 所以请注意此方法无法传递参数空,null及0, 如需传递请将0转化成字符 你还可以实现钻取到另外一个报表</description>
+      <description>数据集准备 # 在需要进行联动的数据集中SQL写法请参考&amp;quot;参数编写方法&amp;quot;章节 select ... from tablename /* where xxxx = &amp;#39;$参数名&amp;#39; */ 建意观看视屏比较容易理解: 数据联动说明 常规方法 # 比如需要点击0号图形, 指定其它图形联动
+只需要打开0号图形的数据集编辑页面, 点击标题的位置 然后输入相关的参数即可, 以下为sample 参数值设定的方法, 你可以先留空, 然后保存, F12打开浏览器调试方法
+点击0号图形你需要点击的动作, 可以在调试窗口的console看到输入的log
+比如我们需要传递的参数值是&amp;quot;廉颇&amp;quot;, 那么取数据的方法就是data.name, 你把这个填入即可 这样就实现按所选数据或所选系列钻取/联动了, 重新点击当前所选, 恢复原来的
+在图形编辑器中, 可以使用函数 ds_param(&amp;lsquo;参数名&amp;rsquo;) 来获取传入的参数值
+高级定制方法 # 如有更多个性化需求,可在需要点击的图形中加入以下动作响应用代码 仅需修改的是序号和参数名 比如当图形被点击时, 传入多个参数进行联动 myChart__name__.on(&amp;#39;click&amp;#39;, function(params){ let myparam = params.seriesName; //获取点击的值 ds_setParam(&amp;#39;参数名&amp;#39;, myparam); //填写你的数据集的SQL设定中对应的参数名 ds_setParam(&amp;#39;参数名2&amp;#39;, myparam2); //你可以赋值给多个参数 ds_refresh(3); //3 为你要刷新图形序号 }); 函数方法说明 ds_setParam(&amp;#39;参数名&amp;#39;, 参数值) //此方法将自动判断当参数值为空,null或0时, 删除参数回到初始未传参状态 //所以请注意此方法无法传递参数空,null及0, 如需传递请将0转化成字符 //如果你的参数中存在非法字符如&amp;amp;=, 你可以使用js的encodeURIComponent函数进行转义后赋值 你还可以实现钻取到另外一个报表 myChart__name__.</description>
     </item>
     
     <item>
@@ -339,8 +341,7 @@ python3 manage.py collectstatic </description>
       <guid>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/</guid>
       <description>开发前视屏 # 6.0介绍视屏 4.0操作视屏教程 5.0变更操作视屏教程 开发系列合集,关注作者持续更新 由于版本的变更, 一些图标可能会有一些变化, 但位置无太大的变化
 安装Python环境 # 环境准备: 官方 最新Python下载链接,可以到 淘宝镜象下载,也可以下载 WINDOWS64位安装版, MAC电脑安装版 Window平台安装视屏介绍,注意: Windows安装Python时需选中&amp;quot;Add to Path&amp;quot; Linux安装可参考文档下方的部署说明, Linux安装说明 安装SmartChart # 在Shell或CMD命令行执行
-pip3 install smartchart 如果安装过程慢,建意使用 pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple smartchart -U 升级方法: pip3 install smartchart -U 启动smartchart # 本地命令行启动: smartchart 如果你是服务器部署,远程访问,服务端启动方式: smartchart runserver 0.0.0.0:8000 --insecure --noreload 如果出现套接字，端口被占用， 可修改端口号启动， 如 smartchart runserver 0.0.0.0:8001 --insecure --noreload 一般本地启动后访问： http://127.0.0.1:8000 管理员帐号密码: admin/admin, 请及时更改密码
-如果忘记密码, 可以使用此命令重置 smartchart changepassword 用户名 查看demo # 尝试熟悉编辑菜单 尝试点开数据集查看SQL写法， 图形编辑器， 容器等 仪表盘菜单 # 功能项 子项 使用说明 菜单栏 - 点击可展开隐藏, 可移动位置 设定 常规设定 权限管理,水印,模板应用,版本控制.</description>
+pip3 install smartchart #如果安装过程下载缓慢,建意使用镜象安装 pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple smartchart -U #升级方法: pip3 install smartchart -U 启动smartchart # #本地测试启动: smartchart #服务器部署启动方式: smartchart runserver 0.0.0.0:8000 --insecure --noreload #如出现套接字，端口被占用， 可修改端口号启动， 如 smartchart runserver 0.0.0.0:8001 --insecure --noreload 一般本地启动后访问： http://127.0.0.1:8000 管理员帐号:admin 密码:admin #如果忘记密码, 可以使用此命令重置 smartchart changepassword 用户名 查看demo # 尝试熟悉编辑菜单, 界面等 开发功能项并非全部展示在界面, 请基于文档探索 尝试点开数据集查看写法, 图形编辑器，容器等 左则的菜单为动态项目名, 随着您的报表增长自动变化</description>
     </item>
     
     <item>
@@ -374,7 +375,7 @@ pip3 install smartchart 如果安装过程慢,建意使用 pip3 install -i https
 如果你发现定时刷新，数据并没有变化，可能原因是您数据的缓存时间设定大于定时刷新的时间
 数据集缓存加速（PRO) # smartchart专业版提供内存加速技术，对数据库仅需请求一次，之后都是毫秒级响应
 间隔时间刷新,单位分钟,如设定间隔时间为0.5, 则如果下一次访问时间超过30秒, 即触发数据刷新 固定时点刷新, 如设定间隔时间为-1, 则固定时点刷新, 即访问的时间超过固定的时点时(如上图每天12:39), 触发数据刷新 强制刷新, 访问url加上&amp;amp;refresh=Y, 则强制刷新数据, 此刷新不会影响间隔或固定刷新的时间, 不会更新下次同步时间 关于数据集状态 # 数据集状态, 决定了数据集是否在页面开启时即刷新, 或刷新是同步还是异步
-状态 组 定时 手动 异步 标准图形 大于0 大于0 X V 共用数据集 -2 大于0 X X 懒加载数据集 -2 -1 V X 懒加载数据集 -2 -2 V V excel数据集 -3 大于0 X X 后台触发强制刷新 (PRO) # 请参考文档 后台主动触发刷新</description>
+状态 组 定时 手动 异步 标准图形 大于0 大于0 X V VUE图形 大于0 大于0 X X 共用数据集 -2 大于0 X X 懒加载数据集 -2 -1 V X 懒加载数据集 -2 -2 V V excel数据集 -3 大于0 X X 后台触发强制刷新 (PRO) # 请参考文档 后台主动触发刷新</description>
     </item>
     
     <item>
@@ -437,16 +438,6 @@ select xx, xx, xx from tablename /* where xx = &amp;#39;$pcity&amp;#39; */ 现�
     
     <item>
       <title></title>
-      <link>https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%AE%9E%E6%88%98%E5%A4%A7%E5%B1%8F%E6%A8%A1%E6%9D%BF%E8%BD%AC%E5%8C%96/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%AE%9E%E6%88%98%E5%A4%A7%E5%B1%8F%E6%A8%A1%E6%9D%BF%E8%BD%AC%E5%8C%96/</guid>
-      <description> 应用场景 # 已有开发好的非smartchart静态大屏模板 如果你已购买专业版本, 可联系客服提供100+静态大屏模板 对js, css及smartchart使用方法已有初步了解 业务需求展示有合适的模板, 变化可能性不大 如何使用 # 请观看系列视屏, 相信人人都会
-头条视屏: 大屏模板转化系列 B站视屏: 大屏模板转化系列 </description>
-    </item>
-    
-    <item>
-      <title></title>
       <link>https://help.smartchart.cn/docs/7.%E6%8A%A5%E8%A1%A8%E5%B5%8C%E5%85%A5/%E5%8D%95%E9%A1%B5%E9%9D%A2%E5%B5%8C%E5%85%A5/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -465,7 +456,9 @@ import time import hashlib import os SMART_CHART_URL = &amp;#39;http://127.0.0.1
       
       <guid>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E4%BB%AA%E8%A1%A8%E7%9B%98/</guid>
       <description>由于版本的变更, 一些图标可能会有一些变化, 但位置无太大的变化
-新建仪表盘 # 在开发模式下，滑动“开发管理” -&amp;gt;&amp;ldquo;仪表盘&amp;rdquo;-&amp;gt; &amp;ldquo;新增Dashboard&amp;rdquo; 填写相应信息后点击“保存” 点击进入仪表盘开发, 注意点击 &amp;ldquo;E&amp;rdquo; 字!! 点击新增(注意拖拽布局功能为PRO版本, 后续免费版本中将无法使用), 如果你坚持使用免费版本功能, 请使用新增栅格组件, 具体布局方式参考 数据集编辑 # 点开“数据集” - 输入以下SQL后，点击“保存并刷新”, 关闭数据集编辑界面 select H1 as heroname, sum(qty) as 出场数 from smartdemo2 group by H1 order by sum(qty) desc 图形编辑 # 点开“图形编辑” 点击“图形”，可以选择基础图形, 也可以使用图形商店,第一次使用可能要你进行登记，按提示操作即可， 在商店中找到合适的图形点击，会自动复制到剪贴板 贴粘到图形编辑器后，点击保存， 关闭图形编辑框 拖拽布局 # 重复以上步骤，再新增一个， 你可以使用拖拽的方式, 移动到不同的地方 当你熟悉smartchart的基础操作后, 可以学习使用第6章节&amp;quot;进阶开发&amp;quot;中的&amp;quot;低代码开发&amp;quot;方式</description>
+新建仪表盘 # 在开发模式下，滑动“开发管理” -&amp;gt;&amp;ldquo;仪表盘&amp;rdquo;-&amp;gt; &amp;ldquo;新增Dashboard&amp;rdquo; 填写相应信息后点击“保存” 点击进入仪表盘开发, 注意点击 &amp;ldquo;E&amp;rdquo; 字!! 点击新增(注意拖拽布局功能为PRO版本, 后续免费版本中将无法使用), 如果你坚持使用免费版本功能, 请使用新增栅格组件, 具体布局方式参考 数据集编辑 # 点开“数据集” - 输入以下SQL后，点击“保存并刷新”, 关闭数据集编辑界面 select H1 as heroname, sum(qty) as 出场数 from smartdemo2 group by H1 order by sum(qty) desc 关于数据集内容请参考第 2 章数据集说明
+图形编辑 # 点开“图形编辑” 点击“图形”，可以选择基础图形, 也可以使用图形商店,第一次使用可能要你进行登记，按提示操作即可， 在商店中找到合适的图形点击，会自动复制到剪贴板 贴粘到图形编辑器后，点击保存， 关闭图形编辑框 关于图形开发内容请参考第 3 章图形开发说明
+拖拽布局 # 重复以上步骤，再新增一个， 你可以使用拖拽的方式, 移动到不同的地方 关于布局内容请参考第 4 章布局说明</description>
     </item>
     
     <item>
@@ -474,11 +467,10 @@ import time import hashlib import os SMART_CHART_URL = &amp;#39;http://127.0.0.1
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E5%BD%A2%E6%80%81/%E6%95%B0%E6%8D%AE%E9%9B%86%E6%87%92%E5%8A%A0%E8%BD%BD/</guid>
-      <description> 应用场景 # 类似于前后端开发, 后端会提供一些接口给前端, 但前端不一定需要在一打开页面就进行查询接口, 而是当有需要时再查询, 比如数据下载, 只有当用户有下载需求时再刷新数据 再比如有些与后台的数据联动, 我们只需要第一次加载时只显示第一层级, 点击时再加载其它层级 开启数据集懒加载 # 在仪表盘&amp;quot;新增&amp;quot;&amp;ndash;&amp;gt;&amp;ldquo;懒加载数据集&amp;rdquo; 当打开仪表盘时, 此数据集不会被加载
-应用 # 刷新数据 # 你可以随时手动触发数据集的刷新, 比如懒加载的数据集序号为0, 你可在需要触发刷新的JS代码段调用ds_refresh(0), 即可刷新0号数据集并执行0号数据集图形中的JS代码
-使用数据 # 当没有修改过懒加载数据集的图形时,默认的全局变量为&amp;quot;data序号&amp;quot;, 例如懒加载数据集序号为0, 你可在任意数据集的图形或模板中使用data0来获取数据集刷新后的数据
-数据处理 # 在有些场景, 你可能需要对懒加载的数据进行一些处理, 你可以在懒加载的图形中自定义处理逻辑, 比如我们需要把数据转化成vue常用的格式, 然后给vue的变量赋值:
-let dataset = __dataset__; dataset = ds_createMap_all(dataset); vapp.ds1 = dataset; //赋值给vue 参数传递 # 在有一些场景,需要在前端获取参数, 之后触发数据查询, 比如筛选项. 你可以使用ds_setParam(&amp;lsquo;参数名&amp;rsquo;, 参数值)设定参数, 比如刷新1号数据集
+      <description> 应用场景 # 类似于前后端开发, 后端会提供一些接口给前端, 但前端不一定需要在一打开页面就进行查询接口, 而是当有需要时再查询, 比如数据下载, 只有当用户有下载需求时再刷新数据 再比如有些与后台的数据联动, 我们只需要第一次加载时只显示第一层级, 点击时再加载其它层级 开启数据集懒加载 # 在仪表盘&amp;quot;新增&amp;quot;&amp;ndash;&amp;gt;&amp;ldquo;懒加载数据集&amp;rdquo; 当打开仪表盘时, 此数据集不会被加载 应用 # 刷新数据 # 你可以随时手动触发数据集的刷新, 比如懒加载的数据集序号为0, 你可在需要触发刷新的JS代码段调用ds_refresh(0), 即可刷新0号数据集并执行0号数据集图形中的JS代码 使用数据 # 默认使用 # 当没有修改过懒加载数据集的图形时,默认的全局变量为&amp;quot;data序号&amp;quot;, 例如懒加载数据集序号为0, 你可在模板的script中使用data0来获取数据集刷新后的数据
+数据处理 # 在有些场景, 可以在懒加载的图形中自定义处理逻辑, 比如我们需要把数据转化成vue常用的格式, 然后给vue的变量赋值:
+let dataset = __dataset__; dataset = ds_createMap_all(dataset); vapp.ds1 = dataset; //赋值给vue 当有编辑过图形后,你不再可以用&amp;quot;data序号&amp;quot;来使用数据
+参数传递 # 在有一些场景,需要在前端获取参数, 之后触发数据查询, 比如筛选项. 你可以使用ds_setParam(&amp;lsquo;参数名&amp;rsquo;, 参数值)设定参数, 比如刷新1号数据集
 ds_setParam(&amp;#39;city&amp;#39;, &amp;#39;顺德&amp;#39;); ds_setParam(&amp;#39;province&amp;#39;, &amp;#39;广东&amp;#39;); ds_refresh(1); </description>
     </item>
     
@@ -500,11 +492,8 @@ let dataset=__dataset__; let table = &amp;#39;&amp;#39;; for (let i=1;i&amp;lt;d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/5.%E5%8F%82%E6%95%B0%E5%8F%8A%E8%81%94%E5%8A%A8%E9%92%BB%E5%8F%96/%E7%BB%84%E4%BB%B6%E8%87%AA%E5%AE%9A%E4%B9%89%E8%81%94%E5%8A%A8/</guid>
-      <description>应用场景 # Smartchart对于单项筛选有通用的组件， 可以直接配置即可，但对于个性化的筛选，需要你进行一些简单的定制化，以下就针对多项筛选联动的需求来介绍如何定制化你的筛选联动效果 通过此例,你可以了解如何自定义任意的联动效果 样列参考 # 以我们内置的仪表盘为例，
-第一步，新建一个图形组件
-第二步，在新的数据集中编写查询
-select distinct H1 as heroname from smartdemo2 limit 10 第三步，编辑此数据集的图形，可复制以下代码
-//select distinct xx from tablename let dataset=__dataset__; let table = &amp;#39;&amp;#39;; for (let i=1;i&amp;lt;dataset.length;i++){ table = `${table}&amp;lt;label&amp;gt;&amp;lt;input name=&amp;#34;select__name__&amp;#34; type=&amp;#34;checkbox&amp;#34; value=&amp;#34;${dataset[i][0]}&amp;#34; /&amp;gt;${dataset[i][0]}&amp;lt;/label&amp;gt; `; } table = table + &amp;#34;&amp;lt;button id=&amp;#39;id_select__name__&amp;#39;&amp;gt;提交&amp;lt;/button&amp;gt;&amp;#34;; dom__name__.innerHTML=table; $(&amp;#39;#id_select__name__&amp;#39;).click( function(){ let res = []; $(&amp;#34;input[name=&amp;#39;select__name__&amp;#39;]:checked&amp;#34;).each(function(i){ res.push(&amp;#34;&amp;#39;&amp;#34; + $(this).val() + &amp;#34;&amp;#39;&amp;#34;); }); ds_setParam(&amp;#39;H1&amp;#39;,res.toString()); //参数赋值 ds_refresh(1); //刷新1号图形 } ) 第四步，在你要联动刷新的目标数据集中增加代码</description>
+      <description>应用场景 # Smartchart对于单项筛选有通用的组件， 可以直接配置即可 但对于个性化的筛选，需要你进行一些简单的定制化， 以下就针对多项筛选联动的需求来介绍如何定制化你的筛选联动效果 通过此例,你可以了解如何自定义任意的联动效果 样列参考 # 以我们内置的仪表盘为例：
+新建一个图形组件 在新的数据集中编写查询 select distinct H1 as heroname from smartdemo2 limit 10 编辑此数据集的图形，可复制以下代码 //生成html组件 let dataset=__dataset__; let table = &amp;#39;&amp;#39;; for (let i=1;i&amp;lt;dataset.length;i++){ table = `${table}&amp;lt;label&amp;gt;&amp;lt;input name=&amp;#34;select__name__&amp;#34; type=&amp;#34;checkbox&amp;#34; value=&amp;#34;${dataset[i][0]}&amp;#34; /&amp;gt;${dataset[i][0]}&amp;lt;/label&amp;gt; `; } table = table + &amp;#34;&amp;lt;button id=&amp;#39;id_select__name__&amp;#39;&amp;gt;提交&amp;lt;/button&amp;gt;&amp;#34;; dom__name__.innerHTML=table; //button 的点击响应 $(&amp;#39;#id_select__name__&amp;#39;).click(()=&amp;gt;{ let res = []; //获取所有选项并放入res列表中 $(&amp;#34;input[name=&amp;#39;select__name__&amp;#39;]:checked&amp;#34;).each(function(i){ res.push(&amp;#34;&amp;#39;&amp;#34; + $(this).val() + &amp;#34;&amp;#39;&amp;#34;); }); let H1 = res.toString(); //拼接成参数 ds_setParam(&amp;#39;H1&amp;#39;,H1); //参数赋值 ds_refresh(1); //刷新1号图 } ) 在你要联动刷新的目标数据集中增加代码 select H1 as heroname, sum(qty) as 出场数 from smartdemo2 where 1=1 /* and H1 in ($H1) */ group by H1 order by sum(qty) desc 这样就完成了，任何其他需求，都可以采用类似方法自定义</description>
     </item>
     
     <item>
@@ -619,7 +608,7 @@ CSS的几种引入方式 行内样式 行内式是在标记的style属性中设�
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AAAI%E5%9C%BA%E6%99%AF/</guid>
-      <description>使用前请观看视屏 # chatgpt辅助开发 chatgpt业务自助探索 开启GPT功能 # 仅6.6.6以上版本支持 在smartchart首页&amp;quot;头像&amp;quot;位置下拉菜单中, 点击&amp;quot;服务配置&amp;quot; 输入以下配置, 你的识别码请观看视屏(关注,点赞,转发)后联系客服获取 { &amp;#34;smtgpt&amp;#34;: { &amp;#34;api_key&amp;#34;: &amp;#34;你的识别码&amp;#34; } } 新建仪表盘 # 在开发模式下，滑动“开发管理” -&amp;gt;&amp;ldquo;仪表盘&amp;rdquo;-&amp;gt; &amp;ldquo;新增Dashboard&amp;rdquo; 填写相应信息后点击“保存” 点击进入仪表盘开发, 注意点击 &amp;ldquo;E&amp;rdquo; 字!! 导入GPT模板 # 在开发页面的&amp;quot;设定&amp;quot;图标下拉菜单中, 点击&amp;quot;常规设定&amp;quot; 点击&amp;quot;上传/本地快照|下载/恢复快照&amp;quot; 输入KEY: 02_GPTTABLE, 点击&amp;quot;本地恢复&amp;quot; 即可 模板修改 # 仪表盘开发页面点击&amp;quot;模板&amp;quot; 修改或者新增选项,对应的区域内容为你的表名或者数据集ID &amp;lt;el-select v-model=&amp;#34;select&amp;#34; slot=&amp;#34;prepend&amp;#34; placeholder=&amp;#34;请选择&amp;#34;&amp;gt; &amp;lt;el-option label=&amp;#34;王者荣耀排名&amp;#34; value=&amp;#34;smartdemo2&amp;#34;&amp;gt;&amp;lt;/el-option&amp;gt; &amp;lt;el-option label=&amp;#34;评论数据集&amp;#34; value=&amp;#34;532&amp;#34;&amp;gt;&amp;lt;/el-option&amp;gt; &amp;lt;/el-select&amp;gt; 现在你可以进行chatgpt数据问答了</description>
+      <description>使用前请观看视屏 # chatgpt辅助开发 chatgpt业务自助探索 开启GPT功能 # 仅6.6.6以上版本支持 在smartchart首页&amp;quot;头像&amp;quot;位置下拉菜单中, 点击&amp;quot;服务配置&amp;quot; 输入以下配置, 你的识别码请观看视屏(关注,点赞,转发)后联系客服获取 { &amp;#34;smtgpt&amp;#34;: { &amp;#34;api_key&amp;#34;: &amp;#34;你的识别码&amp;#34; } } 新建仪表盘 # 在开发模式下，滑动“开发管理” -&amp;gt;&amp;ldquo;仪表盘&amp;rdquo;-&amp;gt; &amp;ldquo;新增Dashboard&amp;rdquo; 填写相应信息后点击“保存” 点击进入仪表盘开发, 注意点击 &amp;ldquo;E&amp;rdquo; 字!! 导入GPT模板 # 在开发页面的&amp;quot;设定&amp;quot;图标下拉菜单中, 点击&amp;quot;常规设定&amp;quot; 点击&amp;quot;上传/本地快照|下载/恢复快照&amp;quot; 输入KEY: 02_GPTTABLE, 点击&amp;quot;本地恢复&amp;quot; 即可 模板修改 # 仪表盘开发页面点击&amp;quot;模板&amp;quot; 修改或者新增选项,对应的区域内容为你的表名或者数据集ID &amp;lt;el-select v-model=&amp;#34;select&amp;#34; slot=&amp;#34;prepend&amp;#34; placeholder=&amp;#34;请选择&amp;#34;&amp;gt; &amp;lt;el-option label=&amp;#34;王者荣耀排名&amp;#34; value=&amp;#34;smartdemo2&amp;#34;&amp;gt;&amp;lt;/el-option&amp;gt; &amp;lt;el-option label=&amp;#34;评论数据集&amp;#34; value=&amp;#34;532&amp;#34;&amp;gt;&amp;lt;/el-option&amp;gt; &amp;lt;/el-select&amp;gt; 现在你可以进行chatgpt数据问答了, 更多应用请参考第6章节&amp;quot;集成 AI 生成&amp;quot;</description>
     </item>
     
     <item>
@@ -657,7 +646,7 @@ curl -k --insecure &amp;#34;https://www.baidu.com” 修改为可执行文件 ch
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E9%9B%86%E6%88%90AI%E7%94%9F%E6%88%90/</guid>
-      <description>应用场景 # 集成chatgpt, 文心一言等大模型技术 可以支持smartchart专有AI生成 使用方法 # 当前smartchart已内置了生成模型供大家尝试, 视屏关注获取 在模板/数据集开发/容器开发/图形开发中都可以找到如下图标, 输入你的问题, 选中后点即可生成, 注意测试用途较慢, 请耐心 如果你需要要数据集中进行数据问答, 可以选中一段sql或表名后点击菜单&amp;quot;工具&amp;quot;&amp;ndash;&amp;gt;&amp;ldquo;GPT场景&amp;rdquo;,即可开启 如果你有chatgpt,或其它大模型的接口, 你也可以直接接入, 接入方法见下方 接入商业大模型 # 使用azure chatgpt # 在首页&amp;ndash;&amp;gt; 头像位置下拉菜单 &amp;ndash;&amp;gt; 服务配置, 输入并修改为你的以下配置即可使用
+      <description>应用场景 # 集成chatgpt, 文心一言, 星火等大模型技术 可以支持smartchart专有AI生成 使用方法 # 当前smartchart已内置了生成模型供大家尝试, 视屏关注获取 在模板/数据集开发/容器开发/图形开发中都可以找到如下图标, 输入你的问题, 选中后点即可生成, 注意测试用途较慢, 请耐心 如果你需要要数据集中进行数据问答, 可以选中一段sql或表名后点击菜单&amp;quot;工具&amp;quot;&amp;ndash;&amp;gt;&amp;ldquo;GPT场景&amp;rdquo;,即可开启 如果你有chatgpt,或其它大模型的接口, 你也可以直接接入, 接入方法见下方 接入商业大模型 # 使用azure chatgpt # 在首页&amp;ndash;&amp;gt; 头像位置下拉菜单 &amp;ndash;&amp;gt; 服务配置, 输入并修改为你的以下配置即可使用
 { &amp;#34;smtgpt&amp;#34;: { &amp;#34;url&amp;#34;: &amp;#34;chatgpt&amp;#34;, &amp;#34;api_type&amp;#34;: &amp;#34;azure&amp;#34;, &amp;#34;api_base&amp;#34;: &amp;#34;https://xxx.openai.azure.com/&amp;#34;, &amp;#34;api_version&amp;#34;: &amp;#34;2023-03-15-preview&amp;#34;, &amp;#34;api_key&amp;#34;: &amp;#34;xxxxxxxxxx&amp;#34;, &amp;#34;engine&amp;#34;: &amp;#34;xxxx&amp;#34; } } 使用openai chatgpt # 在首页&amp;ndash;&amp;gt; 头像位置下拉菜单 &amp;ndash;&amp;gt; 服务配置, 输入并修改为你的以下配置即可使用
 { &amp;#34;smtgpt&amp;#34;: { &amp;#34;api_type&amp;#34;: &amp;#34;open_ai&amp;#34;, &amp;#34;api_base&amp;#34;: &amp;#34;https://api.openai.com/v1&amp;#34;, &amp;#34;api_key&amp;#34;: &amp;#34;xxxxxx&amp;#34;, &amp;#34;engine&amp;#34;: &amp;#34;gpt-3.5-turbo&amp;#34; } } 其它大模型 # 比如迅飞的GPT, 首先新建一个文件, 如gptxinhuo.</description>
     </item>
@@ -670,6 +659,18 @@ curl -k --insecure &amp;#34;https://www.baidu.com” 修改为可执行文件 ch
       <guid>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E4%B8%8A%E7%BA%BF%E6%95%B0%E6%8D%AE%E9%9B%86/</guid>
       <description>实在想不出用什么名称来描述这个功能, 将就这个吧
 应用场景 # 数据集和图形复用, 开发完成后可以直接在仪表盘中拖拽 制做指标体系供用户使用,实现0代码功能 非常适合于OEM场景 新建数据集 # 在开发菜单 &amp;ndash;&amp;gt; 数据集 &amp;ndash;&amp;gt; 新增 &amp;ndash;&amp;gt; 保存 在数据集列表中 &amp;ndash;&amp;gt; 点图标E &amp;ndash;&amp;gt; 进入数据集编辑器 开发完成数据后, 点击数据集编辑器, 保存数据集后点击进入图形开发,如下图 调整图形保存即可, 此方法新增的数据集默认为上线状态 按相同的方法, 新增几个数据集 在仪表盘中使用上线数据集 # 进入仪表盘开发界面 点击&amp;quot;新增&amp;quot; &amp;ndash;&amp;gt; &amp;ldquo;上线数据集&amp;rdquo;, 点击相应的数据集 即可在仪表盘中显示出此&amp;quot;上线数据集&amp;quot; 仪表盘中的上线数据集开发 # 上线数据集在仪表盘中不可以修改, 如需修改数据集, 按如下图复制出来后即可修改 </description>
+    </item>
+    
+    <item>
+      <title>第一个大屏模板转化</title>
+      <link>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%A7%E5%B1%8F%E6%A8%A1%E6%9D%BF%E8%BD%AC%E5%8C%96/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%A7%E5%B1%8F%E6%A8%A1%E6%9D%BF%E8%BD%AC%E5%8C%96/</guid>
+      <description> 应用场景 # 已有开发好的非smartchart静态大屏模板 如果你已购买专业版本, 可联系客服提供100+静态大屏模板 对js, css及smartchart使用方法已有初步了解 业务需求展示有合适的模板, 变化可能性不大 转化步骤 # 请先观看迁移视屏
+静态大屏模板准备 # 准备好静态大屏模板, 将css, img, js等文件或文件夹打包 打开静态大屏模板, 一般是index.html, 右键查看网页源码 模板迁移 # 新建仪表盘, 在高级设定中开发启模板开发功能 在工具栏中打开模板开发页面 在模板中上传打包的资源文件 复制静态大屏网页源码中的head区间中的内容到模板对应的位置 复制静态大屏网页源码中的body区间中的内容到模板对应的位置 复制静态大屏网页源码中的script区间中的内容到模板对应的位置 移除script中的关于jquery, echarts的引用 替换相关的资源文件地址的引用 逐步按照图形块,在 body 中进行替换 以上过程建意观看视屏
+数据集与图形转化 # 此过程与常规smartchart图形开发一致,建意学习第2/3 章节 模板开发操作相关, 请学习第6章节&amp;ndash;&amp;gt;低代码开发 转化后的效果参考视屏 更多参考视屏 # 请观看系列视屏, 相信人人都会
+头条视屏: 大屏模板转化系列 B站视屏: 大屏模板转化系列 </description>
     </item>
     
     <item>
@@ -700,9 +701,9 @@ curl -k --insecure &amp;#34;https://www.baidu.com” 修改为可执行文件 ch
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E5%88%9B%E5%BB%BA%E8%BF%9E%E6%8E%A5%E6%B1%A0/</guid>
-      <description>如何新增数据源 # 在开发模式下，点击“开发管理”-&amp;gt;数据源-&amp;gt;新增 配置连接池参数，注意数据库填写是备注中有写的名称 你可以通过新建一个数据集来测试连接池的连通性
-点击“保存” 后，回到数据集列表 点击如下图标&amp;quot;E&amp;quot;，进入数据集开发界面 在开发界面调试 安全控制 # 你可以在“参数”中设定安全控制，可避免用户误操作导致前后端卡死 limit: 可限定最大返回数据数量(但实际数据库查询无limit,需通过mode控制) mode: 控制用户查询行为，默认为模式1
-模式 说明 0 严格模式，每次查询向数据库都会增加limit，MPP类型数据库可能会排序失效 1 开发模式，仅调试查询数据库都会增加limit，调试时MPP类型数据库可能会排序失效，但不影响实际 2 宽松模式，查询都不带limit, 仅控制返回limit,需开发者避免大查询 支持的数据源： # 数据库 驱动填写 需安装 使用说明 Mysql mysql 默认支持 Mysql连接池 mysqlpool pip install DBUtils Sqlite sqlite 默认支持 连接地址填写绝对路径 API 任意 默认支持 参考数据集说明文档 GPT 任意 默认支持 参考GPT说明文档 EXCEL 任意 默认支持 参考数据集说明文档 SQL Server mssql pip install pymssql SQL Server连接池 mssqlpool ORACLE oracle pip install cx_Oracle ORACLE连接池 oraclepool PostgreSql gp pip install psycopg2 GP gp pip install psycopg2 Impala impala pip install impyla Hive hive pip install impyla DB2 db2 pip install ibm_db 达梦 dm pip install dmPython Python python pip install pandas, openpyxl 参考数据集-&amp;gt;特殊数据源 Redis redis pip install redis 参考数据集-&amp;gt;特殊数据源 Mongodb mongodb pip install pymongo 参考数据集-&amp;gt;特殊数据源 Clickhouse clickhouse pip install clickhouse_driver Elasticsearch es pip install elasticsearch==7.</description>
+      <description>如何新增数据源 # 在开发模式下，点击“开发管理”-&amp;gt;数据源-&amp;gt;新增 配置连接池参数，注意驱动填写是备注中有写的名称 你可以通过新建一个数据集来测试连接池的连通性
+点击“保存” 后，回到数据集列表 点击如下图标&amp;quot;E&amp;quot;，进入数据集开发界面 在开发界面调试 安全控制 # 你可以在“参数”中设定安全控制，可避免用户误操作导致前后端卡死 limit: 可限定最大返回数据数量(但实际数据库查询无limit,需通过mode控制) mode: 控制用户查询行为，默认为模式1 模式 名称 预览注入 查询注入 0 严格模式 V V 1 开发模式 V X 2 宽松模式 X X 对MPP数据库如starrocks,impala&amp;hellip;,如注入为V则有可能影响排序
+支持的数据源： # 数据库 驱动填写 需安装 使用说明 Mysql mysql 默认支持 Mysql连接池 mysqlpool pip install DBUtils Sqlite sqlite 默认支持 连接地址填写绝对路径 API 任意 默认支持 参考数据集说明文档 GPT 任意 默认支持 参考GPT说明文档 EXCEL 任意 默认支持 参考数据集说明文档 SQL Server mssql pip install pymssql SQL Server连接池 mssqlpool ORACLE oracle pip install cx_Oracle ORACLE连接池 oraclepool PostgreSql gp pip install psycopg2 GP gp pip install psycopg2 Impala impala pip install impyla Hive hive pip install impyla DB2 db2 pip install ibm_db 达梦 dm pip install dmPython Python python pip install pandas, openpyxl 参考数据集-&amp;gt;特殊数据源 Redis redis pip install redis 参考数据集-&amp;gt;特殊数据源 Mongodb mongodb pip install pymongo 参考数据集-&amp;gt;特殊数据源 Clickhouse clickhouse pip install clickhouse_driver Elasticsearch es pip install elasticsearch==7.</description>
     </item>
     
     <item>
@@ -720,13 +721,11 @@ curl -k --insecure &amp;#34;https://www.baidu.com” 修改为可执行文件 ch
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E5%BA%94%E7%94%A8%E6%A8%A1%E6%9D%BF/</guid>
-      <description>应用场景 # 快速应用开发好的模板,极大地提高开发和学习效率
-应用本地模板 # 你可以快速应用本地备份的模板, 我们内置了一个 通用的数据查询和下载模板 , 你可以尝试
+      <description> 应用场景 # 快速应用开发好的模板,极大地提高开发和学习效率
+应用本地模板 # 你可以快速应用本地备份的模板, 我们内置了一个 通用的数据查询和下载模板
 新建一个全新的dashboard, 不要放任何报表, 点击保存且编辑后, 下方可以看到下载链接, 然后点击下载即可直接应用 输入&amp;quot;01_SMARTCHART&amp;quot;, 点击本地恢复即可 更多本地备份恢复参考
 应用商店模板 # 方法同上&amp;quot;应用本地模板&amp;quot;, 注意应用商店模板为收费增值服务
-你可以点击 模板查询, 查看相应的价格后在 TB购买即可获取下载密钥 按照&amp;quot;应用本地模板&amp;quot;的方法, 输入客服提供的下载密钥, 点击&amp;quot; 商城下载 &amp;ldquo;即可 如果仪表盘中有数据集且不再需要, 可以在下载密钥前面加上FORCE即可自动清空已有数据集后自动下载 注意模板太廉价,购买后并没有咨询服务,请务必自行了解如何使用 使用方法可参考视屏: 一键应用模板
-资源文件放置路径
-有些资源会离线打包提供给你, 只需上传即可, 上传方法参考</description>
+你可以点击 模板查询, 查看相应的价格后在 TB购买 即可获取下载密钥 按照&amp;quot;应用本地模板&amp;quot;的方法, 输入客服提供的下载密钥, 点击&amp;quot; 商城下载 &amp;ldquo;即可 应用说明 # 如果仪表盘中有数据集且不再需要, 可以在下载密钥前面加上FORCE，即可自动清空已有数据集后自动下载 注意模板太廉价,购买后并没有咨询服务,请务必自行了解如何使用 使用方法可参考视屏: 一键应用模板 有些资源会离线打包提供给你, 只需上传即可, 上传方法参考 </description>
     </item>
     
     <item>

@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="如何新增数据源 # 在开发模式下，点击“开发管理”-&gt;数据源-&gt;新增 配置连接池参数，注意数据库填写是备注中有写的名称 你可以通过新建一个数据集来测试连接池的连通性
-点击“保存” 后，回到数据集列表 点击如下图标&quot;E&quot;，进入数据集开发界面 在开发界面调试 安全控制 # 你可以在“参数”中设定安全控制，可避免用户误操作导致前后端卡死 limit: 可限定最大返回数据数量(但实际数据库查询无limit,需通过mode控制) mode: 控制用户查询行为，默认为模式1
-模式 说明 0 严格模式，每次查询向数据库都会增加limit，MPP类型数据库可能会排序失效 1 开发模式，仅调试查询数据库都会增加limit，调试时MPP类型数据库可能会排序失效，但不影响实际 2 宽松模式，查询都不带limit, 仅控制返回limit,需开发者避免大查询 支持的数据源： # 数据库 驱动填写 需安装 使用说明 Mysql mysql 默认支持 Mysql连接池 mysqlpool pip install DBUtils Sqlite sqlite 默认支持 连接地址填写绝对路径 API 任意 默认支持 参考数据集说明文档 GPT 任意 默认支持 参考GPT说明文档 EXCEL 任意 默认支持 参考数据集说明文档 SQL Server mssql pip install pymssql SQL Server连接池 mssqlpool ORACLE oracle pip install cx_Oracle ORACLE连接池 oraclepool PostgreSql gp pip install psycopg2 GP gp pip install psycopg2 Impala impala pip install impyla Hive hive pip install impyla DB2 db2 pip install ibm_db 达梦 dm pip install dmPython Python python pip install pandas, openpyxl 参考数据集-&gt;特殊数据源 Redis redis pip install redis 参考数据集-&gt;特殊数据源 Mongodb mongodb pip install pymongo 参考数据集-&gt;特殊数据源 Clickhouse clickhouse pip install clickhouse_driver Elasticsearch es pip install elasticsearch==7.">
+<meta name="description" content="如何新增数据源 # 在开发模式下，点击“开发管理”-&gt;数据源-&gt;新增 配置连接池参数，注意驱动填写是备注中有写的名称 你可以通过新建一个数据集来测试连接池的连通性
+点击“保存” 后，回到数据集列表 点击如下图标&quot;E&quot;，进入数据集开发界面 在开发界面调试 安全控制 # 你可以在“参数”中设定安全控制，可避免用户误操作导致前后端卡死 limit: 可限定最大返回数据数量(但实际数据库查询无limit,需通过mode控制) mode: 控制用户查询行为，默认为模式1 模式 名称 预览注入 查询注入 0 严格模式 V V 1 开发模式 V X 2 宽松模式 X X 对MPP数据库如starrocks,impala&hellip;,如注入为V则有可能影响排序
+支持的数据源： # 数据库 驱动填写 需安装 使用说明 Mysql mysql 默认支持 Mysql连接池 mysqlpool pip install DBUtils Sqlite sqlite 默认支持 连接地址填写绝对路径 API 任意 默认支持 参考数据集说明文档 GPT 任意 默认支持 参考GPT说明文档 EXCEL 任意 默认支持 参考数据集说明文档 SQL Server mssql pip install pymssql SQL Server连接池 mssqlpool ORACLE oracle pip install cx_Oracle ORACLE连接池 oraclepool PostgreSql gp pip install psycopg2 GP gp pip install psycopg2 Impala impala pip install impyla Hive hive pip install impyla DB2 db2 pip install ibm_db 达梦 dm pip install dmPython Python python pip install pandas, openpyxl 参考数据集-&gt;特殊数据源 Redis redis pip install redis 参考数据集-&gt;特殊数据源 Mongodb mongodb pip install pymongo 参考数据集-&gt;特殊数据源 Clickhouse clickhouse pip install clickhouse_driver Elasticsearch es pip install elasticsearch==7.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="创建连接池" />
-<meta property="og:description" content="如何新增数据源 # 在开发模式下，点击“开发管理”-&gt;数据源-&gt;新增 配置连接池参数，注意数据库填写是备注中有写的名称 你可以通过新建一个数据集来测试连接池的连通性
-点击“保存” 后，回到数据集列表 点击如下图标&quot;E&quot;，进入数据集开发界面 在开发界面调试 安全控制 # 你可以在“参数”中设定安全控制，可避免用户误操作导致前后端卡死 limit: 可限定最大返回数据数量(但实际数据库查询无limit,需通过mode控制) mode: 控制用户查询行为，默认为模式1
-模式 说明 0 严格模式，每次查询向数据库都会增加limit，MPP类型数据库可能会排序失效 1 开发模式，仅调试查询数据库都会增加limit，调试时MPP类型数据库可能会排序失效，但不影响实际 2 宽松模式，查询都不带limit, 仅控制返回limit,需开发者避免大查询 支持的数据源： # 数据库 驱动填写 需安装 使用说明 Mysql mysql 默认支持 Mysql连接池 mysqlpool pip install DBUtils Sqlite sqlite 默认支持 连接地址填写绝对路径 API 任意 默认支持 参考数据集说明文档 GPT 任意 默认支持 参考GPT说明文档 EXCEL 任意 默认支持 参考数据集说明文档 SQL Server mssql pip install pymssql SQL Server连接池 mssqlpool ORACLE oracle pip install cx_Oracle ORACLE连接池 oraclepool PostgreSql gp pip install psycopg2 GP gp pip install psycopg2 Impala impala pip install impyla Hive hive pip install impyla DB2 db2 pip install ibm_db 达梦 dm pip install dmPython Python python pip install pandas, openpyxl 参考数据集-&gt;特殊数据源 Redis redis pip install redis 参考数据集-&gt;特殊数据源 Mongodb mongodb pip install pymongo 参考数据集-&gt;特殊数据源 Clickhouse clickhouse pip install clickhouse_driver Elasticsearch es pip install elasticsearch==7." />
+<meta property="og:description" content="如何新增数据源 # 在开发模式下，点击“开发管理”-&gt;数据源-&gt;新增 配置连接池参数，注意驱动填写是备注中有写的名称 你可以通过新建一个数据集来测试连接池的连通性
+点击“保存” 后，回到数据集列表 点击如下图标&quot;E&quot;，进入数据集开发界面 在开发界面调试 安全控制 # 你可以在“参数”中设定安全控制，可避免用户误操作导致前后端卡死 limit: 可限定最大返回数据数量(但实际数据库查询无limit,需通过mode控制) mode: 控制用户查询行为，默认为模式1 模式 名称 预览注入 查询注入 0 严格模式 V V 1 开发模式 V X 2 宽松模式 X X 对MPP数据库如starrocks,impala&hellip;,如注入为V则有可能影响排序
+支持的数据源： # 数据库 驱动填写 需安装 使用说明 Mysql mysql 默认支持 Mysql连接池 mysqlpool pip install DBUtils Sqlite sqlite 默认支持 连接地址填写绝对路径 API 任意 默认支持 参考数据集说明文档 GPT 任意 默认支持 参考GPT说明文档 EXCEL 任意 默认支持 参考数据集说明文档 SQL Server mssql pip install pymssql SQL Server连接池 mssqlpool ORACLE oracle pip install cx_Oracle ORACLE连接池 oraclepool PostgreSql gp pip install psycopg2 GP gp pip install psycopg2 Impala impala pip install impyla Hive hive pip install impyla DB2 db2 pip install ibm_db 达梦 dm pip install dmPython Python python pip install pandas, openpyxl 参考数据集-&gt;特殊数据源 Redis redis pip install redis 参考数据集-&gt;特殊数据源 Mongodb mongodb pip install pymongo 参考数据集-&gt;特殊数据源 Clickhouse clickhouse pip install clickhouse_driver Elasticsearch es pip install elasticsearch==7." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E5%88%9B%E5%BB%BA%E8%BF%9E%E6%8E%A5%E6%B1%A0/" /><meta property="article:section" content="docs" />
 
@@ -21,7 +21,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.7cda922c1d5c847de20125ada8e810bd508aa6e2b3037850d749fbf644656b07.js" integrity="sha256-fNqSLB1chH3iASWtqOgQvVCKpuKzA3hQ10n79kRlawc=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.ab069dde5ce91bbd3af2c528f16e7644e729ffde98f61e525463d6d716451ac7.js" integrity="sha256-qwad3lzpG7068sUo8W52ROcp/96Y9h5SVGPW1xZFGsc=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -196,6 +196,19 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E4%B8%8A%E7%BA%BF%E6%95%B0%E6%8D%AE%E9%9B%86/" class="">第一个上线数据集</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%A7%E5%B1%8F%E6%A8%A1%E6%9D%BF%E8%BD%AC%E5%8C%96/" class="">第一个大屏模板转化</a>
   
 
         </li>
@@ -1256,19 +1269,6 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%AE%9E%E6%88%98%E5%A4%A7%E5%B1%8F%E6%A8%A1%E6%9D%BF%E8%BD%AC%E5%8C%96/" class="">实战大屏模板转化</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
     <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%A4%87%E4%BB%BD%E6%81%A2%E5%A4%8D%E5%8F%8A%E7%89%88%E6%9C%AC/" class="">备份恢复及版本</a>
   
 
@@ -1699,7 +1699,7 @@ https://github.com/alex-shpak/hugo-book
 <img src="https://images.gitee.com/uploads/images/2022/0803/094505_ba96976e_5500438.png"  height="300px" referrerpolicy="no-referrer"></p>
 </li>
 <li>
-<p>配置连接池参数，注意数据库填写是备注中有写的名称
+<p>配置连接池参数，注意驱动填写是备注中有写的名称
 <img src="https://images.gitee.com/uploads/images/2022/0803/094624_fa85413e_5500438.png"  height="300px" referrerpolicy="no-referrer"></p>
 </li>
 <li>
@@ -1718,33 +1718,46 @@ https://github.com/alex-shpak/hugo-book
   安全控制
   <a class="anchor" href="#%e5%ae%89%e5%85%a8%e6%8e%a7%e5%88%b6">#</a>
 </h3>
-<p>你可以在“参数”中设定安全控制，可避免用户误操作导致前后端卡死
+<ul>
+<li>你可以在“参数”中设定安全控制，可避免用户误操作导致前后端卡死
 
-  <img referrerpolicy="no-referrer" src="https://images.gitee.com/uploads/images/2022/0803/095040_d871bc43_5500438.png" alt="输入图片说明" title="屏幕截图.png"/>
-limit: 可限定最大返回数据数量(但实际数据库查询无limit,需通过mode控制)
-mode: 控制用户查询行为，默认为模式1</p>
+  <img referrerpolicy="no-referrer" src="https://images.gitee.com/uploads/images/2022/0803/095040_d871bc43_5500438.png" alt="输入图片说明" title="屏幕截图.png"/></li>
+<li>limit: 可限定最大返回数据数量(但实际数据库查询无limit,需通过mode控制)</li>
+<li>mode: 控制用户查询行为，默认为模式1</li>
+</ul>
 <table>
 <thead>
 <tr>
 <th style="text-align:left">模式</th>
-<th style="text-align:center">说明</th>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">预览注入</th>
+<th style="text-align:center">查询注入</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:left">0</td>
-<td style="text-align:center">严格模式，每次查询向数据库都会增加limit，MPP类型数据库可能会排序失效</td>
+<td style="text-align:center">严格模式</td>
+<td style="text-align:center">V</td>
+<td style="text-align:center">V</td>
 </tr>
 <tr>
 <td style="text-align:left">1</td>
-<td style="text-align:center">开发模式，仅调试查询数据库都会增加limit，调试时MPP类型数据库可能会排序失效，但不影响实际</td>
+<td style="text-align:center">开发模式</td>
+<td style="text-align:center">V</td>
+<td style="text-align:center">X</td>
 </tr>
 <tr>
 <td style="text-align:left">2</td>
-<td style="text-align:center">宽松模式，查询都不带limit, 仅控制返回limit,需开发者避免大查询</td>
+<td style="text-align:center">宽松模式</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">X</td>
 </tr>
 </tbody>
 </table>
+<blockquote>
+<p>对MPP数据库如starrocks,impala&hellip;,如注入为V则有可能影响排序</p>
+</blockquote>
 <h3 id="支持的数据源">
   支持的数据源：
   <a class="anchor" href="#%e6%94%af%e6%8c%81%e7%9a%84%e6%95%b0%e6%8d%ae%e6%ba%90">#</a>

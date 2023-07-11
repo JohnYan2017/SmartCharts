@@ -82,8 +82,6 @@
   </url><url>
     <loc>https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91/%E4%B8%8A%E4%BC%A0%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6/</loc>
   </url><url>
-    <loc>https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%AE%9E%E6%88%98%E5%A4%A7%E5%B1%8F%E6%A8%A1%E6%9D%BF%E8%BD%AC%E5%8C%96/</loc>
-  </url><url>
     <loc>https://help.smartchart.cn/docs/7.%E6%8A%A5%E8%A1%A8%E5%B5%8C%E5%85%A5/%E5%8D%95%E9%A1%B5%E9%9D%A2%E5%B5%8C%E5%85%A5/</loc>
   </url><url>
     <loc>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E4%BB%AA%E8%A1%A8%E7%9B%98/</loc>
@@ -121,6 +119,8 @@
     <loc>https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E9%9B%86%E6%88%90AI%E7%94%9F%E6%88%90/</loc>
   </url><url>
     <loc>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E4%B8%8A%E7%BA%BF%E6%95%B0%E6%8D%AE%E9%9B%86/</loc>
+  </url><url>
+    <loc>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%A7%E5%B1%8F%E6%A8%A1%E6%9D%BF%E8%BD%AC%E5%8C%96/</loc>
   </url><url>
     <loc>https://help.smartchart.cn/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/webSocket%E6%96%B9%E5%BC%8F/</loc>
   </url><url>

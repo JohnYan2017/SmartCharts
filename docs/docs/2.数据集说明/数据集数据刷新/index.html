@@ -7,14 +7,14 @@
 如果你发现定时刷新，数据并没有变化，可能原因是您数据的缓存时间设定大于定时刷新的时间
 数据集缓存加速（PRO) # smartchart专业版提供内存加速技术，对数据库仅需请求一次，之后都是毫秒级响应
 间隔时间刷新,单位分钟,如设定间隔时间为0.5, 则如果下一次访问时间超过30秒, 即触发数据刷新 固定时点刷新, 如设定间隔时间为-1, 则固定时点刷新, 即访问的时间超过固定的时点时(如上图每天12:39), 触发数据刷新 强制刷新, 访问url加上&amp;refresh=Y, 则强制刷新数据, 此刷新不会影响间隔或固定刷新的时间, 不会更新下次同步时间 关于数据集状态 # 数据集状态, 决定了数据集是否在页面开启时即刷新, 或刷新是同步还是异步
-状态 组 定时 手动 异步 标准图形 大于0 大于0 X V 共用数据集 -2 大于0 X X 懒加载数据集 -2 -1 V X 懒加载数据集 -2 -2 V V excel数据集 -3 大于0 X X 后台触发强制刷新 (PRO) # 请参考文档 后台主动触发刷新">
+状态 组 定时 手动 异步 标准图形 大于0 大于0 X V VUE图形 大于0 大于0 X X 共用数据集 -2 大于0 X X 懒加载数据集 -2 -1 V X 懒加载数据集 -2 -2 V V excel数据集 -3 大于0 X X 后台触发强制刷新 (PRO) # 请参考文档 后台主动触发刷新">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
 <meta property="og:description" content="数据刷新设定方法 # smartchart提供非常精细的数据刷新功能,及内存加速功能 你可以在数据集开发界面的菜单中，连接图标&ndash;&gt;刷新设定，进行设定 定时刷新 # 你可以设定前端页面数据集向后端请求刷新的时间间隔，单位秒
 如果你发现定时刷新，数据并没有变化，可能原因是您数据的缓存时间设定大于定时刷新的时间
 数据集缓存加速（PRO) # smartchart专业版提供内存加速技术，对数据库仅需请求一次，之后都是毫秒级响应
 间隔时间刷新,单位分钟,如设定间隔时间为0.5, 则如果下一次访问时间超过30秒, 即触发数据刷新 固定时点刷新, 如设定间隔时间为-1, 则固定时点刷新, 即访问的时间超过固定的时点时(如上图每天12:39), 触发数据刷新 强制刷新, 访问url加上&amp;refresh=Y, 则强制刷新数据, 此刷新不会影响间隔或固定刷新的时间, 不会更新下次同步时间 关于数据集状态 # 数据集状态, 决定了数据集是否在页面开启时即刷新, 或刷新是同步还是异步
-状态 组 定时 手动 异步 标准图形 大于0 大于0 X V 共用数据集 -2 大于0 X X 懒加载数据集 -2 -1 V X 懒加载数据集 -2 -2 V V excel数据集 -3 大于0 X X 后台触发强制刷新 (PRO) # 请参考文档 后台主动触发刷新" />
+状态 组 定时 手动 异步 标准图形 大于0 大于0 X V VUE图形 大于0 大于0 X X 共用数据集 -2 大于0 X X 懒加载数据集 -2 -1 V X 懒加载数据集 -2 -2 V V excel数据集 -3 大于0 X X 后台触发强制刷新 (PRO) # 请参考文档 后台主动触发刷新" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://help.smartchart.cn/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E6%95%B0%E6%8D%AE%E5%88%B7%E6%96%B0/" /><meta property="article:section" content="docs" />
 
@@ -25,7 +25,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.7cda922c1d5c847de20125ada8e810bd508aa6e2b3037850d749fbf644656b07.js" integrity="sha256-fNqSLB1chH3iASWtqOgQvVCKpuKzA3hQ10n79kRlawc=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.ab069dde5ce91bbd3af2c528f16e7644e729ffde98f61e525463d6d716451ac7.js" integrity="sha256-qwad3lzpG7068sUo8W52ROcp/96Y9h5SVGPW1xZFGsc=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -200,6 +200,19 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E4%B8%8A%E7%BA%BF%E6%95%B0%E6%8D%AE%E9%9B%86/" class="">第一个上线数据集</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%A7%E5%B1%8F%E6%A8%A1%E6%9D%BF%E8%BD%AC%E5%8C%96/" class="">第一个大屏模板转化</a>
   
 
         </li>
@@ -1260,19 +1273,6 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%AE%9E%E6%88%98%E5%A4%A7%E5%B1%8F%E6%A8%A1%E6%9D%BF%E8%BD%AC%E5%8C%96/" class="">实战大屏模板转化</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
     <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%A4%87%E4%BB%BD%E6%81%A2%E5%A4%8D%E5%8F%8A%E7%89%88%E6%9C%AC/" class="">备份恢复及版本</a>
   
 
@@ -1743,6 +1743,13 @@ https://github.com/alex-shpak/hugo-book
 <td style="text-align:center">大于0</td>
 <td style="text-align:center">X</td>
 <td style="text-align:center">V</td>
+</tr>
+<tr>
+<td style="text-align:left">VUE图形</td>
+<td style="text-align:center">大于0</td>
+<td style="text-align:center">大于0</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">X</td>
 </tr>
 <tr>
 <td style="text-align:left">共用数据集</td>

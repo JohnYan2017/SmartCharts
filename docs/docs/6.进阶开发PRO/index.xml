@@ -7,16 +7,6 @@
     <generator>Hugo -- gohugo.io</generator><atom:link href="https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%AE%9E%E6%88%98%E5%A4%A7%E5%B1%8F%E6%A8%A1%E6%9D%BF%E8%BD%AC%E5%8C%96/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%AE%9E%E6%88%98%E5%A4%A7%E5%B1%8F%E6%A8%A1%E6%9D%BF%E8%BD%AC%E5%8C%96/</guid>
-      <description> 应用场景 # 已有开发好的非smartchart静态大屏模板 如果你已购买专业版本, 可联系客服提供100+静态大屏模板 对js, css及smartchart使用方法已有初步了解 业务需求展示有合适的模板, 变化可能性不大 如何使用 # 请观看系列视屏, 相信人人都会
-头条视屏: 大屏模板转化系列 B站视屏: 大屏模板转化系列 </description>
-    </item>
-    
-    <item>
-      <title></title>
       <link>https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%A4%87%E4%BB%BD%E6%81%A2%E5%A4%8D%E5%8F%8A%E7%89%88%E6%9C%AC/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -45,7 +35,7 @@ FORCE: 删除自身所有数据集及高级设定，模板等，完全恢复备�
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E9%9B%86%E6%88%90AI%E7%94%9F%E6%88%90/</guid>
-      <description>应用场景 # 集成chatgpt, 文心一言等大模型技术 可以支持smartchart专有AI生成 使用方法 # 当前smartchart已内置了生成模型供大家尝试, 视屏关注获取 在模板/数据集开发/容器开发/图形开发中都可以找到如下图标, 输入你的问题, 选中后点即可生成, 注意测试用途较慢, 请耐心 如果你需要要数据集中进行数据问答, 可以选中一段sql或表名后点击菜单&amp;quot;工具&amp;quot;&amp;ndash;&amp;gt;&amp;ldquo;GPT场景&amp;rdquo;,即可开启 如果你有chatgpt,或其它大模型的接口, 你也可以直接接入, 接入方法见下方 接入商业大模型 # 使用azure chatgpt # 在首页&amp;ndash;&amp;gt; 头像位置下拉菜单 &amp;ndash;&amp;gt; 服务配置, 输入并修改为你的以下配置即可使用
+      <description>应用场景 # 集成chatgpt, 文心一言, 星火等大模型技术 可以支持smartchart专有AI生成 使用方法 # 当前smartchart已内置了生成模型供大家尝试, 视屏关注获取 在模板/数据集开发/容器开发/图形开发中都可以找到如下图标, 输入你的问题, 选中后点即可生成, 注意测试用途较慢, 请耐心 如果你需要要数据集中进行数据问答, 可以选中一段sql或表名后点击菜单&amp;quot;工具&amp;quot;&amp;ndash;&amp;gt;&amp;ldquo;GPT场景&amp;rdquo;,即可开启 如果你有chatgpt,或其它大模型的接口, 你也可以直接接入, 接入方法见下方 接入商业大模型 # 使用azure chatgpt # 在首页&amp;ndash;&amp;gt; 头像位置下拉菜单 &amp;ndash;&amp;gt; 服务配置, 输入并修改为你的以下配置即可使用
 { &amp;#34;smtgpt&amp;#34;: { &amp;#34;url&amp;#34;: &amp;#34;chatgpt&amp;#34;, &amp;#34;api_type&amp;#34;: &amp;#34;azure&amp;#34;, &amp;#34;api_base&amp;#34;: &amp;#34;https://xxx.openai.azure.com/&amp;#34;, &amp;#34;api_version&amp;#34;: &amp;#34;2023-03-15-preview&amp;#34;, &amp;#34;api_key&amp;#34;: &amp;#34;xxxxxxxxxx&amp;#34;, &amp;#34;engine&amp;#34;: &amp;#34;xxxx&amp;#34; } } 使用openai chatgpt # 在首页&amp;ndash;&amp;gt; 头像位置下拉菜单 &amp;ndash;&amp;gt; 服务配置, 输入并修改为你的以下配置即可使用
 { &amp;#34;smtgpt&amp;#34;: { &amp;#34;api_type&amp;#34;: &amp;#34;open_ai&amp;#34;, &amp;#34;api_base&amp;#34;: &amp;#34;https://api.openai.com/v1&amp;#34;, &amp;#34;api_key&amp;#34;: &amp;#34;xxxxxx&amp;#34;, &amp;#34;engine&amp;#34;: &amp;#34;gpt-3.5-turbo&amp;#34; } } 其它大模型 # 比如迅飞的GPT, 首先新建一个文件, 如gptxinhuo.</description>
     </item>

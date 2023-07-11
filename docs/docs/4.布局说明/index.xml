@@ -23,7 +23,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/4.%E5%B8%83%E5%B1%80%E8%AF%B4%E6%98%8E/%E6%8B%96%E6%8B%BD%E8%87%AA%E5%8A%A8%E5%AF%B9%E9%BD%90/</guid>
-      <description>拖拽很方便, 但是精确对齐还是有些手抖, 所以smartchart增加了自动对齐的功能 你可以在&amp;quot;模板&amp;quot; &amp;ndash;&amp;gt; &amp;ldquo;转化&amp;rdquo; 中找到这个功能 首先我们随意拖拽了一些组件 然后选中拖拽代码段, 点&amp;quot;拖拽对齐&amp;quot; 后 点&amp;quot;保存&amp;quot; 就可以查看对齐后的效果了, 再进行下拖拽微调, 重复以上动作到满意 </description>
+      <description>拖拽很方便, 但是精确对齐还是有些手抖
+网格辅助 # 你可以点击仪表盘工具栏中的info 图标切换网格显示 每一格为1rem 自动对齐 # 你可以在&amp;quot;模板&amp;quot; &amp;ndash;&amp;gt; &amp;ldquo;转化&amp;rdquo; 中找到这个功能
+首先我们随意拖拽了一些组件 然后选中拖拽代码段, 点&amp;quot;拖拽对齐&amp;quot; 后 点&amp;quot;保存&amp;quot; 就可以查看对齐后的效果了, 再进行下拖拽微调, 重复以上动作到满意 </description>
     </item>
     
     <item>

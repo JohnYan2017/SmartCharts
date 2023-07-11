@@ -21,11 +21,10 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E6%95%B0%E6%8D%AE%E9%9B%86%E5%BD%A2%E6%80%81/%E6%95%B0%E6%8D%AE%E9%9B%86%E6%87%92%E5%8A%A0%E8%BD%BD/</guid>
-      <description> 应用场景 # 类似于前后端开发, 后端会提供一些接口给前端, 但前端不一定需要在一打开页面就进行查询接口, 而是当有需要时再查询, 比如数据下载, 只有当用户有下载需求时再刷新数据 再比如有些与后台的数据联动, 我们只需要第一次加载时只显示第一层级, 点击时再加载其它层级 开启数据集懒加载 # 在仪表盘&amp;quot;新增&amp;quot;&amp;ndash;&amp;gt;&amp;ldquo;懒加载数据集&amp;rdquo; 当打开仪表盘时, 此数据集不会被加载
-应用 # 刷新数据 # 你可以随时手动触发数据集的刷新, 比如懒加载的数据集序号为0, 你可在需要触发刷新的JS代码段调用ds_refresh(0), 即可刷新0号数据集并执行0号数据集图形中的JS代码
-使用数据 # 当没有修改过懒加载数据集的图形时,默认的全局变量为&amp;quot;data序号&amp;quot;, 例如懒加载数据集序号为0, 你可在任意数据集的图形或模板中使用data0来获取数据集刷新后的数据
-数据处理 # 在有些场景, 你可能需要对懒加载的数据进行一些处理, 你可以在懒加载的图形中自定义处理逻辑, 比如我们需要把数据转化成vue常用的格式, 然后给vue的变量赋值:
-let dataset = __dataset__; dataset = ds_createMap_all(dataset); vapp.ds1 = dataset; //赋值给vue 参数传递 # 在有一些场景,需要在前端获取参数, 之后触发数据查询, 比如筛选项. 你可以使用ds_setParam(&amp;lsquo;参数名&amp;rsquo;, 参数值)设定参数, 比如刷新1号数据集
+      <description> 应用场景 # 类似于前后端开发, 后端会提供一些接口给前端, 但前端不一定需要在一打开页面就进行查询接口, 而是当有需要时再查询, 比如数据下载, 只有当用户有下载需求时再刷新数据 再比如有些与后台的数据联动, 我们只需要第一次加载时只显示第一层级, 点击时再加载其它层级 开启数据集懒加载 # 在仪表盘&amp;quot;新增&amp;quot;&amp;ndash;&amp;gt;&amp;ldquo;懒加载数据集&amp;rdquo; 当打开仪表盘时, 此数据集不会被加载 应用 # 刷新数据 # 你可以随时手动触发数据集的刷新, 比如懒加载的数据集序号为0, 你可在需要触发刷新的JS代码段调用ds_refresh(0), 即可刷新0号数据集并执行0号数据集图形中的JS代码 使用数据 # 默认使用 # 当没有修改过懒加载数据集的图形时,默认的全局变量为&amp;quot;data序号&amp;quot;, 例如懒加载数据集序号为0, 你可在模板的script中使用data0来获取数据集刷新后的数据
+数据处理 # 在有些场景, 可以在懒加载的图形中自定义处理逻辑, 比如我们需要把数据转化成vue常用的格式, 然后给vue的变量赋值:
+let dataset = __dataset__; dataset = ds_createMap_all(dataset); vapp.ds1 = dataset; //赋值给vue 当有编辑过图形后,你不再可以用&amp;quot;data序号&amp;quot;来使用数据
+参数传递 # 在有一些场景,需要在前端获取参数, 之后触发数据查询, 比如筛选项. 你可以使用ds_setParam(&amp;lsquo;参数名&amp;rsquo;, 参数值)设定参数, 比如刷新1号数据集
 ds_setParam(&amp;#39;city&amp;#39;, &amp;#39;顺德&amp;#39;); ds_setParam(&amp;#39;province&amp;#39;, &amp;#39;广东&amp;#39;); ds_refresh(1); </description>
     </item>
     

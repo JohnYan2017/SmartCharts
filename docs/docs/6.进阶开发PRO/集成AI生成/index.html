@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="应用场景 # 集成chatgpt, 文心一言等大模型技术 可以支持smartchart专有AI生成 使用方法 # 当前smartchart已内置了生成模型供大家尝试, 视屏关注获取 在模板/数据集开发/容器开发/图形开发中都可以找到如下图标, 输入你的问题, 选中后点即可生成, 注意测试用途较慢, 请耐心 如果你需要要数据集中进行数据问答, 可以选中一段sql或表名后点击菜单&quot;工具&quot;&ndash;&gt;&ldquo;GPT场景&rdquo;,即可开启 如果你有chatgpt,或其它大模型的接口, 你也可以直接接入, 接入方法见下方 接入商业大模型 # 使用azure chatgpt # 在首页&ndash;&gt; 头像位置下拉菜单 &ndash;&gt; 服务配置, 输入并修改为你的以下配置即可使用
+<meta name="description" content="应用场景 # 集成chatgpt, 文心一言, 星火等大模型技术 可以支持smartchart专有AI生成 使用方法 # 当前smartchart已内置了生成模型供大家尝试, 视屏关注获取 在模板/数据集开发/容器开发/图形开发中都可以找到如下图标, 输入你的问题, 选中后点即可生成, 注意测试用途较慢, 请耐心 如果你需要要数据集中进行数据问答, 可以选中一段sql或表名后点击菜单&quot;工具&quot;&ndash;&gt;&ldquo;GPT场景&rdquo;,即可开启 如果你有chatgpt,或其它大模型的接口, 你也可以直接接入, 接入方法见下方 接入商业大模型 # 使用azure chatgpt # 在首页&ndash;&gt; 头像位置下拉菜单 &ndash;&gt; 服务配置, 输入并修改为你的以下配置即可使用
 { &#34;smtgpt&#34;: { &#34;url&#34;: &#34;chatgpt&#34;, &#34;api_type&#34;: &#34;azure&#34;, &#34;api_base&#34;: &#34;https://xxx.openai.azure.com/&#34;, &#34;api_version&#34;: &#34;2023-03-15-preview&#34;, &#34;api_key&#34;: &#34;xxxxxxxxxx&#34;, &#34;engine&#34;: &#34;xxxx&#34; } } 使用openai chatgpt # 在首页&ndash;&gt; 头像位置下拉菜单 &ndash;&gt; 服务配置, 输入并修改为你的以下配置即可使用
 { &#34;smtgpt&#34;: { &#34;api_type&#34;: &#34;open_ai&#34;, &#34;api_base&#34;: &#34;https://api.openai.com/v1&#34;, &#34;api_key&#34;: &#34;xxxxxx&#34;, &#34;engine&#34;: &#34;gpt-3.5-turbo&#34; } } 其它大模型 # 比如迅飞的GPT, 首先新建一个文件, 如gptxinhuo.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
-<meta property="og:description" content="应用场景 # 集成chatgpt, 文心一言等大模型技术 可以支持smartchart专有AI生成 使用方法 # 当前smartchart已内置了生成模型供大家尝试, 视屏关注获取 在模板/数据集开发/容器开发/图形开发中都可以找到如下图标, 输入你的问题, 选中后点即可生成, 注意测试用途较慢, 请耐心 如果你需要要数据集中进行数据问答, 可以选中一段sql或表名后点击菜单&quot;工具&quot;&ndash;&gt;&ldquo;GPT场景&rdquo;,即可开启 如果你有chatgpt,或其它大模型的接口, 你也可以直接接入, 接入方法见下方 接入商业大模型 # 使用azure chatgpt # 在首页&ndash;&gt; 头像位置下拉菜单 &ndash;&gt; 服务配置, 输入并修改为你的以下配置即可使用
+<meta property="og:description" content="应用场景 # 集成chatgpt, 文心一言, 星火等大模型技术 可以支持smartchart专有AI生成 使用方法 # 当前smartchart已内置了生成模型供大家尝试, 视屏关注获取 在模板/数据集开发/容器开发/图形开发中都可以找到如下图标, 输入你的问题, 选中后点即可生成, 注意测试用途较慢, 请耐心 如果你需要要数据集中进行数据问答, 可以选中一段sql或表名后点击菜单&quot;工具&quot;&ndash;&gt;&ldquo;GPT场景&rdquo;,即可开启 如果你有chatgpt,或其它大模型的接口, 你也可以直接接入, 接入方法见下方 接入商业大模型 # 使用azure chatgpt # 在首页&ndash;&gt; 头像位置下拉菜单 &ndash;&gt; 服务配置, 输入并修改为你的以下配置即可使用
 { &#34;smtgpt&#34;: { &#34;url&#34;: &#34;chatgpt&#34;, &#34;api_type&#34;: &#34;azure&#34;, &#34;api_base&#34;: &#34;https://xxx.openai.azure.com/&#34;, &#34;api_version&#34;: &#34;2023-03-15-preview&#34;, &#34;api_key&#34;: &#34;xxxxxxxxxx&#34;, &#34;engine&#34;: &#34;xxxx&#34; } } 使用openai chatgpt # 在首页&ndash;&gt; 头像位置下拉菜单 &ndash;&gt; 服务配置, 输入并修改为你的以下配置即可使用
 { &#34;smtgpt&#34;: { &#34;api_type&#34;: &#34;open_ai&#34;, &#34;api_base&#34;: &#34;https://api.openai.com/v1&#34;, &#34;api_key&#34;: &#34;xxxxxx&#34;, &#34;engine&#34;: &#34;gpt-3.5-turbo&#34; } } 其它大模型 # 比如迅飞的GPT, 首先新建一个文件, 如gptxinhuo." />
 <meta property="og:type" content="article" />
@@ -21,7 +21,7 @@
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.7cda922c1d5c847de20125ada8e810bd508aa6e2b3037850d749fbf644656b07.js" integrity="sha256-fNqSLB1chH3iASWtqOgQvVCKpuKzA3hQ10n79kRlawc=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.ab069dde5ce91bbd3af2c528f16e7644e729ffde98f61e525463d6d716451ac7.js" integrity="sha256-qwad3lzpG7068sUo8W52ROcp/96Y9h5SVGPW1xZFGsc=" crossorigin="anonymous"></script>
 
   <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -196,6 +196,19 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E4%B8%8A%E7%BA%BF%E6%95%B0%E6%8D%AE%E9%9B%86/" class="">第一个上线数据集</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%A7%E5%B1%8F%E6%A8%A1%E6%9D%BF%E8%BD%AC%E5%8C%96/" class="">第一个大屏模板转化</a>
   
 
         </li>
@@ -1256,19 +1269,6 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%AE%9E%E6%88%98%E5%A4%A7%E5%B1%8F%E6%A8%A1%E6%9D%BF%E8%BD%AC%E5%8C%96/" class="">实战大屏模板转化</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
     <a href="/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E5%A4%87%E4%BB%BD%E6%81%A2%E5%A4%8D%E5%8F%8A%E7%89%88%E6%9C%AC/" class="">备份恢复及版本</a>
   
 
@@ -1694,7 +1694,7 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#%e5%ba%94%e7%94%a8%e5%9c%ba%e6%99%af">#</a>
 </h3>
 <ul>
-<li>集成chatgpt, 文心一言等大模型技术</li>
+<li>集成chatgpt, 文心一言, 星火等大模型技术</li>
 <li>可以支持smartchart专有AI生成</li>
 </ul>
 <h3 id="使用方法">
