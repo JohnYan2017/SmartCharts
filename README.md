@@ -9,7 +9,7 @@
 	<a href="https://www.smartchart.cn"><img src="http://smartchart.cn/static/smartui/img/smartlogo.png" width="45%"></a>
 </p>
 <p align="center">
-	<strong>A NoBI platform that Connect Data to Insight.</strong>
+	<strong>A Future Platform That Connect Data to Insight</strong>
 </p>
 <p align="center">
 	<a href="https://www.smartchart.cn">https://www.smartchart.cn</a>
@@ -43,7 +43,7 @@
 -------------------------------------------------------------------------------
 
 ### 简介
-- 数据可视化,大屏,移动报表,数据中台,WEB应用的微代码NoBI(No Only BI)开发平台
+- 数据可视化,大屏,移动报表,数据中台,WEB应用的微代码开发平台
 - 简单, 敏捷, 高效, 通用化, 高度可定制化, 让你的项目瞬间档次提升
 - 完全真正打通前后端, 支持图形数据联动,筛选,钻取, 支持几乎常见的所有数据库
 - 积木式拖拽开发模式, 开箱即用, 安装简单, 依赖少, 适应各种平台
@@ -69,7 +69,6 @@
 
 ### 样列
 - [SmartChart大屏样列-智慧城市_大数据大屏](https://magiccube.smartchart.cn/echart/?type=5 "大屏样列-智慧城市_大数据大屏")
-- [SmartChart集成DataV](https://magiccube.smartchart.cn/echart/?type=3 "集成DATAV")
 - [Smartchart图形数据联动](https://magiccube.smartchart.cn/echart/?type=4 "图形数据联动")
 - [Smartchart分页表格数据下载](https://magiccube.smartchart.cn/echart/?type=26 "分页表格及下载")
 
@@ -77,62 +76,21 @@
 - 请务必先阅读 [SmartChart入门文档入口](https://help.smartchart.cn/ "SmartChart入门")
 - 请务必先阅读 [SmartChart入门文档入口](https://help.smartchart.cn/ "SmartChart入门")
 - 请务必先阅读 [SmartChart入门文档入口](https://help.smartchart.cn/ "SmartChart入门")
-#### 安装Python环境
-- 环境准备: 官方[最新Python下载链接](https://www.python.org/downloads/release/python-390/ "最新Python下载链接")
-如果下载太慢, 可以到[淘宝镜象下载](https://npm.taobao.org/mirrors/python/3.9.0/ "淘宝镜象下载")
-也可以直接下载[WINDOWS64位安装版](https://npm.taobao.org/mirrors/python/3.9.0/python-3.9.0-amd64.exe "WINDOWS64位安装版")
-[MAC电脑安装版](http://npm.taobao.org/mirrors/python/3.9.0/python-3.9.0rc2-macosx10.9.pkg "MAC电脑安装版")
-
-#### 安装SmartChart
-```shell script
-   pip3 install smartchart
-   
-   如果安装过程慢,建意使用
-   pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple smartchart -U
-
-   升级方法:
-   pip3 install smartchart -U (升级)
-```
 
 
-### 应用场景一: 
-数据可视化,大屏开发平台, 可以快速启动, 独立平台使用
-```shell script
-   本地命令行启动: 
-   smartchart
-   如果你是服务器部署,远程访问,服务端启动方式: 
-   smartchart runserver 0.0.0.0:8000 --insecure --noreload
-```
-**管理员帐号密码: admin/admin, 请及时更改密码**
+### 与传统BI的区别
+- 传统BI面向非技术人员(但实际大部分场景下是技术人员在用, 错配较大), 更注重于开发的过程无代码化,所以最终实现的可视化效果较差, 可定制化程度低, 访问速度慢,对硬件要求高, 应用场景局限性比较大
+- smartchart是真正意义上面向技术人员的可视化产品, 更注重于最终效果, 采用的是低代码技术, 对技术人员更友好, 可定制化高, 可视化效果更好, 访问速度快, 更灵活,对硬件要求低, 应用范围广
+- 如果你的数据/报表开发人员主要是在技术部门, 那么smartchart是最优选择, 如果是业务部门用于自助分析, 建意采购传统BI或者我们的数据问答产品
 
-[SmartChart入门文档入口](https://help.smartchart.cn/ "SmartChart入门")
+### 与大屏设计器的区别
+- 大屏设计器只关注内置的一些边框, 图形效果等前端效果, 不注重于数据的开发, 华而不实
+- smartchart是真正意义上的全场景解决方案, 从数据开发, 可视化, 到版本上线管理, 嵌入等工程化场景全覆盖
 
-
--------------------------------------------------------------------------------
-
-### 应用场景二: 
-如果你是数据分析爱好者, 在使用jupyter, Pandas等分析工具, 你可以当做可视化工具使用
-**支持像pyecharts,Matplotlib等python绘图工具一样在Jupyter中使用, 更加方便, 更加炫酷**
-**仅仅只有两个命令,get and set, 简化数据分析工作, 还能固化分析好的数据, 生成炫酷的仪表盘**
-
-
--------------------------------------------------------------------------------
-### 应用场景三: 
-你也可以使用smartchart制做报表, 在你的应用系统中嵌入报表
-
--------------------------------------------------------------------------------
-### 应用场景四: 
-如果你是django应用的开发者, 那么恭喜你, 它能无缝的作为你项目的一部分
-数据可视化, 仪表盘, 低代码API开发平台的功能瞬间拥有
-
-
-### 应用场景五:
-smartchart不仅仅是一个可视化平台, 也是一个低代码服务API开发平台, 如果你需要对外提供
-API服务, smartchart可以让你轻松完成
-
-------------------------------------------------
-### 数据库支持说明
-Smartchart理论上可以支持任意的数据源, 详见文档中使用说明
+### 与数据中台的区别
+- smartchart是数据中台的一部分,适合任意数据平台产品, 如果你已有数据中台, 可以用之来补充数据服务, 数据应用能力
+- 如果你的数据管理平台是基于django开发, 那么smartchart可能是你唯一的最佳选择
+- 如果你没有数据中台, 那么也可以在后期引入我们的数据中台, 可以保障与smartchart无缝衔接
 
 
 ### 联系我们与帮助
@@ -340,6 +298,10 @@ v6.5.5
 - 免费版现在支持首页报表清单
 v6.6.8
 - 大模型增强
+v6.6.9
+- 大模型与企业知识库集成
+- 向量化数据库客户端
+
 ```
 
 

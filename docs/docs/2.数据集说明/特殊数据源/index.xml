@@ -147,6 +147,16 @@ let dataset=__dataset__; //获取返回值列表中的第一值 dataset = datase
     
     <item>
       <title></title>
+      <link>https://help.smartchart.cn/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://help.smartchart.cn/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
+      <description>用于smart-vector向量数据库 使用方法参考&amp;quot;自定义数据源&amp;quot; 以下为参考代码, 企业级向量化方案需专业版本:
+from smart_chart.common.smartvector import SmartVectorDB, Text2VecEmbeddingFunction text_vector = Text2VecEmbeddingFunction() def dataset(*args, **kwargs): promote = args[0][0] db_config = args[1] table = db_config.get(&amp;#39;table&amp;#39;, &amp;#39;vectors_key&amp;#39;) return SmartVectorDB(db_config=db_config, text_vector=text_vector, table=table).get(promote) def insert_dataset(*args, **kwargs): contents = args[0] table = args[1] connect_dict = args[3] docIndex = contents[0].index(&amp;#39;document&amp;#39;) contents[0].append(&amp;#39;embedding&amp;#39;) for item in contents[1:]: item.append(str(text_vector(item[docIndex])[0])) SmartVectorDB(db_config=connect_dict, text_vector=text_vector)._execute_load(contents, table) return len(contents) - 1 </description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>https://help.smartchart.cn/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/%E9%82%AE%E4%BB%B6%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE%E6%BA%90/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       

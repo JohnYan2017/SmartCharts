@@ -84,10 +84,10 @@ CSS的几种引入方式 行内样式 行内式是在标记的style属性中设�
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91/%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C/</guid>
-      <description> 自动旋转效果 # 在&amp;quot;模板&amp;quot;的style中加入以下样式
+      <description>自动旋转效果 # 在&amp;quot;模板&amp;quot;的style中加入以下样式
 @-webkit-keyframes spin { from {-webkit-transform: rotate(0deg);} to {-webkit-transform: rotate(360deg);} } @keyframes spin { from {transform: rotate(0deg);} to {transform: rotate(360deg);} } .Rotate { -webkit-animation: spin 3s linear 3s 5 alternate; animation: spin 3s linear infinite; } 如需任意组件自动旋转, 只需将Rotate这个类给到这个组件即可, 比如图形
 &amp;lt;img class=&amp;#34;Rotate&amp;#34; src=&amp;#34;https://www.smartchart.cn/media/editor/smc162_20220407150432307320.png&amp;#34;&amp;gt; 组件变形 # 常见变形沿着Y轴, 其它变形方式自已搜索, 比如需要0号,1号图形变形的样式写法
-#container_0{transform:skewY(10deg);} #container_1{transform:skewY(-10deg);} 效果如下: </description>
+#container_0{transform:skewY(10deg);} #container_1{transform:skewY(-10deg);} 变色效果 # @keyframes changeColor { 0% {color: #f00;} 25% {color: #0f0;} 50% {color: #00f;} 75% {color: #ff0;} 100% {color: #f00;} } .</description>
     </item>
     
     <item>

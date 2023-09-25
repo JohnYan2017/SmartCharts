@@ -3,26 +3,18 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="数据集准备 # 在需要进行联动的数据集中SQL写法请参考&quot;参数编写方法&quot;章节 select ... from tablename /* where xxxx = &#39;$参数名&#39; */ 建意观看视屏比较容易理解: 数据联动说明 常规方法 # 比如需要点击0号图形, 指定其它图形联动
-只需要打开0号图形的数据集编辑页面, 点击标题的位置 然后输入相关的参数即可, 以下为sample 参数值设定的方法, 你可以先留空, 然后保存, F12打开浏览器调试方法
-点击0号图形你需要点击的动作, 可以在调试窗口的console看到输入的log
-比如我们需要传递的参数值是&quot;廉颇&quot;, 那么取数据的方法就是data.name, 你把这个填入即可 这样就实现按所选数据或所选系列钻取/联动了, 重新点击当前所选, 恢复原来的
-在图形编辑器中, 可以使用函数 ds_param(&lsquo;参数名&rsquo;) 来获取传入的参数值
-高级定制方法 # 如有更多个性化需求,可在需要点击的图形中加入以下动作响应用代码 仅需修改的是序号和参数名 比如当图形被点击时, 传入多个参数进行联动 myChart__name__.on(&#39;click&#39;, function(params){ let myparam = params.seriesName; //获取点击的值 ds_setParam(&#39;参数名&#39;, myparam); //填写你的数据集的SQL设定中对应的参数名 ds_setParam(&#39;参数名2&#39;, myparam2); //你可以赋值给多个参数 ds_refresh(3); //3 为你要刷新图形序号 }); 函数方法说明 ds_setParam(&#39;参数名&#39;, 参数值) //此方法将自动判断当参数值为空,null或0时, 删除参数回到初始未传参状态 //所以请注意此方法无法传递参数空,null及0, 如需传递请将0转化成字符 //如果你的参数中存在非法字符如&amp;=, 你可以使用js的encodeURIComponent函数进行转义后赋值 你还可以实现钻取到另外一个报表 myChart__name__.">
+<meta name="description" content="用于smart-vector向量数据库 使用方法参考&quot;自定义数据源&quot; 以下为参考代码, 企业级向量化方案需专业版本:
+from smart_chart.common.smartvector import SmartVectorDB, Text2VecEmbeddingFunction text_vector = Text2VecEmbeddingFunction() def dataset(*args, **kwargs): promote = args[0][0] db_config = args[1] table = db_config.get(&#39;table&#39;, &#39;vectors_key&#39;) return SmartVectorDB(db_config=db_config, text_vector=text_vector, table=table).get(promote) def insert_dataset(*args, **kwargs): contents = args[0] table = args[1] connect_dict = args[3] docIndex = contents[0].index(&#39;document&#39;) contents[0].append(&#39;embedding&#39;) for item in contents[1:]: item.append(str(text_vector(item[docIndex])[0])) SmartVectorDB(db_config=connect_dict, text_vector=text_vector)._execute_load(contents, table) return len(contents) - 1 ">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
-<meta property="og:description" content="数据集准备 # 在需要进行联动的数据集中SQL写法请参考&quot;参数编写方法&quot;章节 select ... from tablename /* where xxxx = &#39;$参数名&#39; */ 建意观看视屏比较容易理解: 数据联动说明 常规方法 # 比如需要点击0号图形, 指定其它图形联动
-只需要打开0号图形的数据集编辑页面, 点击标题的位置 然后输入相关的参数即可, 以下为sample 参数值设定的方法, 你可以先留空, 然后保存, F12打开浏览器调试方法
-点击0号图形你需要点击的动作, 可以在调试窗口的console看到输入的log
-比如我们需要传递的参数值是&quot;廉颇&quot;, 那么取数据的方法就是data.name, 你把这个填入即可 这样就实现按所选数据或所选系列钻取/联动了, 重新点击当前所选, 恢复原来的
-在图形编辑器中, 可以使用函数 ds_param(&lsquo;参数名&rsquo;) 来获取传入的参数值
-高级定制方法 # 如有更多个性化需求,可在需要点击的图形中加入以下动作响应用代码 仅需修改的是序号和参数名 比如当图形被点击时, 传入多个参数进行联动 myChart__name__.on(&#39;click&#39;, function(params){ let myparam = params.seriesName; //获取点击的值 ds_setParam(&#39;参数名&#39;, myparam); //填写你的数据集的SQL设定中对应的参数名 ds_setParam(&#39;参数名2&#39;, myparam2); //你可以赋值给多个参数 ds_refresh(3); //3 为你要刷新图形序号 }); 函数方法说明 ds_setParam(&#39;参数名&#39;, 参数值) //此方法将自动判断当参数值为空,null或0时, 删除参数回到初始未传参状态 //所以请注意此方法无法传递参数空,null及0, 如需传递请将0转化成字符 //如果你的参数中存在非法字符如&amp;=, 你可以使用js的encodeURIComponent函数进行转义后赋值 你还可以实现钻取到另外一个报表 myChart__name__." />
+<meta property="og:description" content="用于smart-vector向量数据库 使用方法参考&quot;自定义数据源&quot; 以下为参考代码, 企业级向量化方案需专业版本:
+from smart_chart.common.smartvector import SmartVectorDB, Text2VecEmbeddingFunction text_vector = Text2VecEmbeddingFunction() def dataset(*args, **kwargs): promote = args[0][0] db_config = args[1] table = db_config.get(&#39;table&#39;, &#39;vectors_key&#39;) return SmartVectorDB(db_config=db_config, text_vector=text_vector, table=table).get(promote) def insert_dataset(*args, **kwargs): contents = args[0] table = args[1] connect_dict = args[3] docIndex = contents[0].index(&#39;document&#39;) contents[0].append(&#39;embedding&#39;) for item in contents[1:]: item.append(str(text_vector(item[docIndex])[0])) SmartVectorDB(db_config=connect_dict, text_vector=text_vector)._execute_load(contents, table) return len(contents) - 1 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://help.smartchart.cn/docs/5.%E5%8F%82%E6%95%B0%E5%8F%8A%E8%81%94%E5%8A%A8%E9%92%BB%E5%8F%96/%E5%9B%BE%E5%BD%A2%E8%81%94%E5%8A%A8%E9%92%BB%E5%8F%96/" /><meta property="article:section" content="docs" />
+<meta property="og:url" content="https://help.smartchart.cn/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93/" /><meta property="article:section" content="docs" />
 
 
 
-<title>图形联动钻取 | Smartchart开发手册</title>
+<title>向量数据库 | Smartchart开发手册</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
@@ -378,7 +370,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-54fee82a365f217fe67a17292f7959e5" class="toggle"  />
+    <input type="checkbox" id="section-54fee82a365f217fe67a17292f7959e5" class="toggle" checked />
     <label for="section-54fee82a365f217fe67a17292f7959e5" class="flex justify-between">
       <a role="button" class="">2.数据集说明</a>
     </label>
@@ -433,7 +425,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-17dce050c02e560c36fb8bcb52fc8432" class="toggle"  />
+    <input type="checkbox" id="section-17dce050c02e560c36fb8bcb52fc8432" class="toggle" checked />
     <label for="section-17dce050c02e560c36fb8bcb52fc8432" class="flex justify-between">
       <a role="button" class="">特殊数据源</a>
     </label>
@@ -605,7 +597,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93/" class="">向量数据库</a>
+    <a href="/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93/" class="active">向量数据库</a>
   
 
         </li>
@@ -988,7 +980,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-86bbf1d771d855758065f951675b7ee7" class="toggle" checked />
+    <input type="checkbox" id="section-86bbf1d771d855758065f951675b7ee7" class="toggle"  />
     <label for="section-86bbf1d771d855758065f951675b7ee7" class="flex justify-between">
       <a role="button" class="">5.参数及联动钻取</a>
     </label>
@@ -1017,7 +1009,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/5.%E5%8F%82%E6%95%B0%E5%8F%8A%E8%81%94%E5%8A%A8%E9%92%BB%E5%8F%96/%E5%9B%BE%E5%BD%A2%E8%81%94%E5%8A%A8%E9%92%BB%E5%8F%96/" class="active">图形联动钻取</a>
+    <a href="/docs/5.%E5%8F%82%E6%95%B0%E5%8F%8A%E8%81%94%E5%8A%A8%E9%92%BB%E5%8F%96/%E5%9B%BE%E5%BD%A2%E8%81%94%E5%8A%A8%E9%92%BB%E5%8F%96/" class="">图形联动钻取</a>
   
 
         </li>
@@ -1669,7 +1661,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>图形联动钻取</strong>
+  <strong>向量数据库</strong>
 
   <label for="toc-control">
     
@@ -1683,21 +1675,7 @@ https://github.com/alex-shpak/hugo-book
   <aside class="hidden clearfix">
     
   
-<nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li>
-          <ul>
-            <li><a href="#数据集准备">数据集准备</a></li>
-            <li><a href="#常规方法">常规方法</a></li>
-            <li><a href="#高级定制方法">高级定制方法</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</nav>
+<nav id="TableOfContents"></nav>
 
 
 
@@ -1708,86 +1686,29 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h3 id="数据集准备">
-  数据集准备
-  <a class="anchor" href="#%e6%95%b0%e6%8d%ae%e9%9b%86%e5%87%86%e5%a4%87">#</a>
-</h3>
-<ul>
-<li>在需要进行联动的数据集中SQL写法请参考&quot;参数编写方法&quot;章节</li>
-</ul>
-<pre tabindex="0"><code>select ... from tablename 
-/* where xxxx = &#39;$参数名&#39; */ 
-</code></pre><ul>
-<li>建意观看视屏比较容易理解:
-  <a href="https://www.bilibili.com/video/BV1ra411X7RM">数据联动说明</a></li>
-</ul>
-<h3 id="常规方法">
-  常规方法
-  <a class="anchor" href="#%e5%b8%b8%e8%a7%84%e6%96%b9%e6%b3%95">#</a>
-</h3>
-<ul>
-<li>
-<p>比如需要点击0号图形, 指定其它图形联动</p>
-</li>
-<li>
-<p>只需要打开0号图形的数据集编辑页面, 点击标题的位置
-
-  <img referrerpolicy="no-referrer" src="https://images.gitee.com/uploads/images/2021/1221/172146_4e75a674_5500438.png" alt="输入图片说明" title="屏幕截图.png"/></p>
-</li>
-<li>
-<p>然后输入相关的参数即可, 以下为sample
-
-  <img referrerpolicy="no-referrer" src="https://images.gitee.com/uploads/images/2021/1221/172502_167e5e1f_5500438.png" alt="输入图片说明" title="屏幕截图.png"/></p>
-</li>
-<li>
-<p>参数值设定的方法, 你可以先留空, 然后保存, F12打开浏览器调试方法</p>
-</li>
-<li>
-<p>点击0号图形你需要点击的动作, 可以在调试窗口的console看到输入的log</p>
-</li>
-<li>
-<p>比如我们需要传递的参数值是&quot;廉颇&quot;, 那么取数据的方法就是data.name, 你把这个填入即可
-
-  <img referrerpolicy="no-referrer" src="https://images.gitee.com/uploads/images/2021/1221/173008_8e564751_5500438.png" alt="输入图片说明" title="屏幕截图.png"/></p>
-</li>
-<li>
-<p>这样就实现按所选数据或所选系列钻取/联动了, <strong>重新点击当前所选</strong>, 恢复原来的</p>
-</li>
-</ul>
-<blockquote>
-<p>在图形编辑器中, 可以使用函数 ds_param(&lsquo;参数名&rsquo;) 来获取传入的参数值</p>
-</blockquote>
-<h3 id="高级定制方法">
-  高级定制方法
-  <a class="anchor" href="#%e9%ab%98%e7%ba%a7%e5%ae%9a%e5%88%b6%e6%96%b9%e6%b3%95">#</a>
-</h3>
-<ul>
-<li>如有更多个性化需求,可在需要点击的图形中加入以下动作响应用代码</li>
-<li>仅需修改的是<strong>序号</strong>和<strong>参数名</strong></li>
-<li>比如当图形被点击时, 传入多个参数进行联动</li>
-</ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">myChart__name__</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;click&#39;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">params</span>){
-</span></span><span style="display:flex;"><span>     <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">myparam</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">seriesName</span>;  <span style="color:#75715e">//获取点击的值
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>     <span style="color:#a6e22e">ds_setParam</span>(<span style="color:#e6db74">&#39;参数名&#39;</span>, <span style="color:#a6e22e">myparam</span>); <span style="color:#75715e">//填写你的数据集的SQL设定中对应的参数名
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>     <span style="color:#a6e22e">ds_setParam</span>(<span style="color:#e6db74">&#39;参数名2&#39;</span>, <span style="color:#a6e22e">myparam2</span>); <span style="color:#75715e">//你可以赋值给多个参数
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>     <span style="color:#a6e22e">ds_refresh</span>(<span style="color:#ae81ff">3</span>);   <span style="color:#75715e">//3 为你要刷新图形序号
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>});
-</span></span></code></pre></div><ul>
-<li>函数方法说明</li>
-</ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">ds_setParam</span>(<span style="color:#e6db74">&#39;参数名&#39;</span>, <span style="color:#a6e22e">参数值</span>)
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//此方法将自动判断当参数值为空,null或0时, 删除参数回到初始未传参状态
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//所以请注意此方法无法传递参数空,null及0, 如需传递请将0转化成字符
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//如果你的参数中存在非法字符如&amp;=, 你可以使用js的encodeURIComponent函数进行转义后赋值
-</span></span></span></code></pre></div><ul>
-<li>你还可以实现钻取到另外一个报表</li>
-</ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">myChart__name__</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;click&#39;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">params</span>) {
-</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">myparam</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`&amp;param={&#34;参数名&#34;: &#34;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">seriesName</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;}`</span>;
-</span></span><span style="display:flex;"><span> <span style="color:#75715e">//拼成url并传参，具体参考数据集说明中的数据联动url传参的方法
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">myurl</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;/echart/?type=目标报表名&#39;</span><span style="color:#f92672">+</span> <span style="color:#a6e22e">myparam</span>;
-</span></span><span style="display:flex;"><span> window.<span style="color:#a6e22e">open</span>(<span style="color:#a6e22e">myurl</span>,<span style="color:#e6db74">&#39;_blank&#39;</span>,<span style="color:#e6db74">&#39;toolbar=no,scrollbar=no,top=100,left=100,width=800,height=500&#39;</span>);
-</span></span><span style="display:flex;"><span>});
+  <article class="markdown"><p>用于smart-vector向量数据库
+使用方法参考&quot;自定义数据源&quot;
+以下为参考代码, 企业级向量化方案需专业版本:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> smart_chart.common.smartvector <span style="color:#f92672">import</span> SmartVectorDB, Text2VecEmbeddingFunction
+</span></span><span style="display:flex;"><span>text_vector <span style="color:#f92672">=</span> Text2VecEmbeddingFunction()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">dataset</span>(<span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kwargs):
+</span></span><span style="display:flex;"><span>    promote <span style="color:#f92672">=</span> args[<span style="color:#ae81ff">0</span>][<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>    db_config <span style="color:#f92672">=</span> args[<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>    table <span style="color:#f92672">=</span> db_config<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;table&#39;</span>, <span style="color:#e6db74">&#39;vectors_key&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> SmartVectorDB(db_config<span style="color:#f92672">=</span>db_config, text_vector<span style="color:#f92672">=</span>text_vector, table<span style="color:#f92672">=</span>table)<span style="color:#f92672">.</span>get(promote)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">insert_dataset</span>(<span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kwargs):
+</span></span><span style="display:flex;"><span>    contents <span style="color:#f92672">=</span> args[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>    table <span style="color:#f92672">=</span> args[<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>    connect_dict <span style="color:#f92672">=</span> args[<span style="color:#ae81ff">3</span>]
+</span></span><span style="display:flex;"><span>    docIndex <span style="color:#f92672">=</span> contents[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>index(<span style="color:#e6db74">&#39;document&#39;</span>)
+</span></span><span style="display:flex;"><span>    contents[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>append(<span style="color:#e6db74">&#39;embedding&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> item <span style="color:#f92672">in</span> contents[<span style="color:#ae81ff">1</span>:]:
+</span></span><span style="display:flex;"><span>        item<span style="color:#f92672">.</span>append(str(text_vector(item[docIndex])[<span style="color:#ae81ff">0</span>]))
+</span></span><span style="display:flex;"><span>    SmartVectorDB(db_config<span style="color:#f92672">=</span>connect_dict, text_vector<span style="color:#f92672">=</span>text_vector)<span style="color:#f92672">.</span>_execute_load(contents, table)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> len(contents) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
 </span></span></code></pre></div></article>
  
       
@@ -1800,7 +1721,7 @@ https://github.com/alex-shpak/hugo-book
 
 
   <div>
-    <a class="flex align-center" href="https://gitee.com/smartchart/smartchartDoc/edit/master/content/docs/5.%e5%8f%82%e6%95%b0%e5%8f%8a%e8%81%94%e5%8a%a8%e9%92%bb%e5%8f%96/%e5%9b%be%e5%bd%a2%e8%81%94%e5%8a%a8%e9%92%bb%e5%8f%96.md" target="_blank" rel="noopener">
+    <a class="flex align-center" href="https://gitee.com/smartchart/smartchartDoc/edit/master/content/docs/2.%e6%95%b0%e6%8d%ae%e9%9b%86%e8%af%b4%e6%98%8e/%e7%89%b9%e6%ae%8a%e6%95%b0%e6%8d%ae%e6%ba%90/%e5%90%91%e9%87%8f%e6%95%b0%e6%8d%ae%e5%ba%93.md" target="_blank" rel="noopener">
       <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
       <span>Edit this page</span>
     </a>
@@ -1834,21 +1755,7 @@ https://github.com/alex-shpak/hugo-book
       <div class="book-toc-content">
         
   
-<nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li>
-          <ul>
-            <li><a href="#数据集准备">数据集准备</a></li>
-            <li><a href="#常规方法">常规方法</a></li>
-            <li><a href="#高级定制方法">高级定制方法</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</nav>
+<nav id="TableOfContents"></nav>
 
 
  

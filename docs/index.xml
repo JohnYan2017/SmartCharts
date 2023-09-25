@@ -163,8 +163,13 @@ TEMPLATES = [ { &amp;#39;BACKEND&amp;#39;: &amp;#39;django.template.backends.dja
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/%E5%85%B3%E4%BA%8E%E6%88%91%E4%BB%AC/</guid>
-      <description> 我们的目标 # 打造全生态的数据应用数据管理的平台，解决中小企业上中台难,上中台贵,见效慢的问题. 平台与时俱进，不断完善与优化中 可以通过视屏了解我们的架构设计 企业数字化与smartchart的一站式解决方案
-产品定位 # 实现全生态的数据服务平台(数据采集, 数据加工, 数据分享，数据管理，数据应用) 产品模块 # 统一的数据处理调度平台、数据管道, 是基于Apache顶级项目Airflow上的二次开发产品,让数据处理的任务调度开发与管理微代码化，我们的设计理念是让开发者更方便的同时，不丧失灵活和高度可自定义，如果你使用过smartchat，你可以想象他会带来的便捷性， 产品名为smartpip, 为啥不叫smartpipe, 因为能省我们就要省&amp;hellip; 统一的可视化管理平台, 为第三方业务系统应用, 提供可视化嵌入及功能扩展服务，数据集即服务，一切为数据集 统一的数据上传平台, 实现线下数据的收集需求, 并提供专业的手工上传数据产品, 支持excel本地(安装与免安装版本), 支持WEB端 统一的数据分享平台与smartchart集成，可做为数据服务中台, 实现业务对数据下载的需要及为第三方系统提供数据API接口 SmartChart可视化平台, 新一代的数据可视化产品, 解决传统BI各种痛点问题,真正面向开发人员的平台产品 元数据管理平台及数据治理，让数据的来源更清晰, 让数据应用更方便，具备自动化，可视化的数据血缘分析 新一代极速数据仓库技术, 极简架构即可实现在大数据应用的全场景需求 支持大模型技术, 实现AI自动化开发 </description>
+      <description> 我们的目标 # 打造全生态的数据应用数据管理的平台，解决传统企业上中台难,上中台贵,见效慢的问题. 平台与时俱进，不断完善与优化中 可以通过视屏了解我们的架构设计 企业数字化与smartchart的一站式解决方案
+产品定位 # 实现全生态的数据服务,数据治理平台(数据采集, 数据加工, 数据分享，数据管理，数据应用) 产品模块 # 功能 功能描述 多系统数据集成 支持多系统、多数据源类型的数据拉通，整合，包括内部业务数据库数据、外部第三方接口数据、IoT数据、埋点数据、手工补录数据等 数据填报服务 支持线下手工数据线上化，用于收集业务线下手工录入数据、制作问卷等场景，且支持数据录入的分级分权管理 数据流批处理产品 存储和计算平台。支持亚秒级的实时数据写入，实时数据查询，查询速度是同类产品的10倍以上，支持万级的并发查询，有效支持数千用户的实时数据分析需求 数据开发及管理 一站式数据开发管理平台，支持PB级数据的数据模型设计，数据仓库开发，数据存储等功能, 高效的API开发流程,仅需几分钟完成API数据服务开发, 数据复用度, 技术复用度高,可面向用户端的数据上传下载能力, 仅需几分钟即可配置数据上传下载界面 数据治理能力平台SmartPip 支持任务管理、调度、监控的工作流平台，实时生成数据血缘。企业版已将部分组件做了封装，提升了高可用性，低代码开发平台, 开发及运维效率高,柔性更强,更便于与其它自研应用系统打通,满足企业个性化需求 可视化平台SmartChart 低代码可视化分析平台（中台旗舰版），用于敏捷地BI报表、看板、大屏等开发，拥有上万级图库、UI模板库。UI实现度可达到90%以上. 支持服务数据（API）低代码开发，支持单点登录，支持报表的嵌入 数据服务 支持高效安全的数据服务能力，面向不同的用户提供差异化的能力和工具支撑，不同类型的用户可以在一定范围内分析数据、共享数据结果
+1.API接口：支持高效易用功能强大的API接口开发，接口数据后台自动刷新、定时刷新
+2.自助取数：支持用户通过拖拉拽的方式快速进行数据探索和展示
+3.数据订阅：支持可配置方式通过邮件给用户主动推送预警数据、经营分析结果数据
+4.智能数据助手：深度融合GPT，适配所有数据开发和数据分析的场景，数据分析人员可以实现无代码开发，业务人员可通过自然语言进行数据探索及分析，最大程度让大模型技术提升开发和数据分析效率。
+5.智慧BI：支持将所有常见商用BI融合在同一个数据门户, 支持多级动态菜单 </description>
     </item>
     
     <item>
@@ -330,7 +335,7 @@ python3 manage.py collectstatic </description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/%E8%AE%BE%E8%AE%A1%E7%90%86%E5%BF%B5/</guid>
-      <description> 设计哲学: # 她是基于真实应用场景的敏捷数据中台而设计的产品,已成熟在多个大型企业应用多年,不仅是一个可视化低代码开发平台, 也是数据接口低代码, 甚至是业务系统低代码开发平台 支持多种混合布局, 对于普通报表可以使用响应式布局同时满足大屏, 电脑, 平板, 手机端的页面, 对于大屏也可使用拖拽辅助布局来配合自由开发模式(专业版) 她是面向开发者, 如果需要设计出来非常漂亮有个性的数据展现形式, 我们发现如果要达到这个目的, 不管用什么开发工具, 最终还是需要用户了解一些基础的html/css/echarts的配置, 用户可以找到的参考资源更全面, 甚至可以从社区的代码中直接复制过来, 所以我们设计理念是不自定义开发语言, 而是帮大家建立数据与图形的高速公路, 定义交通规则和提供服务区 smartchart有很多隐藏功能, 所以初入smartchart的同学会一脸迷惑, 无从下手, 因为我们讲究 精减设计 和 可扩展性 , 如果有些功能只用一次, 就不会让他在界面显示, 我们不推荐不看文档和视屏就直接上手开发的模式, 给你门槛是为了将来使用得不会太累 她重在数据处理的便捷, 联动/刷新机制设计一气呵成, 无缝的原生图形开发工具, 没有拖泥带水的让用户去找设定开关, 你甚至可以使用你喜欢的IDE进行开发, 给开发者充分发挥的自由 smartchart是一个企业级解决方案, 不是一个玩具, 她不喜欢浮躁, 需要你沉下心, 慢慢体验, 属于慢热型, 就好比是做菜, smartchart是给你提供了已经切好的菜和菜谱说明, 你可以按自已喜欢加火放调料就行, 你甚至可以增加新的调料(如css/js引用) 或更换调料. 相比有些产品就是给你准备的是已做好的菜品, 如果你觉得它盐放得太多, 你得清洗下, 再重新回锅, 对于我们开发人员来说, 这是不可忍受的 类似于养成类游戏, 你可以在开发过程中积累图形, 模板等等, 在后面的项目中可以直接用复制粘贴的方式进行快速复用, 而不需要再界面上重新进行配置调整. 你也可以和其它开发者(厨师)交流, 互通有无, 快速提升自已的等级, 比如购买模板就是最快的方法 与传统BI的区别 # 传统BI面向非技术人员, 更注重于开发的过程无代码化,所以最终实现的可视化效果较差, 可定制化程度低, 访问速度慢,对硬件要求高, 应用场景局限性比较大 smartchart是面向技术人员的可视化产品, 更注重于最终效果, 采用的是低代码技术, 对技术人员更友好, 可定制化高, 可视化效果更好, 访问速度快, 更灵活,对硬件要求低, 应用范围广 与开源大屏设计器区别 # 大屏设计器只关注内置的一些边框, 图形效果等前端效果, 不注重于数据的开发, 华而不实 smartchart是真正意义上的全场景解决方案, 从数据开发, 可视化, 到版本上线管理, 嵌入等工程化场景全覆盖 </description>
+      <description> 设计哲学: # 她是基于真实应用场景的敏捷数据中台而设计的产品,已成熟在多个大型企业应用多年,不仅是一个可视化低代码开发平台, 也是数据接口低代码, 甚至是业务系统低代码开发平台 支持多种混合布局, 对于普通报表可以使用响应式布局同时满足大屏, 电脑, 平板, 手机端的页面, 对于大屏也可使用拖拽辅助布局来配合自由开发模式(专业版) 她是面向开发者, 如果需要设计出来非常漂亮有个性的数据展现形式, 我们发现如果要达到这个目的, 不管用什么开发工具, 最终还是需要用户了解一些基础的html/css/echarts的配置, 用户可以找到的参考资源更全面, 甚至可以从社区的代码中直接复制过来, 所以我们设计理念是不自定义开发语言, 而是帮大家建立数据与图形的高速公路, 定义交通规则和提供服务区 smartchart有很多隐藏功能, 所以初入smartchart的同学会一脸迷惑, 无从下手, 因为我们讲究 精减设计 和 可扩展性 , 如果有些功能只用一次, 就不会让他在界面显示, 我们不推荐不看文档和视屏就直接上手开发的模式, 给你门槛是为了将来使用得不会太累 她重在数据处理的便捷, 联动/刷新机制设计一气呵成, 无缝的原生图形开发工具, 没有拖泥带水的让用户去找设定开关, 你甚至可以使用你喜欢的IDE进行开发, 给开发者充分发挥的自由 smartchart是一个企业级解决方案, 不是一个玩具, 她不喜欢浮躁, 需要你沉下心, 慢慢体验, 属于慢热型, 就好比是做菜, smartchart是给你提供了已经切好的菜和菜谱说明, 你可以按自已喜欢加火放调料就行, 你甚至可以增加新的调料(如css/js引用) 或更换调料. 相比有些产品就是给你准备的是已做好的菜品, 如果你觉得它盐放得太多, 你得清洗下, 再重新回锅, 对于我们开发人员来说, 这是不可忍受的 类似于养成类游戏, 你可以在开发过程中积累图形, 模板等等, 在后面的项目中可以直接用复制粘贴的方式进行快速复用, 而不需要再界面上重新进行配置调整. 你也可以和其它开发者(厨师)交流, 互通有无, 快速提升自已的等级, 比如购买模板就是最快的方法 与传统BI的区别 # 传统BI面向非技术人员, 更注重于开发的过程无代码化,所以最终实现的可视化效果较差, 可定制化程度低, 访问速度慢,对硬件要求高, 应用场景局限性比较大 smartchart是面向技术人员的可视化产品, 更注重于最终效果, 采用的是低代码技术, 对技术人员更友好, 可定制化高, 可视化效果更好, 访问速度快, 更灵活,对硬件要求低, 应用范围广 如果你的数据/报表开发人员主要是在技术部门, 那么smartchart是最优选择, 如果是业务部门用于自助分析, 建意采购传统BI或者我们的数据问答产品 与开源大屏设计器区别 # 大屏设计器只关注内置的一些边框, 图形效果等前端效果, 不注重于数据的开发, 华而不实 smartchart是真正意义上的全场景解决方案, 从数据开发, 可视化, 到版本上线管理, 嵌入等工程化场景全覆盖 与数据中台的区别 # smartchart是数据中台的一部分, 如果你已有数据中台, 可以用之来补充能力 如果你没有数据中台, 那么我们的数据中台是与smartchart无缝衔接的 </description>
     </item>
     
     <item>
@@ -689,10 +694,10 @@ curl -k --insecure &amp;#34;https://www.baidu.com” 修改为可执行文件 ch
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://help.smartchart.cn/docs/6.%E8%BF%9B%E9%98%B6%E5%BC%80%E5%8F%91PRO/%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91/%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C/</guid>
-      <description> 自动旋转效果 # 在&amp;quot;模板&amp;quot;的style中加入以下样式
+      <description>自动旋转效果 # 在&amp;quot;模板&amp;quot;的style中加入以下样式
 @-webkit-keyframes spin { from {-webkit-transform: rotate(0deg);} to {-webkit-transform: rotate(360deg);} } @keyframes spin { from {transform: rotate(0deg);} to {transform: rotate(360deg);} } .Rotate { -webkit-animation: spin 3s linear 3s 5 alternate; animation: spin 3s linear infinite; } 如需任意组件自动旋转, 只需将Rotate这个类给到这个组件即可, 比如图形
 &amp;lt;img class=&amp;#34;Rotate&amp;#34; src=&amp;#34;https://www.smartchart.cn/media/editor/smc162_20220407150432307320.png&amp;#34;&amp;gt; 组件变形 # 常见变形沿着Y轴, 其它变形方式自已搜索, 比如需要0号,1号图形变形的样式写法
-#container_0{transform:skewY(10deg);} #container_1{transform:skewY(-10deg);} 效果如下: </description>
+#container_0{transform:skewY(10deg);} #container_1{transform:skewY(-10deg);} 变色效果 # @keyframes changeColor { 0% {color: #f00;} 25% {color: #0f0;} 50% {color: #00f;} 75% {color: #ff0;} 100% {color: #f00;} } .</description>
     </item>
     
     <item>
@@ -703,7 +708,7 @@ curl -k --insecure &amp;#34;https://www.baidu.com” 修改为可执行文件 ch
       <guid>https://help.smartchart.cn/docs/1.%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/%E5%88%9B%E5%BB%BA%E8%BF%9E%E6%8E%A5%E6%B1%A0/</guid>
       <description>如何新增数据源 # 在开发模式下，点击“开发管理”-&amp;gt;数据源-&amp;gt;新增 配置连接池参数，注意驱动填写是备注中有写的名称 你可以通过新建一个数据集来测试连接池的连通性
 点击“保存” 后，回到数据集列表 点击如下图标&amp;quot;E&amp;quot;，进入数据集开发界面 在开发界面调试 安全控制 # 你可以在“参数”中设定安全控制，可避免用户误操作导致前后端卡死 limit: 可限定最大返回数据数量(但实际数据库查询无limit,需通过mode控制) mode: 控制用户查询行为，默认为模式1 模式 名称 预览注入 查询注入 0 严格模式 V V 1 开发模式 V X 2 宽松模式 X X 对MPP数据库如starrocks,impala&amp;hellip;,如注入为V则有可能影响排序
-支持的数据源： # 数据库 驱动填写 需安装 使用说明 Mysql mysql 默认支持 Mysql连接池 mysqlpool pip install DBUtils Sqlite sqlite 默认支持 连接地址填写绝对路径 API 任意 默认支持 参考数据集说明文档 GPT 任意 默认支持 参考GPT说明文档 EXCEL 任意 默认支持 参考数据集说明文档 SQL Server mssql pip install pymssql SQL Server连接池 mssqlpool ORACLE oracle pip install cx_Oracle ORACLE连接池 oraclepool PostgreSql gp pip install psycopg2 GP gp pip install psycopg2 Impala impala pip install impyla Hive hive pip install impyla DB2 db2 pip install ibm_db 达梦 dm pip install dmPython Python python pip install pandas, openpyxl 参考数据集-&amp;gt;特殊数据源 Redis redis pip install redis 参考数据集-&amp;gt;特殊数据源 Mongodb mongodb pip install pymongo 参考数据集-&amp;gt;特殊数据源 Clickhouse clickhouse pip install clickhouse_driver Elasticsearch es pip install elasticsearch==7.</description>
+支持的数据源： # 数据库 驱动填写 需安装 使用说明 Mysql mysql 默认支持 Mysql连接池 mysqlpool pip install DBUtils Sqlite sqlite 默认支持 连接地址填写绝对路径 API 任意 默认支持 参考数据集说明文档 GPT 任意 默认支持 参考GPT说明文档 EXCEL 任意 默认支持 参考数据集说明文档 SQL Server mssql pip install pymssql SQL Server连接池 mssqlpool ORACLE oracle pip install cx_Oracle ORACLE连接池 oraclepool PostgreSql gp pip install psycopg2 GP gp pip install psycopg2-binary Impala impala pip install impyla Hive hive pip install impyla DB2 db2 pip install ibm_db 达梦 dm pip install dmPython Python python pip install pandas, openpyxl 参考数据集-&amp;gt;特殊数据源 Redis redis pip install redis 参考数据集-&amp;gt;特殊数据源 Mongodb mongodb pip install pymongo 参考数据集-&amp;gt;特殊数据源 Clickhouse clickhouse pip install clickhouse_driver Elasticsearch es pip install elasticsearch==7.</description>
     </item>
     
     <item>
@@ -873,6 +878,16 @@ let dataset=__dataset__; //获取返回值列表中的第一值 dataset = datase
       <guid>https://help.smartchart.cn/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/sqlalchemy%E8%BF%9E%E6%8E%A5/</guid>
       <description>常规的连接池的设定, 大家应该都很清楚了, Smartchart也支持sqlalchemy连接, 对于一些smartchart不支持的数据源可以使用此方法 配置方法: 只用填以上内容, 其它可留空 连接地址的写法参考sqlalchemy说明:
 可选参数。一个标准的链接URL是这样的： dialect+driver://username:password@host:port/database dialect，是数据库类型，大概包括：sqlite, mysql, postgresql, oracle, or mssql. driver，是使用的数据库API，驱动，连接包，随便叫什么吧。 username，用户名 password，密码 host，网络地址，可以用ip，域名，计算机名，当然是你能访问到的。 port，数据库端口。 databas，数据库名。 其实这些也就dialect和dirver需要解释。 二：连接sqlite3 1，驱动 sqlite3是个文件数据库，不需要什么驱动，或者说python内置了驱动。 2，标准连接参数 # sqlite://&amp;lt;nohostname&amp;gt;/&amp;lt;path&amp;gt; 没有hostname 3，各种链接参数 # 相对路径，就是这个python文件同目录下foo.db engine = create_engine(&amp;#39;sqlite:///foo.db&amp;#39;) #绝对路径 #Unix/Mac下用四条////表示 engine = create_engine(&amp;#39;sqlite:////absolute/path/to/foo.db&amp;#39;) #Windows下用三条///加盘符路径用两条\\ engine = create_engine(&amp;#39;sqlite:///C:\\path\\to\\foo.db&amp;#39;) #Windows 也可以这么用三条///加盘符路径用一条\ engine = create_engine(r&amp;#39;sqlite:///C:\path\to\foo.db&amp;#39;) #数据库建在内存里。URI保持为空即可 engine = create_engine(&amp;#39;sqlite://&amp;#39;) 三：连接mysql（mariadb） sqlalchemy默认使用mysql-python作为链接驱动，既default模式 选哪种驱动，就装哪个包。 1，default默认链接方式 engine = create_engine(&amp;#39;mysql://scott:tiger@localhost/foo&amp;#39;) 2，# mysql-python，声明使用mysql-python驱动 engine = create_engine(&amp;#39;mysql+mysqldb://scott:tiger@localhost/foo&amp;#39;) 3，MySQL-connector-python 声明使用MySQL-connector-python驱动（推荐使用） engine = create_engine(&amp;#39;mysql+mysqlconnector://scott:tiger@localhost/foo&amp;#39;) 4，OurSQL 声明使用OurSQL驱动 engine = create_engine(&amp;#39;mysql+oursql://scott:tiger@localhost/foo&amp;#39;) 四：连接Microsoft SQL Server sqlalchemy默认使用 pyodbc作为链接驱动。 1，pyodbc engine = create_engine(&amp;#39;mssql+pyodbc://scott:tiger@mydsn&amp;#39;) 2，pymssql engine = create_engine(&amp;#39;mssql+pymssql://scott:tiger@hostname:port/dbname&amp;#39;) 五：连接PostgreSQL PostgreSQL默认使用 psycopg2作为链接驱动，既default模式 1， default engine = create_engine(&amp;#39;postgresql://scott:tiger@localhost/mydatabase&amp;#39;) 2，psycopg2 engine = create_engine(&amp;#39;postgresql+psycopg2://scott:tiger@localhost/mydatabase&amp;#39;) 3， pg8000 engine = create_engine(&amp;#39;postgresql+pg8000://scott:tiger@localhost/mydatabase&amp;#39;) 六：连接Oracle Oracle可能只有 cx_oracle一个驱动包，既default模式和声明模式一样。 1，default engine = create_engine(&amp;#39;oracle://scott:tiger@127.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://help.smartchart.cn/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://help.smartchart.cn/docs/2.%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E/%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E6%BA%90/%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
+      <description>用于smart-vector向量数据库 使用方法参考&amp;quot;自定义数据源&amp;quot; 以下为参考代码, 企业级向量化方案需专业版本:
+from smart_chart.common.smartvector import SmartVectorDB, Text2VecEmbeddingFunction text_vector = Text2VecEmbeddingFunction() def dataset(*args, **kwargs): promote = args[0][0] db_config = args[1] table = db_config.get(&amp;#39;table&amp;#39;, &amp;#39;vectors_key&amp;#39;) return SmartVectorDB(db_config=db_config, text_vector=text_vector, table=table).get(promote) def insert_dataset(*args, **kwargs): contents = args[0] table = args[1] connect_dict = args[3] docIndex = contents[0].index(&amp;#39;document&amp;#39;) contents[0].append(&amp;#39;embedding&amp;#39;) for item in contents[1:]: item.append(str(text_vector(item[docIndex])[0])) SmartVectorDB(db_config=connect_dict, text_vector=text_vector)._execute_load(contents, table) return len(contents) - 1 </description>
     </item>
     
     <item>
