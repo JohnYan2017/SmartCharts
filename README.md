@@ -60,7 +60,7 @@
 - 没有重复学习成本, 高度可定制化, 注意是高度可定制化!!
 
 具体功能预览可观看视屏了解, 
-- [6.0介绍视屏](https://www.bilibili.com/video/BV1Md4y1h7iq) 
+- [6.0介绍视频](https://www.bilibili.com/video/BV1Md4y1h7iq) 
 - [chatgpt辅助开发](https://www.bilibili.com/video/BV1Xc411g7Lq)
 - [chatgpt业务自助探索](https://www.bilibili.com/video/BV1Bo4y1T7BU/)
 
