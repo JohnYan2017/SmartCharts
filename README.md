@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-    <img src="https://img.shields.io/badge/Release-V6.6-green.svg" alt="Downloads">
+    <img src="https://img.shields.io/badge/Release-V6.8-green.svg" alt="Downloads">
 	<a target="_blank" href="https://www.python.org/downloads/release/python-390/">
 		<img src="https://img.shields.io/badge/Python-3.6+-green.svg" />
 	</a>
@@ -61,16 +61,12 @@
 
 具体功能预览可观看视屏了解, 
 - [6.0介绍视频](https://www.bilibili.com/video/BV1Md4y1h7iq) 
-- [chatgpt辅助开发](https://www.bilibili.com/video/BV1Xc411g7Lq)
-- [chatgpt业务自助探索](https://www.bilibili.com/video/BV1Bo4y1T7BU/)
+- [进阶开发视频](https://www.bilibili.com/video/BV15S421o7kx/) 
+
 
 ![大数据](https://www.smartchart.cn/media/editor/微信截图_20211202163316_20211202163647765791.png)
 ![smartchart](http://smartchart.cn/media/editor/smartvoice_20201224085323156045.png)
 
-### 样列
-- [SmartChart大屏样列-智慧城市_大数据大屏](https://magiccube.smartchart.cn/echart/?type=5 "大屏样列-智慧城市_大数据大屏")
-- [Smartchart图形数据联动](https://magiccube.smartchart.cn/echart/?type=4 "图形数据联动")
-- [Smartchart分页表格数据下载](https://magiccube.smartchart.cn/echart/?type=26 "分页表格及下载")
 
 ### 快速开始
 - 请务必先阅读 [SmartChart入门文档入口](https://help.smartchart.cn/ "SmartChart入门")
@@ -92,10 +88,19 @@
 - 如果你的数据管理平台是基于django开发, 那么smartchart可能是你唯一的最佳选择
 - 如果你没有数据中台, 那么也可以在后期引入我们的数据中台, 可以保障与smartchart无缝衔接
 
+### 与AI Agent区别
+- 常见的Agent要么是一个python库，要么是封装得不够录活的全图形界面
+- smartchart基于自身强大的数据连接与可视化能力，可以实现低代码的AI agent应用
+
 
 ### 联系我们与帮助
 你也可以加入QQ群进行普通问题讨论
 **QQ群: 476715246  暗号: smartchart**
+
+### 合作微信
+加微信请备注公司名手机号码
+
+ <a href="https://work.weixin.qq.com/kfid/kfcded01b07b7ba963b" target="_blank"><img src="https://foruda.gitee.com/images/1662372287435411063/1c7ddbe7_5500438.png" width="200px"></a>
 
 -------------------------------------------------------------------------------
 
@@ -301,7 +306,12 @@ v6.6.8
 v6.6.9
 - 大模型与企业知识库集成
 - 向量化数据库客户端
-
+v6.8
+- 升级echarts到5.5
+- 增加简易滚动表格,增强ds_pivot及更多处理函数
+- 增加飞书表格, 企微消息连接器
+- 向量客户端优化
+- 优化数据开发相关问题
 ```
 
 
