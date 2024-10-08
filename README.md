@@ -2,7 +2,7 @@
 [Wiki](https://gitee.com/smartchart/smartchart/wikis/pages) \|
 [Community](https://www.smartchart.cn/) \|
 [Sponsors](https://www.smartchart.cn/) \|
-[GitHub](https://github.com/JohnYan2017/Echarts-Django) \|
+[GitHub](https://github.com/JohnYan2017/SmartCharts) \|
 [Gitee](https://gitee.com/smartchart/smartchart)
 
 <p align="center">
@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-    <img src="https://img.shields.io/badge/Release-V6.8-green.svg" alt="Downloads">
+    <img src="https://img.shields.io/badge/Release-V6.9-green.svg" alt="Downloads">
 	<a target="_blank" href="https://www.python.org/downloads/release/python-390/">
 		<img src="https://img.shields.io/badge/Python-3.6+-green.svg" />
 	</a>
@@ -50,13 +50,14 @@
 - 支持中国式报表类EXCEL开发, 支持3D场景大屏
 - 内存加速技术, 让你的数据快人一步, 大幅减少数据库压力
 - 真所见即所得的拖拽开发模式, 且无需在画布上设计
-- 支持数据填报设计,数据下载,前端埋点,问卷开发
+- 支持个性化的数据新增导入填报更新,文件上传等需求,开发企业管理型业务系统
 - 数据集即服务, 采用低代码快速实现数据服务API开发
 - 支持仪表盘备份恢复快照等, 满足企业级的版本控制开发上线流程要求
 - 支持用户/组功能权限控制,支持行级别/字段级别数据权限控制
 - 支持Django插件方式应用,可无限扩展,打造你专属的个性化应用
 - 支持在Jupyter notebook中的数据开发方式应用
-- 支持集成chatGPT, 文心一言, 迅飞星火等大模型AI生成
+- 支持集成chatGPT, 文心一言, 星火等大模型AI生成
+- 支持开发个性化的数据新增导入填报更新,文件上传等需求
 - 没有重复学习成本, 高度可定制化, 注意是高度可定制化!!
 
 具体功能预览可观看视屏了解, 
@@ -65,6 +66,7 @@
 
 
 ![大数据](https://www.smartchart.cn/media/editor/微信截图_20211202163316_20211202163647765791.png)
+![CRUD](https://foruda.gitee.com/images/1728362892391930153/e7a89b1d_5500438.png)
 ![smartchart](http://smartchart.cn/media/editor/smartvoice_20201224085323156045.png)
 
 
@@ -87,6 +89,10 @@
 - smartchart是数据中台的一部分,适合任意数据平台产品, 如果你已有数据中台, 可以用之来补充数据服务, 数据应用能力
 - 如果你的数据管理平台是基于django开发, 那么smartchart可能是你唯一的最佳选择
 - 如果你没有数据中台, 那么也可以在后期引入我们的数据中台, 可以保障与smartchart无缝衔接
+
+### 与低代码系统开发平台区别
+- 传统的低代码系统面向非技术人员,以流程为驱动
+- smartchart基于开发者真实需求,开放度更高,基于数据运营的要求,以数据驱动
 
 ### 与AI Agent区别
 - 常见的Agent要么是一个python库，要么是封装得不够录活的全图形界面
@@ -312,6 +318,8 @@ v6.8
 - 增加飞书表格, 企微消息连接器
 - 向量客户端优化
 - 优化数据开发相关问题
+v7.0
+发布中
 ```
 
 
