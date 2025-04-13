@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-    <img src="https://img.shields.io/badge/Release-V6.9-green.svg" alt="Downloads">
+    <img src="https://img.shields.io/badge/Release-V7-green.svg" alt="Downloads">
 	<a target="_blank" href="https://www.python.org/downloads/release/python-390/">
 		<img src="https://img.shields.io/badge/Python-3.6+-green.svg" />
 	</a>
@@ -56,13 +56,14 @@
 - 支持用户/组功能权限控制,支持行级别/字段级别数据权限控制
 - 支持Django插件方式应用,可无限扩展,打造你专属的个性化应用
 - 支持在Jupyter notebook中的数据开发方式应用
-- 支持集成chatGPT, 文心一言, 星火等大模型AI生成
+- 支持集成DeepSeek,chatGPT,文心一言,通义,百练智能体等大模型AI生成
 - 支持开发个性化的数据新增导入填报更新,文件上传等需求
 - 没有重复学习成本, 高度可定制化, 注意是高度可定制化!!
 
 具体功能预览可观看视屏了解, 
 - [6.0介绍视频](https://www.bilibili.com/video/BV1Md4y1h7iq) 
-- [进阶开发视频](https://www.bilibili.com/video/BV15S421o7kx/) 
+- [进阶开发视频](https://www.bilibili.com/video/BV15S421o7kx) 
+- [7.0CRUD视频](https://www.bilibili.com/video/BV17rAweeETt) 
 
 
 ![大数据](https://www.smartchart.cn/media/editor/微信截图_20211202163316_20211202163647765791.png)
@@ -319,7 +320,16 @@ v6.8
 - 向量客户端优化
 - 优化数据开发相关问题
 v7.0
-发布中
+- 强大的CRUD模板化开发功能
+- 全面优化首页体验
+- 增加资源管理功能
+- 增加报表拖拽分组
+- 增加报表导入导出功能
+- 增强AI大模型支持，智能体开发
+- 增加对阿里百炼智能体支持
+- 增加二维生成，打印等多种函数功能
+- 数据服务增强,支接数据更新，接收等
+- excel数据导入导出无代码化
 ```
 
 
