@@ -64,6 +64,8 @@
 - [6.0介绍视频](https://www.bilibili.com/video/BV1Md4y1h7iq) 
 - [进阶开发视频](https://www.bilibili.com/video/BV15S421o7kx) 
 - [7.0CRUD视频](https://www.bilibili.com/video/BV17rAweeETt) 
+- [7.0CRUD数据视频](https://www.toutiao.com/video/7500047932272624163/) 
+- [7.0AI智能体视频](https://www.toutiao.com/video/7500035210919281163/) 
 
 
 ![大数据](https://www.smartchart.cn/media/editor/微信截图_20211202163316_20211202163647765791.png)
