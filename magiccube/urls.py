@@ -1,4 +1,4 @@
-"""smartcharts URL Configuration
+"""smartchart URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.1/topics/http/urls/
@@ -13,13 +13,15 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
-from django.urls import path
 from django.conf.urls import include
-from django.views.generic import RedirectView
+from django.urls import path,re_path
+from smart_chart.echart import index as index_v
 
 urlpatterns = [
+    path(r'', index_v.index, name='index'),
     path('admin/', admin.site.urls),
     path('echart/', include('smart_chart.echart.urls')),
-    path('', RedirectView.as_view(url='echart/index/')),  # 基于你的项目定义报表首页路由
+    re_path(r'^([^/]+\.txt)$', index_v.serve_verification_file),  # 匹配所有 .txt 文件请求
 ]

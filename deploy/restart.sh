@@ -1,2 +1,2 @@
-source /data/smartchart/smartcharts/venv
-uwsgi --reload /data/smartchart/smartcharts/uwsgi.pid
+source $MAGICCUBE_HOME/venv/bin/activate
+uwsgi --reload $MAGICCUBE_HOME/uwsgi.pid

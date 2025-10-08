@@ -12,7 +12,7 @@ def main():
         return
     SMARTCHART = f'''======powered by smartchart   version: {get_version()}====='''
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'smartcharts.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'magiccube.settings')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
