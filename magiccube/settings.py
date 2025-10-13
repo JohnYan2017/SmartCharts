@@ -196,7 +196,7 @@ USE_TZ = False
 
 # ============  登录认证配置  =================
 
-LOGIN_URL = '/admin/login/'
+LOGIN_URL = '/lg'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 SECURE_CROSS_ORIGIN_OPENER_POLICY = None

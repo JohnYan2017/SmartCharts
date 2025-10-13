@@ -17,11 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls import include
 from django.urls import path,re_path
-from smart_chart.echart import index as index_v
+from smart_chart.echart import index
 
 urlpatterns = [
-    path(r'', index_v.index, name='index'),
+    path(r'', index.index, name='index'),
+    path('lg/', index.LoginView.as_view(), name='lg'),
     path('admin/', admin.site.urls),
     path('echart/', include('smart_chart.echart.urls')),
-    re_path(r'^([^/]+\.txt)$', index_v.serve_verification_file),  # 匹配所有 .txt 文件请求
+    re_path(r'^([^/]+\.txt)$', index.serve_verification_file),  # 匹配所有 .txt 文件请求
 ]
