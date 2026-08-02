@@ -1,7 +1,7 @@
 
 [Wiki](https://gitee.com/smartchart/smartchart/wikis/pages) \|
 [Community](https://www.smartchart.cn/) \|
-[Sponsors](https://www.smartchart.cn/) \|
+[Documentation](https://help.smartchart.cn/) \|
 [GitHub](https://github.com/JohnYan2017/SmartCharts) \|
 [Gitee](https://gitee.com/smartchart/smartchart)
 
@@ -9,14 +9,14 @@
 	<a href="https://www.smartchart.cn"><img src="http://smartchart.cn/static/smartui/img/smartlogo.png" width="45%"></a>
 </p>
 <p align="center">
-	<strong>A Future Platform That Connect Data to Insight</strong>
+	<strong>A NoBI Platform That Connect Data to Insight</strong>
 </p>
 <p align="center">
 	<a href="https://www.smartchart.cn">https://www.smartchart.cn</a>
 </p>
 
 <p align="center">
-    <img src="https://img.shields.io/badge/Release-V7-green.svg" alt="Downloads">
+    <img src="https://img.shields.io/badge/Release-V8.0-green.svg" alt="Release">
 	<a target="_blank" href="https://www.python.org/downloads/release/python-390/">
 		<img src="https://img.shields.io/badge/Python-3.6+-green.svg" />
 	</a>
@@ -29,10 +29,10 @@
 <p align="center">
 	<a href="https://qm.qq.com/cgi-bin/qm/qr?k=eC34KwVvEtMvfh8Zyn1RSfYlzZvuvm7i&jump_from=webapi"><img src="https://img.shields.io/badge/QQ群-476715246-orange"/></a>
    <a target="_blank" href="https://www.smartchart.cn">
-   <img src="https://img.shields.io/badge/Author-John%20Yan-ff69b4.svg" alt="Downloads">
+   <img src="https://img.shields.io/badge/Author-John%20Yan-ff69b4.svg" />
  </a>
  <a target="_blank" href="https://www.smartchart.cn">
-   <img src="https://img.shields.io/badge/Copyright%20-@smartchart.cn-%23ff3f59.svg" alt="Downloads">
+   <img src="https://img.shields.io/badge/Copyright%20-@smartchart.cn-%23ff3f59.svg" />
  </a>
 </p>
 
@@ -43,71 +43,145 @@
 -------------------------------------------------------------------------------
 
 ### 简介
-- 数据可视化,大屏,移动报表,数据中台,WEB应用的微代码开发平台
-- 简单, 敏捷, 高效, 通用化, 高度可定制化, 让你的项目瞬间档次提升
-- 完全真正打通前后端, 支持图形数据联动,筛选,钻取, 支持几乎常见的所有数据库
-- 积木式拖拽开发模式, 开箱即用, 安装简单, 依赖少, 适应各种平台
-- 支持中国式报表类EXCEL开发, 支持3D场景大屏
-- 内存加速技术, 让你的数据快人一步, 大幅减少数据库压力
-- 真所见即所得的拖拽开发模式, 且无需在画布上设计
-- 支持个性化的数据新增导入填报更新,文件上传等需求,开发企业管理型业务系统
-- 数据集即服务, 采用低代码快速实现数据服务API开发
-- 支持仪表盘备份恢复快照等, 满足企业级的版本控制开发上线流程要求
-- 支持用户/组功能权限控制,支持行级别/字段级别数据权限控制
-- 支持Django插件方式应用,可无限扩展,打造你专属的个性化应用
-- 支持在Jupyter notebook中的数据开发方式应用
-- 支持集成DeepSeek,chatGPT,文心一言,通义,百练智能体等大模型AI生成
-- 支持开发个性化的数据新增导入填报更新,文件上传等需求
-- 没有重复学习成本, 高度可定制化, 注意是高度可定制化!!
 
-具体功能预览可观看视屏了解, 
-- [6.0介绍视频](https://www.bilibili.com/video/BV1Md4y1h7iq) 
-- [进阶开发视频](https://www.bilibili.com/video/BV15S421o7kx) 
-- [7.0CRUD视频](https://www.bilibili.com/video/BV17rAweeETt) 
-- [7.0CRUD数据视频](https://www.toutiao.com/video/7500047932272624163/) 
-- [7.0AI智能体视频](https://www.toutiao.com/video/7500035210919281163/) 
+SmartChart 是一个全生态的数据应用管理平台，基于 Python + Django 构建，集数据集开发、ECharts 图形配置、布局拖拽、权限管理、AI 智能体于一体。可快速搭建数据大屏、仪表盘和业务系统。
 
+平台已在 **5000+** 企业使用，核心项目已在多家上市公司稳定运行 **5 年+**。
+
+### 产品架构
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                    数据服务层                            │
+│  API接口 │ 自助取数 │ 数据订阅 │ 智能助手 │ 智慧BI        │
+├─────────────────────────────────────────────────────────┤
+│                    应用层                                │
+│     SmartChart可视化 │ SmartPip数据治理 │ 填报服务        │
+├─────────────────────────────────────────────────────────┤
+│                    平台层                                │
+│     数据流批处理 │ 数据开发管理 │ 多系统数据集成           │
+└─────────────────────────────────────────────────────────┘
+```
+
+| 模块 | 说明 |
+|------|------|
+| SmartChart | 低代码可视化分析平台 |
+| SmartPip | 数据治理能力平台 |
+| 数据服务 | API、自助取数、数据订阅、智能助手 |
+
+### 功能特色
+
+- 数据可视化、大屏、移动报表、数据中台、WEB 应用的微代码开发平台
+- 简单、敏捷、高效、通用化、**高度可定制化**，让你的项目瞬间档次提升
+- 完全真正打通前后端，支持图形数据联动、筛选、钻取，支持几乎所有常见数据库
+- 积木式拖拽开发模式，开箱即用，安装简单，依赖少，适应各种平台
+- 支持中国式报表（类 EXCEL）开发，支持 3D 场景大屏
+- 内置 OA 组织架构与工作流引擎，支持审批流设计、并行分支、驳回/撤回/转交
+- 内置 APScheduler 调度器，支持数据集定时刷新、分布式主从模式
+- 独立管理页面，提供连接池/数据集/仪表盘/图形格式/项目分组一站式管理
+- 数据集类型扩展：智能体（agent）、技能（tool）、组件（chart）、接口（api）
+- 内存加速技术，大幅减少数据库压力，让数据快人一步
+- 真所见即所得的拖拽开发模式，且无需在画布上设计
+- 数据集即服务，采用低代码快速实现数据服务 API 开发
+- 支持仪表盘备份/恢复/快照，满足企业级版本控制与上线流程要求
+- 支持用户/组功能权限控制，支持行级别/字段级别数据权限控制
+- 支持 Django 插件方式应用，可无限扩展，打造专属个性化应用
+- 支持在 Jupyter Notebook 中进行数据开发
+- 支持集成 DeepSeek、ChatGPT、文心一言、通义、百炼智能体等大模型 AI 生成与智能体开发
+- 支持企业微信/钉钉单点登录、第三方 OAuth 登录、用户自助注册
+- 支持个性化的数据新增/导入/填报/更新、文件上传等需求
+- 没有重复学习成本，高度可定制化，注意是**高度可定制化**!!
+
+### 开发流程速览
+
+> 新建仪表盘 → 新增图形组件 → 编辑数据集（写 SQL）→ 编辑图形（配置 ECharts/HTML）→ 布局拖拽调整 → 预览/发布
 
 ![大数据](https://www.smartchart.cn/media/editor/微信截图_20211202163316_20211202163647765791.png)
 ![CRUD](https://foruda.gitee.com/images/1728362892391930153/e7a89b1d_5500438.png)
 ![smartchart](http://smartchart.cn/media/editor/smartvoice_20201224085323156045.png)
 
+### 视频教程
 
-### 快速开始
-- 请务必先阅读 [SmartChart入门文档入口](https://help.smartchart.cn/ "SmartChart入门")
-- 请务必先阅读 [SmartChart入门文档入口](https://help.smartchart.cn/ "SmartChart入门")
-- 请务必先阅读 [SmartChart入门文档入口](https://help.smartchart.cn/ "SmartChart入门")
+| 版本 | 链接 |
+|------|------|
+| 6.0 介绍 | [Bilibili](https://www.bilibili.com/video/BV1Md4y1h7iq) |
+| 进阶开发 | [Bilibili](https://www.bilibili.com/video/BV15S421o7kx) |
+| 7.0 CRUD | [Bilibili](https://www.bilibili.com/video/BV17rAweeETt) |
+| 7.0 CRUD 数据 | [头条](https://www.toutiao.com/video/7500047932272624163/) |
+| 7.0 AI 智能体 | [头条](https://www.toutiao.com/video/7500035210919281163/) |
+| 企业数字化方案 | [Bilibili](https://www.bilibili.com/video/BV1AY41157Y7) |
+
+> 8.0 持续发布中，关注头条 smartAi 获取最新动态
+
+-------------------------------------------------------------------------------
 
 
-### 与传统BI的区别
-- 传统BI面向非技术人员(但实际大部分场景下是技术人员在用, 错配较大), 更注重于开发的过程无代码化,所以最终实现的可视化效果较差, 可定制化程度低, 访问速度慢,对硬件要求高, 应用场景局限性比较大
-- smartchart是真正意义上面向技术人员的可视化产品, 更注重于最终效果, 采用的是低代码技术, 对技术人员更友好, 可定制化高, 可视化效果更好, 访问速度快, 更灵活,对硬件要求低, 应用范围广
-- 如果你的数据/报表开发人员主要是在技术部门, 那么smartchart是最优选择, 如果是业务部门用于自助分析, 建意采购传统BI或者我们的数据问答产品
+> 请务必先阅读 [SmartChart 入门文档](https://help.smartchart.cn/) 了解完整操作流程。
 
-### 与大屏设计器的区别
-- 大屏设计器只关注内置的一些边框, 图形效果等前端效果, 不注重于数据的开发, 华而不实
-- smartchart是真正意义上的全场景解决方案, 从数据开发, 可视化, 到版本上线管理, 嵌入等工程化场景全覆盖
+-------------------------------------------------------------------------------
 
-### 与数据中台的区别
-- smartchart是数据中台的一部分,适合任意数据平台产品, 如果你已有数据中台, 可以用之来补充数据服务, 数据应用能力
-- 如果你的数据管理平台是基于django开发, 那么smartchart可能是你唯一的最佳选择
-- 如果你没有数据中台, 那么也可以在后期引入我们的数据中台, 可以保障与smartchart无缝衔接
+### 设计理念
 
-### 与低代码系统开发平台区别
-- 传统的低代码系统面向非技术人员,以流程为驱动
-- smartchart基于开发者真实需求,开放度更高,基于数据运营的要求,以数据驱动
+SmartChart 的设计哲学基于真实应用场景，强调**敏捷开发**、**数据驱动**和**开发者友好**。
 
-### 与AI Agent区别
-- 常见的Agent要么是一个python库，要么是封装得不够录活的全图形界面
-- smartchart基于自身强大的数据连接与可视化能力，可以实现低代码的AI agent应用
+| 理念 | 说明 |
+|------|------|
+| 敏捷数据中台 | 基于真实场景设计，支持多年大型企业应用 |
+| 低代码而非无代码 | 对技术人员友好，保留扩展自由度 |
+| 精减设计 | 隐藏低频功能，减少界面复杂度 |
+| 数据高速公路 | 不定义开发语言，只建立数据与图形的连接 |
+| 养成类体验 | 积累图形、模板，支持快速复用 |
 
+-------------------------------------------------------------------------------
+
+### 产品对比
+
+#### 与传统 BI 的区别
+- 传统 BI 面向非技术人员，更注重无代码化，可视化效果受限，可定制化程度低，访问速度慢，对硬件要求高
+- SmartChart 面向技术人员，采用低代码技术，对技术人员更友好，可定制化高，可视化效果更好，访问速度快，应用范围广
+- 如果你的数据/报表开发人员主要在技术部门，SmartChart 是最优选择
+
+#### 与大屏设计器的区别
+- 大屏设计器只关注内置的边框、图形效果等前端展示，不注重数据开发
+- SmartChart 是全场景解决方案，从数据开发、可视化到版本上线管理、嵌入等工程化场景全覆盖
+
+#### 与数据中台的区别
+- SmartChart 是数据中台的一部分，如果你已有数据中台，可以用它补充数据服务与数据应用能力
+- 如果你的数据管理平台基于 Django 开发，SmartChart 可能是唯一的最佳选择
+- 如果你没有数据中台，后期可引入我们的数据中台，与 SmartChart 无缝衔接
+
+#### 与低代码平台的区别
+- 传统低代码面向非技术人员，以流程为驱动
+- SmartChart 基于开发者真实需求，开放度更高，以**数据驱动**
+
+#### 与 AI Agent 的区别
+- 常见 Agent 要么是一个 Python 库，要么是封装不够灵活的全图形界面
+- SmartChart 基于自身强大的数据连接与可视化能力，可实现低代码的 AI Agent 应用
+
+-------------------------------------------------------------------------------
+
+### 部署方案
+
+| 部署方式 | 适用场景 | 说明 |
+|----------|----------|------|
+| pip install | 开发测试、个人使用 | 快速安装启动 |
+| uWSGI + Nginx | Linux 生产环境 | 推荐的生产部署方案 |
+| 离线部署 | 无网环境 | 专业版提供离线安装包 |
+
+**登录方式**：支持用户名/密码、企业微信 OAuth、钉钉 OAuth、第三方 OAuth、邮箱注册等多种方式。
+
+详细部署文档请参考 [部署指南](https://help.smartchart.cn/)。
+
+-------------------------------------------------------------------------------
 
 ### 联系我们与帮助
-你也可以加入QQ群进行普通问题讨论
-**QQ群: 476715246  暗号: smartchart**
 
-### 合作微信
-加微信请备注公司名手机号码
+你也可以加入 QQ 群进行问题讨论，如群已满可联系客服加入微信群：
+**QQ 群: 476715246  暗号: smartchart**
+
+#### 合作微信
+
+加微信请备注公司名+手机号码
 
  <a href="https://work.weixin.qq.com/kfid/kfcded01b07b7ba963b" target="_blank"><img src="https://foruda.gitee.com/images/1662372287435411063/1c7ddbe7_5500438.png" width="200px"></a>
 
@@ -348,6 +422,15 @@ v7.5
 - 首页元素支持自定义图标，颜色等
 - echarts升级到6.0
 - 大量CRUD模板功能新增与优化
+V8.0
+- 新增审批流、定时任务等
+- UI 全面升级
+- 数据集全面升级为 AI 智能体
+- 产品进化为 SmartAi
+- 大量功能升级重构
 ```
+
+> 完整更新日志请参考 [官方文档](https://help.smartchart.cn/)。
+
 
 

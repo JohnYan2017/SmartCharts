@@ -2,3 +2,8 @@
 /venv/
 /.idea/
 .gitignore
+__pycache__/
+.DS_Store
+/static/mobile/
+/templates/mobile/
+/SCApp/src/.hbuilderx/

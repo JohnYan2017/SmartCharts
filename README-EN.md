@@ -1,21 +1,22 @@
+
 [Wiki](https://gitee.com/smartchart/smartchart/wikis/pages) \|
 [Community](https://www.smartchart.cn/) \|
-[Sponsors](https://www.smartchart.cn/) \|
-[GitHub](https://github.com/JohnYan2017/Echarts-Django) \|
+[Documentation](https://help.smartchart.cn/) \|
+[GitHub](https://github.com/JohnYan2017/SmartCharts) \|
 [Gitee](https://gitee.com/smartchart/smartchart)
 
 <p align="center">
-	<a href="https://www.smartchart.cn"><img src="https://www.smartchart.cn/media/editor/WechatIMG51_20210117224243671223.png" width="45%"></a>
+	<a href="https://www.smartchart.cn"><img src="http://smartchart.cn/static/smartui/img/smartlogo.png" width="45%"></a>
 </p>
 <p align="center">
-	<strong>A platform that Connect Data to Echarts.</strong>
+	<strong>A NoBI Platform That Connects Data to Insight</strong>
 </p>
 <p align="center">
 	<a href="https://www.smartchart.cn">https://www.smartchart.cn</a>
 </p>
 
 <p align="center">
-    <img src="https://img.shields.io/badge/Release-V5.0-green.svg" alt="Downloads">
+    <img src="https://img.shields.io/badge/Release-V8.0-green.svg" alt="Release">
 	<a target="_blank" href="https://www.python.org/downloads/release/python-390/">
 		<img src="https://img.shields.io/badge/Python-3.6+-green.svg" />
 	</a>
@@ -28,221 +29,225 @@
 <p align="center">
 	<a href="https://qm.qq.com/cgi-bin/qm/qr?k=eC34KwVvEtMvfh8Zyn1RSfYlzZvuvm7i&jump_from=webapi"><img src="https://img.shields.io/badge/QQ群-476715246-orange"/></a>
    <a target="_blank" href="https://www.smartchart.cn">
-   <img src="https://img.shields.io/badge/Author-John%20Yan-ff69b4.svg" alt="Downloads">
+   <img src="https://img.shields.io/badge/Author-John%20Yan-ff69b4.svg" />
  </a>
  <a target="_blank" href="https://www.smartchart.cn">
-   <img src="https://img.shields.io/badge/Copyright%20-@smartchart.cn-%23ff3f59.svg" alt="Downloads">
+   <img src="https://img.shields.io/badge/Copyright%20-@smartchart.cn-%23ff3f59.svg" />
  </a>
 </p>
 
 -------------------------------------------------------------------------------
 
+[**中文文档**](README.md)
 
+-------------------------------------------------------------------------------
 
 ### Introduction
 
-- Smartchart is a microcode development platform for data visualization, large screen, mobile report and web applications
+SmartChart is a full-ecology data application management platform built on Python + Django, integrating dataset development, ECharts visualization, drag-and-drop layout, permission management, and AI agents. With only SQL (or Python) knowledge, you can rapidly build data dashboards, large screens, and business systems.
 
-- Simple, agile, efficient, universal and highly customizable, so that your project can be upgraded instantly
+The platform is trusted by **5,000+** enterprises, with core projects running stably in multiple listed companies for **over 5 years**.
 
-- Fully open up the front and back ends, support graphic data linkage, filtering and drilling, and support almost all common databases
+### Architecture
 
-- The building block development mode supports drag and drop layout, out of the box, simple installation, less dependence, and is suitable for various platforms
+```
+┌─────────────────────────────────────────────────────────┐
+│                   Data Service Layer                     │
+│  API │ Self-Service Query │ Subscription │ AI │ Smart BI│
+├─────────────────────────────────────────────────────────┤
+│                   Application Layer                     │
+│     SmartChart Visualization │ SmartPip Governance │ Form│
+├─────────────────────────────────────────────────────────┤
+│                   Platform Layer                        │
+│    Data Pipeline │ Data Dev & Mgmt │ Multi-Source ETL   │
+└─────────────────────────────────────────────────────────┘
+```
 
-- Support Django app plug-in application and jupyter data analysis application
+| Module | Description |
+|--------|-------------|
+| SmartChart | Low-code visual analytics platform |
+| SmartPip | Data governance platform |
+| Data Services | API, self-service query, data subscription, AI assistant |
 
-- Memory acceleration technology makes your data one step faster and greatly reduces the pressure on the database
+### Key Features
 
-- No repeated learning cost, highly customizable, attention is highly customizable!!
+- A low-code development platform for data visualization, large screens, mobile reports, data middleware, and web applications
+- Simple, agile, efficient, universal, and **highly customizable** — instantly elevate your project's quality
+- Fully bridges front-end and back-end; supports chart data linkage, filtering, and drill-down; compatible with nearly all common databases
+- Building-block drag-and-drop development — out of the box, easy to install, minimal dependencies, cross-platform
+- Supports Chinese-style EXCEL-like reports and 3D scene dashboards
+- Built-in OA organization and workflow engine — supports approval flow design, parallel branches, reject/withdraw/transfer
+- Built-in APScheduler — supports scheduled dataset refresh and distributed master-slave mode
+- Standalone admin panel — one-stop management for connection pools, datasets, dashboards, chart formats, and project groups
+- Dataset type extensions: Agent, Tool, Chart, and API
+- In-memory acceleration technology — significantly reduces database pressure
+- True WYSIWYG drag-and-drop development — no canvas design required
+- Dataset-as-a-Service — rapidly build data service APIs with low code
+- Dashboard backup/restore/snapshot — meets enterprise-grade version control and deployment workflows
+- User/group permission control with row-level and field-level data access policies
+- Django plugin integration — infinitely extensible for your personalized applications
+- Jupyter Notebook support for data development
+- AI integration with DeepSeek, ChatGPT, ERNIE Bot, Tongyi, Alibaba Bailian, and more
+- Enterprise WeChat / DingTalk SSO, third-party OAuth, and self-service user registration
+- Customizable data entry, import, export, file upload, and more
+- No redundant learning curve, **highly customizable** — yes, HIGHLY customizable!!
 
+### Development Workflow
 
+> Create Dashboard → Add Chart Component → Edit Dataset (write SQL) → Edit Chart (configure ECharts/HTML) → Drag-and-Drop Layout → Preview/Publish
 
-
-![大数据](https://www.smartchart.cn/media/editor/微信截图_20211202163316_20211202163647765791.png)
+![Dashboard](https://www.smartchart.cn/media/editor/微信截图_20211202163316_20211202163647765791.png)
+![CRUD](https://foruda.gitee.com/images/1728362892391930153/e7a89b1d_5500438.png)
 ![smartchart](http://smartchart.cn/media/editor/smartvoice_20201224085323156045.png)
 
-### Sample
-- [smartchart big screen sample - smart city big data big screen](https://www.smartchart.cn/echart/?type=智慧城市_大数据大屏 "大屏样列-智慧城市_大数据大屏")
-- [smartchart integrated datav](https://www.smartchart.cn/echart/?type=Smartchart_DataV "集成DATAV")
-- [smartchart graphics data linkage](https://www.smartchart.cn/echart/?type=评论分析 "图形数据联动")
+### Video Tutorials
 
+| Version | Link |
+|---------|------|
+| 6.0 Introduction | [Bilibili](https://www.bilibili.com/video/BV1Md4y1h7iq) |
+| Advanced Development | [Bilibili](https://www.bilibili.com/video/BV15S421o7kx) |
+| 7.0 CRUD | [Bilibili](https://www.bilibili.com/video/BV17rAweeETt) |
+| 7.0 CRUD Data | [Toutiao](https://www.toutiao.com/video/7500047932272624163/) |
+| 7.0 AI Agent | [Toutiao](https://www.toutiao.com/video/7500035210919281163/) |
+| Enterprise Digital Solution | [Bilibili](https://www.bilibili.com/video/BV1AY41157Y7) |
 
+> V8.0 is continuously being released — follow smartAi on Toutiao for the latest updates.
 
-### Quick start
+-------------------------------------------------------------------------------
 
-#### Install Python environment
+### Quick Start
 
-- Environment preparation: Official [latest Python download link](https://www.python.org/downloads/release/python-390/  "Latest Python download link")
+#### 1. Install Python
 
-If the download is too slow, you can go to [Taobao mirror image download](https://npm.taobao.org/mirrors/python/3.9.0/ "Taobao mirror image download")
+- Download: [Python 3.9 Official](https://www.python.org/downloads/release/python-390/) (3.6+ recommended)
+- **Windows**: Make sure to check **"Add to Path"** during installation
 
-You can also download [windows 64 bit installation version](https://npm.taobao.org/mirrors/python/3.9.0/python-3.9.0-amd64.exe "Windows 64 bit installation version")
+#### 2. Install SmartChart
 
-[Mac computer installation version](http://npm.taobao.org/mirrors/python/3.9.0/python-3.9.0rc2-macosx10.9.pkg "Mac computer installation version")
+```shell
+# Option 1: Install from PyPI
+pip install smartchart
 
-- [window platform installation video introduction](https://www.ixigua.com/6910413586208653837?id=6901867671193649668 "Window platform installation video introduction")
-
-**Note: when Windows installs python, you need to select "add to path"**
-
-
-
-#### Installing smartchart
-
-```shell script
-
-pip3 install smartchart
-
-
-
-If the installation process is slow, it is recommended to use it
-
-pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple smartchart -U
-
-
-
-Upgrade method:
-
-PIP3 install smartchart - U (upgrade)
-
+# Upgrade
+pip install smartchart -U
 ```
 
+> **V8.0 Note**: pip package is not available for V8.0 at this time. Please contact us if needed.
+> Since v7.9, SmartChart has been fully AI-powered as SmartAi. Before upgrading, run `smartchart makemigrations` first.
 
+```shell
+# Option 2: Install from release package
+pip3 install smartchart-xxx-py3-none-any.whl
 
-[smartchart getting started document entry](https://gitee.com/smartchart/smartchart/wikis/ "Getting started with smartchart")
+# Use mirror if download is slow
+pip3 install -i https://mirrors.aliyun.com/pypi/simple smartchart-xxx-py3-none-any.whl
+```
 
+#### 3. Launch
 
-
-
-### Application scenario 1:
-
-If you are not familiar with Django / python, you only need a visual development platform, which can be started quickly and used independently
-
-```shell script
-
-Local command line startup:
-
+```shell
+# Local development
 smartchart
 
-Or smartcharts (automatically open web pages)
-
-If you are a server deployment, remote access, server startup method:
-
+# Server (remote access)
 smartchart runserver 0.0.0.0:8000 --insecure --noreload
 
+# Linux background process
+nohup smartchart runserver 0.0.0.0:8000 --insecure --noreload &
 ```
 
-**Administrator account password: admin / Admin, please change the password in time**
+After startup, visit: **http://127.0.0.1:8000**
+- Default admin account: `admin` / `admin`
 
-
-
-[smartchart getting started document entry](https://gitee.com/smartchart/smartchart/wikis/ "Getting started with smartchart")
-
-
-
-
--------------------------------------------------------------------------------
-
-
-
-### Application scenario 2:
-
-If you are a data analysis enthusiast and are using jupyter, pandas and other analysis tools, you can use them as visualization tools
-
-**It supports Python drawing tools such as pyecarts and Matplotlib to be used in Jupiter, which is more convenient and cool**
-
-**There are only two commands, get and set, which can simplify the data analysis work, solidify the analyzed data and generate a cool dashboard**
-
-[getting started with smartchart in jupyter](https://gitee.com/smartchart/smartchart/wikis/6.Jupyter%E5%BA%94%E7%94%A8/%E5%9C%A8Jupyter%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%8C%87%E5%BC%95 "Getting started using smartchart in Jupiter")
-
-
-
-
--------------------------------------------------------------------------------
-
-### Application scenario 3:
-
-You can also use smartchart to make reports and embed reports in your application system
-
-[embedded smartchart report getting started document](https://gitee.com/smartchart/smartchart/wikis/7.%E6%8A%A5%E8%A1%A8%E5%B5%8C%E5%85%A5/%E7%AE%80%E5%8D%95%E5%B5%8C%E5%85%A5 "Embedded smartchart report getting started document")
-
-
-
--------------------------------------------------------------------------------
-
-### Application scenario 4:
-
-If you are a developer of Django application, congratulations. It can be a seamless part of your project
-
-The functions of data visualization, dashboard and low code API development platform are instantaneous
-
-[getting started with smartchart in Django](https://gitee.com/smartchart/smartchart/wikis/8.Django%E5%BA%94%E7%94%A8/%E5%B5%8C%E5%85%A5Django%)
--Django novices recommend downloading this project
-```shell script
-Please download the gitee / GitHub project directly
-pip install smartchart
-Startup method: Python manage py runserver
-Account number: admin / Admin
+```shell
+# Reset forgotten password
+smartchart changepassword username
 ```
-------------------------------------------------
-### Database support description
-Smartchart can theoretically support any data source ,Mysql, SQLite, API and Excel data are supported by default. You can use Python connector to extend any data source
-- SQL server requires PIP install pymssql
-- Oracle needs to install PIP install Cx_ Oracle
-- GP, postgrep needs to install PIP install psychopg2
-- PIP install impyla is required for impala
-- DB2 requires PIP install IBM_ db
-- Python requires PIP install pandas, openpyxl
-- ....
 
+> Please read the [SmartChart Getting Started Guide](https://help.smartchart.cn/) for the complete setup walkthrough.
 
-### Contact us for help
-You can also join QQ group to discuss common problems
-**QQ group: 476715246 Code: smartchart**
 -------------------------------------------------------------------------------
+
+### Design Philosophy
+
+SmartChart's design philosophy is grounded in real-world application scenarios, emphasizing **agile development**, **data-driven design**, and **developer friendliness**.
+
+| Principle | Description |
+|-----------|-------------|
+| Agile Data Platform | Designed for real-world scenarios, battle-tested in large enterprises for years |
+| Low-Code, Not No-Code | Developer-friendly with full freedom to extend |
+| Minimalist UI | Low-frequency features are hidden to reduce interface complexity |
+| Data Highway | No proprietary language — just connects data to visualization |
+| Progressive Experience | Accumulate charts and templates for rapid reuse |
+
+-------------------------------------------------------------------------------
+
+### Comparisons
+
+#### vs. Traditional BI
+- Traditional BI targets non-technical users with no-code approaches, resulting in limited visualization quality, low customization, slow performance, and high hardware requirements
+- SmartChart targets technical users with low-code — better visualization, higher customization, faster performance, and broader applicability
+- If your data/report developers are primarily in the technical department, SmartChart is the optimal choice
+
+#### vs. Dashboard Designers
+- Dashboard designers focus only on front-end effects (borders, decorations) without real data development capabilities
+- SmartChart is a full-stack solution covering data development, visualization, version control, deployment, and embedding
+
+#### vs. Data Platforms
+- SmartChart is a component of the data platform stack — use it to complement data service and application capabilities
+- If your data platform is Django-based, SmartChart is likely the best fit
+- Our data platform can be introduced later with seamless SmartChart integration
+
+#### vs. Low-Code Platforms
+- Traditional low-code platforms target non-technical users with process-driven approaches
+- SmartChart is built on real developer needs with higher openness and **data-driven** design
+
+#### vs. AI Agents
+- Common agents are either Python libraries or inflexible GUI-only tools
+- SmartChart leverages its powerful data connectivity and visualization to enable low-code AI Agent development
+
+-------------------------------------------------------------------------------
+
+### Deployment Options
+
+| Method | Use Case | Description |
+|--------|----------|-------------|
+| pip install | Development / personal use | Quick install and launch |
+| uWSGI + Nginx | Linux production | Recommended production deployment |
+| Offline | Air-gapped environments | Available with professional edition |
+
+**Authentication**: Username/password, Enterprise WeChat OAuth, DingTalk OAuth, third-party OAuth, and email registration.
+
+Full deployment documentation: [Deployment Guide](https://help.smartchart.cn/)
+
+-------------------------------------------------------------------------------
+
+### Contact & Support
+
+Join our QQ group for community discussions:
+**QQ Group: 476715246  Code: smartchart**
+
+#### WeChat
+
+Please include your company name and phone number when adding us on WeChat.
+
+ <a href="https://work.weixin.qq.com/kfid/kfcded01b07b7ba963b" target="_blank"><img src="https://foruda.gitee.com/images/1662372287435411063/1c7ddbe7_5500438.png" width="200px"></a>
+
+-------------------------------------------------------------------------------
+
 #### Change Log
-```shell script
-2020 / 12 / 14 static resource localization
-v3. 9.8.2 support all common databases, Vue and datav
-v3. 9.8.7 support Jupiter, one click sharing and application of dashboard template
-v3. 9.8.9 account binding function online
-v3. 9.8.10 user defined graphics management online
-v3. 9.8.17 support the latest echarts5 0, optimize loading speed
-v3. 9.8.20 user defined graphics management function upgrade
-v3. 9.8.23 echarts upgrades to 5.0.1, which supports multiple queries corresponding to one dataset and resource localization
-v3. 9.9.0 print function optimization, new pivot function, personal static resource path display, DB2 support
-v3. 9.9.1 development interface beautification
-v3. 9.9.5 optimize the development interface, fix regularly refresh the bug, add and delete batch datasets
-v3. 9.9.7 add Python connector, data pool, customize main template and optimize development interface
-v3. 9.9.10 you can write CSS in div settings, add built-in dynamic tables, optimize layout support, and add config files
-v3. 9.9.12 optimize background data processing performance and jupyter experience
-v3. 9.9.16 add template editing function, add embedded report token mode, optimize editing interface and connection pool selection
-v3. 9.9.18 fix Vue bug, add elementui support and optimize datav development experience
-v3. 9.9.24 add editing function in the template development interface, automatically create data set, add data set test function, and upgrade echarts to 5.2
-v3. 9.9.25 add the prompt of unsaved changes, select and execute the dataset, and optimize the repeated submission of the saved template
-v3. 9.9.28 admin adaptation UI, resource file optimization
-v3. 9.9.33 add file upload function, add basesimple template and optimize development menu
-v4. 0
--Cancel the bootstrap layout, adopt a new 24 grid or 12 grid layout, smaller file references and more convenient functions
--Add drag and drop layout without losing the free development mode, which can be mixed
--Add HTML component to distinguish it from dataset component
--A more user-friendly home page and a new UI experience automatically identify users and developers
--Optimize the development menu and enhance the user development experience
--The front-end development interface and background data set synchronization are completed
-v5. 0
--Newly developed UI experience and optimized drag and drop
--Remove the bootstrap completely and reduce the installation package
--All 40 graphic themes are open
--New custom theme development function and new color palette
--Add embedded and pop-up window development switch
--Interface of linkage drilling
--Graphic editor optimization adds one click Import of common graphics
--Add template T3 compatible 3.0 Report
--Add data set development to set graphic linkage
--Add data set development to set cache and timing
--Adding data set development can be converted into shared data set with one click
-v5. one
--Add offline initialization dB and add dataset external service API configuration
--Optimize static resources and add VIP template function
--Add one key to scroll tables and pictures, rotate graphics, and add one key to achieve border effect
--The enhanced experience removes the default loading of map JS, and all unusual JS are changed to dynamic loading
-```
+
+| Version | Highlights |
+|---------|------------|
+| V8.0 | Approval workflows, scheduled tasks, full UI overhaul, datasets upgraded to AI Agents, product evolved into SmartAi |
+| V7.5 | Full AI agent support, ECharts 6.0, enhanced CRUD templates, drag-sort homepage |
+| V7.1 | Optimized chart components, 3D model integration, WeCom/DingTalk SSO, dashboard favorites |
+| V7.0 | Powerful CRUD template development, resource management, AI agent support, Excel import/export |
+| V6.8 | ECharts 5.5, Feishu/WeCom connectors, vector DB client |
+| V6.5 | Grid-assisted positioning, ds_filter function, enhanced data source icons |
+| V6.0 | Complex reports, 3D scenes, mobile adaptation, Prometheus/InfluxDB connectors |
+| V5.7 | Major template/graphics editor overhaul, MongoDB/ES connectors, API rate limiting |
+| V5.0 | New UI, removed Bootstrap, 40 chart themes, custom themes, linkage drill-down UI |
+| V4.0 | New 24/12 grid layout, drag-and-drop, HTML components, auto identity detection |
+
+> Full changelog available at [Official Documentation](https://help.smartchart.cn/).
