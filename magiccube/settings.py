@@ -4,7 +4,33 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'j^zbuxdr%wh1_dh=nzxhqo1t5no@bw*ar&t$(q9wdnc8r4_+3y'
+# 优先读取环境变量；未配置时自动生成并保存到本地文件（已加入 .gitignore），
+# 避免用户未修改默认 key 带来的安全风险，同时保证重启后 key 不变（session/签名不会失效）
+SECRET_KEY_FILE = os.path.join(BASE_DIR, 'secret_key.txt')
+
+
+def _get_secret_key():
+    key = os.environ.get('DJANGO_SECRET_KEY')
+    if key:
+        return key
+    try:
+        with open(SECRET_KEY_FILE, 'r') as f:
+            key = f.read().strip()
+        if key:
+            return key
+    except OSError:
+        pass
+    from django.core.management.utils import get_random_secret_key
+    key = get_random_secret_key()
+    try:
+        with open(SECRET_KEY_FILE, 'w') as f:
+            f.write(key)
+    except OSError:  # 目录只读等场景，退化为内存随机 key
+        pass
+    return key
+
+
+SECRET_KEY = _get_secret_key()
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 ALLOWED_HOSTS = ['*']
